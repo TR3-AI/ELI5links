@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The state note — where I stopped</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:70px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .list{text-align:left; font-size:16px; color:var(--soft); margin:14px auto 0; max-width:400px; line-height:1.85}
+  .list b{color:var(--ink)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The state note<br>&mdash; where I stopped &#128221;</h1>
+  <p class="sub">so anyone can pick the task back up</p>
+
+  <div class="card">
+    <span class="emoji">&#128221;</span>
+    <p class="big">What it is</p>
+    <p class="say">A short note that says <b>exactly where a task was left</b>.
+    You write one every time you <b>stop, pause, finish, or complete</b> a task
+    &mdash; yes, <b>even when it&rsquo;s done</b>, not just when you stop.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card verdict">
+    <span class="emoji">&#9997;&#65039;</span>
+    <p class="big">Who writes it</p>
+    <p class="say">The <b>person doing the work</b>, right at that moment. They
+    write and <b>sign it themselves</b> &mdash; it&rsquo;s never handed to
+    someone else afterwards. (I write it for manager-level work.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card catch">
+    <span class="emoji">&#128025;</span>
+    <p class="big">Where it lives</p>
+    <p class="say">Saved to <b>GitHub</b> &mdash; in the team&rsquo;s private
+    memory, a <b>shared drop-box</b> everyone on the team can open. <b>Not</b>
+    the notes Vault. Save your work first, then the note goes up too, so it
+    can never get lost.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128203;</span>
+    <p class="big">What goes in it</p>
+    <p class="list">
+    &#128100; who wrote it + which seat<br>
+    &#127919; phase / step, and status<br>
+    &#128200; how far along (%)<br>
+    &#127793; branch + last saved commit<br>
+    &#128279; links: PR / ticket / SDD<br>
+    &#127760; this chat&rsquo;s session ID<br>
+    &#9989; what was done + what&rsquo;s next<br>
+    &#128220; last 3 handoff summaries<br>
+    &#128172; chat history for the task<br>
+    &#9888;&#65039; watch-outs (bugs, gotchas)<br>
+    &#128679; blockers + missing bits
+    </p>
+  </div>
+
+  <p class="foot">who writes it = the agent doing the work, every stop / pause / finish / complete &#128054;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
