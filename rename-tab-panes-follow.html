@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rename the tab, panes follow</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:31px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:74px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:23px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .flow{display:flex; gap:8px; justify-content:center; align-items:center; font-size:15px; font-weight:800; flex-wrap:wrap; margin-top:14px}
+  .flow .step{background:#f3f0ff; color:#5a3fb0; padding:8px 12px; border-radius:12px}
+  .tag{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Rename the tab,<br>panes follow 🏷️</h1>
+  <p class="sub">change the name once — every label fixes itself</p>
+
+  <div class="card tag">
+    <span class="emoji">🏷️</span>
+    <p class="big">Every pane wears a name tag</p>
+    <p class="say">A tab is full of little windows (panes). Each one wears a
+    sticker: <b>the tab's name + its job</b>. Like "Typeless Green Pass" or
+    "Typeless Manager". Front part = tab name. Back part = the job.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">✏️</span>
+    <p class="big">Right now, renaming is a chore</p>
+    <p class="say">If you change the tab's name, the stickers <b>don't change
+    by themselves</b>. You'd have to peel and rewrite every one by hand. Boring.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">✨</span>
+    <p class="big">The new trick</p>
+    <p class="say">We teach it to watch for <b>"the tab got a new name."</b>
+    The second you rename the tab, it runs around and fixes <b>every</b> sticker
+    for you — swaps just the front part, keeps the job.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🔤</span>
+    <p class="big">A quick example</p>
+    <p class="say">Rename the tab <b>"Typeless"</b> → <b>"Type"</b>:</p>
+    <div class="flow">
+      <span class="step">Typeless Green Pass</span> ➜
+      <span class="step">Type Green Pass</span>
+    </div>
+    <p class="say" style="margin-top:12px">The <b>"Green Pass"</b> job stays the
+    same. Only the front hops from "Typeless" to "Type".</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card verdict">
+    <span class="emoji">🛟</span>
+    <p class="big">It won't mess anything up</p>
+    <p class="say">It only fixes the name tags. It <b>doesn't restart</b> your
+    work, move windows, or lose anything. And a window named something that
+    <b>isn't</b> one of our jobs? It's left alone.</p>
+  </div>
+
+  <p class="foot">so: same windows, same jobs, same work — the name just follows the tab 🐶</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
