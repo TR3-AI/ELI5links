@@ -81,7 +81,7 @@
     render(items);
   }
 
-  fetch('pages.json')
+  fetch('pages.json', {cache:'no-store'})
     .then(function(r){ return r.json(); })
     .then(function(d){
       pages = d.slice().sort(function(a, b){

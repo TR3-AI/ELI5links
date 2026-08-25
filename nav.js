@@ -62,7 +62,7 @@
     results.hidden = false;
   }
 
-  fetch('pages.json').then(function (r) { return r.json(); })
+  fetch('pages.json', {cache:'no-store'}).then(function (r) { return r.json(); })
     .then(function (d) { pages = d; }).catch(function () {});
 
   q.addEventListener('input', onInput);
