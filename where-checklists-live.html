@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The &ldquo;done&rdquo; lists: how many, and where?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:28px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 24px}
+  .sec{text-align:center; font-size:15px; font-weight:800; letter-spacing:.5px; color:#6b4fd0; background:#efe9fc; border-radius:999px; padding:7px 16px; display:inline-block; margin:18px 0 4px}
+  .secwrap{text-align:center}
+  .card{background:var(--card); border-radius:26px; padding:24px 24px; box-shadow:var(--shadow); margin:14px 0; text-align:center}
+  .emoji{font-size:56px; line-height:1; display:block; margin:2px 0 10px}
+  .big{font-size:21px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:28px; text-align:center; color:#b7add0; margin:-2px 0}
+  .yes{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .no{background:linear-gradient(160deg,#fdeef0,#fff)}
+  .keep{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .home{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .row{display:flex; align-items:center; gap:12px; background:#f7f4ff; border-radius:16px; padding:12px 14px; margin:9px 0; text-align:left}
+  .row .ic{font-size:28px; flex:none; line-height:1}
+  .row .tx{font-size:16px; color:var(--soft); line-height:1.4}
+  .row .tx b{color:var(--ink)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The &ldquo;done&rdquo; lists:<br>how many, and where? &#128203;</h1>
+  <p class="sub">two questions, plain answers</p>
+
+  <div class="secwrap"><span class="sec">1 &middot; HOW MANY LISTS?</span></div>
+
+  <div class="card yes">
+    <span class="emoji">&#9989;</span>
+    <p class="big">One per small job, one per batch</p>
+    <p class="say">A list for each <b>small job</b> (a ticket), and a list for each
+    <b>batch</b> (a phase). Those are the two we use.</p>
+  </div>
+
+  <div class="card no">
+    <span class="emoji">&#10060;</span>
+    <p class="big">A giant one for the whole project?</p>
+    <p class="say"><b>No.</b> All the batches added together <b>already are</b> the
+    whole project. A giant list would just repeat &ldquo;all batches done&rdquo;
+    &mdash; extra work, nothing new.</p>
+  </div>
+
+  <div class="card keep">
+    <span class="emoji">&#127919;</span>
+    <p class="big">One catch: the last batch</p>
+    <p class="say">The <b>final batch</b> gets <b>one extra check</b>: &ldquo;does
+    the finished thing match what you asked for at the start?&rdquo; so nothing
+    <b>drifted</b> along the way. <b>One extra box &mdash; not a new list.</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="secwrap"><span class="sec">2 &middot; WHERE DO THEY LIVE?</span></div>
+
+  <div class="card home">
+    <span class="emoji">&#129520;</span>
+    <p class="big">In the shared toolbox</p>
+    <p class="say">The real copy lives in the <b>toolbox everyone shares</b> &mdash;
+    the product repo on GitHub, where the <b>code, tests, and grades</b> already
+    are. Every agent can see and use it. A <b>reading copy</b> sits at home (the
+    Vault &#127968;) for browsing.</p>
+    <div class="row"><span class="ic">&#127915;</span><span class="tx"><b>Small-job list</b> &rarr; with its ticket, and its <b>tests</b> in the toolbox.</span></div>
+    <div class="row"><span class="ic">&#128230;</span><span class="tx"><b>Batch list</b> &rarr; in the <b>plan</b>, and its <b>end-to-end test</b> in the toolbox.</span></div>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128452;&#65039;</span>
+    <p class="big">Don&rsquo;t mix these two up</p>
+    <p class="say">
+    &#128221; The <b>&ldquo;where I stopped&rdquo; note</b> &rarr; the team&rsquo;s
+    shared <b>drop-box</b> (cloud memory).<br><br>
+    &#128203; The <b>&ldquo;what done means&rdquo; list</b> &rarr; with the
+    <b>specs</b> (toolbox + home).<br><br>
+    Different jobs, different drawers.</p>
+  </div>
+
+  <p class="foot">See also: <a href="done-list.html">who writes the list</a> &#128203; &middot; <a href="who-grades-it.html">who grades it</a> &#9989;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

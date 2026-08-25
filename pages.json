@@ -1,4 +1,5 @@
 [
+  { "file": "where-checklists-live.html", "title": "The 'done' lists: how many, and where?", "desc": "keep it at phases + tickets; they live in the product repo (+ a Vault copy)", "date": "2026-08-25", "emoji": "📋" },
   { "file": "who-grades-it.html", "title": "Who grades the work — writer or manager?", "desc": "my pick: the manager (nobody grades their own work)", "date": "2026-08-25", "emoji": "❓" },
   { "file": "done-list.html", "title": "Who writes the 'done' list?", "desc": "planners write the phase bar, the ticket-writer the ticket bar, the manager checks both", "date": "2026-08-25", "emoji": "✅" },
   { "file": "fill-up-to-nine.html", "title": "Fill my tab up to the full team", "desc": "keep every window's work — just add the missing ones to reach 9", "date": "2026-08-25", "emoji": "9️⃣" },
