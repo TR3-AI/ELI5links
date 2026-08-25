@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When is it really done?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .flow{font-size:16px; color:var(--ink); font-weight:700; margin:14px 0 0; line-height:2}
+  .flow .step{display:inline-block; background:#f2eefc; border-radius:12px; padding:4px 10px; margin:3px 2px}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>When is it <i>really</i> done?<br>&#9989;</h1>
+  <p class="sub">you don&rsquo;t get to mark your own homework</p>
+
+  <div class="card">
+    <span class="emoji">&#128203;</span>
+    <p class="big">What &ldquo;done&rdquo; means</p>
+    <p class="say">Not just &ldquo;I think I&rsquo;m finished.&rdquo; Every box is
+    ticked: it has a <b>plan</b>, it <b>actually works</b>, the <b>tests pass</b>,
+    it&rsquo;s <b>saved</b>, it passed its <b>grade</b> (the PR gate), and
+    <b>nothing&rsquo;s left over</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card catch">
+    <span class="emoji">&#128221;</span>
+    <p class="big">Not like the sticky note</p>
+    <p class="say">The &ldquo;where I stopped&rdquo; note? <b>You write it, nobody
+    checks it.</b> &ldquo;Done&rdquo; is the <b>opposite</b> &mdash; other people
+    build on it, so it&rsquo;s <b>never done just because you say so</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128683;</span>
+    <p class="big">The big rule</p>
+    <p class="say">You don&rsquo;t mark your <b>own</b> homework. Someone else
+    <b>always checks</b> before it counts as done.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129521;</span>
+    <p class="big">One job (a ticket)</p>
+    <p class="say">The person who <b>did the job</b> ticks the list.</p>
+    <p class="flow"><span class="step">worker ticks it</span> &rarr;
+    <span class="step">manager checks the real thing</span> &rarr;
+    <span class="step">&#9989; done</span></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128230;</span>
+    <p class="big">A whole batch (a phase)</p>
+    <p class="say">The <b>manager</b> ticks the list for the whole batch.</p>
+    <p class="flow"><span class="step">manager ticks it</span> &rarr;
+    <span class="step">you give the &#128077;</span> &rarr;
+    <span class="step">&#9989; done</span></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card verdict">
+    <span class="emoji">&#128077;</span>
+    <p class="big">Nobody grades themselves</p>
+    <p class="say">The <b>worker</b> is checked by the <b>manager</b>. The
+    <b>manager</b> is checked by <b>you</b>. Clean and simple.</p>
+  </div>
+
+  <p class="foot">Still your call: who gives the final &#128077; on a whole batch.<br>
+  Right now &mdash; that&rsquo;s <b>you</b>.<br>
+  See also: <a href="come-back-note.html">the come-back note</a> &#128278;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

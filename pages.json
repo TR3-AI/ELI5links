@@ -1,5 +1,6 @@
 [
-  { "file": "fill-up-to-nine.html", "title": "Fill my tab up to the full team", "desc": "keep every window's work — just add the missing ones to reach 9", "date": "2026-08-25", "emoji": "9\ufe0f\u20e3" },
+  { "file": "done-list.html", "title": "When is it really done?", "desc": "who ticks the list — and who checks it (nobody marks their own homework)", "date": "2026-08-25", "emoji": "✅" },
+  { "file": "fill-up-to-nine.html", "title": "Fill my tab up to the full team", "desc": "keep every window's work — just add the missing ones to reach 9", "date": "2026-08-25", "emoji": "9️⃣" },
   { "file": "come-back-note.html", "title": "Where was I? The come-back note", "desc": "how I pause a job and get back to it — nothing lost", "date": "2026-08-25", "emoji": "🔖" },
   { "file": "q2-fill-the-gaps.html", "title": "Fill the gaps on a tab I'm already using", "desc": "add the missing panes to reach 9 — keep my work", "date": "2026-08-25", "emoji": "🧩" },
   { "file": "state-note.html", "title": "The state note — where I stopped", "desc": "who writes it + where it lives", "date": "2026-08-25", "emoji": "📝" },
