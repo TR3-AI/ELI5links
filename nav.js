@@ -1,0 +1,74 @@
+/* Shared ELI5 nav: injects a floating "Home + search" bar into any page that loads it.
+   Add to a page with:  <script src="nav.js" defer></script>  */
+(function () {
+  var OVERVIEW = './'; // the overview / all-pages index
+
+  var style = document.createElement('style');
+  style.textContent =
+    '.eli5nav{position:sticky;top:10px;z-index:50;display:flex;align-items:center;gap:10px;' +
+    'max-width:520px;margin:0 auto 18px;padding:8px 8px 8px 12px;' +
+    'background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);' +
+    'border-radius:16px;box-shadow:0 8px 24px rgba(70,50,120,.14)}' +
+    '.eli5nav-home{flex:0 0 auto;text-decoration:none;font-weight:800;font-size:15px;color:#5a3fb0;' +
+    'background:#f3f0ff;padding:10px 13px;border-radius:12px;white-space:nowrap}' +
+    '.eli5nav-home:active{transform:scale(.98)}' +
+    '.eli5nav-search{position:relative;flex:1 1 auto}' +
+    '#eli5nav-q{width:100%;font-size:16px;padding:10px 12px;border-radius:12px;border:2px solid #e7e0f5;' +
+    'background:#fff;color:#2b2140;outline:none;font-family:inherit}' +
+    '#eli5nav-q:focus{border-color:#bfa8f0}' +
+    '.eli5nav-results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;' +
+    'border-radius:14px;box-shadow:0 12px 30px rgba(70,50,120,.18);padding:6px;max-height:62vh;overflow:auto}' +
+    '.eli5nav-results a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#2b2140;' +
+    'padding:11px 12px;border-radius:10px;font-size:15px}' +
+    '.eli5nav-results a:active{background:#f3f0ff}' +
+    '.eli5nav-results .ic{font-size:22px;flex:0 0 auto}' +
+    '.eli5nav-empty{color:#6b6580;text-align:center;padding:12px;margin:0;font-size:14px}';
+  document.head.appendChild(style);
+
+  var bar = document.createElement('div');
+  bar.className = 'eli5nav';
+  bar.innerHTML =
+    '<a class="eli5nav-home" href="' + OVERVIEW + '">\uD83C\uDFE0 All</a>' +
+    '<div class="eli5nav-search">' +
+      '<input type="search" id="eli5nav-q" placeholder="Search ELI5\u2026" autocomplete="off" aria-label="Search ELI5 pages">' +
+      '<div class="eli5nav-results" id="eli5nav-results" hidden></div>' +
+    '</div>';
+  document.body.insertBefore(bar, document.body.firstChild);
+
+  var q = document.getElementById('eli5nav-q');
+  var results = document.getElementById('eli5nav-results');
+  var pages = [];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function draw(items) {
+    if (!items.length) { results.innerHTML = '<p class="eli5nav-empty">No matches</p>'; return; }
+    results.innerHTML = items.map(function (p) {
+      return '<a href="' + encodeURI(p.file) + '"><span class="ic">' + (p.emoji || '\uD83D\uDCC4') +
+        '</span><span>' + esc(p.title) + '</span></a>';
+    }).join('');
+  }
+
+  function onInput() {
+    var v = q.value.trim().toLowerCase();
+    if (!v) { results.hidden = true; return; }
+    draw(pages.filter(function (p) {
+      return (p.title + ' ' + (p.desc || '')).toLowerCase().indexOf(v) !== -1;
+    }));
+    results.hidden = false;
+  }
+
+  fetch('pages.json').then(function (r) { return r.json(); })
+    .then(function (d) { pages = d; }).catch(function () {});
+
+  q.addEventListener('input', onInput);
+  q.addEventListener('focus', function () { if (q.value.trim()) results.hidden = false; });
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { var a = results.querySelector('a'); if (a) { location.href = a.getAttribute('href'); } }
+  });
+  document.addEventListener('click', function (e) { if (!bar.contains(e.target)) results.hidden = true; });
+})();
