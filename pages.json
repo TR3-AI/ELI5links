@@ -1,5 +1,5 @@
 [
-  { "file": "how-work-flows.html", "title": "How your idea becomes a shipped thing", "desc": "the whole flow, one scroll — and where PR #6 sits", "date": "2026-08-25", "emoji": "🚀" },
+  { "file": "how-work-flows.html", "title": "How the work flows — the detailed map", "desc": "detailed zoomable map (pinch/drag) + it in words — every role, step & gate, and where PR #6 sits", "date": "2026-08-25", "emoji": "🗺️" },
   { "file": "phase-2-shared-rulebook.html", "title": "Now every team gets the tested rules", "desc": "Phase 2: open box #5 to put my tested rules in the shared book", "date": "2026-08-25", "emoji": "📖" },
   { "file": "where-checklists-live.html", "title": "The 'done' lists: how many, and where?", "desc": "keep it at phases + tickets; they live in the product repo (+ a Vault copy)", "date": "2026-08-25", "emoji": "📋" },
   { "file": "who-grades-it.html", "title": "Who grades the work — writer or manager?", "desc": "my pick: the manager (nobody grades their own work)", "date": "2026-08-25", "emoji": "❓" },

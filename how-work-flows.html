@@ -1,112 +1,168 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How your idea becomes a shipped thing</title>
-<style>
-  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
-  *{box-sizing:border-box}
-  body{
-    margin:0; padding:28px 16px 64px;
-    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
-    color:var(--ink);
-    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:520px; margin:0 auto}
-  h1{font-size:31px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
-  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
-  .card{background:var(--card); border-radius:26px; padding:24px 22px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
-  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 10px}
-  .step-no{display:inline-block; font-size:14px; font-weight:800; color:#5a3fb0; background:#f3f0ff; padding:4px 12px; border-radius:999px; margin-bottom:8px}
-  .big{font-size:23px; font-weight:800; margin:0 0 6px}
-  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
-  .say b{color:var(--ink)}
-  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-2px 0}
-  .flow{display:flex; gap:7px; justify-content:center; align-items:center; font-size:14px; font-weight:800; flex-wrap:wrap; margin-top:16px}
-  .flow .step{background:#f3f0ff; color:#5a3fb0; padding:7px 11px; border-radius:11px}
-  .flow .yes{background:#fff2cc; color:#8a6d00}
-  .flow .sep{color:#c9c0e0; font-size:16px}
-  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
-  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
-  .here{background:linear-gradient(160deg,#ffe3e3,#fff); border:2px solid #f0a6a6}
-  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
-</style>
-</head>
-<body>
-<div class="wrap">
-
-  <h1>How your idea<br>becomes a real thing 🚀</h1>
-  <p class="sub">the whole flow &mdash; just scroll</p>
-
-  <div class="card verdict">
-    <span class="emoji">🗺️</span>
-    <p class="big">The whole thing in one line</p>
-    <p class="say"><b>Idea → plan → build → check → ship.</b><br>Five steps. You say <b>yes</b> twice: to start it (step 1) and to ship it live (step 4). That live-yes is <b>PR #6</b>, waiting for you now.</p>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
-    <span class="step-no">STEP 1</span>
-    <span class="emoji">💡</span>
-    <p class="big">Your idea → green light</p>
-    <p class="say">You tell the team's <b>Manager</b> yourself. You two shape it into one clear goal. Then <b>you say yes</b> to begin.</p>
-    <div class="flow"><span class="step">idea</span><span class="sep">→</span><span class="step">Manager</span><span class="sep">→</span><span class="step">map it</span><span class="sep">→</span><span class="step">goal</span><span class="sep">→</span><span class="step yes">✋ your YES</span></div>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
-    <span class="step-no">STEP 2</span>
-    <span class="emoji">📄</span>
-    <p class="big">Turn it into job cards</p>
-    <p class="say">Two planners write the plan. It grows into full build steps, then small <b>job cards</b> &mdash; each one says exactly where it fits. Only the Manager carries each step along.</p>
-    <div class="flow"><span class="step">plan</span><span class="sep">→</span><span class="step">skeleton</span><span class="sep">→</span><span class="step">full guide</span><span class="sep">→</span><span class="step">job cards</span></div>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
-    <span class="step-no">STEP 3</span>
-    <span class="emoji">🔨</span>
-    <p class="big">Build each card</p>
-    <p class="say">For every card: write the test first (<b>red</b>), make it pass (<b>green</b>), then tidy up. On to the next card.</p>
-    <div class="flow"><span class="step">RED</span><span class="sep">→</span><span class="step">GREEN</span><span class="sep">→</span><span class="step">TIDY</span><span class="sep">↻</span><span class="step">next</span></div>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card catch">
-    <span class="step-no">STEP 4</span>
-    <span class="emoji">✅</span>
-    <p class="big">Check &amp; merge</p>
-    <p class="say">Cards go out in batches of 5. A robot scores each out of 5. A top score lands on the <b>practice stage</b>. Going <b>live</b> needs <b>your yes</b>.</p>
-    <div class="flow"><span class="step">batch of 5</span><span class="sep">→</span><span class="step">robot score</span><span class="sep">→</span><span class="step">5/5 → staging</span><span class="sep">→</span><span class="step yes">✋ your YES</span></div>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
-    <span class="step-no">STEP 5</span>
-    <span class="emoji">🔁</span>
-    <p class="big">Day-to-day</p>
-    <p class="say">Three work blocks a day. Four short reports each block. <b>Ops</b> carries messages to you. Every pause leaves a note, so nothing is ever lost.</p>
-    <div class="flow"><span class="step">work blocks</span><span class="sep">·</span><span class="step">reports</span><span class="sep">·</span><span class="step">Ops relays</span><span class="sep">·</span><span class="step">notes</span></div>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card here">
-    <span class="emoji">📍</span>
-    <p class="big">You are here → PR #6</p>
-    <p class="say"><b>PR #6 is that second yes.</b> It pushes the tested rules from the practice stage to <b>live</b>, so every team gets them. Only you can approve it.</p>
-  </div>
-
-  <p class="foot">your call: merge #6 to live? 🐶</p>
-
-</div>
-  <script src="nav.js" defer></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How the work flows — the detailed map</title><style>
+*{box-sizing:border-box}
+body{margin:0;padding:24px 14px 60px;color:#2b2140;font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+ background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto}
+h1{font-size:27px;line-height:1.15;text-align:center;margin:6px 0 4px;font-weight:800;letter-spacing:-.5px}
+.sub{text-align:center;color:#6b6580;font-size:16px;margin:0 0 14px}
+.hint{text-align:center;color:#8a83a0;font-size:13px;margin:0 0 10px}
+#diagram-wrap{position:relative;background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(70,50,120,.14);
+ height:76vh;overflow:hidden;touch-action:none;cursor:grab;user-select:none}
+#diagram-wrap:active{cursor:grabbing}
+.zc{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;z-index:5}
+.zc button{width:38px;height:38px;border:none;border-radius:11px;background:rgba(255,255,255,.92);
+ box-shadow:0 4px 12px rgba(70,50,120,.18);font-size:18px;font-weight:800;color:#5a3fb0;cursor:pointer}
+.zc button:active{transform:scale(.95)}
+.words{max-width:560px;margin:26px auto 0}
+h2{font-size:20px;margin:26px 0 8px;color:#33296b;text-align:center}
+.sc{background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(70,50,120,.10);margin:10px 0}
+.sc-t{font-weight:800;font-size:16px;margin-bottom:4px}
+.sc-b{color:#4a4560;font-size:15px;line-height:1.5}
+.sc-n{margin-top:8px;padding:8px 11px;background:#f5f2fb;border-radius:11px;font-size:14px;color:#4a4560;line-height:1.45}
+ul.plain{list-style:none;padding:0;margin:8px 0;background:#fff;border-radius:16px;box-shadow:0 6px 18px rgba(70,50,120,.10);overflow:hidden}
+ul.plain li{padding:11px 15px;border-top:1px solid #f0ecf7;font-size:15px;line-height:1.45;color:#3d3856}
+ul.plain li:first-child{border-top:none}
+.dot{display:inline-block;width:13px;height:13px;border-radius:4px;border:2px solid;margin-right:7px;vertical-align:-1px}
+.foot{text-align:center;color:#6b6580;font-size:15px;margin-top:26px}
+</style></head><body><div class="wrap"><h1>How the work flows 🗺️</h1><p class="sub">from your idea all the way to shipped — in detail</p><p class="hint">📱 pinch to zoom · drag to move · or tap + / − · &#8853; = fit</p><div id="diagram-wrap"><div class="zc"><button id="zin" aria-label="zoom in">+</button><button id="zout" aria-label="zoom out">&minus;</button><button id="zfit" aria-label="fit">&#8853;</button></div><svg id="dg" xmlns="http://www.w3.org/2000/svg" font-family="ui-rounded,Segoe UI,Nunito,system-ui,sans-serif" viewBox="0 0 1440 2230" preserveAspectRatio="xMidYMin meet" style="width:100%;height:100%;display:block;touch-action:none"><g id="vp"><defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#5b6472"/></marker></defs>
+<rect x="60" y="92" width="103" height="30" rx="8" fill="#fff2cc" stroke="#d6b656"/>
+<text x="112" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">YOU (Bobby)</text>
+<rect x="173" y="92" width="131" height="30" rx="8" fill="#d6f0ec" stroke="#3f9c8f"/>
+<text x="238" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">Ops (messenger)</text>
+<rect x="314" y="92" width="75" height="30" rx="8" fill="#e6d9f7" stroke="#8a63b8"/>
+<text x="352" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">Manager</text>
+<rect x="399" y="92" width="138" height="30" rx="8" fill="#dae8fc" stroke="#6c8ebf"/>
+<text x="468" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">Planners/Writers</text>
+<rect x="547" y="92" width="82" height="30" rx="8" fill="#d5e8d4" stroke="#67a866"/>
+<text x="588" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">Builders</text>
+<rect x="639" y="92" width="124" height="30" rx="8" fill="#eeeeee" stroke="#8a8a8a"/>
+<text x="701" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">Greptile robot</text>
+<rect x="773" y="92" width="124" height="30" rx="8" fill="#ffe6cc" stroke="#d79b00"/>
+<text x="835" y="112" font-size="13" font-weight="700" fill="#333" text-anchor="middle">staging / main</text>
+<polyline points="950,221 920,221" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="490,586 520,586" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="950,707 920,707" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="490,1046 520,1046" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="950,1193 920,1193" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="950,1478 920,1478" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="1165,1530 1165,1577" fill="none" stroke="#a2a8b6" stroke-width="1.4" stroke-dasharray="4 4"/>
+<polyline points="720,247 720,291" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,377 720,421" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,507 720,551" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,620 720,664" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,733 720,777" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,846 720,890" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,959 720,1003" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1106 720,1150" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1253 720,1297" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1383 720,1427" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1513 720,1557" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1643 720,1687" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<polyline points="720,1773 720,1793" fill="none" stroke="#5b6472" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="520" y="178" width="400" height="69" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<text x="720" y="200" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">💡 1. Your idea</text>
+<text x="533" y="222" font-size="12.5" fill="#25272e">You think up a new thing to build.</text>
+<rect x="520" y="291" width="400" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="720" y="313" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🗺️ 2. Map it together (Wayfinder)</text>
+<text x="533" y="335" font-size="12.5" fill="#25272e">You + the Manager agree what it is: the specs and the</text>
+<text x="533" y="352" font-size="12.5" fill="#25272e">big decisions.</text>
+<rect x="520" y="421" width="400" height="86" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<text x="720" y="443" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🎯 3. One clear final goal</text>
+<text x="533" y="465" font-size="12.5" fill="#25272e">The idea becomes a single, written goal everyone can</text>
+<text x="533" y="482" font-size="12.5" fill="#25272e">point to.</text>
+<rect x="520" y="551" width="400" height="69" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2.2"/>
+<text x="720" y="573" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">✋ 4. YOUR YES #1 — start it</text>
+<text x="533" y="595" font-size="12.5" fill="#25272e">You green-light the goal.</text>
+<rect x="520" y="664" width="400" height="69" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<text x="720" y="686" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">📝 5. PRD — the plan (2 Planners)</text>
+<text x="533" y="708" font-size="12.5" fill="#25272e">Two writers turn the goal into a plan.</text>
+<rect x="520" y="777" width="400" height="69" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<text x="720" y="799" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🦴 6. SDD skeleton</text>
+<text x="533" y="821" font-size="12.5" fill="#25272e">The bare bones of how to build it.</text>
+<rect x="520" y="890" width="400" height="69" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<text x="720" y="912" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">📚 7. Full SDD</text>
+<text x="533" y="934" font-size="12.5" fill="#25272e">The complete build instructions.</text>
+<rect x="520" y="1003" width="400" height="103" rx="12" fill="#d5e8d4" stroke="#67a866" stroke-width="1.4"/>
+<text x="720" y="1025" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🎟️ 8. Feature tickets (job cards)</text>
+<text x="533" y="1047" font-size="12.5" fill="#25272e">The plan is cut into small job cards. Each card also</text>
+<text x="533" y="1064" font-size="12.5" fill="#25272e">says exactly where it fits the full plan (its own mini-</text>
+<text x="533" y="1081" font-size="12.5" fill="#25272e">SDD).</text>
+<rect x="520" y="1150" width="400" height="103" rx="12" fill="#d5e8d4" stroke="#67a866" stroke-width="1.4"/>
+<text x="720" y="1172" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🔴 9. Build each card: RED → GREEN → TIDY</text>
+<text x="533" y="1194" font-size="12.5" fill="#25272e">Feature-Tickets writes a failing test = what &#x27;done&#x27;</text>
+<text x="533" y="1211" font-size="12.5" fill="#25272e">looks like (RED). Green-Pass makes it pass (GREEN).</text>
+<text x="533" y="1228" font-size="12.5" fill="#25272e">Feature-Tickets cleans it up (TIDY). Then the next card.</text>
+<rect x="520" y="1297" width="400" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="720" y="1319" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">📦 10. Bundle into PRs of 5</text>
+<text x="533" y="1341" font-size="12.5" fill="#25272e">Finished cards go out in pull requests — max 5 each;</text>
+<text x="533" y="1358" font-size="12.5" fill="#25272e">leftovers get their own (8 → 5+3).</text>
+<rect x="520" y="1427" width="400" height="86" rx="12" fill="#eeeeee" stroke="#8a8a8a" stroke-width="1.4"/>
+<text x="720" y="1449" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">⭐ 11. Robot scores each PR out of 5</text>
+<text x="533" y="1471" font-size="12.5" fill="#25272e">Greptile grades the code. 5/5 auto-lands on &#x27;staging&#x27;</text>
+<text x="533" y="1488" font-size="12.5" fill="#25272e">(the practice stage). Below 5/5 → see the side note.</text>
+<rect x="520" y="1557" width="400" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="720" y="1579" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🧪 12. Testing gate</text>
+<text x="533" y="1601" font-size="12.5" fill="#25272e">Once it&#x27;s 5/5, ask 4 quick questions: needs testing?</text>
+<text x="533" y="1618" font-size="12.5" fill="#25272e">tested? scheduled? blocked by keys (API keys etc.)?</text>
+<rect x="520" y="1687" width="400" height="86" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2.2"/>
+<text x="720" y="1709" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">✋ YOUR YES #2 — send it live</text>
+<text x="533" y="1731" font-size="12.5" fill="#25272e">staging → main is a SEPARATE pull request. It needs a</text>
+<text x="533" y="1748" font-size="12.5" fill="#25272e">passing test AND your explicit yes. Never automatic.</text>
+<rect x="520" y="1793" width="400" height="86" rx="12" fill="#f8cecc" stroke="#b85450" stroke-width="2.2"/>
+<text x="720" y="1815" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">📍 YOU ARE HERE → PR #6</text>
+<text x="533" y="1837" font-size="12.5" fill="#25272e">PR #6 is exactly this yes. Approving it ships the tested</text>
+<text x="533" y="1854" font-size="12.5" fill="#25272e">rules from staging to main, so every team gets them.</text>
+<rect x="950" y="178" width="430" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="1165" y="200" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">straight to the Manager</text>
+<text x="963" y="222" font-size="12.5" fill="#25272e">You bring a new idea to the Manager yourself — not through</text>
+<text x="963" y="239" font-size="12.5" fill="#25272e">Ops.</text>
+<rect x="60" y="551" width="430" height="69" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<text x="275" y="573" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">your yes gate</text>
+<text x="73" y="595" font-size="12.5" fill="#25272e">Nothing is routed down to a team until you say go.</text>
+<rect x="950" y="664" width="430" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="1165" y="686" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">Manager guards the plan</text>
+<text x="963" y="708" font-size="12.5" fill="#25272e">Your original idea is kept — no drifting. If a plan drifts,</text>
+<text x="963" y="725" font-size="12.5" fill="#25272e">the Manager sends it back.</text>
+<rect x="60" y="1003" width="430" height="86" rx="12" fill="#e6d9f7" stroke="#8a63b8" stroke-width="1.4"/>
+<text x="275" y="1025" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">who carries the papers</text>
+<text x="73" y="1047" font-size="12.5" fill="#25272e">Only the Manager moves each paper desk to desk. Everything is</text>
+<text x="73" y="1064" font-size="12.5" fill="#25272e">filed in the Herdr vault: PRD · SDD · Tickets.</text>
+<rect x="950" y="1150" width="430" height="86" rx="12" fill="#d5e8d4" stroke="#67a866" stroke-width="1.4"/>
+<text x="1165" y="1172" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">where the code goes</text>
+<text x="963" y="1194" font-size="12.5" fill="#25272e">Real code goes straight into the product repo. A copy is</text>
+<text x="963" y="1211" font-size="12.5" fill="#25272e">filed beside each card as a backup.</text>
+<rect x="950" y="1427" width="430" height="103" rx="12" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<text x="1165" y="1449" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">if it doesn&#x27;t score 5/5</text>
+<text x="963" y="1471" font-size="12.5" fill="#25272e">Up to 7 tries. Still stuck → the Manager splits it into</text>
+<text x="963" y="1488" font-size="12.5" fill="#25272e">smaller PRs (no need to ask you) → each split gets its own 7</text>
+<text x="963" y="1505" font-size="12.5" fill="#25272e">tries.</text>
+<rect x="950" y="1577" width="430" height="86" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2.2"/>
+<text x="1165" y="1599" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">✋ then YOUR choice</text>
+<text x="963" y="1621" font-size="12.5" fill="#25272e">A split still stuck after its 7 tries → you pick: (a) more</text>
+<text x="963" y="1638" font-size="12.5" fill="#25272e">tries, or (b) merge it as-is.</text>
+<rect x="60" y="1961" width="660" height="171" rx="12" fill="#d6f0ec" stroke="#3f9c8f" stroke-width="2.2"/>
+<text x="390" y="1983" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">👥 Who talks to who</text>
+<text x="73" y="2005" font-size="12.5" fill="#25272e">• Chain: Agent → Manager → Ops → YOU. Your reply comes back down the same way.</text>
+<text x="73" y="2022" font-size="12.5" fill="#25272e">• Managers never message you directly — even decisions go through Ops.</text>
+<text x="73" y="2039" font-size="12.5" fill="#25272e">• An agent tells its Manager the instant a job is done — it never goes quiet.</text>
+<text x="73" y="2056" font-size="12.5" fill="#25272e">• Manager silent for 1 hour → the agent goes straight to Ops → Ops tells you.</text>
+<text x="73" y="2073" font-size="12.5" fill="#25272e">• &quot;No change&quot; is just logged; only real blockers, decisions, or questions reach you.</text>
+<text x="73" y="2090" font-size="12.5" fill="#25272e">• Every message starts with a label: &quot;Sender -&gt; Receiver:&quot;.</text>
+<text x="73" y="2107" font-size="12.5" fill="#25272e">• The Manager never trusts &quot;done&quot; on a word — checks the real commit, test count, and score.</text>
+<rect x="740" y="1961" width="660" height="239" rx="12" fill="#f7f7f9" stroke="#b7b7c4" stroke-width="2.2"/>
+<text x="1070" y="1983" font-size="14.5" font-weight="800" fill="#111" text-anchor="middle">🔁 The heartbeat</text>
+<text x="753" y="2005" font-size="12.5" fill="#25272e">• Work blocks: B1 09:00–13:00 · B2 14:00–17:00 · B3 18:00–20:00 (with breaks).</text>
+<text x="753" y="2022" font-size="12.5" fill="#25272e">• 4 reports a block: Spaceship (15 min before) · End-of-block · Blocker (hard only) · PR table.</text>
+<text x="753" y="2039" font-size="12.5" fill="#25272e">• Ops waits for 2+ teams (a 30-min window), then tells you — never pings you for one team alone.</text>
+<text x="753" y="2056" font-size="12.5" fill="#25272e">• After 30 min with no reply, a team carries on with pre-approved work — never idle; it returns</text>
+<text x="753" y="2073" font-size="12.5" fill="#25272e">   the moment you reply.</text>
+<text x="753" y="2090" font-size="12.5" fill="#25272e">• Every pause writes a handoff note: commit + push, then branch, last commit, % done, next steps,</text>
+<text x="753" y="2107" font-size="12.5" fill="#25272e">   blockers, last 3 handoffs (+ session IDs), chat links, watch-outs.</text>
+<text x="753" y="2124" font-size="12.5" fill="#25272e">• &quot;Done&quot; is graded, not trusted: the author writes the checklist, the Manager grades it; your only</text>
+<text x="753" y="2141" font-size="12.5" fill="#25272e">   sign-off is ship-to-main.</text>
+<text x="753" y="2158" font-size="12.5" fill="#25272e">• Every decision to you carries 3 things: how big? · what else? · what if we don&#x27;t? (+ an ELI5</text>
+<text x="753" y="2175" font-size="12.5" fill="#25272e">   link).</text>
+<text x="720" y="40" font-size="22" font-weight="800" fill="#2b2140" text-anchor="middle">How the work really flows — from your idea to shipped</text>
+<text x="720" y="66" font-size="14" font-weight="600" fill="#2b2140" text-anchor="middle">plain words · pinch to zoom · drag to move</text>
+<text x="60" y="150" font-size="17" font-weight="800" fill="#5a3fb0" text-anchor="start">① → ⑫  THE MAIN FLOW  (top to bottom)</text>
+<text x="60" y="1931" font-size="17" font-weight="800" fill="#5a3fb0" text-anchor="start">EVERY DAY: HOW IT ALL KEEPS MOVING</text></g></svg></div><div class="words"><h2>Read it in words</h2><div class="sc"><div class="sc-t">💡 1. Your idea</div><div class="sc-b">You think up a new thing to build.</div><div class="sc-n"><b>straight to the Manager:</b> You bring a new idea to the Manager yourself — not through Ops.</div></div><div class="sc"><div class="sc-t">🗺️ 2. Map it together (Wayfinder)</div><div class="sc-b">You + the Manager agree what it is: the specs and the big decisions.</div></div><div class="sc"><div class="sc-t">🎯 3. One clear final goal</div><div class="sc-b">The idea becomes a single, written goal everyone can point to.</div></div><div class="sc"><div class="sc-t">✋ 4. YOUR YES #1 — start it</div><div class="sc-b">You green-light the goal.</div><div class="sc-n"><b>your yes gate:</b> Nothing is routed down to a team until you say go.</div></div><div class="sc"><div class="sc-t">📝 5. PRD — the plan (2 Planners)</div><div class="sc-b">Two writers turn the goal into a plan.</div><div class="sc-n"><b>Manager guards the plan:</b> Your original idea is kept — no drifting. If a plan drifts, the Manager sends it back.</div></div><div class="sc"><div class="sc-t">🦴 6. SDD skeleton</div><div class="sc-b">The bare bones of how to build it.</div></div><div class="sc"><div class="sc-t">📚 7. Full SDD</div><div class="sc-b">The complete build instructions.</div></div><div class="sc"><div class="sc-t">🎟️ 8. Feature tickets (job cards)</div><div class="sc-b">The plan is cut into small job cards. Each card also says exactly where it fits the full plan (its own mini- SDD).</div><div class="sc-n"><b>who carries the papers:</b> Only the Manager moves each paper desk to desk. Everything is filed in the Herdr vault: PRD · SDD · Tickets.</div></div><div class="sc"><div class="sc-t">🔴 9. Build each card: RED → GREEN → TIDY</div><div class="sc-b">Feature-Tickets writes a failing test = what &#x27;done&#x27; looks like (RED). Green-Pass makes it pass (GREEN). Feature-Tickets cleans it up (TIDY). Then the next card.</div><div class="sc-n"><b>where the code goes:</b> Real code goes straight into the product repo. A copy is filed beside each card as a backup.</div></div><div class="sc"><div class="sc-t">📦 10. Bundle into PRs of 5</div><div class="sc-b">Finished cards go out in pull requests — max 5 each; leftovers get their own (8 → 5+3).</div></div><div class="sc"><div class="sc-t">⭐ 11. Robot scores each PR out of 5</div><div class="sc-b">Greptile grades the code. 5/5 auto-lands on &#x27;staging&#x27; (the practice stage). Below 5/5 → see the side note.</div><div class="sc-n"><b>if it doesn&#x27;t score 5/5:</b> Up to 7 tries. Still stuck → the Manager splits it into smaller PRs (no need to ask you) → each split gets its own 7 tries.</div><div class="sc-n"><b>✋ then YOUR choice:</b> A split still stuck after its 7 tries → you pick: (a) more tries, or (b) merge it as-is.</div></div><div class="sc"><div class="sc-t">🧪 12. Testing gate</div><div class="sc-b">Once it&#x27;s 5/5, ask 4 quick questions: needs testing? tested? scheduled? blocked by keys (API keys etc.)?</div></div><div class="sc"><div class="sc-t">✋ YOUR YES #2 — send it live</div><div class="sc-b">staging → main is a SEPARATE pull request. It needs a passing test AND your explicit yes. Never automatic.</div></div><div class="sc"><div class="sc-t">📍 YOU ARE HERE → PR #6</div><div class="sc-b">PR #6 is exactly this yes. Approving it ships the tested rules from staging to main, so every team gets them.</div></div><h2>👥 Who talks to who</h2><ul class="plain"><li>Chain: Agent → Manager → Ops → YOU. Your reply comes back down the same way.</li><li>Managers never message you directly — even decisions go through Ops.</li><li>An agent tells its Manager the instant a job is done — it never goes quiet.</li><li>Manager silent for 1 hour → the agent goes straight to Ops → Ops tells you.</li><li>&quot;No change&quot; is just logged; only real blockers, decisions, or questions reach you.</li><li>Every message starts with a label: &quot;Sender -&gt; Receiver:&quot;.</li><li>The Manager never trusts &quot;done&quot; on a word — checks the real commit, test count, and score.</li></ul><h2>🔁 The heartbeat — every day</h2><ul class="plain"><li>Work blocks: B1 09:00–13:00 · B2 14:00–17:00 · B3 18:00–20:00 (with breaks).</li><li>4 reports a block: Spaceship (15 min before) · End-of-block · Blocker (hard only) · PR table.</li><li>Ops waits for 2+ teams (a 30-min window), then tells you — never pings you for one team alone.</li><li>After 30 min with no reply, a team carries on with pre-approved work — never idle; it returns the moment you reply.</li><li>Every pause writes a handoff note: commit + push, then branch, last commit, % done, next steps, blockers, last 3 handoffs (+ session IDs), chat links, watch-outs.</li><li>&quot;Done&quot; is graded, not trusted: the author writes the checklist, the Manager grades it; your only sign-off is ship-to-main.</li><li>Every decision to you carries 3 things: how big? · what else? · what if we don&#x27;t? (+ an ELI5 link).</li></ul><h2>🎨 Who&#39;s who</h2><ul class="plain"><li><span class="dot" style="background:#fff2cc;border-color:#d6b656"></span><b>YOU (Bobby)</b> — the boss — has the ideas and gives the two big yeses</li><li><span class="dot" style="background:#d6f0ec;border-color:#3f9c8f"></span><b>Ops</b> — the messenger — carries messages between the Manager and you, and batches them</li><li><span class="dot" style="background:#e6d9f7;border-color:#8a63b8"></span><b>Manager</b> — runs one team; the only one you talk to</li><li><span class="dot" style="background:#dae8fc;border-color:#6c8ebf"></span><b>Planners / Writers</b> — turn your goal into the plan (PRD) and the build instructions (SDD)</li><li><span class="dot" style="background:#d5e8d4;border-color:#67a866"></span><b>Builders</b> — Feature-Tickets writes the tests + tidies; Green-Pass makes them pass</li><li><span class="dot" style="background:#eeeeee;border-color:#8a8a8a"></span><b>Greptile robot</b> — scores each pull request out of 5</li><li><span class="dot" style="background:#ffe6cc;border-color:#d79b00"></span><b>staging / main</b> — staging = the practice stage; main = the live shelf every team builds from</li></ul><p class="foot">📍 You are here → <b>PR #6</b> is YES #2. Your call whenever you&#39;re ready. 🐶</p></div></div><script src="nav.js" defer></script><script>(function(){var wrap=document.getElementById('diagram-wrap'),svg=document.getElementById('dg'),vp=document.getElementById('vp');var DW=1440,DH=2230,s=1,tx=0,ty=0;function apply(){vp.setAttribute('transform','translate('+tx+' '+ty+') scale('+s+')');}function layout(){svg.setAttribute('viewBox','0 0 '+wrap.clientWidth+' '+wrap.clientHeight);}function fit(){layout();var w=wrap.clientWidth;s=Math.min(1.1,(w-16)/DW);tx=(w-DW*s)/2;ty=12;apply();}function cl(v,a,b){return Math.max(a,Math.min(b,v));}function zoomAt(px,py,k){var ns=cl(s*k,0.12,7);tx=px-(px-tx)*(ns/s);ty=py-(py-ty)*(ns/s);s=ns;apply();}var pts=new Map(),ld=0;function rel(e){var r=wrap.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}wrap.addEventListener('pointerdown',function(e){wrap.setPointerCapture(e.pointerId);pts.set(e.pointerId,rel(e));});wrap.addEventListener('pointermove',function(e){if(!pts.has(e.pointerId))return;var p=rel(e),pv=pts.get(e.pointerId);pts.set(e.pointerId,p);if(pts.size===1){tx+=p.x-pv.x;ty+=p.y-pv.y;apply();}else if(pts.size===2){var a=Array.from(pts.values());var d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y),m={x:(a[0].x+a[1].x)/2,y:(a[0].y+a[1].y)/2};if(ld)zoomAt(m.x,m.y,d/ld);ld=d;}});function up(e){pts.delete(e.pointerId);if(pts.size<2)ld=0;}wrap.addEventListener('pointerup',up);wrap.addEventListener('pointercancel',up);wrap.addEventListener('wheel',function(e){e.preventDefault();var p=rel(e);zoomAt(p.x,p.y,e.deltaY<0?1.12:1/1.12);},{passive:false});document.getElementById('zin').onclick=function(){zoomAt(wrap.clientWidth/2,wrap.clientHeight/2,1.3);};document.getElementById('zout').onclick=function(){zoomAt(wrap.clientWidth/2,wrap.clientHeight/2,1/1.3);};document.getElementById('zfit').onclick=fit;window.addEventListener('resize',fit);fit();})();</script></body></html>
