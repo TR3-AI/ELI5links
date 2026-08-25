@@ -16,12 +16,19 @@
   }
   .wrap{max-width:520px; margin:0 auto}
   h1{font-size:32px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
-  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
-  a.card{display:block; text-decoration:none; color:inherit; background:var(--card); border-radius:26px; padding:22px 22px; box-shadow:var(--shadow); margin:14px 0; text-align:left; display:flex; align-items:center; gap:16px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 22px}
+  .search{width:100%; font-size:18px; padding:14px 16px; border-radius:16px; border:2px solid #e7e0f5;
+    background:#fff; color:var(--ink); box-shadow:var(--shadow); margin:0; outline:none; font-family:inherit}
+  .search:focus{border-color:#bfa8f0}
+  .count{text-align:center; color:var(--soft); font-size:14px; margin:10px 0 12px}
+  a.card{display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit;
+    background:var(--card); border-radius:22px; padding:20px 20px; box-shadow:var(--shadow); margin:12px 0}
   a.card:active{transform:scale(.99)}
-  .emoji{font-size:44px; line-height:1; flex:0 0 auto}
-  .big{font-size:20px; font-weight:800; margin:0}
+  .emoji{font-size:42px; line-height:1; flex:0 0 auto}
+  .big{font-size:19px; font-weight:800; margin:0}
   .say{font-size:15px; color:var(--soft); margin:4px 0 0; line-height:1.4}
+  .date{font-size:13px; color:#b0a9c2; margin:5px 0 0}
+  .empty{text-align:center; color:var(--soft); font-size:16px; margin:24px 0}
   .foot{text-align:center; color:var(--soft); font-size:14px; margin-top:26px}
 </style>
 </head>
@@ -29,34 +36,62 @@
 <div class="wrap">
 
   <h1>ELI5 links &#128161;</h1>
-  <p class="sub">tap any card to open it</p>
+  <p class="sub">search or tap a card to open it</p>
 
-  <a class="card" href="greptile-tries-and-split.html">
-    <span class="emoji">&#11088;</span>
-    <span>
-      <p class="big">How a PR gets its grade</p>
-      <p class="say">try, try, chop &mdash; then your call</p>
-    </span>
-  </a>
+  <input id="q" class="search" type="search" placeholder="Search titles&hellip;" autocomplete="off" aria-label="Search ELI5 pages">
+  <p id="count" class="count">Loading&hellip;</p>
+  <div id="list"></div>
+  <p id="empty" class="empty" hidden>No matches. Try another word.</p>
 
-  <a class="card" href="dms-goes-first.html">
-    <span class="emoji">&#127869;&#65039;</span>
-    <span>
-      <p class="big">Why I test new rules on myself first</p>
-      <p class="say">one plate before the whole party</p>
-    </span>
-  </a>
-
-  <a class="card" href="where-eli5-pages-live.html">
-    <span class="emoji">&#128241;</span>
-    <span>
-      <p class="big">Where should the pages live?</p>
-      <p class="say">the honest answer for a phone reader</p>
-    </span>
-  </a>
-
-  <p class="foot">more ELI5 pages will land here &#128054;</p>
+  <p class="foot">newest first &middot; new pages appear here automatically &#128054;</p>
 
 </div>
+
+<script>
+  var listEl = document.getElementById('list');
+  var qEl = document.getElementById('q');
+  var countEl = document.getElementById('count');
+  var emptyEl = document.getElementById('empty');
+  var pages = [];
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  function render(items){
+    listEl.innerHTML = items.map(function(p){
+      return '<a class="card" href="' + encodeURI(p.file) + '">' +
+        '<span class="emoji">' + (p.emoji || '\ud83d\udcc4') + '</span>' +
+        '<span><p class="big">' + esc(p.title) + '</p>' +
+        '<p class="say">' + esc(p.desc || '') + '</p>' +
+        '<p class="date">' + esc(p.date || '') + '</p></span></a>';
+    }).join('');
+    countEl.textContent = items.length + ' of ' + pages.length +
+      ' page' + (pages.length === 1 ? '' : 's');
+    emptyEl.hidden = items.length > 0;
+  }
+
+  function applyFilter(){
+    var q = qEl.value.trim().toLowerCase();
+    var items = !q ? pages : pages.filter(function(p){
+      return (p.title + ' ' + (p.desc || '')).toLowerCase().indexOf(q) !== -1;
+    });
+    render(items);
+  }
+
+  fetch('pages.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      pages = d.slice().sort(function(a, b){
+        return String(b.date || '').localeCompare(String(a.date || ''));
+      });
+      render(pages);
+    })
+    .catch(function(){ countEl.textContent = 'Could not load the list.'; });
+
+  qEl.addEventListener('input', applyFilter);
+</script>
 </body>
 </html>
