@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How your idea becomes a shipped thing</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:31px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:24px 22px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 10px}
+  .step-no{display:inline-block; font-size:14px; font-weight:800; color:#5a3fb0; background:#f3f0ff; padding:4px 12px; border-radius:999px; margin-bottom:8px}
+  .big{font-size:23px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-2px 0}
+  .flow{display:flex; gap:7px; justify-content:center; align-items:center; font-size:14px; font-weight:800; flex-wrap:wrap; margin-top:16px}
+  .flow .step{background:#f3f0ff; color:#5a3fb0; padding:7px 11px; border-radius:11px}
+  .flow .yes{background:#fff2cc; color:#8a6d00}
+  .flow .sep{color:#c9c0e0; font-size:16px}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .here{background:linear-gradient(160deg,#ffe3e3,#fff); border:2px solid #f0a6a6}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How your idea<br>becomes a real thing 🚀</h1>
+  <p class="sub">the whole flow &mdash; just scroll</p>
+
+  <div class="card verdict">
+    <span class="emoji">🗺️</span>
+    <p class="big">The whole thing in one line</p>
+    <p class="say"><b>Idea → plan → build → check → ship.</b><br>Five steps. You say <b>yes</b> twice: to start it (step 1) and to ship it live (step 4). That live-yes is <b>PR #6</b>, waiting for you now.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="step-no">STEP 1</span>
+    <span class="emoji">💡</span>
+    <p class="big">Your idea → green light</p>
+    <p class="say">You tell the team's <b>Manager</b> yourself. You two shape it into one clear goal. Then <b>you say yes</b> to begin.</p>
+    <div class="flow"><span class="step">idea</span><span class="sep">→</span><span class="step">Manager</span><span class="sep">→</span><span class="step">map it</span><span class="sep">→</span><span class="step">goal</span><span class="sep">→</span><span class="step yes">✋ your YES</span></div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="step-no">STEP 2</span>
+    <span class="emoji">📄</span>
+    <p class="big">Turn it into job cards</p>
+    <p class="say">Two planners write the plan. It grows into full build steps, then small <b>job cards</b> &mdash; each one says exactly where it fits. Only the Manager carries each step along.</p>
+    <div class="flow"><span class="step">plan</span><span class="sep">→</span><span class="step">skeleton</span><span class="sep">→</span><span class="step">full guide</span><span class="sep">→</span><span class="step">job cards</span></div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="step-no">STEP 3</span>
+    <span class="emoji">🔨</span>
+    <p class="big">Build each card</p>
+    <p class="say">For every card: write the test first (<b>red</b>), make it pass (<b>green</b>), then tidy up. On to the next card.</p>
+    <div class="flow"><span class="step">RED</span><span class="sep">→</span><span class="step">GREEN</span><span class="sep">→</span><span class="step">TIDY</span><span class="sep">↻</span><span class="step">next</span></div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card catch">
+    <span class="step-no">STEP 4</span>
+    <span class="emoji">✅</span>
+    <p class="big">Check &amp; merge</p>
+    <p class="say">Cards go out in batches of 5. A robot scores each out of 5. A top score lands on the <b>practice stage</b>. Going <b>live</b> needs <b>your yes</b>.</p>
+    <div class="flow"><span class="step">batch of 5</span><span class="sep">→</span><span class="step">robot score</span><span class="sep">→</span><span class="step">5/5 → staging</span><span class="sep">→</span><span class="step yes">✋ your YES</span></div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="step-no">STEP 5</span>
+    <span class="emoji">🔁</span>
+    <p class="big">Day-to-day</p>
+    <p class="say">Three work blocks a day. Four short reports each block. <b>Ops</b> carries messages to you. Every pause leaves a note, so nothing is ever lost.</p>
+    <div class="flow"><span class="step">work blocks</span><span class="sep">·</span><span class="step">reports</span><span class="sep">·</span><span class="step">Ops relays</span><span class="sep">·</span><span class="step">notes</span></div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card here">
+    <span class="emoji">📍</span>
+    <p class="big">You are here → PR #6</p>
+    <p class="say"><b>PR #6 is that second yes.</b> It pushes the tested rules from the practice stage to <b>live</b>, so every team gets them. Only you can approve it.</p>
+  </div>
+
+  <p class="foot">your call: merge #6 to live? 🐶</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
