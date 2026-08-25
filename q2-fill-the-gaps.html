@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fill the gaps on a tab I'm already using</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:70px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .grid{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+  .slot{padding:8px 12px; border-radius:12px; font-size:14px; font-weight:800}
+  .have{background:#eafbf0; color:#2f8f5b}
+  .miss{background:#fff0f4; color:#c0568a; border:1px dashed #e6a9c4}
+  .want{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .rule{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Fill the gaps on a tab<br>I'm already using 🧩</h1>
+  <p class="sub">here's what I think you're asking for — tell me if I nailed it</p>
+
+  <div class="card">
+    <span class="emoji">🧩</span>
+    <p class="big">What you've got now</p>
+    <p class="say">A tab that <b>already has a few panes</b>, and you've done
+    real work in them. But it's <b>not the full set of 9</b>, and the layout is
+    a bit off.</p>
+    <div class="grid">
+      <span class="slot have">Green Pass ✅</span>
+      <span class="slot have">SDD Skeleton ✅</span>
+      <span class="slot have">Full SDD ✅</span>
+      <span class="slot miss">+ 6 missing</span>
+    </div>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card want">
+    <span class="emoji">🎯</span>
+    <p class="big">What you want</p>
+    <p class="say">Switch the plugin on <b>for that same tab</b> so it
+    <b>fills in the missing panes</b> and gets you to the full 9 — without you
+    rebuilding from scratch.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card rule">
+    <span class="emoji">🛡️</span>
+    <p class="big">Golden rule: don't lose my work</p>
+    <p class="say">The panes you already have — and <b>everything inside
+    them</b> — stay exactly as they are. It only <b>adds</b> what's missing. It
+    never closes or restarts a pane you're using.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">📐</span>
+    <p class="big">Tidy it to the target</p>
+    <p class="say">Once the missing ones are added, the whole tab should end up
+    looking like the <b>standard 9-pane layout</b> — neat, not a jumble.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card catch">
+    <span class="emoji">🏷️</span>
+    <p class="big">Honest catch #1 — naming</p>
+    <p class="say">I can only tell <b>which</b> panes you already have if they're
+    <b>named our way</b> (ending in a role, like "Green Pass"). If a pane has a
+    random name, I can't know what it is. So: are yours named with the roles?</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card catch">
+    <span class="emoji">🧷</span>
+    <p class="big">Honest catch #2 — exact layout</p>
+    <p class="say">Slotting your <b>existing</b> panes into the exact target grid
+    <b>without disturbing them</b> is the fiddly part. I can get you the right 9
+    with a sensible layout; a pixel-perfect match may take a nudge or two.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card want">
+    <span class="emoji">🔘</span>
+    <p class="big">How you'd trigger it</p>
+    <p class="say">A new command — something like <b>/autopane fill</b> — run on
+    the tab you're already in.</p>
+  </div>
+
+  <p class="foot">did I get your ask right? tell me what to fix and I'll adjust 🐶</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
