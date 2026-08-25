@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where should the pages live? (on a phone)</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:74px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:23px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .yes{display:inline-block; background:#eafbf0; color:#2f9e5b; font-weight:800; font-size:14px; padding:5px 12px; border-radius:999px; margin-bottom:10px}
+  .no{display:inline-block; background:#fdecec; color:#d64545; font-weight:800; font-size:14px; padding:5px 12px; border-radius:999px; margin-bottom:10px}
+  .maybe{display:inline-block; background:#fff3e0; color:#c9862a; font-weight:800; font-size:14px; padding:5px 12px; border-radius:999px; margin-bottom:10px}
+  .pick{background:linear-gradient(160deg,#eafbf0,#fff); outline:3px solid #bfe9cd; outline-offset:2px}
+  .faded{opacity:.6}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:14px; margin-top:26px; line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Where should the<br>pages live? &#128241;</h1>
+  <p class="sub">the honest answer for a phone reader</p>
+
+  <div class="card">
+    <span class="emoji">&#128241;</span>
+    <p class="big">You mostly read on your phone</p>
+    <p class="say">So there&rsquo;s one test that matters for each option:
+    <b>does it open on a phone?</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card faded">
+    <span class="no">PHONE: NO</span>
+    <span class="emoji">&#128190;</span>
+    <p class="big">A file on your Mac</p>
+    <p class="say">A file link only opens on the <b>Mac it&rsquo;s saved on</b>.
+    On your phone it won&rsquo;t open. So my earlier &ldquo;cheapest = a file&rdquo;
+    pick was <b>wrong for you</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card pick">
+    <span class="yes">PHONE: YES &middot; FREE &middot; the pick</span>
+    <span class="emoji">&#127760;</span>
+    <p class="big">GitHub Pages &mdash; a free web address</p>
+    <p class="say">Opens on <b>any phone</b>, on Wi-Fi or data. <b>Costs nothing</b>.
+    And it <b>stays put</b> &mdash; a link in a report from weeks ago still
+    works.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card faded">
+    <span class="maybe">PHONE: ONLY SOMETIMES</span>
+    <span class="emoji">&#128421;&#65039;</span>
+    <p class="big">A mini server on your Mac</p>
+    <p class="say">Opens on your phone <b>only</b> if it&rsquo;s on the same home
+    Wi-Fi and the Mac is switched on. Out and about? Dead. Skip.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card faded">
+    <span class="no">COSTS MONEY</span>
+    <span class="emoji">&#128179;</span>
+    <p class="big">Paid hosting</p>
+    <p class="say">Works on your phone, but you pay for it. No need &mdash;
+    the free one above does the same job.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="yes">FREE</span>
+    <span class="emoji">&#128274;</span>
+    <p class="big">Want it private?</p>
+    <p class="say">A plain web page is open to <b>anyone with the link</b>. No
+    secrets on these pages &mdash; but if you&rsquo;d rather lock them to just you,
+    there&rsquo;s a <b>free login wall</b>. Still free, still opens on your phone.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The pick for a phone reader</p>
+    <p class="say"><b>A free web page (GitHub Pages).</b> Opens on your phone
+    anywhere, links last, costs nothing. Add the free lock if you want it
+    private. Right now you&rsquo;re reading through a <b>temporary</b> free address
+    &mdash; this is just the permanent version of the same thing.</p>
+  </div>
+
+  <p class="foot">mostly on mobile &rarr; free web page &middot; a file-on-your-Mac is desktop-only &#128054;</p>
+
+</div>
+</body>
+</html>

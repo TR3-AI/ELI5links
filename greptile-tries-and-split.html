@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How a PR gets its grade</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:31px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:74px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:23px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .stars{font-size:38px; letter-spacing:3px; margin-top:10px}
+  .buttons{display:flex; gap:14px; justify-content:center; margin-top:16px; flex-wrap:wrap}
+  .btn{font-size:17px; font-weight:800; padding:12px 18px; border-radius:16px}
+  .btn.try{background:#eef1ff; color:#4a54c9}
+  .btn.ship{background:#eafbf0; color:#2f9e5b}
+  .snag{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .three{text-align:left; font-size:16px; color:var(--soft); margin:14px auto 0; max-width:380px; line-height:1.9}
+  .three b{color:var(--ink)}
+  .verdict{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How a PR gets<br>its grade &#11088;</h1>
+  <p class="sub">try, try, chop &mdash; then your call</p>
+
+  <div class="card">
+    <span class="emoji">&#129302;</span>
+    <p class="big">A robot grades our work</p>
+    <p class="say">&ldquo;Greptile&rdquo; looks at each tray of finished work and gives it
+    <b>1 to 5 stars</b>. We want <b>5 out of 5</b>.</p>
+    <p class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128257;</span>
+    <p class="big">Try up to 7 times</p>
+    <p class="say">Not 5 stars yet? We fix it and ask the robot again &mdash;
+    <b>up to 7 goes</b>. The second it hits 5/5, we stop.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">Still stuck? Chop it up</p>
+    <p class="say">After 7 goes with no 5/5, we cut the big job into
+    <b>small jobs</b>. Each small job gets its <b>own 7 goes</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card verdict">
+    <span class="emoji">&#128587;</span>
+    <p class="big">Still stuck? Your call</p>
+    <p class="say">If a small job <b>still</b> can&rsquo;t reach 5 stars, you pick one:</p>
+    <div class="buttons">
+      <span class="btn try">&#128257; keep trying</span>
+      <span class="btn ship">&#9989; ship it as-is</span>
+    </div>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card snag">
+    <span class="emoji">&#128218;</span>
+    <p class="big">The snag I&rsquo;m asking about</p>
+    <p class="say">Three rulebooks tell this story <b>three different ways</b>:</p>
+    <p class="three">
+    &#128213; one says: <b>ask Bobby before chopping</b><br>
+    &#128215; one says: <b>chop by yourself</b><br>
+    &#128216; yours (newest): <b>chop by yourself, and at the end only two buttons</b>
+    </p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card verdict">
+    <span class="emoji">&#9989;</span>
+    <p class="big">The fix</p>
+    <p class="say">Make every rulebook tell <b>your newest version</b>.
+    One story, everywhere. No more mix-ups.</p>
+  </div>
+
+  <p class="foot">your call: shall I make the newest rule the one true version? &#128054;</p>
+
+</div>
+</body>
+</html>
