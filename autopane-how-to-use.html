@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto-Fill: how to turn it on & off</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:70px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .cmd{display:inline-block; background:#f3f0ff; color:#5a3fb0; font-weight:800; padding:3px 10px; border-radius:10px; font-size:17px}
+  .arrow{font-size:34px; text-align:center; color:#b7add0; margin:-4px 0}
+  .flow{display:flex; gap:8px; justify-content:center; align-items:center; font-size:15px; font-weight:800; flex-wrap:wrap; margin-top:14px}
+  .flow .step{background:#f3f0ff; color:#5a3fb0; padding:8px 12px; border-radius:12px}
+  .safe{background:linear-gradient(160deg,#eafbf0,#fff)}
+  .add{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .catch{background:linear-gradient(160deg,#fff6e6,#fff)}
+  .go{background:linear-gradient(160deg,#f3f0ff,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Auto-Fill:<br>how to use it 🧩</h1>
+  <p class="sub">start it, pick the right tab, and the on/off switch</p>
+
+  <div class="card">
+    <span class="emoji">🧩</span>
+    <p class="big">What it does</p>
+    <p class="say">Grows the tab you're in up to the <b>full team of nine</b> —
+    keeps your open windows and their work, adds the ones you're missing.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card go">
+    <span class="emoji">⌨️</span>
+    <p class="big">1. How do I start it?</p>
+    <p class="say">You <b>type it</b>. In the tab you want, type
+    <span class="cmd">/autopane fill</span>. Just opening a window does
+    <b>nothing</b> — only typing the words starts it.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🪟</span>
+    <p class="big">2. A new tab, or one I'm using?</p>
+    <p class="say">One you're <b>already using</b>. It works on the tab you
+    typed it in, and reshapes that whole tab into the full nine.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card safe">
+    <span class="emoji">🔒</span>
+    <p class="big">Your work is safe</p>
+    <p class="say">It <b>never closes or restarts</b> your windows. Your old
+    ones keep working; only the brand-new ones start up fresh.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🚦</span>
+    <p class="big">Two little rules</p>
+    <p class="say">If the tab is <b>already nine</b> → it does nothing.
+    If it has <b>more than nine</b> → it leaves it alone. Otherwise it
+    tops you up to nine.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🔀</span>
+    <p class="big">3. Is there an on/off switch?</p>
+    <p class="say">Yes — type <span class="cmd">/autopane status</span> to see
+    <b>ON</b> or <b>OFF</b>. <span class="cmd">/autopane off</span> and
+    <span class="cmd">/autopane on</span> flip it.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card catch">
+    <span class="emoji">⭐</span>
+    <p class="big">The catch worth knowing</p>
+    <p class="say">The switch only controls the <b>automatic</b> part — whether a
+    <b>brand-new tab</b> fills itself. It does <b>not</b> touch Fill:
+    <span class="cmd">/autopane fill</span> works whether the switch is ON or OFF.
+    You can leave it <b>OFF for good</b> and still fill any tab whenever you like.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card add">
+    <span class="emoji">🔁</span>
+    <p class="big">One gotcha</p>
+    <p class="say">The command loads when a window <b>starts</b>. If a window
+    was already open before, <b>restart it once</b> so it knows the word.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card go">
+    <span class="emoji">✅</span>
+    <p class="big">Your four words</p>
+    <div class="flow">
+      <span class="step">/autopane fill</span>
+      <span class="step">status</span>
+      <span class="step">on</span>
+      <span class="step">off</span>
+    </div>
+  </div>
+
+  <p class="foot">fill = grow this tab · switch = auto-build new tabs 🐶</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
