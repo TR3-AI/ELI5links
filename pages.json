@@ -1,4 +1,5 @@
 [
+  { "file": "what-suspended-means.html", "title": "Wait — 'suspended'? What happened", "desc": "my memory filled up, so I saved everything and started fresh — nothing lost", "date": "2026-08-26", "emoji": "🧠" },
   { "file": "how-work-flows.html", "title": "How the work flows — the detailed map", "desc": "detailed zoomable map (pinch/drag) + it in words — every role, step & gate, and where PR #6 sits", "date": "2026-08-25", "emoji": "🗺️" },
   { "file": "phase-2-shared-rulebook.html", "title": "Now every team gets the tested rules", "desc": "Phase 2: open box #5 to put my tested rules in the shared book", "date": "2026-08-25", "emoji": "📖" },
   { "file": "where-checklists-live.html", "title": "The 'done' lists: how many, and where?", "desc": "keep it at phases + tickets; they live in the product repo (+ a Vault copy)", "date": "2026-08-25", "emoji": "📋" },
