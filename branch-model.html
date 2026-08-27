@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision 5 &mdash; how the branches &amp; worktrees work</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Decision 5: how the code is organised &#127807;</h1>
+  <p class="sub">one repo, one branch per team, a ladder up to main &mdash; nothing ever deleted</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128230;</span>
+    <p class="big">Everything lives in one repo</p>
+    <p class="say">No separate repo per team. <b>One project repo</b>, and each department gets
+    <b>its own branch</b> inside it. That's why a department's research agent never spins up a
+    new repo &mdash; it's all the same one, just different branches.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128194;</span>
+    <p class="big">Each team works in its own "worktree"</p>
+    <p class="say">A <b>worktree</b> = a <b>separate working copy</b> of the repo on disk,
+    checked out to its own branch. So teams (and individual tickets) build <b>at the same time
+    without stepping on each other</b>. Each department gets a worktree; each ticket gets one too.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#129692;</span>
+    <p class="big">Branches roll upward, like a ladder</p>
+    <p class="say"><b>ticket &rarr; department &rarr; project &rarr; main</b>. Small pieces merge
+    into their department; departments merge into one project branch; that goes to main. Example:<br>
+    <b>feat/typeless/api/api-004</b><br>&rarr; <b>department/typeless-api</b><br>&rarr;
+    <b>project/typeless-integration</b><br>&rarr; <b>main</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#127963;&#65039;</span>
+    <p class="big">The core team gets a branch too</p>
+    <p class="say">Since the core team also <b>builds its own section</b>, it has its own department
+    branch just like the rest (e.g. <b>department/typeless-core</b>). It's a team <b>on</b> the
+    ladder, not above it &mdash; and it also does the final glue-together into project + main.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128190;</span>
+    <p class="big">Closing a team never deletes its work</p>
+    <p class="say">When a department finishes and you say close, <b>only the panes close</b>. The
+    <b>branch, commits, PRs, and chat history all stay &mdash; forever</b>. Because teams run in
+    waves of <b>max 3 at a time</b>, finished branches just sit there, safe, as the permanent
+    record of what that team did.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">&#128506;&#65039;</span>
+    <p class="big">Anyone can see what each branch is for</p>
+    <p class="say">Clear names <b>plus a written department map</b> in the repo say <b>which branch
+    is which department</b>, what it owns, and <b>how it connects back to the core team</b> and
+    main. Open the repo and the whole shape is obvious &mdash; no guessing.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">The 3 calls inside decision 5 &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#128256;</span>
+    <p class="big">A. New integration branch, or keep "staging"?</p>
+    <p class="say"><b>Signing up for:</b> the one place all departments meet before main.
+    <b>Deciding:</b> make <b>project/&lt;proj&gt;-integration</b> that meet-up branch (the new
+    "staging"), or keep today's plain <b>staging</b>? <b>Result:</b> one clearly-named place per
+    project vs. the generic one we use now. <b>My pick:</b> use project-integration as the new
+    staging &mdash; the name tells you the project and stops two projects sharing one staging.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128737;&#65039;</span>
+    <p class="big">B. Where do the checks happen?</p>
+    <p class="say"><b>Signing up for:</b> the quality gates on the ladder. <b>Deciding:</b> keep
+    <b>Greptile 5-of-5</b> on every PR into a department branch, and <b>your approval</b> only at
+    the final push to main? <b>Result:</b> departments self-check as they build; you only sign off
+    the final merge. <b>My pick:</b> yes &mdash; same gates as today, just applied per department,
+    your OK stays the gate to main.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#127991;&#65039;</span>
+    <p class="big">C. How we label a team's purpose</p>
+    <p class="say"><b>Signing up for:</b> making the repo self-explaining (your new requirement).
+    <b>Deciding:</b> a short <b>DEPARTMENTS.md map</b> the manager keeps current, plus a one-line
+    purpose on each department branch/PR? <b>Result:</b> anyone opening the repo sees every team,
+    its section, and its link to the core team. <b>My pick:</b> yes &mdash; a tiny map file plus
+    branch/PR descriptions; cheap, and it kills confusion later.</p>
+  </div>
+
+  <p class="foot">Short version: <b>one repo, one branch per team, a ladder up to main, nothing
+  ever deleted.</b> Say yes to <b>A, B, C</b> (or tweak) and decision 5 is locked.<br>
+  See also: <a href="parallel-departments.html">the full workflow</a> &#127959;&#65039;
+  &middot; <a href="./">all ELI5 pages</a> &#128451;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

@@ -1,5 +1,12 @@
 [
   {
+    "file": "branch-model.html",
+    "title": "Decision 5 — how the branches & worktrees work",
+    "desc": "The git model: one repo, one branch per team, a ladder up to main, nothing ever deleted. The 3 calls to lock decision 5.",
+    "date": "2026-08-27",
+    "emoji": "🌿"
+  },
+  {
     "file": "rerun-verdict-20-minutes.html",
     "title": "Rerun verdict — answer in 20 minutes",
     "desc": "Fixes confirmed live: prices flow, 3 picks fast. One leftover: reconnect avalanches jam the disk step. Part 2 next.",
