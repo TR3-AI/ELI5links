@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rerun verdict &mdash; you got your answer in 20 minutes</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Rerun verdict &#9889;</h1>
+  <p class="sub">you wanted the answer fast &mdash; it took 20 minutes, not 24 hours</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128640;</span>
+    <p class="big">Fix merged, rerun started</p>
+    <p class="say">I merged <b>PR #102</b>, gave the run <b>new IDs</b>, and started it at <b>12:55</b>. (The 24-hour length is locked in code as the official test window &mdash; there's no dial for it. Turns out we didn't need one.)</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">2</span>
+    <span class="emoji">&#127881;</span>
+    <p class="big">The fixes work</p>
+    <p class="say"><b>498 dead markets</b> refused at the door. Feed list <b>28% smaller</b>. And the big one: <b>zero prices thrown away</b> (last run: 1,550 in one log stretch). Prices flowed, and the AI made <b>3 real picks in 20 minutes</b> &mdash; the old run couldn't manage one priced pick in 24 hours.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128268;</span>
+    <p class="big">Then the connection blinked</p>
+    <p class="say">20 minutes in, the price feed reconnected once &mdash; normal, happens all day. But a reconnect dumps a <b>catch-up avalanche</b> (~5,700 events at once) on the part that files everything to disk. It fell <b>67 seconds</b> behind; the safety limit is 60.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128721;</span>
+    <p class="big">The run stopped itself &mdash; loudly</p>
+    <p class="say">Old behavior: limp along as a zombie for 24 hours saying nothing. New behavior: <b>stop immediately and say exactly why</b>. That's the fix doing its job. I've parked the service (paper money only, nothing lost) and filed <a href="https://github.com/TR3-AI/polysports-bet/issues/103">issue #103</a> with the full evidence.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#127959;&#65039;</span>
+    <p class="big">One thing left to build</p>
+    <p class="say">The disk-filing step must stop blocking the price reader during those avalanches. That's the <b>"part 2" rebuild</b> we deliberately postponed until we had proof it was needed. Now we have the proof &mdash; down to the exact line.</p>
+  </div>
+
+  <p class="sub" style="margin-top:30px">Your 1 decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#129309;</span>
+    <p class="big">Build part 2 now?</p>
+    <p class="say"><b>Signing up for:</b> one more fix (let prices reach the brain instantly; file to disk in the background), then a rerun.<br>
+    <b>Deciding:</b> build it now, or rerun as-is?<br>
+    <b>Result:</b> build it &rarr; next rerun should survive reconnects and finally produce real bets. Rerun as-is &rarr; it dies at the first reconnect, ~20&ndash;60 min in, telling us nothing new.<br>
+    <b>My call:</b> build part 2. Rerunning without it is a coin flip against the first connection blink.</p>
+  </div>
+
+  <p class="foot">Short version: fixes confirmed live &mdash; <b>prices flow, 3 picks in 20 min</b>. One leftover: reconnect avalanches still jam the disk-filing step and now stop the run loudly. Part 2 fixes that. <a href="https://github.com/TR3-AI/polysports-bet/issues/103">Issue #103</a> has the details.<br><a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
