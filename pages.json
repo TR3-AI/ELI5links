@@ -1,17 +1,17 @@
 [
   {
+    "file": "branch-model.html",
+    "title": "Decision 5 (locked) — the staging & branch model",
+    "desc": "Resolved: one repo, a staging branch per team, tickets PR in at 5/5, core owns the central staging → main. One naming toggle left.",
+    "date": "2026-08-27",
+    "emoji": "🌿"
+  },
+  {
     "file": "reconnect-crash-fix-ready.html",
     "title": "Reconnect crash fix is ready — PR #104",
     "desc": "Why the paper run kept dying after reconnects, the one-file fix that benches a slow market instead of killing the run, and the merge decision.",
     "date": "2026-08-27",
     "emoji": "🔧"
-  },
-  {
-    "file": "branch-model.html",
-    "title": "Decision 5 — how the branches & worktrees work",
-    "desc": "The git model: one repo, one branch per team, a ladder up to main, nothing ever deleted. The 3 calls to lock decision 5.",
-    "date": "2026-08-27",
-    "emoji": "🌿"
   },
   {
     "file": "rerun-verdict-20-minutes.html",
