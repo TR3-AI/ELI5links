@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Found it: why the robot went 0-for-67</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Found it: why the robot went 0-for-67 🔎</h1>
+  <p class="sub">The exact cause, proven with numbers. Written down as issue #101.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🚚</span>
+    <p class="big">The mail room fell behind</p>
+    <p class="say">Every price update that arrives must first be <b>written into 4 notebooks</b>
+    (one per run, 5&ndash;8) before the next update is even looked at. During busy game
+    hours, the waiting line grew to <b>minutes</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">⏱️</span>
+    <p class="big">The 60-second rule threw everything away</p>
+    <p class="say">A safety rule says: a price older than <b>60 seconds</b> when finally read
+    is untrustworthy &mdash; bin it. The robot was reading prices
+    <b>2 to 13 minutes late</b> (I measured it in the logs). So it binned
+    <b>basically every price, all night</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🔁</span>
+    <p class="big">The doom loop kept it broken</p>
+    <p class="say">After a hiccup, a market must show a fresh <b>&ldquo;proof photo&rdquo;</b>
+    to be trusted again. But proof photos sat in the same slow line &mdash; read late,
+    binned, <b>new photo ordered</b>, repeat. <b>961 times in 45 minutes.</b>
+    Trust never came back, so the betting brain saw <b>no prices at all</b> &mdash;
+    and 67 good AI answers died priceless.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">📚</span>
+    <p class="big">Why the line was so long</p>
+    <p class="say">We watch <b>2,523 markets at once</b> &mdash; and about <b>373 are
+    long-dead old games</b> (issue #100) that still flood the mail room with
+    paperwork for nothing.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">💡</span>
+    <p class="big">Your 2% question: fact, not hallucination</p>
+    <p class="say">It's real and it's in the code: the robot only bets when the AI's chance
+    beats the market price by <b>at least 2 points</b>. Example: AI says <b>75%</b>,
+    price is <b>72&cent;</b> &rarr; edge 3% &rarr; bet. Price at 74&cent; &rarr; edge 1% &rarr; no bet.
+    <b>Runs 1&ndash;4 had the exact same rule</b> &mdash; it is not what changed, and it
+    rejected nothing this run (nothing ever reached it).</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🔧</span>
+    <p class="big">The fix, in 3 parts (before any rerun)</p>
+    <p class="say"><b>1.</b> Stop watching dead markets &mdash; only today's games
+    (~7&times; less mail).<br>
+    <b>2.</b> Hand fresh prices to the betting brain <b>immediately</b>; write the
+    4 notebooks in the background.<br>
+    <b>3.</b> Break the doom loop &mdash; a binned proof photo must not instantly
+    order another one.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">One decision 👇</p>
+
+  <div class="card q">
+    <span class="emoji">🏁</span>
+    <p class="big">The current run still ticks until 12:24 &mdash; kill it now?</p>
+    <p class="say"><b>Signing up for:</b> it holds no bets and cannot make any;
+    it just records until the clock runs out.<br>
+    <b>Deciding:</b> pull the plug now, or let it finish by itself at 12:24.<br>
+    <b>Result:</b> let it finish &rarr; a clean end-of-run report for free.
+    Kill now &rarr; saves ~2 hours of nothing, but the run ends messy.
+    <b>I recommend: let it finish.</b> Say &ldquo;kill it&rdquo; if you want it gone.</p>
+  </div>
+
+  <p class="foot">Short version: the AI was fine, your rules were fine &mdash; the
+  <b>price mail room was too slow</b>, and a 60-second safety rule binned everything
+  it delivered late. Full technical write-up:
+  <a href="https://github.com/TR3-AI/polysports-bet/issues/101">issue #101</a> 📋<br>
+  See also: <a href="./">all ELI5 pages</a> 🏠</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
