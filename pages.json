@@ -1,5 +1,12 @@
 [
   {
+    "file": "tester-and-autopane.html",
+    "title": "Tester seat + AutoPane Lean — done",
+    "desc": "Every department team now has a Tester (GPT 5.6 sol) that checks features like a real user. Teams start with AutoPane Lean; old start-up script retired. 119 checks pass. Up on GitHub as 2 PRs into staging, main untouched. Two decisions: merge? staging or main?",
+    "date": "2026-08-27",
+    "emoji": "🧪"
+  },
+  {
     "file": "departments-built.html",
     "title": "Departments are built — ship them?",
     "desc": "Parallel department teams are coded, tested (120 pass), and saved — not pushed. Lean 6-7 seats, own tab/branch, panes-only Bobby-gated close. Two calls: push to staging? AUTOPANE ok?",
