@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reconnect crash fix is ready &mdash; PR #104</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Reconnect crash fix is ready &#128295;</h1>
+  <p class="sub">PR #104 &mdash; the last thing killing the paper run</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128269;</span>
+    <p class="big">I found the exact bug</p>
+    <p class="say">When the price feed reconnects, it re-checks all <b>1,819 markets at once</b>. Some price books got stuck in that traffic jam for over <b>60 seconds</b> &mdash; and the safety timer treated one late book as a reason to <b>kill the whole run</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#129688;</span>
+    <p class="big">And why it kept crash-looping</p>
+    <p class="say">Every restart re-ran the same giant re-check, hit the same jam, and died again &mdash; <b>3 crashes in 6 minutes</b> in the logs. The timestamps proved it.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128737;&#65039;</span>
+    <p class="big">The fix: bench one player, don't cancel the game</p>
+    <p class="say">A price book that got too old while waiting now <b>sidelines only its own market</b>, which quietly refreshes and rejoins. The other 1,800+ markets keep trading. Before, one late book ended all four betting lanes.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#9889;</span>
+    <p class="big">Also made the jam much smaller</p>
+    <p class="say">During recovery, <b>467 books each paid a full expensive disk save</b> &mdash; that alone caused a 45-second backlog. Now a whole batch shares <b>one save</b>. Same trick that fixed an earlier bug (#94).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">All checks pass</p>
+    <p class="say"><b>788 + 85 tests green</b>, strict code lint clean. One honest limit: the crash lived in the main event loop, which has no test rig &mdash; the final proof is a live run watching the <b>first reconnect</b>, which used to be a guaranteed kill.</p>
+  </div>
+
+  <p class="sub" style="margin-top:30px">Your 1 decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#129309;</span>
+    <p class="big">Approve PR #104?</p>
+    <p class="say"><b>Signing up for:</b> merging this one-file fix into staging and restarting the paper run (service is safely parked right now).<br>
+    <b>Deciding:</b> say &ldquo;merge it&rdquo; and I merge, redeploy, and personally watch the first reconnect.<br>
+    <b>Result:</b> if the fix works, the run finally survives past the ~20&ndash;60 minute mark and we get a real 24-hour answer on whether the bets flow. If something is still off, we see it within the hour, not tomorrow.<br>
+    <b>My take:</b> merge it. The old code dies at the first reconnect with 100% certainty; this can only do better.</p>
+  </div>
+
+  <p class="foot">
+    Short version: found why the run kept dying after reconnects, fixed it so one slow market can&rsquo;t kill everything, made recovery ~400&times; cheaper on disk saves. Waiting on your merge approval.<br>
+    <a href="./">all ELI5 pages</a>
+  </p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
