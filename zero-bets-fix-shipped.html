@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero bets &mdash; final report + the fix is ready</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Zero bets &#128203; final report</h1>
+  <p class="sub">the 24h run is over &mdash; and the fix is built, tested, and waiting for your OK</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#127937;</span>
+    <p class="big">Final score: 0 for 71</p>
+    <p class="say">The run ended today at <b>12:24</b>. The AI looked at <b>99</b> games, made <b>71</b> real picks, and placed <b>0 bets</b>. Every single pick was blocked for the same reason: <b>no live price on hand</b>.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#129298;</span>
+    <p class="big">Why: it drowned in dead markets</p>
+    <p class="say">It watched <b>2,523 price feeds</b> at once &mdash; and about <b>1 in 5</b> was for a game that ended long ago (some back in <b>February</b>). The part that reads prices fell <b>minutes behind</b>, and any price older than <b>60 seconds</b> gets thrown away as unsafe. So it threw away everything.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128260;</span>
+    <p class="big">The doom loop</p>
+    <p class="say">Every thrown-away price triggered an instant <b>"fetch it again"</b>. The refetched price arrived late too, got thrown away too, and triggered another refetch. <b>1,550</b> of those in the last log stretch alone. It could never catch up &mdash; right to the final minute.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128465;&#65039;</span>
+    <p class="big">Fix 1: skip dead games</p>
+    <p class="say">At startup it now <b>refuses any market whose game started over 2 days ago</b>. I checked the live market list today: the dead ones are really there (one from January) and the fix catches them. That deletes the dead fifth of the workload.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#9203;</span>
+    <p class="big">Fix 2: stop the doom loop</p>
+    <p class="say">When a refetched price arrives too old <b>again</b>, it now <b>waits before retrying</b>: 30 seconds, then doubling up to 10 minutes per market. One good price resets the wait. The loop can't feed itself anymore.</p>
+  </div>
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">Proof it's safe</p>
+    <p class="say"><b>All 972 automated checks pass</b>, including new ones written for both fixes. Old saved runs still restart cleanly. Nothing touched the betting rules &mdash; same entry bars, same 2% edge floor.</p>
+  </div>
+
+  <p class="sub" style="margin-top:30px">Your 1 decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#129309;</span>
+    <p class="big">Approve the fix (PR #102)?</p>
+    <p class="say"><b>Signing up for:</b> merging <a href="https://github.com/TR3-AI/polysports-bet/pull/102">PR #102</a> into staging &mdash; the next run starts without dead markets and without the doom loop.<br>
+    <b>Deciding:</b> is the fix good to go in?<br>
+    <b>Result:</b> merge + rerun, and we finally learn if prices flow fast enough for real bets.<br>
+    <b>My call:</b> approve and rerun. If prices still lag with a clean feed list, the next step is a bigger rebuild of the price pipeline &mdash; but we shouldn't build that until this cheap fix gets its test.</p>
+  </div>
+
+  <p class="foot">Short version: run ended <b>0 bets from 71 picks</b> &mdash; drowned in dead markets + a refetch doom loop. Both fixed, <b>972 checks green</b>, PR #102 waits for your OK.<br><a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>

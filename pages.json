@@ -1,5 +1,12 @@
 [
   {
+    "file": "zero-bets-fix-shipped.html",
+    "title": "Zero bets — final report + the fix is ready",
+    "desc": "Run ended 0-for-71. Dead markets + a refetch doom loop. Both fixed, 972 checks green, PR #102 waits for approval.",
+    "date": "2026-08-27",
+    "emoji": "🔧"
+  },
+  {
     "file": "zero-bets-root-cause.html",
     "title": "Found it: why the robot went 0-for-67",
     "desc": "the price mail room ran minutes late, a 60-second safety rule binned everything — 2% edge is real and unchanged; fix in 3 parts, issue #101",
