@@ -1,5 +1,12 @@
 [
   {
+    "file": "department-team.html",
+    "title": "Decision 3 — who's on a department team?",
+    "desc": "4 of 5 locked. A department is a lean 6-seat build crew: your 5 design seats + Green-Pass (makes the tests pass), + Front-End only for UI. Confirm to lock.",
+    "date": "2026-08-27",
+    "emoji": "👥"
+  },
+  {
     "file": "branch-model.html",
     "title": "Decision 5 — how code flows to main (lock it?)",
     "desc": "The whole flow, simple: tickets → your team's branch (5/5, 7 tries, split, test questions) → staging (whole-system test) → main with your OK. Approve to lock.",

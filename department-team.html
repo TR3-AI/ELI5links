@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision 3 &mdash; who's on a department team?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Who's on a department team? &#128101;</h1>
+  <p class="sub">4 of 5 decisions locked &mdash; one seat to confirm, then we build</p>
+
+  <div class="card">
+    <span class="emoji">&#128203;</span>
+    <p class="big">Almost there &mdash; 4 of 5 locked</p>
+    <p class="say"><b>1</b> AUTOPANE: exists, we use it. &#9989;<br>
+    <b>2</b> Gold Plan + full PRD, then split by department. &#9989;<br>
+    <b>4</b> Build with DMS (us) first. &#9989;<br>
+    <b>5</b> Branches &rarr; staging &rarr; main: locked. &#9989;<br>
+    <b>3</b> Who's on a department team? &mdash; <b>this page.</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#129718;</span>
+    <p class="big">A department team is leaner</p>
+    <p class="say">The core team has 9 seats because it does the big thinking. A <b>department
+    only builds one slice</b> &mdash; so it drops the <b>two planners</b> (the plan's already
+    split) and its research is light. It's a <b>lean build crew</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128208;</span>
+    <p class="big">The 5 you named &mdash; the design chain</p>
+    <p class="say"><b>1</b> Manager &middot; <b>2</b> Research &middot; <b>3</b> PRD &rarr; SDD
+    skeleton &middot; <b>4</b> skeleton &rarr; full SDD &middot; <b>5</b> full SDD &rarr; feature
+    tickets. That takes the department's mini-plan all the way to <b>ready-to-build tickets</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128296;</span>
+    <p class="big">But who actually builds the tickets?</p>
+    <p class="say">Making tickets isn't building them. The <b>Feature-Tickets agent</b> (seat 5)
+    writes the failing tests and does the refactor &mdash; but something has to <b>make those
+    tests pass</b>. That's the <b>Green-Pass agent</b>, and it's missing from the five.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128994;</span>
+    <p class="big">Add Green-Pass &rarr; 6 seats</p>
+    <p class="say">So a department = your 5 <b>+ Green-Pass = 6</b>. Add the <b>Front-End agent
+    only when that department touches UI</b> (like a Front-End department), and skip it
+    otherwise. Lean, but complete enough to actually ship.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
+
+  <div class="card ok">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Confirm the roster?</p>
+    <p class="say"><b>Signing up for:</b> every department team = Manager, Research, SDD-skeleton,
+    Full-SDD, Feature-Tickets, <b>Green-Pass</b> (+ Front-End only for UI departments).
+    <b>Deciding:</b> yes = roster locked; or tell me the change. <b>Result:</b> this is the
+    <b>last open piece</b> &mdash; the whole design is then locked and I ask for your green light
+    to build, DMS first. <b>My pick:</b> yes &mdash; 6 seats, + Front-End when there's UI.</p>
+  </div>
+
+  <p class="foot">In one line: <b>a department is a 6-seat build crew &mdash; your 5 plus
+  Green-Pass &mdash; plus Front-End only when it has UI.</b> Say "yes" and the design's locked;
+  next stop is build.<br>
+  See also: <a href="branch-model.html">the flow to main</a> &#128678;
+  &middot; <a href="parallel-departments.html">the full workflow</a> &#127959;&#65039;
+  &middot; <a href="./">all pages</a> &#128451;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
