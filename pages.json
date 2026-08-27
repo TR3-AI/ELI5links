@@ -1,4 +1,5 @@
 [
+  { "file": "two-new-rules-your-go.html", "title": "Two new rules — your 30-second go", "desc": "pick-one menus come straight to you; quiet mid-block unless a real blocker — both built & tested, one yes makes them live everywhere", "date": "2026-08-27", "emoji": "✅" },
   { "file": "two-kinds-of-decisions.html", "title": "Two kinds of decisions — which road each takes", "desc": "planning decisions go straight to you; everyday build-time decisions come through Ops — and why", "date": "2026-08-26", "emoji": "🛣️" },
   { "file": "operations-manager.html", "title": "The Operations Manager — the middle person", "desc": "the switchboard between you and every team — gathers, explains simply, never decides", "date": "2026-08-26", "emoji": "🛎️" },
   { "file": "autopane-how-to-use.html", "title": "Auto-Fill: how to use it (start · tab · on/off)", "desc": "type /autopane fill on a tab you're using; the on/off switch is only for auto-building new tabs — fill works either way", "date": "2026-08-26", "emoji": "🧩" },
