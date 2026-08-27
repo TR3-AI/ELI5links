@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why the robot made 0 bets &mdash; the price tag was missing</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Why the robot made 0 bets 🤖</h1>
+  <p class="sub">24 hours, 95 questions, 67 good answers &mdash; and not one bet. Here's why.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🤖</span>
+    <p class="big">The robot did its job</p>
+    <p class="say">It watched live games all day and night and asked the AI
+    <b>&ldquo;who wins?&rdquo; 95 times</b>. It got <b>67 clear, usable answers</b> back.
+    So far, so good.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🏷️</span>
+    <p class="big">Every bet needs a price tag</p>
+    <p class="say">Before betting, the robot must see the market's
+    <b>current price</b> to know if the bet is worth it.
+    <b>No price tag = no bet</b> &mdash; that's a safety rule, on purpose.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">📺</span>
+    <p class="big">The price-tag TV was broken</p>
+    <p class="say">Runs 5&ndash;8 read prices from a <b>live stream</b> &mdash; like a TV
+    channel that shows prices. That channel kept <b>crashing and wiping itself</b>:
+    <b>961 failures in just 45 minutes</b> of logs, and over the night
+    <b>147,117 &ldquo;no signal&rdquo; notes</b> against only <b>683 real price updates</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🚫</span>
+    <p class="big">All 67 chances died the same way</p>
+    <p class="say">I read every rejection line. All 67 say the same thing:
+    <b>&ldquo;no price available&rdquo; for every team in the game</b>.
+    Not one was rejected for a low score or a small edge.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">✅</span>
+    <p class="big">Your rules were NOT the problem</p>
+    <p class="say">The <b>80/60/55 bars</b>, the <b>$5,000 volume rule</b>, the score
+    floor, the <b>2% edge rule</b> &mdash; all <b>identical to runs 1&ndash;4</b>.
+    None of them ever voted. They never got a price to judge.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🔁</span>
+    <p class="big">Why runs 1&ndash;4 traded and this one didn't</p>
+    <p class="say">Old runs simply <b>asked the website</b> &ldquo;price, please?&rdquo;
+    each time &mdash; a quick question, almost always answered. New runs must
+    <b>watch the TV channel</b> instead &mdash; stricter and safer, but the
+    channel is broken. Likely why: we tuned it to <b>1,936 markets</b>, including
+    <b>~373 dead old ones</b> (issue #100).</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">📋</span>
+    <p class="big">1) File this as a bug report?</p>
+    <p class="say"><b>Signing up for:</b> 5 minutes of my work, nothing changes yet.<br>
+    <b>Deciding:</b> whether this gets written down on GitHub with all the evidence.<br>
+    <b>Result:</b> yes &rarr; a permanent record and the starting point for the fix.
+    <b>I recommend yes.</b></p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">🔧</span>
+    <p class="big">2) Rerun now, or fix the TV first?</p>
+    <p class="say"><b>Signing up for:</b> rerun = another 24-hour window plus AI costs.
+    Fix first = no run today; I hunt down why the stream keeps breaking.<br>
+    <b>Deciding:</b> what the next 24-hour window is spent on.<br>
+    <b>Result:</b> rerun now &rarr; almost certainly <b>0 bets again</b>.
+    Fix first &rarr; the next run can actually bet. <b>I recommend fix first.</b></p>
+  </div>
+
+  <p class="foot">Short version: the betting brain was fine &mdash; the <b>price feed
+  was broken</b>. Answer me with: <b>1 yes/no &middot; 2 rerun/fix</b>.<br>
+  See also: <a href="./">all ELI5 pages</a> 🏠</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
