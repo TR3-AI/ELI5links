@@ -1,5 +1,12 @@
 [
   {
+    "file": "parallel-departments.html",
+    "title": "Unified planning, parallel departments — the new workflow",
+    "desc": "One core team plans the whole project, then temporary department teams build every slice at the same time, then merge back. Plus your 5 decisions.",
+    "date": "2026-08-27",
+    "emoji": "🏗️"
+  },
+  {
     "file": "zero-bets-fix-shipped.html",
     "title": "Zero bets — final report + the fix is ready",
     "desc": "Run ended 0-for-71. Dead markets + a refetch doom loop. Both fixed, 972 checks green, PR #102 waits for approval.",
