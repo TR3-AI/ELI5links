@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Departments are built — ship them?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Departments are built &#127959;&#65039;</h1>
+  <p class="sub">the parallel-teams setup is done and tested &mdash; two small calls left for you</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#129513;</span>
+    <p class="big">What I built</p>
+    <p class="say">The <b>department setup</b> is now in the DMS code, <b>tested, and
+    saved</b> &mdash; but <b>not pushed off my laptop yet</b>. It's the thing we
+    agreed: plan once as a team, then split the <b>building</b> across many small
+    teams at the same time.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128101;</span>
+    <p class="big">A department = a small team</p>
+    <p class="say">Not the full nine. A department is a <b>lean 6-person crew</b>
+    (<b>7</b> if it has screens and buttons), with its own window, its own branch,
+    and its own memory. <b>Planning stays central</b>; only the hands-on building
+    fans out.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#129522;</span>
+    <p class="big">Starting one is one command</p>
+    <p class="say">One line spins up a department team in its own window. <b>Safe by
+    default</b>: it <b>shows the plan and does nothing</b> until I add the word
+    <b>go</b>. It never uses the old &ldquo;fill to nine&rdquo; trick &mdash; these
+    teams are meant to be lean.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128274;</span>
+    <p class="big">Closing one needs your word</p>
+    <p class="say">Closing a department shuts <b>its windows only</b>, and <b>only
+    when you say yes</b>. Its branch, commits, pull requests, and chat history are
+    <b>always kept</b> &mdash; nothing is ever deleted. The permanent core team never
+    closes.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#129514;</span>
+    <p class="big">I checked it works</p>
+    <p class="say"><b>120 tests pass</b> (5 brand-new for departments; the old 115
+    still green &mdash; nothing broke). I also <b>closed a throwaway team for real</b>:
+    it refused without a yes, then closed cleanly with one.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 calls &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#128228;</span>
+    <p class="big">Call 1 &mdash; push it up?</p>
+    <p class="say"><b>Signing up for:</b> letting the work leave my laptop.<br>
+    <b>Deciding:</b> push both branches and open pull requests into <b>staging</b>?
+    They currently sit on <b>main</b> because staging was stale/empty.<br>
+    <b>Result:</b> <b>yes</b> &rarr; backed up and reviewable; <b>no</b> &rarr; it
+    stays local only (one crash and it's gone).<br>
+    <b>My rec:</b> push, and open the PRs into staging.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#129513;</span>
+    <p class="big">Call 2 &mdash; is AUTOPANE right?</p>
+    <p class="say"><b>Signing up for:</b> confirming how a department team gets made.<br>
+    <b>Deciding:</b> the only AUTOPANE I can find just <b>&ldquo;fills a tab to
+    nine&rdquo;</b> &mdash; no lean-team command. So I built the team-maker on
+    <b>herdr</b> directly. Good enough, or is there a real AUTOPANE
+    &ldquo;make a team&rdquo; command?<br>
+    <b>Result:</b> <b>good</b> &rarr; done as-is; <b>command exists</b> &rarr; point
+    me at it and I'll wire the manager to call it.<br>
+    <b>My rec:</b> fine as-is unless you know the command.</p>
+  </div>
+
+  <p class="foot">Short version: departments are <b>built, tested, saved</b>. I need a
+  <b>yes to push</b>, and a <b>thumbs-up on how teams get made</b>.<br>
+  <a href="./">all ELI5 pages</a> &#128203;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

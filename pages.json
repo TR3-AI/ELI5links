@@ -1,5 +1,12 @@
 [
   {
+    "file": "departments-built.html",
+    "title": "Departments are built — ship them?",
+    "desc": "Parallel department teams are coded, tested (120 pass), and saved — not pushed. Lean 6-7 seats, own tab/branch, panes-only Bobby-gated close. Two calls: push to staging? AUTOPANE ok?",
+    "date": "2026-08-27",
+    "emoji": "🏗️"
+  },
+  {
     "file": "ready-to-build.html",
     "title": "The full setup — ready to build?",
     "desc": "Split Gold Plan + PRD into sections, lean 6-seat teams (+Front-End for UI), plus the new Testing Agent (front-end checks via Proofshot, built last). Green light?",
