@@ -1,8 +1,8 @@
 [
   {
     "file": "branch-model.html",
-    "title": "Decision 5 (locked) — the staging & branch model",
-    "desc": "Resolved: one repo, a staging branch per team, tickets PR in at 5/5, core owns the central staging → main. One naming toggle left.",
+    "title": "Departments & staging — the simple version",
+    "desc": "Will parallel teams collide on one staging? Yes — so each team fixes on its own branch first; only finished work hits staging; staging→main stays exactly as today.",
     "date": "2026-08-27",
     "emoji": "🌿"
   },
