@@ -1,5 +1,12 @@
 [
   {
+    "file": "ready-to-build.html",
+    "title": "The full setup — ready to build?",
+    "desc": "Split Gold Plan + PRD into sections, lean 6-seat teams (+Front-End for UI), plus the new Testing Agent (front-end checks via Proofshot, built last). Green light?",
+    "date": "2026-08-27",
+    "emoji": "🚀"
+  },
+  {
     "file": "department-team.html",
     "title": "Decision 3 — who's on a department team?",
     "desc": "4 of 5 locked. A department is a lean 6-seat build crew: your 5 design seats + Green-Pass (makes the tests pass), + Front-End only for UI. Confirm to lock.",

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The full setup &mdash; ready to build?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The full setup &mdash; ready to build? &#128640;</h1>
+  <p class="sub">what gets split &middot; who's on a team &middot; the new testing agent</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">We split TWO things, not one</p>
+    <p class="say">The <b>Gold Plan</b> (your final plan) <b>and</b> the <b>PRD</b> both get cut
+    into department sections. Each team gets <b>its section of both</b>, plus the <b>full</b>
+    Gold Plan + PRD for context &mdash; "read it all, build only your bit."</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128101;</span>
+    <p class="big">A department = 6 seats, +1 for UI</p>
+    <p class="say"><b>Manager &middot; Research &middot; SDD-skeleton &middot; Full-SDD &middot;
+    Feature-Tickets &middot; Green-Pass</b> = 6. Add a <b>Front-End</b> agent only when that
+    department has UI. Lean build crew &mdash; no planners, since planning's done centrally.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#129514;</span>
+    <p class="big">New: the Testing Agent</p>
+    <p class="say">The one agent we were missing &mdash; added and synced <b>fleet-wide</b>. It
+    tests a finished feature the way a <b>real user</b> would, from the <b>front end</b> &mdash;
+    not just "does the backend pass?"</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128433;&#65039;</span>
+    <p class="big">It clicks the buttons for real</p>
+    <p class="say">On a trading bot: it <b>drags the leverage slider to 5x, hits buy</b>, checks
+    the <b>order reached the exchange</b>, and confirms <b>positions + history show up on
+    screen</b>. Real buttons, sliders, clicks &mdash; no bugs, no dead ends.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128248;</span>
+    <p class="big">Uses Proofshot &middot; built last</p>
+    <p class="say">It drives and <b>records</b> tests with <b>Proofshot</b>, and produces a
+    <b>map of everything to test</b> plus <b>logs, timestamps, and any errors</b>. It runs on
+    its <b>own separate pipeline</b> &mdash; the <b>final</b> thing we build, after departments
+    work. You'll send the full spec then.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your green light &#128071;</p>
+
+  <div class="card ok">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Everything's aligned &mdash; build it?</p>
+    <p class="say"><b>Signing up for:</b> I build the department setup on <b>DMS first</b> (you),
+    then SM / HAP / Ops inherit it. <b>Deciding:</b> green light = go; the Testing Agent's own
+    pipeline comes <b>last</b>, with your spec. <b>Result:</b> I save the full plan to your
+    <b>Plans</b> folder and start. <b>My pick:</b> green-light it &mdash; the design is complete
+    and locked.</p>
+  </div>
+
+  <p class="foot">In one line: <b>split Gold Plan + PRD &rarr; lean 6-seat teams (+Front-End for
+  UI) &rarr; branches to staging to main &rarr; Testing Agent checks the front end last.</b>
+  Say "green light" and I start (DMS first).<br>
+  See also: <a href="department-team.html">the team</a> &#128101;
+  &middot; <a href="branch-model.html">flow to main</a> &#128678;
+  &middot; <a href="parallel-departments.html">full workflow</a> &#127959;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
