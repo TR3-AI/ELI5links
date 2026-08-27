@@ -1,8 +1,8 @@
 [
   {
     "file": "branch-model.html",
-    "title": "Departments & staging — the simple version",
-    "desc": "Will parallel teams collide on one staging? Yes — so each team fixes on its own branch first; only finished work hits staging; staging→main stays exactly as today.",
+    "title": "Decision 5 — how code flows to main (lock it?)",
+    "desc": "The whole flow, simple: tickets → your team's branch (5/5, 7 tries, split, test questions) → staging (whole-system test) → main with your OK. Approve to lock.",
     "date": "2026-08-27",
     "emoji": "🌿"
   },
