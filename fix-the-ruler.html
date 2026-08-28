@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix the ruler &mdash; the plan in plain words</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Fix the ruler 🔧</h1>
+  <p class="sub">your three questions, answered in plain words</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">📏</span>
+    <p class="big">Quick recap</p>
+    <p class="say">Run 4 made <b>+$1,049 (+10%)</b> in a week. But the AI
+    <b>exaggerates its confidence by ~28 points</b> ("80&ndash;90% sure" wins only
+    51% of the time). Our real advantage: <b>our picks win ~6 points more often
+    than the price says</b>. That's the honest ruler.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">📼</span>
+    <p class="big">Q1: "Write everything down" &mdash; where?</p>
+    <p class="say">Today the bot <b>throws away the AI's answer</b> unless it bets
+    &mdash; I checked the permanent tape today: it only stores prices. The recorder
+    saves <b>every AI answer</b>, bet or no bet. It's a <b>dashcam, not a rule</b>:
+    it changes <b>zero bets</b>. So it can go into <b>runs 5&ndash;8 right now</b>
+    without touching your freeze. The new betting rule itself waits for the
+    <b>next run</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🧢</span>
+    <p class="big">Q2: No &mdash; there is no 6% ceiling</p>
+    <p class="say">The <b>6 is a measurement, not a rule</b> &mdash; it's the size of
+    our real advantage. The rule stays: <b>bet only when the edge clears ~2&ndash;5&cent;</b>,
+    but measured with the <b>honest number, after fees</b>. A genuinely big honest
+    edge is the <b>best bet there is</b> &mdash; you'd never cap it. Exaggerated
+    "edges" don't need a ceiling: once translated to honest numbers,
+    <b>they fall below the floor by themselves</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">⚖️</span>
+    <p class="big">Q3: Why this helps &mdash; bet SIZE</p>
+    <p class="say">The bot bets <b>bigger when the edge looks bigger</b>. Fake 40&cent;
+    edge = big stake on a longshot. That's how <b>half of all Run 4 money ($4,940
+    of $10,075)</b> ended up on exaggerated longshots where the typical bet loses
+    its whole dollar. Honest numbers = <b>small, even stakes</b> &mdash; the steady
+    favorites (winning 64&ndash;87% of their bets) keep earning, and far less money
+    rides on coin flips.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">🛟</span>
+    <p class="big">Correction &mdash; you caught it</p>
+    <p class="say">Run 4 had <b>no stop-loss</b> &mdash; confirmed on the tape. What
+    limited losses was the <b>flip exit</b>: all 294 early exits were "<b>sell the
+    moment your pick stops being the favourite</b>". (Stop-loss code appears only in
+    the very last day's session &mdash; 38 exits, an experiment.) The flip exit is
+    the safety net, and it stays.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">📼</span>
+    <p class="big">Decision 1: add the recorder to runs 5&ndash;8 now?</p>
+    <p class="say"><b>What you're signing up for:</b> one small code change and a
+    redeploy, same routine as yesterday's crash fix. It records AI answers to disk.
+    <b>It cannot change any bet.</b><br><br>
+    <b>What you're deciding:</b> start collecting the learning data <b>today</b>,
+    or wait for the next run and lose every day in between.<br><br>
+    <b>If you say yes:</b> every AI answer from now on feeds the honesty table,
+    so the next run's ruler is built on far more data.
+    <b>Recommendation: yes.</b></p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">🔧</span>
+    <p class="big">Decision 2: next run bets with the honest ruler?</p>
+    <p class="say"><b>What you're signing up for:</b> the next run (not this one)
+    translates the AI's number into an honest one, subtracts fees, and only bets
+    when the honest edge clears ~2&ndash;5&cent;. Stakes are sized to the honest edge.<br><br>
+    <b>What you're deciding:</b> yes or no to this being the next run's rulebook.<br><br>
+    <b>If you say yes:</b> same steady favorites income, far less money parked on
+    exaggerated longshots, smaller swings. <b>Recommendation: yes.</b></p>
+  </div>
+
+  <p class="foot">Short version: <b>no ceiling</b> &mdash; 6 is our measured advantage,
+  not a limit. The recorder is a <b>dashcam</b> and can start in runs 5&ndash;8 today;
+  the <b>honest ruler</b> becomes the next run's rulebook. And you were right:
+  Run 4's safety net was the <b>flip exit</b>, not a stop-loss.<br>
+  <a href="./">all ELI5 pages</a> 🗂️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
