@@ -41,8 +41,8 @@
     <span class="emoji">🧠</span>
     <p class="big">One Manager, one desk</p>
     <p class="say">You talk to <b>one Manager</b>. It never builds or codes &mdash; it
-    plans the job, routes the work, checks it, and reports. Everyone else answers to
-    <b>it, not to you</b>.</p>
+    plans, routes the work, checks it, and reports. Everyone else answers to
+    <b>it, not you</b>.</p>
   </div>
 
   <div class="arrow">⬇️</div>
@@ -50,10 +50,11 @@
   <div class="card">
     <span class="num">2</span>
     <span class="emoji">👥</span>
-    <p class="big">The team</p>
-    <p class="say">A row of specialist workers, each in its own pane and its own AI
-    model: <b>2 planners, a researcher, spec-writers, backend builders, a front-end,
-    and a tester</b>.</p>
+    <p class="big">The team = 10</p>
+    <p class="say">A core team is <b>10 specialists</b>, each in its own pane and its
+    own AI model: manager, <b>2 planners</b>, research, <b>a tester</b>, 2 spec-writers,
+    2 backend builders, and a front-end. You can run <b>any number of core teams</b>
+    (projects) at once.</p>
   </div>
 
   <div class="arrow">⬇️</div>
@@ -107,8 +108,8 @@
     <span class="emoji">⭐</span>
     <p class="big">The robot gate</p>
     <p class="say">Cards ship in <b>PRs of ≤5</b>. A robot (<b>Greptile</b>) scores each
-    <b>out of 5</b>. 5/5 auto-merges to staging; below that: 7 retries &rarr; split
-    &rarr; still stuck &rarr; <b>your call</b>.</p>
+    <b>out of 5</b>. 5/5 auto-merges; below that: 7 retries &rarr; split &rarr; still
+    stuck &rarr; <b>your call</b>.</p>
   </div>
 
   <div class="arrow">⬇️</div>
@@ -117,9 +118,9 @@
     <span class="num">8</span>
     <span class="emoji">🚦</span>
     <p class="big">Two lanes: staging vs main</p>
-    <p class="say">Everything lands in <b>staging</b> (the rehearsal lane) on its own.
-    Going live to <b>main</b> always needs a passing test <b>and your explicit yes</b>.
-    The Manager never promotes itself.</p>
+    <p class="say">Work lands in <b>staging</b> (the rehearsal lane) on its own. Going
+    live to <b>main</b> always needs a passing test <b>and your explicit yes</b> &mdash;
+    the core team owns that door, nothing self-promotes.</p>
   </div>
 
   <div class="arrow">⬇️</div>
@@ -128,31 +129,46 @@
     <span class="num">9</span>
     <span class="emoji">🏢</span>
     <p class="big">Big jobs = departments</p>
-    <p class="say">For large plans, the work splits into sections &mdash; each built by a
-    small <b>temporary 8-person team</b> (front-end always in). <b>Up to 3 teams at
-    once</b>. Departments never talk to each other or to you directly.</p>
+    <p class="say">For a large project the plan is split into sections. Each is built by
+    a <b>temporary 8-agent department</b> (front-end always in, idle if no screens). A
+    team runs its <b>core + up to 2 departments</b> at once (3 crews). <b>No limit</b> on
+    how many separate core teams run. Departments never talk to each other or to you.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
     <span class="num">10</span>
-    <span class="emoji">🗣️</span>
-    <p class="big">The switchboard</p>
-    <p class="say">The <b>Operations Manager</b> sits between you and every team:
-    gathers everything, explains it simply, and puts <b>only what needs you</b> on
-    your desk.</p>
+    <span class="emoji">🔀</span>
+    <p class="big">How a department ships</p>
+    <p class="say">Each department builds on its <b>own branch</b> &mdash; that's its own
+    staging. Tickets merge there at 5/5. When the whole department is green it opens
+    one PR into the <b>one central staging</b>. The <b>whole project is tested
+    together</b> there &mdash; and that test is the one the <b>main</b> gate needs.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
     <span class="num">11</span>
+    <span class="emoji">🗣️</span>
+    <p class="big">Ops, the switchboard</p>
+    <p class="say">The <b>Operations Manager</b> sits between you and every crew. It
+    <b>batches</b> so you're never pinged by one crew &mdash; it waits for <b>2+ crews</b>
+    (any team or department). Nothing idles: after <b>30 minutes</b> with no reply a crew
+    moves to pre-approved work &mdash; except a menu question, which waits for you.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">12</span>
     <span class="emoji">🗂️</span>
-    <p class="big">Memory that survives</p>
-    <p class="say">The Manager keeps private notes &mdash; state, progress, decisions
-    &mdash; in its <b>own separate repo</b>, saved as it goes. A crash or a new session
-    <b>loses nothing</b>.</p>
+    <p class="big">Memory on GitHub, never local</p>
+    <p class="say">Every manager, team, and department &mdash; <b>Ops included</b> &mdash;
+    keeps its notes in its <b>own GitHub repo</b>, committed and <b>pushed</b> as it
+    goes. A local-only copy is a bug, not a save. Nothing is lost to a crash or a new
+    session.</p>
   </div>
 
   <p class="sub" style="margin:34px 0 10px">The golden rules 👇</p>
@@ -161,14 +177,15 @@
     <span class="emoji">🙅</span>
     <p class="big">Never decides, never guesses</p>
     <p class="say">The Manager <b>never decides or fixes</b> (that's you and the team),
-    <b>never polls</b> (workers ping it the moment they finish), and <b>never trusts
+    <b>never polls</b> (crews ping it the moment they finish), and <b>never trusts
     &ldquo;done&rdquo; on a word</b> &mdash; it re-checks the real commit, test count,
     and score.</p>
   </div>
 
-  <p class="foot">Short version: one Manager runs the team; <b>you</b> approve the plan
-  and the go-live; robots grade the code; big jobs fan out into small department teams
-  that all report up through Ops.<br>
+  <p class="foot">Short version: one Manager runs a <b>10-person</b> core team; you
+  approve the plan (<b>four times</b>) and the go-live; robots grade the code; big jobs
+  fan out into <b>8-agent departments</b> (core + up to 2) that each build on their own
+  branch and roll up into <b>one staging &rarr; main</b>, your call.<br>
   See also: <a href="how-work-flows.html">the detailed step-by-step map</a> &middot;
   <a href="operations-manager.html">the switchboard</a> &middot;
   <a href="./">all ELI5 pages</a> 📚</p>

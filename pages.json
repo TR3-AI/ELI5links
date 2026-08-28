@@ -9,7 +9,7 @@
   {
     "file": "the-whole-map.html",
     "title": "The whole map — how it all works",
-    "desc": "The full picture on one page: you talk to one Manager; you approve the plan twice (Plannotator + Wayfinder) before any code; build is test-first (red → green → tidy); a robot (Greptile) scores PRs out of 5 and auto-merges 5/5 to staging; going live to main always needs your yes; big jobs fan out into small temporary 8-person department teams that report up through the Operations Manager; the Manager keeps its own memory so nothing's lost.",
+    "desc": "The full picture on one page, updated: you talk to one Manager (a 10-person core team); you approve the plan four times (two fact sheets + two plans) before any code; build is test-first (red → green → tidy); a robot (Greptile) scores PRs out of 5, 5/5 auto-merges to staging, going live to main needs your yes; big jobs fan out into 8-agent departments (core + up to 2 per team, unlimited core teams) that build on their own branch and roll up into one central staging; Ops batches so you're never pinged by one crew; every team, department, and Ops keeps its memory on GitHub, never local.",
     "date": "2026-08-28",
     "emoji": "🗺️"
   },
