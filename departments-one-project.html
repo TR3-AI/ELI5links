@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Departments = one project</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Departments = one project 🧩</h1>
+  <p class="sub">what I shipped, what I checked, and your 6 calls</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🧩</span>
+    <p class="big">I shipped the "build to fit back together" rule</p>
+    <p class="say">Every department's code later joins into <b>one main codebase</b>. So each
+    must build <b>tidy, self-contained pieces</b> that snap back together — not a tangled
+    mess. It's <b>live now</b> on both projects' main branch.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🔍</span>
+    <p class="big">Then I checked the whole plan against your spec</p>
+    <p class="say">I read the real files and matched them to the workflow you wrote. Good news:
+    the <b>whole shape is built</b> — plan once &rarr; you approve &rarr; split into departments
+    &rarr; build in parallel &rarr; join in the middle &rarr; ship. It's all there.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">✅</span>
+    <p class="big">One easy fix, ready to go</p>
+    <p class="say">Right now departments are told the <b>how</b> (build tidy pieces) but not the
+    <b>who</b>. I want to add one blunt line they read while coding: <b>"You are not a separate
+    project. You are one department building one feature of the ONE main project."</b> Say the
+    word and it's in.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 6 calls 👇</p>
+
+  <div class="card q">
+    <span class="num">1</span>
+    <span class="emoji">👥</span>
+    <p class="big">Department crew size</p>
+    <p class="say"><b>1) What's up?</b> Your spec says 9 per department; what's built is 8.<br>
+    <b>2) Signing up for:</b> the gap is the test step — built has <b>2 people</b> do
+    write-test&rarr;make-it-pass&rarr;tidy; your spec has <b>3</b>.<br>
+    <b>3) You are deciding:</b> lean 8, or add the 3rd back to make 9.<br>
+    <b>4) Results:</b> 8 = cheaper, fewer hand-offs. 9 = matches spec, one more seat to pay for.<br>
+    <b>I'd:</b> keep 8 — it was your own later call and the work is identical.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">2</span>
+    <span class="emoji">🏛️</span>
+    <p class="big">Main (permanent) team size</p>
+    <p class="say"><b>1) What's up?</b> Your spec says 9; what's built is 10.<br>
+    <b>2) Signing up for:</b> the extra one is the <b>Tester</b>, which you added after writing
+    the spec.<br>
+    <b>3) You are deciding:</b> keep 10, or drop back to 9.<br>
+    <b>4) Results:</b> 10 = a tester on every team. 9 = matches old spec, no standing tester.<br>
+    <b>I'd:</b> keep 10 — you added the tester on purpose.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">3</span>
+    <span class="emoji">📁</span>
+    <p class="big">Where build agents work</p>
+    <p class="say"><b>1) What's up?</b> How agents share the code folder.<br>
+    <b>2) Signing up for:</b> built = <b>one shared folder</b> per department, one branch per task.
+    Spec = <b>a separate folder per task</b>.<br>
+    <b>3) You are deciding:</b> shared folder, or a folder per task.<br>
+    <b>4) Results:</b> shared = simpler, agents pass work easily. Per-task = more isolation, more
+    setup.<br>
+    <b>I'd:</b> keep shared — the build agents hand code back and forth.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">4</span>
+    <span class="emoji">🔀</span>
+    <p class="big">Where departments join up</p>
+    <p class="say"><b>1) What's up?</b> Where all departments' work merges.<br>
+    <b>2) Signing up for:</b> built = they join <b>straight into "staging"</b>. Spec = an extra
+    "integration" spot first, then staging &rarr; main.<br>
+    <b>3) You are deciding:</b> join directly, or add the extra middle step.<br>
+    <b>4) Results:</b> direct = one less branch. Extra = one more checkpoint before main.<br>
+    <b>I'd:</b> keep direct — staging already is the join point.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">5</span>
+    <span class="emoji">📋</span>
+    <p class="big">Full paperwork templates</p>
+    <p class="say"><b>1) What's up?</b> Two hand-over checklists are built "light."<br>
+    <b>2) Signing up for:</b> your spec's <b>15-item department handoff</b> pack + a <b>completion
+    report</b>. Built has short versions.<br>
+    <b>3) You are deciding:</b> build the full templates, or leave light.<br>
+    <b>4) Results:</b> full = every hand-over spells out contracts, dependencies, tests. Light =
+    less to fill in, easier to drop a detail.<br>
+    <b>I'd:</b> build the full templates — cheap, and they stop dropped details.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">6</span>
+    <span class="emoji">🔬</span>
+    <p class="big">What Research does</p>
+    <p class="say"><b>1) What's up?</b> The research agent's job.<br>
+    <b>2) Signing up for:</b> built = the <b>manager picks the tech</b>, research only prices it.
+    Spec = research also picks tech + checks what's possible.<br>
+    <b>3) You are deciding:</b> research prices only, or research also decides tech.<br>
+    <b>4) Results:</b> prices-only = manager keeps control. Fuller = more digging up front.<br>
+    <b>I'd:</b> keep prices-only — you set it that way on purpose.</p>
+  </div>
+
+  <p class="foot">Short version: the rule is <b>live</b>, the whole workflow is <b>built and matches</b>.
+  Say yes to the easy fix, and pick <b>keep</b> or <b>change</b> on the 6 calls — I'll do the edits
+  and roll them out.<br>
+  <a href="./">all ELI5 pages</a> 🗂️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

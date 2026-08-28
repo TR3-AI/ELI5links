@@ -1,5 +1,12 @@
 [
   {
+    "file": "departments-one-project.html",
+    "title": "Departments = one project",
+    "desc": "Shipped the build-to-fit-back-together rule (live on both main branches), then checked the whole department workflow against Bobby's original spec: the whole shape is built and matches. One easy fix ready (tell departments plainly they're one department of ONE project, not a separate one) plus 6 calls to make: department crew 8-vs-9, main team 10-vs-9, shared-vs-per-task work folders, direct-vs-extra-step joining, light-vs-full handoff templates, and Research prices-only vs also picks tech.",
+    "date": "2026-08-28",
+    "emoji": "🧩"
+  },
+  {
     "file": "bet-funnel-audit.html",
     "title": "The seven doors",
     "desc": "Can tonight still be zero bets? Full audit of all 7 doors a bet must pass: live game, $5k volume, AI call, AI approval, price book, timely write, surviving the night. Proven: AI transport (15 calls, 0 fails), the $30 budget cap is legacy and never read, today's 2 dead checks were correctly rejected on merit (scores 2.7–3.8 vs floor 5). Found: the feed silently reconnects every ~2 min, so quiet markets can sit bookless — busy evening markets self-heal, permanent fix scoped on #118. Watcher v2 guards the night with 6 alarms.",
