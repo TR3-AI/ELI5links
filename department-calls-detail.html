@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your calls — the detail</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+  .lead{text-align:left; font-size:16px}
+  .lead b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Your calls — the detail 🔎</h1>
+  <p class="sub">the 3 technical ones, with real examples<br>(project "Typeless", tickets api-001…api-004)</p>
+
+  <p class="sub" style="margin:30px 0 6px"><b>① Where agents work</b></p>
+
+  <div class="card q">
+    <span class="emoji">📁</span>
+    <p class="big">One shared folder, or one per task?</p>
+    <p class="say lead"><b>What a "folder" is:</b> a copy of the code, parked on <b>one</b> branch.
+    Git's rule: <b>one folder shows one branch at a time</b> — you can't work two tasks in the same
+    folder at once. Your 3 build agents work a task <b>in turn</b>: write the failing test →
+    make it pass → tidy up, passing the <b>same code</b> along.<br><br>
+    <b>Built = one shared folder per department.</b> All 3 agents work in
+    <b>../typeless-api-integration/</b>, parked on <b>feat/typeless/api-001</b>. Tidy done →
+    switch that folder to <b>feat/typeless/api-002</b> → repeat. Handing off = zero copying (same
+    files). Cost: tasks go <b>one at a time</b> inside a department.<br><br>
+    <b>Spec = a folder per task.</b> <b>worktrees/…/api-001</b>, <b>…/api-002</b>, <b>…/api-003</b>
+    all open at once. Cost: each agent needs its own copy and must <b>keep syncing</b> ("I don't
+    see your test yet"), plus lots of folders to track and clean up.<br><br>
+    <b>The real question:</b> do you want tasks running in parallel <b>inside</b> one department?
+    (You already run <b>3 whole departments</b> at once, either way.)<br><br>
+    <b>I'd:</b> keep the shared folder — the loop is sequential by nature. Add per-task folders
+    later only if one department turns into a bottleneck.</p>
+  </div>
+
+  <p class="sub" style="margin:30px 0 6px"><b>② Where departments join up</b></p>
+
+  <div class="card q">
+    <span class="emoji">🔀</span>
+    <p class="big">Straight into staging, or an extra branch first?</p>
+    <p class="say lead"><b>The setup:</b> finished work lands on <b>staging</b>, where everything is
+    tested <b>together</b>; then, with your yes, <b>staging → main</b> (the locked final branch).
+    Each department finishes on its own branch first.<br><br>
+    <b>Built:</b> department branches → <b>staging</b> → main. Staging does two jobs — it's where
+    the parts <b>assemble</b> and the branch that <b>promotes</b>. One join, one hop. Cost: while
+    you're merging department #2, staging sits <b>half-built</b> until it goes green (main is never
+    at risk — nothing promotes while red).<br><br>
+    <b>Spec:</b> department branches → a separate <b>project-integration</b> branch (assemble +
+    test there) → main. A clean <b>quarantine</b> that keeps staging untouched. Cost: an extra
+    branch + an extra hop on <b>every</b> project, even small ones.<br><br>
+    <b>The difference in one line:</b> one shared integration branch per repo (built) vs one fresh
+    integration branch per project (spec).<br><br>
+    <b>I'd:</b> keep direct-to-staging — for nearly every project staging already <b>is</b> the
+    "all together, tested" branch, and main is protected regardless. Add the extra branch only for
+    a project with long, messy integration.</p>
+  </div>
+
+  <p class="sub" style="margin:30px 0 6px"><b>③ The paperwork templates</b></p>
+
+  <div class="card q">
+    <span class="emoji">📋</span>
+    <p class="big">Leave light, or build the full templates?</p>
+    <p class="say lead"><b>Two moments work changes hands:</b> the core team hands a <b>new</b>
+    department its brief (IN), and a <b>finished</b> department hands work back (OUT). Today both
+    are light — a plan slice going in, a "done, tests pass" message coming out.<br><br>
+    <b>The gap going IN:</b> the light brief has the <b>what</b> (your plan slice) but not the
+    <b>connections</b> — a <b>dependency map</b> (who you rely on, who relies on you) and the
+    <b>exact shapes</b> (interfaces/schemas) you must consume and expose. Example: API-Integration
+    must expose data shaped a certain way; Front-end consumes it. If that shape isn't handed over
+    and <b>agreed up front</b>, Front-end guesses — and the mismatch shows up <b>at integration</b>,
+    the worst place to find it.<br><br>
+    <b>The gap coming OUT:</b> "done" carries <b>no proof</b>. A real report shows test results,
+    <b>each requirement met</b> (traceability), what's still open, and how to integrate it.<br><br>
+    <b>What "full" costs:</b> two markdown checklists — <b>handoff-package.md</b> and
+    <b>completion-package.md</b> — labeled slots the planners/manager fill in. That's the whole
+    change.<br><br>
+    <b>I'd:</b> build both. These are the two riskiest seams — starting blind to a dependency, or
+    finishing with no proof. Cheap fix, big safety. Of all your calls, the one I'd actually do.</p>
+  </div>
+
+  <p class="foot">Say <b>keep</b> or <b>change</b> on each of the three and I'll make the edits and
+  push everything live in one go.<br>
+  <a href="./">all ELI5 pages</a> 🗂️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

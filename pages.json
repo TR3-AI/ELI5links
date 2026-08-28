@@ -1,5 +1,12 @@
 [
   {
+    "file": "department-calls-detail.html",
+    "title": "Your calls — the detail",
+    "desc": "The three technical calls explained deep, with real examples (project Typeless, tickets api-001..004). 1) Where agents work: one shared folder per department (git shows one branch per folder, and the write-test/make-pass/tidy loop is sequential) vs a folder per task (parallel tasks but constant syncing + folder sprawl). 2) Where departments join up: department branches straight into staging (one join, but staging sits half-built while assembling) vs a separate project-integration quarantine branch first (cleaner, but an extra branch + hop every project). 3) Paperwork: light brief/‘done’ message vs full handoff + completion templates that force the dependency map and exact interface/schema shapes up front and carry proof back. Recommendations on each.",
+    "date": "2026-08-28",
+    "emoji": "🔎"
+  },
+  {
     "file": "department-calls-explained.html",
     "title": "Your calls, explained",
     "desc": "Two things done: the department identity rule is in (every coder reads 'you are one department building one feature of the one main project, not a separate project'), and the researcher's job is settled (you + manager pick tech, research only prices cost/limits). Five calls left, with the technical three explained plain: department crew 8-vs-9, main team 10-vs-9, one shared work folder vs a folder per task, join in staging directly vs an extra integration branch, and light vs full handoff/completion templates. Each with a recommendation.",
