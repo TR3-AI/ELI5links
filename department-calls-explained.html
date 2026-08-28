@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your calls, explained</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Your calls, explained 🗳️</h1>
+  <p class="sub">2 things done — 5 left for you to decide</p>
+
+  <div class="card ok">
+    <span class="emoji">✅</span>
+    <p class="big">Done: the identity rule</p>
+    <p class="say">Every department coder now reads, right where they build:
+    <b>"You are one department building one feature of the one main project — not a
+    separate project."</b> It's on staging now; it goes live with the rest.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">✅</span>
+    <p class="big">Settled: the researcher's job</p>
+    <p class="say">The researcher does <b>not</b> pick the tech — <b>you and the manager do</b>.
+    Research just checks <b>cost, prices, and limits</b> (like an API key with a rate cap).
+    It's already built exactly that way. No change.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Still your call 👇</p>
+
+  <div class="card q">
+    <span class="num">1</span>
+    <span class="emoji">👥</span>
+    <p class="big">Department crew size</p>
+    <p class="say"><b>1) What's up?</b> Your spec says 9 per department; built is 8.<br>
+    <b>2) Signing up for:</b> the gap is the test step — built has <b>2</b> agents do
+    write-test&rarr;make-pass&rarr;tidy; your spec has <b>3</b>.<br>
+    <b>3) You decide:</b> lean 8, or add the 3rd back to make 9.<br>
+    <b>4) Results:</b> 8 = cheaper, fewer hand-offs. 9 = matches spec, one more seat.<br>
+    <b>I'd:</b> keep 8 — your own later call, and the work is identical.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">2</span>
+    <span class="emoji">🏛️</span>
+    <p class="big">Main (permanent) team size</p>
+    <p class="say"><b>1) What's up?</b> Your spec says 9; built is 10.<br>
+    <b>2) Signing up for:</b> the extra one is the <b>Tester</b>, added after you wrote the
+    spec.<br>
+    <b>3) You decide:</b> keep 10, or drop to 9.<br>
+    <b>4) Results:</b> 10 = a tester on every team. 9 = matches old spec, no standing tester.<br>
+    <b>I'd:</b> keep 10 — you added the tester on purpose.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">3</span>
+    <span class="emoji">📁</span>
+    <p class="big">Where agents work (the "folder")</p>
+    <p class="say"><b>1) What's up?</b> A "folder" = a copy of the code on disk where an agent
+    edits. The 3 build agents work <b>one task in turn</b>, passing the same code along.<br>
+    <b>2) Signing up for:</b> built = <b>one shared folder</b> per department, one branch per task
+    inside it (no copying between agents). Spec = <b>a separate folder per task</b> — more
+    isolation, but the 3 agents must copy &amp; sync code between folders.<br>
+    <b>3) You decide:</b> one shared folder, or a folder per task.<br>
+    <b>4) Results:</b> shared = simpler, fits the write&rarr;pass&rarr;tidy flow. Per-task = many
+    tasks open at once, but more folders and plumbing.<br>
+    <b>I'd:</b> keep shared — the loop is sequential; per-task folders add copying it doesn't
+    need.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">4</span>
+    <span class="emoji">🔀</span>
+    <p class="big">Where departments join up</p>
+    <p class="say"><b>1) What's up?</b> "staging" = the branch where all finished work lands and is
+    tested together. "main" = the final locked branch.<br>
+    <b>2) Signing up for:</b> built = departments merge <b>straight into staging</b>, whole-system
+    test runs there, green + your yes &rarr; main. Spec = an <b>extra "integration" branch</b>
+    first, tested there, then on to main.<br>
+    <b>3) You decide:</b> join in staging directly, or add the extra middle branch.<br>
+    <b>4) Results:</b> direct = one join point, one less branch. Extra = a cleaner staging, but one
+    more hop every project.<br>
+    <b>I'd:</b> keep direct — staging already is the join-and-test branch, and main is protected
+    either way.</p>
+  </div>
+
+  <div class="card q">
+    <span class="num">5</span>
+    <span class="emoji">📋</span>
+    <p class="big">Full paperwork templates</p>
+    <p class="say"><b>1) What's up?</b> Two hand-over docs: the pack a <b>new</b> department gets,
+    and the report a <b>finished</b> one gives back.<br>
+    <b>2) Signing up for:</b> built = <b>light</b> (a new dept gets its plan slice + the full plan;
+    a finished dept just messages "done, tests pass"). Spec = <b>full templates</b> — a 15-item
+    handoff and a real completion report, every item a slot to fill, no blanks.<br>
+    <b>3) You decide:</b> full templates, or leave light.<br>
+    <b>4) Results:</b> full = nothing dropped at the two riskiest moments; a little more to fill.
+    Light = quicker, easier to miss a detail.<br>
+    <b>I'd:</b> build the full templates — cheap, and these are exactly where details go
+    missing.</p>
+  </div>
+
+  <p class="foot">Identity rule + researcher's job = <b>done</b>. Tell me <b>keep</b> or
+  <b>change</b> on the 5, and I'll make the edits and push everything live in one go.<br>
+  <a href="./">all ELI5 pages</a> 🗂️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

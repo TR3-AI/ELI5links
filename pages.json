@@ -1,5 +1,12 @@
 [
   {
+    "file": "department-calls-explained.html",
+    "title": "Your calls, explained",
+    "desc": "Two things done: the department identity rule is in (every coder reads 'you are one department building one feature of the one main project, not a separate project'), and the researcher's job is settled (you + manager pick tech, research only prices cost/limits). Five calls left, with the technical three explained plain: department crew 8-vs-9, main team 10-vs-9, one shared work folder vs a folder per task, join in staging directly vs an extra integration branch, and light vs full handoff/completion templates. Each with a recommendation.",
+    "date": "2026-08-28",
+    "emoji": "🗳️"
+  },
+  {
     "file": "departments-one-project.html",
     "title": "Departments = one project",
     "desc": "Shipped the build-to-fit-back-together rule (live on both main branches), then checked the whole department workflow against Bobby's original spec: the whole shape is built and matches. One easy fix ready (tell departments plainly they're one department of ONE project, not a separate one) plus 6 calls to make: department crew 8-vs-9, main team 10-vs-9, shared-vs-per-task work folders, direct-vs-extra-step joining, light-vs-full handoff templates, and Research prices-only vs also picks tech.",
