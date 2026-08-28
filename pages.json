@@ -1,5 +1,12 @@
 [
   {
+    "file": "where-we-stand.html",
+    "title": "Where we stand",
+    "desc": "The whole delegation-manager build in one look — done and live. One Manager is your only point of contact; two planners draft and you approve four times before any code; features are built test-first with a robot (Greptile) scoring each batch, 5/5 into staging, going live needs your yes; big jobs split into lean departments (core + up to 2, unlimited core teams) that roll into one central place to test together; every team and seat keeps its memory on GitHub and the Operations Manager batches your updates so you are not pinged by each crew. It is all built and live now, every team inherits it including the 10th seat (the tester, seated but idle). The only piece still parked, on purpose, is Mr. Tester's testing pipeline.",
+    "date": "2026-08-28",
+    "emoji": "🧭"
+  },
+  {
     "file": "now-every-team-gets-it.html",
     "title": "Now every team gets it",
     "desc": "You were right — the new work wasn't reaching new teams or SM and HAP. Why: it sat in the staging waiting room, but teams are built from main and read their rulebook from main, and main was behind. I did the sweep you asked for first (118 checks pass), fixed two stale spots (the README named team members who no longer exist, and 4 files said the Operations Manager doesn't exist yet when it's live), then promoted both the setup repo and the rulebook repo to main and confirmed nothing was dropped. New teams now inherit everything: departments, memories, the Operations Manager, the 10-seat roster. SM and HAP get the new rules on their next refresh and run one small upgrade for the 10th seat. Only Mr. Tester's pipeline is left, parked on purpose.",

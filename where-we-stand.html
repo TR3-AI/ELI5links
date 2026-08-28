@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where we stand 🧭</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Where we stand 🧭</h1>
+  <p class="sub">The whole build in one look &mdash; done, live, one thing left.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🚪</span>
+    <p class="big">One door in</p>
+    <p class="say">You talk to <b>one Manager</b>, nobody else. It runs the whole team,
+    routes the work, checks it, and reports back &mdash; it never bogs you down with the
+    small stuff.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">✅</span>
+    <p class="big">Four yeses before any code</p>
+    <p class="say">Two planners draft the plan. You approve <b>four times</b> (two fact
+    sheets + two plans) before a single line is built. Nothing sneaks past you.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🏗️</span>
+    <p class="big">Built the safe way</p>
+    <p class="say">Every feature is <b>test-first</b> (write the failing test, make it
+    pass, tidy up). A robot scores each batch out of 5; <b>5/5 slides into staging</b>.
+    Going live to the real shelf still needs <b>your yes</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">👥</span>
+    <p class="big">Big jobs split up</p>
+    <p class="say">Work fans out into <b>lean departments</b> (a core team + up to 2 at a
+    time, as many core teams as you want). Each builds on its own branch, then it all
+    <b>rolls back into one place</b> to be tested together.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🗂️</span>
+    <p class="big">Everyone remembers, nobody spams you</p>
+    <p class="say">Every team and seat keeps its <b>own memory on GitHub</b>. The
+    <b>Operations Manager</b> sits between you and the teams and <b>batches</b> the
+    updates, so you're never pinged by one crew at a time.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="num">6</span>
+    <span class="emoji">🚀</span>
+    <p class="big">Built, live &mdash; one thing left</p>
+    <p class="say">All of the above is <b>done and live</b> today; every team inherits it,
+    including the <b>10th seat, the tester</b> (seated but idle). The <b>only</b> piece
+    still parked &mdash; on purpose &mdash; is <b>Mr. Tester's testing pipeline</b>. Your move.</p>
+  </div>
+
+  <p class="foot">Short version: the whole delegation system is built and live &mdash; one Manager,
+  four approvals, test-first with a robot gate, departments that roll into one place, memory on
+  GitHub, and an Operations Manager batching your updates. Only the tester's pipeline is left.<br>
+  <a href="the-whole-map.html">the whole map</a> &middot;
+  <a href="now-every-team-gets-it.html">how it went live</a> &middot;
+  <a href="./">all ELI5 pages</a> 📚</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
