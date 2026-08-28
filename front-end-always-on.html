@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Front-end always on the team 🎨</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Front-end always on the team 🎨</h1>
+  <p class="sub">one fewer switch to remember</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🧩</span>
+    <p class="big">What a "department team" is</p>
+    <p class="say">A small, temporary crew that builds <b>one slice</b> of a bigger
+    project &mdash; a manager, a researcher, a tester, and a couple of builders.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🪑</span>
+    <p class="big">The change</p>
+    <p class="say">The <b>front-end</b> worker (screens, layout, the look) used to join
+    that crew <b>only if</b> the slice had screens. Now it's <b>always on the team</b>
+    &mdash; <b>8 seats every time</b>. No screens? It just sits idle.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🎚️</span>
+    <p class="big">Why bother</p>
+    <p class="say">It kills a switch. Before, someone had to remember to flip
+    &ldquo;this team has screens&rdquo; on &mdash; forget it, and the screen work had
+    <b>nobody</b>. Now there's <b>nothing to flip and nothing to forget</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">📝</span>
+    <p class="big">What I touched</p>
+    <p class="say">The setup script, the team's seating chart, the rulebook, and the
+    tests all now say <b>front-end is permanent</b>. The old on/off switch is gone
+    <b>everywhere</b> &mdash; one clean cut, no leftovers.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">✅</span>
+    <p class="big">Proof it works</p>
+    <p class="say">Ran the tests: <b>118 pass</b>. Deleted <b>1</b> old test &mdash; it
+    only checked the switch that no longer exists.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">📦</span>
+    <p class="big">Where it went</p>
+    <p class="say"><b>2 commits</b> onto the <b>2 pull requests</b> already open, aimed at
+    <b>staging</b> (the safe holding lane). Your live <b>main is untouched</b>.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">📜</span>
+    <p class="big">1. The old plan notes</p>
+    <p class="say"><b>What's up:</b> the frozen &ldquo;plan record&rdquo; files still
+    say the <b>old</b> rule &mdash; &ldquo;front-end only after a design plan.&rdquo; The
+    code no longer works that way.<br>
+    <b>You're deciding:</b> reword those notes to match, or leave them as a dated
+    snapshot.<br>
+    <b>Result:</b> reword &rarr; everything reads the same. Leave &rarr; code is
+    always-8, but the record still shows the retired rule.<br>
+    <b>I'd:</b> <b>leave them</b> &mdash; they're a record of what was agreed that day,
+    and the rulebook + code are the real source now. Say the word to rewrite.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">🚦</span>
+    <p class="big">2. Ship it?</p>
+    <p class="say"><b>What's up:</b> two pull requests (<b>#25</b> and <b>#17</b>) are
+    open into <b>staging</b>, not main.<br>
+    <b>You're deciding:</b> merge them into staging now, or hold.<br>
+    <b>Result:</b> merge &rarr; this change plus the earlier wiring lands in staging,
+    <b>main still untouched</b>. Hold &rarr; nothing moves.<br>
+    <b>I'd:</b> <b>merge both</b> &mdash; tests are green and main stays protected.
+    (Pushing staging &rarr; main later is a separate yes from you.)</p>
+  </div>
+
+  <p class="foot">Short version: the design worker is now a <b>permanent</b> teammate
+  &mdash; 8 seats, always, idle when there's no screens. Tests pass; it's waiting in
+  staging.<br>
+  <a href="./">all ELI5 pages</a> 📚</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

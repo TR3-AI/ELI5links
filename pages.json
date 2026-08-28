@@ -1,5 +1,12 @@
 [
   {
+    "file": "front-end-always-on.html",
+    "title": "Front-end always on the team",
+    "desc": "The design worker used to join a department build-crew only if it had screens. Now it's a permanent seat — 8 every time, idle when there's no UI. One switch removed, tests 118 pass, 2 PRs open into staging with main untouched. Your call: reword the old plan record, and merge the PRs.",
+    "date": "2026-08-28",
+    "emoji": "🎨"
+  },
+  {
     "file": "ops-memory-compared.html",
     "title": "Ops memory — checked it",
     "desc": "The Ops manager DOES have his own live GitHub repo (ops-manager-memory, updated Aug 27). The local copy stopped Aug 15, is wired to the wrong repos, and is a strict older subset — every local-only scrap already exists online, fuller. Nothing lost. Decision: leave the old local copy or delete it.",
