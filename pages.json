@@ -1,5 +1,12 @@
 [
   {
+    "file": "stopwatch-too-short.html",
+    "title": "The stopwatch is too short",
+    "desc": "Why the betting bot made 0 bets today: it watches 1,679 games, and after every connection blip it must re-check each one — but a check only counts if under 2 minutes fresh, and checking takes ~2¼ minutes. Every check expires seconds too late (one by a third of a second), 99% of games stay untrusted, new games jam the doorway (issue 118), and a plain restart re-jams. Two decisions: bump the stopwatch to 5 minutes and restart tonight, and merge the recorder (PR #116) into the same restart.",
+    "date": "2026-08-28",
+    "emoji": "⏱️"
+  },
+  {
     "file": "where-we-stand.html",
     "title": "Where we stand",
     "desc": "The whole delegation-manager build in one look — done and live. One Manager is your only point of contact; two planners draft and you approve four times before any code; features are built test-first with a robot (Greptile) scoring each batch, 5/5 into staging, going live needs your yes; big jobs split into lean departments (core + up to 2, unlimited core teams) that roll into one central place to test together; every team and seat keeps its memory on GitHub and the Operations Manager batches your updates so you are not pinged by each crew. It is all built and live now, every team inherits it including the 10th seat (the tester, seated but idle). The only piece still parked, on purpose, is Mr. Tester's testing pipeline.",

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The stopwatch is too short &mdash; why the bot made 0 bets today</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The stopwatch is too short ⏱️</h1>
+  <p class="sub">why the betting bot made 0 bets today &mdash; and the fix</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">📺</span>
+    <p class="big">The bot watches 1,679 games</p>
+    <p class="say">Like a wall of <b>1,679 TVs</b>. It only bets on a TV it <b>trusts</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🔌</span>
+    <p class="big">When the cable blips, trust resets</p>
+    <p class="say">After every blip the bot must <b>re-check every TV</b> with its own eyes. House rule: a check only counts if it's <b>under 2 minutes fresh</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🗑️</span>
+    <p class="big">Checking takes MORE than 2 minutes</p>
+    <p class="say">So every check expires before it counts. Today's checks arrived <b>2:00&ndash;2:19 old</b> &mdash; one missed by <b>a third of a second</b>. All thrown away.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🙈</span>
+    <p class="big">Result: 11 trusted TVs out of 1,679</p>
+    <p class="say">After blip #78 the bot trusted <b>11 TVs</b>. <b>99% stayed dark</b>. You can't bet on a TV you don't trust &rarr; <b>0 bets all day</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🚪</span>
+    <p class="big">It also explains issue 118</p>
+    <p class="say">New games must pass the same fresh-check to join. They never can, so they <b>block the doorway</b> for everyone behind them. Kicking them out worked for <b>48 seconds</b> &mdash; 5 new games walked in and got stuck too. Bailing water with a <b>hole in the boat</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🔁</span>
+    <p class="big">A plain restart fixes nothing</p>
+    <p class="say">Same 2-minute stopwatch, same 1,679 TVs &rarr; it <b>jams again on the first blip</b>. You were right to push back on that.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">⏱️</span>
+    <p class="big">Decision 1: give it a 5-minute stopwatch tonight?</p>
+    <p class="say"><b>1) What's up?</b> One setting says checks expire at 2 minutes; the checks take ~2&frac14; minutes.<br>
+    <b>2) Signing up for:</b> change the setting from <b>120 &rarr; 300 seconds</b> and restart. Any fix restarts the experiment fresh &mdash; today's runs are lost either way.<br>
+    <b>3) You are deciding:</b> restart tonight with the longer stopwatch, or wait for the proper code fix.<br>
+    <b>4) Results:</b> Yes &rarr; checks finally count, TVs light up, tonight's games produce data; small cost &mdash; the bot may act on prices up to <b>5 min old</b>, so data is a bit blurrier. No &rarr; tonight is another <b>zero</b>; the proper fix (check TVs in big handfuls, fast enough for 2 min) takes days of code + review.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">📼</span>
+    <p class="big">Decision 2: put the recorder on the same restart?</p>
+    <p class="say"><b>1) What's up?</b> The recorder (PR #116) writes down every AI score &mdash; it's off unless we flip it on, and it can't touch betting.<br>
+    <b>2) Signing up for:</b> approve the PR once tests go green (the red was a <b>coin-flip test</b>, not our change &mdash; rerunning now).<br>
+    <b>3) You are deciding:</b> merge it into tonight's restart, or ship it later.<br>
+    <b>4) Results:</b> Yes &rarr; tonight's games also give us <b>AI-score tapes</b> for free. No &rarr; nothing breaks, we just wait another day for that data.</p>
+  </div>
+
+  <p class="say" style="text-align:center; margin-top:18px"><b>I'd: do both</b> &mdash; 5-minute stopwatch + recorder, one restart, before tonight's games. Then build the proper speed fix as the real issue-118 cure.</p>
+
+  <p class="foot">Short version: the bot throws away every trust-check because they arrive <b>seconds too old</b>. Give it a <b>5-minute stopwatch tonight</b>, fix the slow checking properly next.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
