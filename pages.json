@@ -1,5 +1,12 @@
 [
   {
+    "file": "rules-refresh.html",
+    "title": "New rules reach every team",
+    "desc": "When the shared rulebook changed, teams already working used to keep running on the old rules until someone set them up fresh. Now you tell Ops 'push the new rules' and Ops pings every team manager once — each one pulls the latest rules, loads them, and confirms back. Plus every new team seat now grabs the newest rules before it starts, so nobody begins on a stale copy. Reuses the message system Ops already has, so no new services. 120 checks pass; it's on staging waiting for your OK to go live on main.",
+    "date": "2026-08-28",
+    "emoji": "🔄"
+  },
+  {
     "file": "plan-and-prd-both-phased.html",
     "title": "Plan and PRD — both get phased",
     "desc": "Two clarifications. First, 'the ticket-writer fills each phase' means the Feature Tickets seat turns each phase (a chunky milestone like 'get login working') into the small, real tasks — tickets, each with a mini-spec and a test to pass — that the crew actually builds. Second: both the Gold Plan and the full PRD are cut into the same phases for every team, not just the plan. The rule used to lean on the word 'section'; it now names both the Gold Plan slice and the PRD slice outright. Words-only, 118 tests pass, on staging for both repos — rides the same main go-ahead already in front of you.",
