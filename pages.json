@@ -1,5 +1,12 @@
 [
   {
+    "file": "the-whole-map.html",
+    "title": "The whole map — how it all works",
+    "desc": "The full picture on one page: you talk to one Manager; you approve the plan twice (Plannotator + Wayfinder) before any code; build is test-first (red → green → tidy); a robot (Greptile) scores PRs out of 5 and auto-merges 5/5 to staging; going live to main always needs your yes; big jobs fan out into small temporary 8-person department teams that report up through the Operations Manager; the Manager keeps its own memory so nothing's lost.",
+    "date": "2026-08-28",
+    "emoji": "🗺️"
+  },
+  {
     "file": "front-end-always-on.html",
     "title": "Front-end always on the team",
     "desc": "The design worker used to join a department build-crew only if it had screens. Now it's a permanent seat — 8 every time, idle when there's no UI. One switch removed, tests 118 pass, 2 PRs open into staging with main untouched. Your call: reword the old plan record, and merge the PRs.",
