@@ -1,5 +1,12 @@
 [
   {
+    "file": "bet-funnel-audit.html",
+    "title": "The seven doors",
+    "desc": "Can tonight still be zero bets? Full audit of all 7 doors a bet must pass: live game, $5k volume, AI call, AI approval, price book, timely write, surviving the night. Proven: AI transport (15 calls, 0 fails), the $30 budget cap is legacy and never read, today's 2 dead checks were correctly rejected on merit (scores 2.7–3.8 vs floor 5). Found: the feed silently reconnects every ~2 min, so quiet markets can sit bookless — busy evening markets self-heal, permanent fix scoped on #118. Watcher v2 guards the night with 6 alarms.",
+    "date": "2026-08-28",
+    "emoji": "🚪"
+  },
+  {
     "file": "stopwatch-too-short.html",
     "title": "The stopwatch is too short",
     "desc": "Why the betting bot made 0 bets today: it watches 1,679 games, and after every connection blip it must re-check each one — but a check only counts if under 2 minutes fresh, and checking takes ~2¼ minutes. Every check expires seconds too late (one by a third of a second), 99% of games stay untrusted, new games jam the doorway (issue 118), and a plain restart re-jams. Two decisions: bump the stopwatch to 5 minutes and restart tonight, and merge the recorder (PR #116) into the same restart.",
