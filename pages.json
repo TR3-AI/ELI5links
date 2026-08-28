@@ -1,5 +1,12 @@
 [
   {
+    "file": "the-tenth-seat-is-in.html",
+    "title": "The 10th seat is in",
+    "desc": "Done: the tester is now the 10th seat, so a brand-new team builds 10 memory drawers, not 9. The setup script had been skipping it; every part says 10 now. The tester is a real seat with its own pane and memory but it idles — like the front-end seat with no design work — and does nothing until you hand me its Proofshot testing plan. Also merged the two waiting changes (#26 and #18) into staging (main untouched), and made your decision format — What's up, Signing up for, You are deciding, Results — the house standard for every future ELI5 page.",
+    "date": "2026-08-28",
+    "emoji": "🔟"
+  },
+  {
     "file": "did-we-miss-anything.html",
     "title": "Did we miss anything? The flow check",
     "desc": "I checked the whole delegation flow end to end. Good news: it holds — idea to four approvals to build to robot gate to your go-live is all there. Found 4 loose ends, not holes. The one real gap is the tester: the core team is meant to be 10 but the setup still builds 9, so a new team gets no memory drawer for the tester. Two decisions for you: wire in the 10th seat, and merge the two waiting pull requests (#26 and #18) into staging.",
