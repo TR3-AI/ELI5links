@@ -1,5 +1,12 @@
 [
   {
+    "file": "ops-memory-your-call.html",
+    "title": "Merged — one loose end",
+    "desc": "Both PRs merged into staging (main untouched). Everything from this job is backed up. The only thing stuck local: the Ops manager's memory — 2 versions, 14 notes each, from 2 weeks ago, never pushed. Your call: leave it, back up both, or make it its own repo.",
+    "date": "2026-08-28",
+    "emoji": "🗂️"
+  },
+  {
     "file": "tester-and-autopane.html",
     "title": "Tester seat + AutoPane Lean — done",
     "desc": "Every department team now has a Tester (GPT 5.6 sol) that checks features like a real user. Teams start with AutoPane Lean; old start-up script retired. 119 checks pass. Up on GitHub as 2 PRs into staging, main untouched. Two decisions: merge? staging or main?",
