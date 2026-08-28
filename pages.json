@@ -1,5 +1,12 @@
 [
   {
+    "file": "ops-memory-compared.html",
+    "title": "Ops memory — checked it",
+    "desc": "The Ops manager DOES have his own live GitHub repo (ops-manager-memory, updated Aug 27). The local copy stopped Aug 15, is wired to the wrong repos, and is a strict older subset — every local-only scrap already exists online, fuller. Nothing lost. Decision: leave the old local copy or delete it.",
+    "date": "2026-08-28",
+    "emoji": "🔍"
+  },
+  {
     "file": "ops-memory-your-call.html",
     "title": "Merged — one loose end",
     "desc": "Both PRs merged into staging (main untouched). Everything from this job is backed up. The only thing stuck local: the Ops manager's memory — 2 versions, 14 notes each, from 2 weeks ago, never pushed. Your call: leave it, back up both, or make it its own repo.",
