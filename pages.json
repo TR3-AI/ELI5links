@@ -1,5 +1,12 @@
 [
   {
+    "file": "who-inherits-what.html",
+    "title": "Who inherits what?",
+    "desc": "When a team starts — or gets updated — 'inherit' hides a split. Three separate things travel at different speeds. RULES: a rule change reaches a new team AND the running teams (SM, HAP) automatically — that's the refresh, on your word. TOOLKIT + CODE: a brand-new team is built from the shared master copy, so it gets every tool and every bit of code finished so far; but SM and HAP copied the toolkit when they started, so new tools built later do NOT reach them on their own — someone has to pull them in (no background robot does it). PRIVATE NOTES: never travel — each team keeps its own private notebook, a new team starts empty and fresh, nobody inherits another team's notes. One decision inside: should toolkit updates auto-reach running teams too, or stay a deliberate manual pull? (I lean manual for now — rules are safe to auto-send, code isn't.)",
+    "date": "2026-08-28",
+    "emoji": "🧬"
+  },
+  {
     "file": "rules-refresh.html",
     "title": "New rules reach every team",
     "desc": "When the shared rulebook changed, teams already working used to keep running on the old rules until someone set them up fresh. Now you tell Ops 'push the new rules' and Ops pings every team manager once — each one pulls the latest rules, loads them, and confirms back. Plus every new team seat now grabs the newest rules before it starts, so nobody begins on a stale copy. Reuses the message system Ops already has, so no new services. 120 checks pass; it's on staging waiting for your OK to go live on main.",
