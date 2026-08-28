@@ -1,5 +1,12 @@
 [
   {
+    "file": "plans-now-in-phases.html",
+    "title": "Plans now come in phases",
+    "desc": "You asked: do departments do all the reports (yes — all five: state, spaceship, end-of-block, progress, end-of-phase), and are their plans cut into phases like the core team's? That last bit was the gap: a team got its slice of the plan but nobody cut it into phases, so the end-of-phase report had no phase to end. Fixed — every team's slice (core team included) is now cut into ordered phases up front, written into the brief (now 16 items) and the rulebook, so every team works phase by phase and files an end-of-phase report at each. Docs-only, 118 tests pass, on staging for both repos (PR #26 + #35). Waiting on your main go-ahead.",
+    "date": "2026-08-28",
+    "emoji": "🪜"
+  },
+  {
     "file": "bot-found-bets-door-jammed.html",
     "title": "The bot found bets — the door was jammed",
     "desc": "35 real chances found, all 35 killed by stale prices; the fix is ready — restart tonight or wait?",
