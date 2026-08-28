@@ -1,5 +1,12 @@
 [
   {
+    "file": "betting-edge-checkup.html",
+    "title": "Is our 2% edge rule right?",
+    "desc": "One week of real Run-4 bets checked against final results: +$1,049 (+10%), 65% of bets won. But the AI exaggerates its confidence by ~28 points — the real edge is +6 over the market price. Keep 2% for now; next run, fix the ruler.",
+    "date": "2026-08-28",
+    "emoji": "📏"
+  },
+  {
     "file": "the-whole-map.html",
     "title": "The whole map — how it all works",
     "desc": "The full picture on one page: you talk to one Manager; you approve the plan twice (Plannotator + Wayfinder) before any code; build is test-first (red → green → tidy); a robot (Greptile) scores PRs out of 5 and auto-merges 5/5 to staging; going live to main always needs your yes; big jobs fan out into small temporary 8-person department teams that report up through the Operations Manager; the Manager keeps its own memory so nothing's lost.",
