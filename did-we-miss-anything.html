@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Did we miss anything? 🔍</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Did we miss anything? 🔍</h1>
+  <p class="sub">I checked the whole flow &mdash; 4 loose ends</p>
+
+  <div class="card">
+    <span class="emoji">✅</span>
+    <p class="big">The flow holds</p>
+    <p class="say">Good news first: the path from <b>idea &rarr; four approvals &rarr;
+    build &rarr; robot gate &rarr; your go-live</b>, and big jobs splitting into
+    departments &mdash; it's all there and matches what we agreed. I found <b>4 loose
+    ends, not holes</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🔟</span>
+    <p class="big">The team says 10, builds 9</p>
+    <p class="say">We agreed the core team is <b>10</b> (with the tester). But the setup
+    still builds <b>9</b> &mdash; a new team gets <b>no memory drawer for the tester</b>.
+    This is almost certainly the thing you felt.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🧪</span>
+    <p class="big">Testing is thin</p>
+    <p class="say">The quick check (4 questions after a robot 5/5) is there. But the
+    <b>real user-test</b> &mdash; the tester driving the finished feature like a person
+    (Proofshot) &mdash; is only a <b>seat</b>, not a step, and its own plan is one
+    <b>you still owe me</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🕒</span>
+    <p class="big">The daily rhythm isn't on the quick map</p>
+    <p class="say">Your <b>work blocks</b> and the <b>report types</b> (spaceship,
+    end-of-block, blocker, end-of-phase table) are written down and on the <b>detailed</b>
+    map &mdash; but the one-screen map only shows Ops batching.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🚪</span>
+    <p class="big">Two changes waiting at the door</p>
+    <p class="say">This session's <b>concurrency rules</b> (unlimited teams, core + 2
+    departments) and the <b>save-to-GitHub</b> rule are sitting in <b>two open pull
+    requests</b> &mdash; not merged into staging yet.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">🛠️</span>
+    <p class="big">1. Wire in the 10th seat?</p>
+    <p class="say"><b>What's up:</b> the build makes 9, not the agreed 10.<br>
+    <b>Signing up for:</b> I update ~8 files (setup script, tests, docs, plan, and the
+    frozen fact sheet) so a new core team spawns <b>10</b> &mdash; the tester included,
+    with its own memory drawer.<br>
+    <b>You're deciding:</b> do it now, or leave the build at 9.<br>
+    <b>Result:</b> do it &rarr; build matches 10 everywhere. Leave &rarr; the map and
+    config say 10, but every new team still comes up as 9 and the tester has nowhere to
+    keep notes.<br>
+    <b>I'd:</b> <b>do it now</b> &mdash; it's the gap you sensed.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">🚦</span>
+    <p class="big">2. Merge the two waiting changes?</p>
+    <p class="say"><b>What's up:</b> PRs <b>#26</b> and <b>#18</b> are open into staging.<br>
+    <b>Signing up for:</b> the concurrency rules + the &ldquo;save to GitHub, never
+    local&rdquo; rule land in <b>staging</b>.<br>
+    <b>You're deciding:</b> merge now, or hold.<br>
+    <b>Result:</b> merge &rarr; they're in staging (<b>main untouched</b>, as always).
+    Hold &rarr; they wait in the open PRs.<br>
+    <b>I'd:</b> <b>merge</b> &mdash; they're clean and the tests pass.</p>
+  </div>
+
+  <p class="foot">Short version: the flow is whole; the one real gap is the <b>tester</b>
+  &mdash; the team is meant to be 10 but still builds 9. Say the word and I'll fix it and
+  merge the two waiting changes.<br>
+  I can also draft a first <b>Proofshot</b> testing plan and add the <b>daily rhythm</b>
+  to the map if you want.<br>
+  <a href="the-whole-map.html">the whole map</a> &middot;
+  <a href="./">all ELI5 pages</a> 📚</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

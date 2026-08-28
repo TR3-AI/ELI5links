@@ -1,5 +1,12 @@
 [
   {
+    "file": "did-we-miss-anything.html",
+    "title": "Did we miss anything? The flow check",
+    "desc": "I checked the whole delegation flow end to end. Good news: it holds — idea to four approvals to build to robot gate to your go-live is all there. Found 4 loose ends, not holes. The one real gap is the tester: the core team is meant to be 10 but the setup still builds 9, so a new team gets no memory drawer for the tester. Two decisions for you: wire in the 10th seat, and merge the two waiting pull requests (#26 and #18) into staging.",
+    "date": "2026-08-28",
+    "emoji": "🔍"
+  },
+  {
     "file": "fix-the-ruler.html",
     "title": "Fix the ruler — the plan in plain words",
     "desc": "Answers to your three questions: the AI-answer recorder is a dashcam and can start in runs 5-8 today; there is no 6% ceiling (6 is our measured advantage over the price, not a limit); honest numbers mainly fix bet SIZE — half of Run 4 money sat on exaggerated longshots. Plus a correction: Run 4 had no stop-loss, the flip exit was the safety net.",
