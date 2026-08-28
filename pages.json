@@ -1,5 +1,12 @@
 [
   {
+    "file": "plan-and-prd-both-phased.html",
+    "title": "Plan and PRD — both get phased",
+    "desc": "Two clarifications. First, 'the ticket-writer fills each phase' means the Feature Tickets seat turns each phase (a chunky milestone like 'get login working') into the small, real tasks — tickets, each with a mini-spec and a test to pass — that the crew actually builds. Second: both the Gold Plan and the full PRD are cut into the same phases for every team, not just the plan. The rule used to lean on the word 'section'; it now names both the Gold Plan slice and the PRD slice outright. Words-only, 118 tests pass, on staging for both repos — rides the same main go-ahead already in front of you.",
+    "date": "2026-08-28",
+    "emoji": "📚"
+  },
+  {
     "file": "who-cuts-the-plan.html",
     "title": "Who cuts up the plan?",
     "desc": "Who splits the Gold Plan + PRD into sections and breaks them into phases? The core team's two planners (Planner 1 and Planner 2) — both jobs, once, right after you approve the plan and PRD and before any team starts. They cut it into sections (one per department + one for the core team itself), then break each section into ordered phases, and write those into each team's brief. Departments are lean with no planners, so they never slice or phase their own work — they get their part already cut and already phased. Two layers: planners set the section/phase boundaries; each team's Feature Tickets seat fills each phase with the actual tickets.",
