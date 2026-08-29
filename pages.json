@@ -1,5 +1,12 @@
 [
   {
+    "file": "how-it-works-now.html",
+    "title": "How it all works now (the map)",
+    "desc": "The whole system in one map, top to bottom. 1) It starts with you: you talk to Ops, the one switchboard between you and every team (you → Ops → the right manager, and back). 2) The plan is made once: the core team's two planners turn your idea into one full Gold Plan and its PRD spec, before anything is split. 3) Cut into sections: the plan splits into as many sections as it needs — no limit — and each section is a department; a one-section plan needs no department, the core team just builds it. 4) Three crews at a time: only 3 teams run at once (core + 2 departments), the rest wait in a queue; when one finishes and closes, the next starts — one out, one in, close two start two. 5) Each crew builds only its own section on its own branch. 6) The pieces become one: each rolls up team → central staging → main into one shared codebase, and going live on main needs your OK. 7) Rules keep everyone in sync: change a rule, tell Ops 'push,' every running team pulls the latest; a new team starts with the current rules and tools built in.",
+    "date": "2026-08-28",
+    "emoji": "🗺️"
+  },
+  {
     "file": "who-inherits-what.html",
     "title": "Who inherits what?",
     "desc": "When a team starts — or gets updated — 'inherit' hides a split. Three separate things travel at different speeds. RULES: a rule change reaches a new team AND the running teams (SM, HAP) automatically — that's the refresh, on your word. TOOLKIT + CODE: a brand-new team is built from the shared master copy, so it gets every tool and every bit of code finished so far; but SM and HAP copied the toolkit when they started, so new tools built later do NOT reach them on their own — someone has to pull them in (no background robot does it). PRIVATE NOTES: never travel — each team keeps its own private notebook, a new team starts empty and fresh, nobody inherits another team's notes. One decision inside: should toolkit updates auto-reach running teams too, or stay a deliberate manual pull? (I lean manual for now — rules are safe to auto-send, code isn't.)",
