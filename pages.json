@@ -1,4 +1,5 @@
 [
+  { "file": "idea-slicer.html", "title": "Your Idea Slicer — messy thoughts in, tidy teams out", "desc": "Type /idea-slicer and dump raw thoughts; it sorts them into teams that work at the same time, keeps one card per idea on GitHub, and draws a live picture map on its own free site.", "date": "2026-08-29", "emoji": "🧠" },
   {
     "file": "what-we-built.html",
     "title": "What we've actually built (mirror map)",
