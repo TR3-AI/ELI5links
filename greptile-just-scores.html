@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greptile just gives a score</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Greptile just gives a score 🤖</h1>
+  <p class="sub">it doesn't review — it scores</p>
+
+  <div class="card q">
+    <span class="emoji">🤔</span>
+    <p class="big">What Greptile is</p>
+    <p class="say">Greptile is a robot that reads a pull request and gives it a <b>score out
+    of 5</b>. That number is its whole job. It does <b>not</b> decide whether the work is
+    <b>right</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🏅</span>
+    <p class="big">Check #1 — Clean?</p>
+    <p class="say">Greptile's <b>5/5</b> is the <b>Clean?</b> check — is the code tidy and up
+    to standard? Hit 5/5 and this half is cleared. That is all Greptile does.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🧹</span>
+    <p class="big">The 12 "smells" aren't Greptile's job</p>
+    <p class="say"><b>Before</b> the pull request, <b>Feature Tickets</b> cleans its own code
+    against a fixed list of 12 "code smells." That's the worker tidying first. Greptile just
+    <b>scores what comes out</b> — it doesn't run the list.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🧑‍⚖️</span>
+    <p class="big">Check #2 — Right?</p>
+    <p class="say">Does the code do <b>exactly</b> what the ticket asked? That's the <b>Full
+    SDD</b> seat — it wrote the plan but not the code, so it's a real outside opinion. The
+    <b>manager</b> hands it the diff and enforces the answer.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🚦</span>
+    <p class="big">Both must pass</p>
+    <p class="say">A pull request only auto-merges to staging if <b>both</b> pass — Greptile
+    <b>5/5</b> <i>and</i> Full SDD says it matches the ticket. A <b>Right?</b> fail sends it
+    back <b>even at a perfect 5/5</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">👷</span>
+    <p class="big">The worker doesn't grade itself</p>
+    <p class="say"><b>Feature Tickets</b> gives its own change a quick glance before the PR —
+    a first filter, <b>never</b> the verdict. It never signs off its own work.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">📦</span>
+    <p class="big">Is it live yet? Not yet.</p>
+    <p class="say">It's all written and saved in <b>two pull requests</b> — <b>#29</b> (the
+    rulebook) and <b>#39</b> (the tool) — but <b>not switched on</b>. It reaches the teams only
+    after <b>you approve the merges</b> and the setup re-runs. Nothing merges without your yes.</p>
+  </div>
+
+  <p class="foot">Short version: <b>Greptile = a score out of 5 (Clean?). Full SDD = a real
+  reviewer (Right?). Both must pass.</b> Written and waiting on your yes.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
