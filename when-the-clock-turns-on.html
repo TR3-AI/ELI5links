@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When the clock turns on &mdash; only when teams are busy</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>When the clock turns on &#9200;</h1>
+  <p class="sub">it only runs when teams are actually working &mdash; never pokes an idle team</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#9200;</span>
+    <p class="big">The clock has a gate</p>
+    <p class="say">It doesn&rsquo;t just tick all day. It only runs when there&rsquo;s <b>real work
+    happening</b> &mdash; so it never nags a team that&rsquo;s sitting idle.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128101;</span>
+    <p class="big">On only when 2+ teams are busy</p>
+    <p class="say">The rule: the clock runs only when <b>at least two teams</b> have live work &mdash;
+    an idea has come in and the manager has started handing it out. Fewer than two &rarr; <b>off</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128483;&#65039;</span>
+    <p class="big">The team wakes it up</p>
+    <p class="say">The second a manager takes an idea and starts assigning work, it pings me:
+    <b>&ldquo;Received an idea &mdash; start your clock.&rdquo;</b> That&rsquo;s the on-switch &mdash; nothing
+    starts until a team says it&rsquo;s working.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">Two live &rarr; I start it</p>
+    <p class="say">Once two teams have pinged, I start the clock &mdash; and it only checks in with the
+    teams <b>actually working</b>. Idle teams are <b>left alone</b> (they&rsquo;d have no clue what I meant).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128564;</span>
+    <p class="big">Work stops &rarr; clock stands down</p>
+    <p class="say">When a team finishes or goes quiet it tells me, and I <b>stand its clock down</b>.
+    Back under two busy teams and the clock <b>switches off</b> on its own.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">&#128683;</span>
+    <p class="big">Right now: off</p>
+    <p class="say">All three teams are idle this second, so the clock is <b>off</b> &mdash; on purpose.
+    <b>Kick an idea to two teams and it comes alive by itself.</b> Nothing for you to switch.</p>
+  </div>
+
+  <p class="foot">Short version: the clock only runs when <b>2+ teams are truly working</b>. Teams flip
+  it on by telling me they&rsquo;ve started, and off when they stop. <b>No idle team ever gets nagged.</b>
+  It&rsquo;s written into the rulebook and saved to <b>GitHub</b>, and passed to every manager.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
