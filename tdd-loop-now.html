@@ -34,7 +34,7 @@
 <div class="wrap">
 
   <h1>How our TDD loop works now 🔁</h1>
-  <p class="sub">test first, clean as you go, checked twice</p>
+  <p class="sub">test first, tidy as you go, reviewed by outsiders</p>
 
   <div class="card q">
     <span class="emoji">👥</span>
@@ -75,19 +75,21 @@
     <span class="emoji">🧹</span>
     <p class="big">REFACTOR — tidy up now</p>
     <p class="say">Feature Tickets cleans the code against a fixed list of <b>12 "code
-    smells"</b> (duplicate code, mystery names, and the like). <b>Cleanup #1 — right here
-    in the loop.</b> Steps 1–3 repeat for every ticket.</p>
+    smells"</b> (duplicate code, mystery names, and the like) — the worker tidying its
+    <b>own</b> code, which is fine. Steps 1–3 repeat for every ticket.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
     <span class="num">4</span>
-    <span class="emoji">🔍</span>
-    <p class="big">CHECK IT TWICE</p>
-    <p class="say">Before the pull request, Feature Tickets reviews its own work <b>two
-    ways</b>: <b>Clean?</b> (the 12 smells again) and <b>Right?</b> (does <b>exactly</b>
-    what the ticket asked, no more). <b>Cleanup #2.</b></p>
+    <span class="emoji">🧑‍⚖️</span>
+    <p class="big">The real review is independent</p>
+    <p class="say">Feature Tickets gives its own diff a <b>quick sanity glance</b> — but it
+    <b>doesn't grade its own homework</b>. The real check is at the gate, on two axes: the
+    robot (<b>Greptile</b>) judges <b>Clean?</b>, and the manager hands <b>Right?</b> (does
+    it match the ticket?) to the <b>Full SDD</b> seat — which wrote the spec but didn't
+    write this code.</p>
   </div>
 
   <div class="arrow">⬇️</div>
