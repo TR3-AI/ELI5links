@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When a new team says hello to Ops</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>When a new team is born &#128118;</h1>
+  <p class="sub">who says hello to Ops &mdash; and who stays quiet</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128075;</span>
+    <p class="big">The manager says hello</p>
+    <p class="say">The moment a team is created, its <b>manager</b> sends <b>one</b>
+    hello to Ops. Just the manager &mdash; <b>not each worker</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128199;</span>
+    <p class="big">What the hello says</p>
+    <p class="say">Two things: <b>how many people</b> are on the team, and any
+    <b>sub-teams</b> (departments) &mdash; each one's name and who's in it.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128466;&#65039;</span>
+    <p class="big">Ops writes it down</p>
+    <p class="say">He keeps the <b>master list of who's who</b>, so he can always tell
+    you without guessing. A sub-team <b>doesn't start work until Ops knows</b> it's
+    there.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128257;</span>
+    <p class="big">Four things the manager always tells Ops</p>
+    <p class="say">A sub-team <b>opens</b>, a sub-team <b>closes</b>, anyone gets
+    <b>renamed</b> &mdash; and he keeps his own <b>live list</b> current. Ops hears
+    about each one <b>straight away</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128586;</span>
+    <p class="big">Workers stay quiet</p>
+    <p class="say">A worker <b>never</b> pings Ops &ldquo;here I am&rdquo;. It talks to
+    <b>its own manager</b>; the manager speaks for the whole team. (The one exception:
+    a worker may reach Ops only if its manager has gone <b>silent over an hour</b>.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">&#9888;&#65039;</span>
+    <p class="big">What you're seeing right now</p>
+    <p class="say">Single agents messaging Ops &ldquo;here I am, this is who I am&rdquo;
+    is the <b>old, no-rule</b> behaviour. There is <b>no live rule yet</b> telling teams
+    the clean way &mdash; that's the gap this fixes.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 1 decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Turn the clean rule on?</p>
+    <p class="say"><b>1) What's up?</b> The tidy &ldquo;manager introduces the team once,
+    workers stay quiet&rdquo; rule is <b>built and tested</b> &mdash; but <b>not switched
+    on</b> yet.<br><br>
+    <b>2) Signing up for</b> I merge <b>two pull requests</b> &mdash; <b>#31</b> (the
+    rule words) and <b>#40</b> (the code that enforces it) &mdash; into the test copy.
+    It goes <b>fully live for every team</b> on the normal next step, which is also your
+    yes.<br><br>
+    <b>3) You are deciding</b> switch this on, or leave agents <b>freelancing</b> their
+    own hellos.<br><br>
+    <b>4) Results</b> &mdash; <b>Yes:</b> one clean hello per team, workers go quiet, Ops
+    always knows who's who. <b>Wait:</b> agents keep pinging Ops one by one, no single
+    source of truth.<br><br>
+    <b>I'd: say yes</b> &mdash; it's <b>backward-safe</b> and <b>24 checks pass</b>.</p>
+  </div>
+
+  <p class="foot">Short version: when a team is born, the <b>manager</b> sends Ops
+  <b>one</b> hello (team size + any sub-teams); <b>workers stay quiet</b>. It's built and
+  tested, waiting on your yes.<br>
+  <a href="./">all ELI5 pages</a> &#128072;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
