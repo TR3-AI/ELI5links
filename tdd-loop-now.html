@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How our TDD loop works now</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How our TDD loop works now 🔁</h1>
+  <p class="sub">test first, clean as you go, checked twice</p>
+
+  <div class="card q">
+    <span class="emoji">👥</span>
+    <p class="big">Two workers, on purpose</p>
+    <p class="say"><b>Feature Tickets</b> writes the test, cleans the code, and owns the
+    pull request. <b>Green Pass</b> only makes the test pass. Different workers on purpose
+    — <b>you can't game a test you didn't write</b>. The manager just watches and reports;
+    it never touches code.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🔴</span>
+    <p class="big">RED — a failing test, first</p>
+    <p class="say">The big design is cut into small <b>tickets</b> (each with a mini-spec).
+    For each one, Feature Tickets writes an <b>honest failing test</b> before any code —
+    it checks <b>what goes in and comes out</b>, not the private guts, and none of the
+    cheat-tests.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🟢</span>
+    <p class="big">GREEN — make it really pass</p>
+    <p class="say">Green Pass makes that test pass with the <b>smallest change</b> — and a
+    <b>real</b> pass, not a fake one (no hard-coding the answer, no gaming it). Then it
+    hands back.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🧹</span>
+    <p class="big">REFACTOR — tidy up now</p>
+    <p class="say">Feature Tickets cleans the code against a fixed list of <b>12 "code
+    smells"</b> (duplicate code, mystery names, and the like). <b>Cleanup #1 — right here
+    in the loop.</b> Steps 1–3 repeat for every ticket.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🔍</span>
+    <p class="big">CHECK IT TWICE</p>
+    <p class="say">Before the pull request, Feature Tickets reviews its own work <b>two
+    ways</b>: <b>Clean?</b> (the 12 smells again) and <b>Right?</b> (does <b>exactly</b>
+    what the ticket asked, no more). <b>Cleanup #2.</b></p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🚦</span>
+    <p class="big">THE GATE</p>
+    <p class="say">Batch up to <b>5 tickets</b> into a pull request. A robot reviewer
+    (<b>Greptile</b>) scores it. <b>5/5 → auto-merges to staging.</b> Stuck below 5/5?
+    <b>7 tries → split it smaller → then it comes to you.</b></p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="num">6</span>
+    <span class="emoji">🏁</span>
+    <p class="big">ONLY YOU PROMOTE TO MAIN</p>
+    <p class="say">Staging → <b>main</b> needs a <b>passing test</b> and <b>your explicit
+    yes</b>. Nothing is ever self-merged.</p>
+  </div>
+
+  <p class="foot">Short version: <b>test first → really pass → tidy vs 12 smells → check
+  twice (clean + right) → robot gate → your yes to main</b>. Cleanup happens <b>both</b>
+  in the loop and at the gate; the test is honest from the first red.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
