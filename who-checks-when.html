@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who checks it, and when?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Who checks it, and when? 🧑‍⚖️</h1>
+  <p class="sub">once each — not the manager twice, and here's why</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🧹</span>
+    <p class="big">The first pass is a tidy, not a review</p>
+    <p class="say">After the code goes green, Feature Tickets <b>cleans its own code</b>.
+    <b>Only it can</b> — that means <b>editing code</b>, and the manager never touches
+    code. So this one <b>stays with the worker</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🔍</span>
+    <p class="big">The second pass is the real review</p>
+    <p class="say">Judging the <b>finished</b> change. It asks <b>two</b> questions —
+    <b>Clean?</b> (tidy, no smells) and <b>Right?</b> (does what the ticket asked). This
+    is the one that must be <b>independent</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🤖</span>
+    <p class="big">Clean? → the robot</p>
+    <p class="say"><b>Greptile</b> scores "is it clean?" and <b>doesn't care who wrote
+    it</b> — so it's already a fair, outside judge. No change needed there.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🧑‍⚖️</span>
+    <p class="big">Right? → the manager</p>
+    <p class="say">"Did it do what the ticket asked?" goes to the <b>manager</b> — it
+    <b>knows the ticket, didn't write the code, and never codes</b>. <b>One</b> independent
+    check. Feature Tickets just keeps a quick sanity glance first.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🚫</span>
+    <p class="big">Why not the manager twice?</p>
+    <p class="say">Two looks by the <b>same eyes</b>, minutes apart, is <b>the exact
+    redundancy you just killed</b> on the worker. Doubling it just moves the waste to the
+    manager. <b>One good check beats two lukewarm ones.</b></p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">🎁</span>
+    <p class="big">A free second look, no extra step</p>
+    <p class="say">The manager is <b>already</b> at the final gate with you (it approves
+    the promotion to main). If the robot's fixes changed the code, it glances again —
+    <b>"still matches the ticket?"</b> — right there. Costs nothing; that gate already
+    exists.</p>
+  </div>
+
+  <p class="foot">My call: <b>once each</b> — worker tidies + one sanity glance; manager
+  does the one real <b>Right?</b> check, robot does <b>Clean?</b>, plus the free re-peek
+  at the gate. Say <b>go</b> and I'll wire it in.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
