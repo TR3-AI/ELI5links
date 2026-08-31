@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who actually does the code review?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Who actually does the code review? 🔍</h1>
+  <p class="sub">new review rules — and which teammate they land on</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🔍</span>
+    <p class="big">I borrowed a proven method</p>
+    <p class="say">There's a well-known <b>code-review</b> method by Matt Pocock. I took
+    the parts that fit us and left the parts that don't (it spins up extra helper
+    bots — our manager isn't allowed to). Then I wired the good parts into <b>how the
+    team builds</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">⚖️</span>
+    <p class="big">Rule 1 — check every change two ways</p>
+    <p class="say"><b>Clean?</b> — measured against a fixed list of <b>12 known "code
+    smells"</b> (duplicate code, mystery names, and the like). <b>Right?</b> — does it do
+    <b>exactly what the ticket asked</b>, no more, no less. A change can pass one and
+    fail the other, so <b>both get reported</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🧪</span>
+    <p class="big">Rule 2 — honest tests</p>
+    <p class="say">Tests must prove the code <b>really works</b>, not fake a pass. No test
+    that just repeats the code, no peeking at the insides, and no test that breaks the
+    moment you <b>tidy up</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🤷</span>
+    <p class="big">The catch you spotted</p>
+    <p class="say">A rule <b>everyone can see</b> is <b>nobody's job</b>. My first pass put
+    the rules where all 10 seats read them as background — but told <b>no worker</b> "this
+    one's on you." You caught that.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">👷</span>
+    <p class="big">So I handed it to the workers</p>
+    <p class="say"><b>Feature Tickets</b> now owns it: write honest tests, clean the code
+    against the 12 smells, and <b>double-check its own work before the pull request</b>.
+    <b>Green Pass</b> gets one rule: make it <b>really</b> pass — no faking.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🚦</span>
+    <p class="big">Waiting on your yes</p>
+    <p class="say">It's all sitting in <b>2 pull requests</b>, not merged. Nothing reaches
+    the teams until <b>you approve</b> — and the tool needs a quick <b>reinstall</b> after,
+    to hand the new job cards out.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions 👇</p>
+
+  <div class="card q">
+    <span class="emoji">🔁</span>
+    <p class="big">When does clean-up happen?</p>
+    <p class="say"><b>1) What's up?</b> The original method cleans code up <b>only at
+    review</b>. Ours cleans it up <b>during the build loop too</b>.<br>
+    <b>2) Signing up for</b> — "both" means workers tidy as they go <b>and</b> the review
+    re-checks; "review only" means no tidying until the end.<br>
+    <b>3) You are deciding</b> — keep clean-up in <b>both places</b>, or move it to
+    <b>review only</b>.<br>
+    <b>4) Results</b> — <b>both:</b> messy code never lives long, tiny bit more work per
+    ticket. <b>Review only:</b> matches the method exactly, but rough code sits around
+    until the end.<br>
+    <b>I'd: keep both</b> — that's what I built.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">🙋</span>
+    <p class="big">Wire the other 2 seats?</p>
+    <p class="say"><b>1) What's up?</b> Two seats don't have the new rules yet —
+    <b>Tester</b> (clicks through like a real user) and <b>Front-end</b> (builds the
+    screens).<br>
+    <b>2) Signing up for</b> — adding the honest-test rule to their job cards too.<br>
+    <b>3) You are deciding</b> — <b>leave them out</b>, or <b>add them</b>.<br>
+    <b>4) Results</b> — <b>leave out:</b> the rules stay aimed at the backend build loop,
+    cleanest today. <b>Add:</b> front-end tests get held to the same honest bar.<br>
+    <b>I'd: leave them out for now</b> — the loop is backend; add later if you want.</p>
+  </div>
+
+  <p class="foot">Short version: I put a <b>two-way code check</b> and <b>honest-test</b>
+  rules into the build loop — and gave the job to the <b>Feature Tickets</b> and
+  <b>Green Pass</b> seats, not just the rulebook. Waiting on your yes.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
