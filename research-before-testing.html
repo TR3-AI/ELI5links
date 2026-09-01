@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research before testing &mdash; homework first, flags up top</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Research before testing 🔭</h1>
+  <p class="sub">the agent learns how the feature really works — then flags every place your idea differs</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">💡</span>
+    <p class="big">The idea says WHAT, not HOW</p>
+    <p class="say">Your idea names the feature — <b>"a dynamic stop-loss"</b>. But it
+    doesn't teach the agent how a stop-loss actually <b>behaves on a real
+    exchange</b>. Testing from the name alone is guessing.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🔍</span>
+    <p class="big">So the agent does its homework first</p>
+    <p class="say">Before writing any test, it researches how that kind of feature
+    <b>normally works</b>. Brand-new invention? Break it into <b>known parts</b> —
+    dynamic stop-loss = a standard stop-loss + a trailing offset — and research
+    the parts.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">⚖️</span>
+    <p class="big">Then it compares, piece by piece</p>
+    <p class="say">Your spec against standard practice, <b>element by element</b>.
+    Match → test as normal. Mismatch — spec says the stop moves <b>up</b>, textbook
+    says <b>down</b> — that exact piece gets <b>flagged</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🧭</span>
+    <p class="big">Your idea still wins — always</p>
+    <p class="say">A flag <b>never rewrites the test</b>. The agent tests YOUR version —
+    but <b>knowingly</b>, instead of testing textbook behavior by habit and calling
+    your correct code broken.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">📢</span>
+    <p class="big">Flags go up top, never buried</p>
+    <p class="say">Every mismatch sits in a <b>strip at the top of the page</b>: what
+    standard practice says vs what your map says. Nothing silent — silent would
+    mean you never find out.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">👆</span>
+    <p class="big">Keep or drop — your call</p>
+    <p class="say">Each flag comes with a suggestion. <b>Keep</b> → the note stays as
+    proof the difference was deliberate. <b>Drop</b> → the map and the test change,
+    and the note disappears.</p>
+  </div>
+
+  <p class="foot">Short version: the agent learns how the feature really works
+  before testing it — and wherever your idea differs from the textbook, you see
+  it flagged up top, never hidden.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
