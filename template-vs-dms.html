@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template vs DMS — the real contents</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Template vs DMS &mdash; the real contents &#128269;</h1>
+  <p class="sub">you told me to prove it &mdash; here's exactly what each one has</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">First: what the &ldquo;&sect;21 roster&rdquo; even is</p>
+    <p class="say">It's a small <b>&ldquo;Team roster&rdquo;</b> block in a manager's
+    routing file: <b>who's on the team</b> (and any departments), plus one machine-read
+    line &mdash; <b>&ldquo;Linked manager panes:&rdquo;</b> &mdash; that the messaging
+    guard uses to let a core manager and <b>its own department manager talk directly</b>.
+    That's all it is. It's the thing we just built. Right now it's in the
+    <b>template + HAP + SM</b>, but <b>not</b> in DMS or Idea slicer.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#9888;&#65039;</span>
+    <p class="big">I was wrong to call one of them &ldquo;the master&rdquo;</p>
+    <p class="say">Last time I said the template is the master. Too simple. The real
+    answer: <b>it's split.</b> On some things DMS is <b>ahead</b>; on others it's
+    <b>behind</b>. Neither is a single clean master. Here's the proof, both ways.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">3</span>
+    <span class="emoji">&#129351;</span>
+    <p class="big">Manager card &mdash; DMS is AHEAD</p>
+    <p class="say">DMS's manager job-card has <b>everything the template has, plus 4
+    extra sections</b>: State management (&sect;12), Definition of done, Framing your
+    <b>three questions</b>, and the End-of-phase PR report &mdash; plus a newer
+    &ldquo;where the artifacts live&rdquo;. Of those four, <b>only 2 still say
+    &ldquo;DMS pilot&rdquo;</b> (State management and Definition of done), and the state
+    one has <b>already become a shared rule for everyone (&sect;12)</b>. Either way, the
+    manager fixes <b>landed on DMS first</b>, just like you thought.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">4</span>
+    <span class="emoji">&#128034;</span>
+    <p class="big">Builder seat &mdash; DMS is BEHIND (word for word)</p>
+    <p class="say">The <b>Full SDD</b> seat card:<br>
+    &bull; <b>Template says:</b> &ldquo;at the PR gate you are the <b>independent Spec
+    reviewer</b> &mdash; read each PR diff against its ticket and answer: does it
+    faithfully implement it? Greptile judges code quality.&rdquo;<br>
+    &bull; <b>DMS says:</b> just &ldquo;<b>expand the SDD skeleton into a full
+    SDD</b>.&rdquo; No reviewer role at all.<br>
+    Same story on Feature Tickets. DMS's builder seats are the <b>old, pre-review-gate</b>
+    version.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">5</span>
+    <span class="emoji">&#129514;</span>
+    <p class="big">The Tester seat &mdash; DMS doesn't have one</p>
+    <p class="say">The template has a whole <b>Tester seat</b> (the fleet-wide testing
+    agent). DMS has <b>no Tester drawer at all</b>. HAP, SM and Idea slicer all have
+    it.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">&#128256;</span>
+    <p class="big">Why it split in two</p>
+    <p class="say">Two kinds of change, in two places. Your <b>manager pilots</b> were
+    written onto <b>DMS first</b> and never pushed out. The <b>builder-seat review gate
+    + Tester seat</b> were built into the <b>template</b> and rolled to the other teams,
+    but <b>DMS's own drawers were never refreshed</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">7</span>
+    <span class="emoji">&#127937;</span>
+    <p class="big">So who is the master?</p>
+    <p class="say">Right now, <b>nobody cleanly</b> &mdash; the best bits are scattered.
+    The fix is to <b>gather them into one place</b> (the template new teams are stamped
+    from): DMS's manager pilots <b>+</b> the builder-seat review gate <b>+</b> the Tester
+    seat <b>+</b> the &sect;21 roster. Then bring <b>every</b> team, DMS included, up to
+    that one standard.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 1 decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Build one true master, then align all?</p>
+    <p class="say"><b>1) What's up?</b> The best parts are split between DMS (manager) and
+    the template (builder seats + tester + roster).<br><br>
+    <b>2) Signing up for</b> I merge the best of both into the template, then bring every
+    team up to it: DMS gains the review gate + Tester seat + roster; the others gain
+    DMS's manager pilots. All branch-and-PR, names/projects/history untouched.<br><br>
+    <b>3) You are deciding</b> say go &mdash; or leave it split.<br><br>
+    <b>4) Results</b> &mdash; <b>Yes:</b> one real master, every team the same, new teams
+    born complete. <b>Wait:</b> the good bits stay scattered and teams keep
+    drifting.<br><br>
+    <b>I'd: say yes</b> &mdash; consolidate first, then align.</p>
+  </div>
+
+  <p class="foot">Short version: neither is fully the master &mdash; DMS leads on the
+  <b>manager</b> card, the template leads on the <b>builder seats + tester + roster</b>.
+  Merge both, then align everyone. <b>I changed nothing yet.</b><br>
+  <a href="./">all ELI5 pages</a> &#128072;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
