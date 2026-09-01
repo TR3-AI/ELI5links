@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMS's build: one hand or two?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>DMS's build: one hand or two? &#129309;</h1>
+  <p class="sub">the one backend choice you're on &mdash; explained</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#127903;&#65039;</span>
+    <p class="big">The build is a two-person relay</p>
+    <p class="say"><b>Job A &mdash; Feature Tickets:</b> writes the task, writes a test that
+    <b>fails on purpose</b>, then tidies the code and opens the pull request.<br>
+    <b>Job B &mdash; Green Pass:</b> takes that failing test and <b>makes it go green</b>.
+    That's it.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128221;</span>
+    <p class="big">Why not one person for both?</p>
+    <p class="say">The one who <b>writes</b> the test shouldn't be the one who says
+    <b>&ldquo;yep, it passes&rdquo;</b> &mdash; that's <b>marking your own homework</b>.
+    Two different hands = a real check.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128100;</span>
+    <p class="big">DMS has only one worker so far</p>
+    <p class="say">DMS has <b>one</b> backend worker &mdash; the &ldquo;DMS Execution
+    Agent&rdquo; (running DeepSeek). Right now it does <b>Job B (Green Pass)</b>. <b>Job A's
+    chair is empty.</b></p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 1 pick &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#128256;</span>
+    <p class="big">Who takes Job A (the tickets)?</p>
+    <p class="say"><b>1) What's up?</b> DMS's Feature Tickets chair is empty; its one worker
+    only does Green Pass.<br><br>
+    <b>2) Signing up for</b> I write the proper Feature Tickets rules <b>either way</b> &mdash;
+    you're only choosing <b>who sits in the chair</b>.<br><br>
+    <b>3) You are deciding</b> <b>Reuse</b> &mdash; the same worker does <b>both</b> jobs
+    (one hand). <b>Fresh</b> &mdash; a <b>new second worker</b>, just for tickets (two
+    hands).<br><br>
+    <b>4) Results</b> &mdash; <b>Reuse:</b> quick, nothing new to set up, but one worker
+    writes the test <b>and</b> passes it (weaker check). <b>Fresh:</b> a real two-hand check,
+    but a new pane to open + a model to pick.<br><br>
+    <b>I'd: Fresh is the correct design</b> (the split only works with two). <b>Reuse is a
+    fine stopgap</b> if you want DMS light for now.</p>
+  </div>
+
+  <p class="foot">Short version: the build needs <b>two hands</b> &mdash; a ticket-writer and
+  a test-passer. DMS only has the test-passer. Pick <b>Reuse</b> (one does both) or
+  <b>Fresh</b> (add the second). Tester's brain is already your pick (GPT 5.6). PR #43 (the 3
+  promoted rules) still needs your yes.<br>
+  <a href="./">all ELI5 pages</a> &#128072;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
