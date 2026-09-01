@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seat vs pane (and departments)</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Seat vs pane &#129681;</h1>
+  <p class="sub">two different things &mdash; they pair up. Same idea for departments.</p>
+
+  <div class="card q">
+    <span class="emoji">&#128522;</span>
+    <p class="big">The one-liner</p>
+    <p class="say"><b>Seat = the chair</b> (the job on the team).<br>
+    <b>Pane = the screen</b> the worker sits at and types in.<br>
+    Building a team puts <b>one worker-in-a-pane in each chair</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#129681;</span>
+    <p class="big">A seat is the chair</p>
+    <p class="say">It's just the <b>definition</b> of a role on the team &mdash; this job,
+    this model, this task. It lives in the team's roster list. On its own it's a
+    <b>name on paper</b>, not a running thing.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128421;&#65039;</span>
+    <p class="big">A pane is the screen</p>
+    <p class="say">It's the <b>live window</b> where that worker actually sits and works.
+    Real, running, doing (or waiting for) a job.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#127959;&#65039;</span>
+    <p class="big">Building the team joins the two</p>
+    <p class="say">Standing up a team is what turns <b>seats into panes</b>: it opens
+    <b>one pane per seat</b> and labels it "<b>team + seat</b>" (e.g. "DMS Front-end").
+    A full core team is built one way; a department is built the lean way &mdash; same
+    idea, fewer chairs.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#127912;</span>
+    <p class="big">So &ldquo;the front-end seat is always there&rdquo; means&hellip;</p>
+    <p class="say">The front-end <b>chair</b> is always on the team. Once the team is
+    built it also gets a <b>pane</b> &mdash; but that pane sits <b>idle</b> (does nothing)
+    until you've agreed a design, and stays idle on any job with <b>no UI</b> at all.
+    The chair is there; the worker just waits.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128205;</span>
+    <p class="big">One honest catch for DMS right now</p>
+    <p class="say">A chair being on the roster doesn't mean its screen is open yet.
+    DMS today has only <b>3 live panes</b> &mdash; Manager, the backend one, and Research.
+    The other seats are on the roster but <b>not opened yet</b>. So right now, for DMS,
+    "seat" and "pane" don't fully line up until those are staffed.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">6</span>
+    <span class="emoji">&#127970;</span>
+    <p class="big">Departments &mdash; exactly the same idea</p>
+    <p class="say">A department is a small, <b>temporary team</b> = its <b>own tab with one
+    pane per seat</b> (the lean 8: manager, research, tester, sdd-skeleton, full-sdd,
+    feature-tickets, green-pass, front-end).<br>
+    So "front-end is always seated" in a department = the front-end <b>chair</b> is always
+    one of the 8 and gets a <b>pane</b> when the department is built &mdash; it just
+    <b>idles</b> if that department has no UI.<br>
+    Departments are <b>temporary</b> (spun up for one slice of a big plan, closed on your
+    say-so &mdash; the panes close, the work and branches stay), and at most
+    <b>core + 2 departments</b> run at once.</p>
+  </div>
+
+  <p class="foot">Short version: a <b>seat</b> is the chair (a role on the team); a
+  <b>pane</b> is the live screen the worker sits at. Standing up a team &mdash; core or
+  department &mdash; opens one pane per chair. The front-end chair is always there; its
+  screen just waits until there's a design / some UI.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

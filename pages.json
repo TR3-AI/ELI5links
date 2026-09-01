@@ -1,5 +1,12 @@
 [
   {
+    "file": "seat-vs-pane.html",
+    "title": "Seat vs pane (and departments)",
+    "desc": "Plain answer to: when I say 'the seat is there', do I mean the pane? Not quite — they pair up. A seat is the chair (a role in the team roster: this job, this model, this task). A pane is the live screen that worker sits at. Standing up a team opens one pane per seat, labelled 'team + seat' (e.g. DMS Front-end). So 'the front-end seat is always there' = the chair is always on the team and gets a pane once built — but that pane idles until you've agreed a design, and on any job with no UI. Catch for DMS now: only 3 live panes (Manager, backend, Research); the rest are rostered but not opened yet. Departments: same idea — a temporary team = its own tab with one pane per seat (lean 8); front-end always seated but idles with no UI; at most core + 2 departments at once.",
+    "date": "2026-09-01",
+    "emoji": "🪑"
+  },
+  {
     "file": "dms-template-aligned.html",
     "title": "DMS & template: aligned — one click left",
     "desc": "Status + one decision. Your 2 questions answered: (1) no front-end build without a design you've agreed — the seat idles until then; (2) Herdr Pantheon confirmed — vault parent with PRD/SDD/Tickets, SDD holds skeleton+full, Tickets hold red+green+micro-SDDs. Your 'keep old rules' hunch: no such rule — the opposite is written down ('never copy a shared rule, one copy can't drift, two will'), which the manager card broke. Fixed: DMS card now matches the template (worker agents, block reports §15, two-axis PR gate, routing trimmed to a pointer), template got the Herdr Pantheon vault, and a small auto-check now trips on any future drift. One click left: merge PR #43 (your click — the agent never self-merges to main).",
