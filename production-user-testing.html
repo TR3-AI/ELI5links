@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production user testing &mdash; prove it works, on video</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Production user testing 🧪</h1>
+  <p class="sub">prove it works where the user looks — on video, every phase</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🐛</span>
+    <p class="big">Tests pass, the app can still be broken</p>
+    <p class="say">Backend tests can <b>all pass</b> while the thing misbehaves where the
+    user actually looks — the order never reaching the exchange, the stop-loss that
+    just sits there. Passing code is not proof.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🤖</span>
+    <p class="big">A robot test-drives it like a real user</p>
+    <p class="say">A tester agent drives the <b>real app</b> — clicks, types, watches —
+    while <b>ProofShot records video</b> of every step. Never Bobby; Bobby just
+    watches the recording.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">📋</span>
+    <p class="big">It tests from an exact list</p>
+    <p class="say">Before anything runs, the manager hands over numbered checks — the
+    <b>test stream</b>: what to try, <b>what you should see</b>, and
+    <b>what proves it's broken</b>. One check per feature and per sub-feature.
+    No guessing.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🔁</span>
+    <p class="big">Broken? Back it goes</p>
+    <p class="say">Every failure — with its <b>video, timestamps, and context</b> — goes
+    back to the agent that built the feature. It fixes, the robot <b>re-tests</b>,
+    until every check ticks green.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🚦</span>
+    <p class="big">No green video, no next phase</p>
+    <p class="say">This runs <b>every phase</b>, not at the end of the project. Small
+    proven tests stack into a phase, phases stack into the project — so deep flaws
+    surface <b>before</b> you build on top of them. Green video is the only
+    currency.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🔗</span>
+    <p class="big">It also watches the code</p>
+    <p class="say">Point it at a repository: it <b>reads the code</b>, watches feature
+    branches for new work, figures out what the feature is and how to test it, then
+    marks it <b>"ready to be tested"</b>. Documents and tickets still work too —
+    the repo is just one more input.</p>
+  </div>
+
+  <p class="foot">Short version: a robot uses the app like you would, on camera —
+  and nothing ships until the video proves it works.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
