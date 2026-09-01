@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The full DMS vs template audit</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The full DMS vs template audit &#128269;</h1>
+  <p class="sub">This time I checked <b>everything</b>. Here's the whole result.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128452;&#65039;</span>
+    <p class="big">I checked the whole cabinet</p>
+    <p class="say">Not one card &mdash; <b>all 10 seats</b> (manager, planners, testers,
+    builders…) and the shared files. So there are <b>no more surprises</b> hiding.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Good news: almost everything matches</p>
+    <p class="say">Every seat's rule card is <b>identical</b> to the template &mdash;
+    the only difference is the <b>name and model</b> filled in (all correct). That's
+    meant to differ, not a fault.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128736;&#65039;</span>
+    <p class="big">I fixed 5 small ones just now</p>
+    <p class="say">Pushed to DMS: <b>added</b> a missing Tester file; <b>fixed</b> a
+    file that still named the old retired seat; <b>refreshed</b> two slightly-stale
+    files; and <b>updated</b> the state-file form that was missing a few boxes.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">One real thing left: the manager's 2 files</p>
+    <p class="say">The manager's own rulebook and routing file <b>copied</b> rules that
+    already live in the shared book &mdash; and the copies <b>fell behind</b> (old
+    words, old wording). That's the last bit of drift.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="emoji">&#129513;</span>
+    <p class="big">Why it kept coming in threes</p>
+    <p class="say">Each earlier check only saw a <b>slice</b> (and one "three" was
+    against a <b>different</b> book). This pass saw <b>all of it at once</b> &mdash;
+    the discovery is done.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">1. Trim the manager's 2 files?</p>
+    <p class="say"><b>1) What's up?</b> They copied shared rules that fell behind &mdash;
+    the root cause of this whole mess.<br>
+    <b>2) Signing up for:</b> I trim both to a short <b>pointer</b> at the shared book,
+    keeping DMS's roster and its DMS-only notes. It changes the master, so it's a PR
+    for your yes.<br>
+    <b>3) You are deciding:</b> trim now (permanent fix), or leave the copies.<br>
+    <b>4) Results:</b> trim &rarr; <b>nothing left to drift, ever</b>. Leave &rarr; they
+    drift again and we're back here.<br>
+    <b>I'd:</b> trim &mdash; it kills the cause for good.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128273;</span>
+    <p class="big">2. Merge PR #43?</p>
+    <p class="say"><b>1) What's up?</b> 3 proven rules wait at the final gate into the
+    template's public copy.<br>
+    <b>2) Signing up for:</b> one approval; the 3 land in the copy every team
+    inherits.<br>
+    <b>3) You are deciding:</b> merge now, or leave the gap.<br>
+    <b>4) Results:</b> merge &rarr; DMS and template match on those 3. Leave &rarr; they
+    stay DMS-only.<br>
+    <b>I'd:</b> merge &mdash; it's already proven and waiting.</p>
+  </div>
+
+  <p class="foot">Short version: the whole cabinet is <b>aligned</b> except the
+  <b>manager's 2 files</b>. Trim those + merge #43, and DMS and the template fully
+  match &mdash; nothing else lurking.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
