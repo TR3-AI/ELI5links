@@ -1,4 +1,5 @@
 [
+  { "file": "dms-template-drift.html", "title": "How did DMS drift from the template?", "desc": "DMS and the template drifted by exactly 3 rules — the 'done' checklist, your three questions, and the end-of-phase PR table. Not a bug: they sit in two separate repos with no auto-link, DMS is meant to be briefly ahead as the pilot, and the last approval that copies those 3 into the template's public copy (PR #43) was never clicked. Merge #43 and they match. I also cemented a rule so the template must follow DMS the same session, and can add an auto-check so drift can never hide again.", "date": "2026-09-01", "emoji": "🤔" },
   {
     "file": "production-user-testing.html",
     "title": "Production user testing",

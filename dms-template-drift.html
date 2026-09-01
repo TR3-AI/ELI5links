@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How did DMS drift from the template?</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How did DMS drift from the template? &#129300;</h1>
+  <p class="sub">Short answer: <b>one approval didn't get clicked.</b> Nothing's lost.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128194;</span>
+    <p class="big">They live in two separate drawers</p>
+    <p class="say">DMS's rulebook and the template are in <b>two different repos</b>
+    &mdash; no wire between them. Every time one changes, the other has to be
+    <b>copied over by hand</b>. Nothing keeps them equal on its own.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128682;</span>
+    <p class="big">DMS is the door &mdash; it's meant to be a step ahead</p>
+    <p class="say">New rules are <b>tried on DMS first</b>, then passed into the
+    template. So for a <b>short</b> while DMS is <b>ahead</b> on purpose. That part is
+    normal.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">The gap is exactly 3 rules</p>
+    <p class="say">The template's <b>public copy</b> is missing <b>3 sections</b> DMS
+    already has: the <b>"done" checklist</b>, your <b>three questions</b>, and the
+    <b>end-of-phase PR table</b>. That's the whole difference.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128273;</span>
+    <p class="big">One approval is all that's stuck</p>
+    <p class="say">Those 3 are <b>already</b> in the template's waiting-room copy. Only
+    the <b>last step</b> &mdash; moving them into the public copy &mdash; is parked.
+    That's <b>PR #43</b>, sitting open for <b>your yes</b>. That single un-clicked
+    approval <b>is</b> the whole out-of-sync.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Some things are meant to differ</p>
+    <p class="say">DMS keeps its own <b>name</b> and the <b>"I'm the door" rule</b>
+    itself &mdash; those stay DMS-only on purpose (you don't want every team reading
+    "I'm the prototype"). That's <b>not</b> drift.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="emoji">&#128274;</span>
+    <p class="big">New rule locked in</p>
+    <p class="say">I cemented it: the moment DMS changes, the template <b>must</b> catch
+    up the <b>same session</b> &mdash; a change isn't "done" until that copy-over is
+    opened. <b>No more lingering gaps.</b></p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#9989;</span>
+    <p class="big">1. Merge PR #43?</p>
+    <p class="say"><b>1) What's up?</b> The template's public copy is missing the 3 rules
+    DMS already runs; the fix is parked at the final gate.<br>
+    <b>2) Signing up for:</b> one approval that copies those 3 rules into the template
+    everyone inherits.<br>
+    <b>3) You are deciding:</b> merge it now, or leave the gap open.<br>
+    <b>4) Results:</b> merge &rarr; DMS and template match again, gap closed. Leave
+    &rarr; the 3 stay DMS-only and other teams don't get them yet.<br>
+    <b>I'd:</b> merge &mdash; it's the missing half of a change already proven and
+    already in the waiting room.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128736;&#65039;</span>
+    <p class="big">2. Make drift truly impossible?</p>
+    <p class="say"><b>1) What's up?</b> Today's gap sat unnoticed because nothing watches
+    the two drawers.<br>
+    <b>2) Signing up for:</b> I build a small <b>auto-check</b> that compares the two and
+    flags any difference.<br>
+    <b>3) You are deciding:</b> add the watchdog, or trust the new discipline rule
+    alone.<br>
+    <b>4) Results:</b> add &rarr; drift can't hide, you're told the instant they differ.
+    Trust the rule &rarr; works, but only if we follow it every time.<br>
+    <b>I'd:</b> add it &mdash; it's cheap and makes "impossible" actually true.</p>
+  </div>
+
+  <p class="foot">Short version: DMS and the template drifted by <b>3 rules</b> because
+  the <b>last approval (PR #43)</b> was never clicked &mdash; not a bug. Merge it and
+  they match.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
