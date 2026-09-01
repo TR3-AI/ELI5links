@@ -1,5 +1,12 @@
 [
   {
+    "file": "dms-template-aligned.html",
+    "title": "DMS & template: aligned — one click left",
+    "desc": "Status + one decision. Your 2 questions answered: (1) no front-end build without a design you've agreed — the seat idles until then; (2) Herdr Pantheon confirmed — vault parent with PRD/SDD/Tickets, SDD holds skeleton+full, Tickets hold red+green+micro-SDDs. Your 'keep old rules' hunch: no such rule — the opposite is written down ('never copy a shared rule, one copy can't drift, two will'), which the manager card broke. Fixed: DMS card now matches the template (worker agents, block reports §15, two-axis PR gate, routing trimmed to a pointer), template got the Herdr Pantheon vault, and a small auto-check now trips on any future drift. One click left: merge PR #43 (your click — the agent never self-merges to main).",
+    "date": "2026-09-01",
+    "emoji": "✅"
+  },
+  {
     "file": "dms-manager-card-fixes.html",
     "title": "The manager card — old vs new",
     "desc": "Every difference between DMS's 2 manager files and the template, old line vs new line. 5 small catch-ups (a retired 'Execution' seat name in 4 spots; the gone 2.5h status roll-up, now block reports; a firmer advisor line; a routing file that duplicates rules), 1 real missing rule (the PR gate lost its second 'Spec' check via the Full SDD seat), and 1 place DMS is ahead (the newer 'Herdr Pantheon' vault folders the template should copy). Already fine: definition of done, your three questions, the PR table, own-tab comms. Your 2 decisions: sync the two files, and merge PR #43.",
