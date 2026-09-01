@@ -1,5 +1,12 @@
 [
   {
+    "file": "dms-manager-card-fixes.html",
+    "title": "The manager card — old vs new",
+    "desc": "Every difference between DMS's 2 manager files and the template, old line vs new line. 5 small catch-ups (a retired 'Execution' seat name in 4 spots; the gone 2.5h status roll-up, now block reports; a firmer advisor line; a routing file that duplicates rules), 1 real missing rule (the PR gate lost its second 'Spec' check via the Full SDD seat), and 1 place DMS is ahead (the newer 'Herdr Pantheon' vault folders the template should copy). Already fine: definition of done, your three questions, the PR table, own-tab comms. Your 2 decisions: sync the two files, and merge PR #43.",
+    "date": "2026-09-01",
+    "emoji": "🗂️"
+  },
+  {
     "file": "research-before-testing.html",
     "title": "Research before testing",
     "desc": "The agent learns how a feature really works before testing it — and flags every place your idea differs from the textbook, up top, never hidden",
