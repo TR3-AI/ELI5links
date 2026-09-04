@@ -1,5 +1,12 @@
 [
   {
+    "file": "debugger-drives-itself.html",
+    "title": "Your debugger runs on autopilot now",
+    "desc": "A debugger is a pause button for your running code — freeze it mid-run and look inside to see every value. Now the assistant drives it for you: pause here, run, read a value, step forward, stop. Tested live in Python, Go and Rust (stopped the code, read a value, stepped forward). Python works now, Go needs a quick build first, and Rust needs one tiny setup file.",
+    "date": "2026-09-04",
+    "emoji": "🐞"
+  },
+  {
     "file": "memory-wakes-itself-up.html",
     "title": "Your memory helper wakes itself up now",
     "desc": "Before, your long-term memory helper fell asleep on every restart and you had to start it by hand. Now it wakes up on its own the moment you log in, still remembering all ~9,500 notes — checked with a save-it, ask-for-it-back, clean-up round-trip. Bonus: the GPT-5.6 robot writes its handoff summary and taps out when its notebook is 40% full.",
