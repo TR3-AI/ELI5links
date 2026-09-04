@@ -1,5 +1,12 @@
 [
   {
+    "file": "memory-wakes-itself-up.html",
+    "title": "Your memory helper wakes itself up now",
+    "desc": "Before, your long-term memory helper fell asleep on every restart and you had to start it by hand. Now it wakes up on its own the moment you log in, still remembering all ~9,500 notes — checked with a save-it, ask-for-it-back, clean-up round-trip. Bonus: the GPT-5.6 robot writes its handoff summary and taps out when its notebook is 40% full.",
+    "date": "2026-09-04",
+    "emoji": "🧠"
+  },
+  {
     "file": "seat-vs-pane.html",
     "title": "Seat vs pane (and departments)",
     "desc": "Plain answer to: when I say 'the seat is there', do I mean the pane? Not quite — they pair up. A seat is the chair (a role in the team roster: this job, this model, this task). A pane is the live screen that worker sits at. Standing up a team opens one pane per seat, labelled 'team + seat' (e.g. DMS Front-end). So 'the front-end seat is always there' = the chair is always on the team and gets a pane once built — but that pane idles until you've agreed a design, and on any job with no UI. Catch for DMS now: only 3 live panes (Manager, backend, Research); the rest are rostered but not opened yet. Departments: same idea — a temporary team = its own tab with one pane per seat (lean 8); front-end always seated but idles with no UI; at most core + 2 departments at once.",
