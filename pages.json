@@ -1,5 +1,12 @@
 [
   {
+    "file": "memory-and-self-debugging.html",
+    "title": "Your AI's memory + catching bugs by itself",
+    "desc": "Two things in plain words. (1) Why saving new memories is broken right now: the note-taking step uses a paid AI whose key is out of credits, so saves look green but nothing sticks; top up or swap the key and it works, since reading never needed it. (2) How a debugger can catch bugs on its own: it's a magnifying glass, not an alarm. Crashes and failed tests get caught automatically the moment they happen; silent wrong answers need a rule (a test, assertion, or sanitizer) that defines 'right'. The loop is detect, capture the clues, then replay under the debugger.",
+    "date": "2026-09-04",
+    "emoji": "🧠"
+  },
+  {
     "file": "what-i-checked-for-you.html",
     "title": "Everything you asked — made simple",
     "desc": "A plain-words recap of your last ask: (1) Plugins — Mem, Usage, Ntfy and Speak already sit above your message box; only ponytail sits below, and lifting it up needs a small patch, not a setting. (2) The debugger now runs hands-free — pause the code, peek at a value, step through — tested live in Python, Go and Rust. (3) Folders — opened Freedom and QFL Hybrid; couldn't find OX Trader or Sports Direct.",
