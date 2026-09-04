@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your AI's memory &amp; catching bugs by itself</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Your memory &amp; catching bugs by itself &#129504;&#128027;</h1>
+  <p class="sub">two things, in plain words</p>
+
+  <p class="part">Part 1 &middot; the memory</p>
+
+  <div class="card">
+    <span class="emoji">&#129504;</span>
+    <p class="big">Your memory has two jobs</p>
+    <p class="say"><b>Reading</b> old notes &mdash; works fine. <b>Writing</b> new notes &mdash; broken right now.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9997;&#65039;</span>
+    <p class="big">Saving a note isn't copy&#8209;paste</p>
+    <p class="say">To save one, a little <b>AI reads the chat and writes down the important bits</b>. Using that AI costs money.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129689;</span>
+    <p class="big">It ran out of coins</p>
+    <p class="say">That AI's key has <b>no credits left</b>. So every new note fails &mdash; it <b>looks like it worked, but nothing actually sticks</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128273;</span>
+    <p class="big">One fix</p>
+    <p class="say"><b>Top up the coins</b>, or <b>give me a different key</b>. Reading never used the key &mdash; that's why remembering still works and only saving is stuck.</p>
+  </div>
+
+  <p class="part">Part 2 &middot; the bugs</p>
+
+  <div class="card">
+    <span class="emoji">&#128269;</span>
+    <p class="big">A debugger is a magnifying glass, not a smoke alarm</p>
+    <p class="say">It shows you <b>why</b> code broke &mdash; but only <b>after</b> something yells &ldquo;this is wrong&rdquo;.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128165;</span>
+    <p class="big">Loud bugs are easy to spot</p>
+    <p class="say"><b>Crashes and errors</b> show themselves the moment they happen. (A <b>freeze</b> is sneakier &mdash; you catch that with a timer that notices nothing's moving.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Test bugs are easy too</p>
+    <p class="say">Keep little checks (<b>tests</b>) and run them on every change. A failed check <b>is</b> a caught bug.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129323;</span>
+    <p class="big">Quiet bugs need a rule</p>
+    <p class="say">Code runs, but the answer's just <b>wrong</b>. Special tools catch lots of these &mdash; but each one still needs a <b>rule for what &ldquo;right&rdquo; means</b>. Nothing knows it's wrong by magic.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">idea &mdash; not built yet</span>
+    <span class="emoji">&#128257;</span>
+    <p class="big">How we could catch them for you</p>
+    <p class="say">We can build a little <b>watcher</b>: it runs your code and checks &rarr; spots a crash or failed test &rarr; <b>saves the clues</b> &rarr; <b>replays it under the magnifying glass</b> to find the exact spot. Then you'd never have to say &ldquo;there's a bug here&rdquo;.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say"><b>Memory:</b> I need coins or a new key for the note&#8209;taking AI. <b>Bugs:</b> we can <b>set up</b> hands&#8209;free catching for anything that <b>crashes or fails a test</b> &mdash; quiet wrong answers still need a check that says what &ldquo;right&rdquo; looks like.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
