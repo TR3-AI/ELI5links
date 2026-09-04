@@ -1,10 +1,10 @@
 [
   {
-    "file": "debugger-drives-itself.html",
-    "title": "Your debugger runs on autopilot now",
-    "desc": "A debugger is a pause button for your running code — freeze it mid-run and look inside to see every value. Now the assistant drives it for you: pause here, run, read a value, step forward, stop. Tested live in Python, Go and Rust (stopped the code, read a value, stepped forward). Python works now, Go needs a quick build first, and Rust needs one tiny setup file.",
+    "file": "what-i-checked-for-you.html",
+    "title": "Everything you asked — made simple",
+    "desc": "A plain-words recap of your last ask: (1) Plugins — Mem, Usage, Ntfy and Speak already sit above your message box; only ponytail sits below, and lifting it up needs a small patch, not a setting. (2) The debugger now runs hands-free — pause the code, peek at a value, step through — tested live in Python, Go and Rust. (3) Folders — opened Freedom and QFL Hybrid; couldn't find OX Trader or Sports Direct.",
     "date": "2026-09-04",
-    "emoji": "🐞"
+    "emoji": "🧰"
   },
   {
     "file": "memory-wakes-itself-up.html",
