@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the bug&#8209;watcher fixes things</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How the watcher fixes things &#128295;</h1>
+  <p class="sub">small stuff itself &mdash; big stuff back to the AI</p>
+
+  <p class="part">Part 1 &middot; small, safe fixes</p>
+
+  <div class="card">
+    <span class="tag idea">idea &mdash; not built yet</span>
+    <span class="emoji">&#129295;</span>
+    <p class="big">Small fixes: no AI</p>
+    <p class="say">For tiny, safe stuff it uses each language's <b>own</b> fix tool &mdash; <b>not</b> an AI.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129529;</span>
+    <p class="big">Like what?</p>
+    <p class="say">Tidy imports, formatting, a rename the compiler <b>literally suggests</b>, drop an unused bit. <span class="code">cargo fix</span>, <span class="code">ruff --fix</span>, <span class="code">gofmt</span>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128581;</span>
+    <p class="big">Why not an AI for those?</p>
+    <p class="say">The tool already knows the <b>exact</b> change. No guessing = <b>no new bug</b>. It re&#8209;checks right after, to be sure.</p>
+  </div>
+
+  <p class="part">Part 2 &middot; the real bugs</p>
+
+  <div class="card">
+    <span class="emoji">&#128221;</span>
+    <p class="big">Bigger bug &rarr; a tidy note</p>
+    <p class="say"><b>File</b>, <b>line</b>, what broke, <b>expected vs got</b> (and the stack, if it crashed).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129302;</span>
+    <p class="big">The note goes to the AI, not you</p>
+    <p class="say">You're not the one coding &mdash; the <b>AI</b> is. So the note is written <b>for the AI</b> to act on, not for a human to read.</p>
+  </div>
+
+  <p class="part">Part 3 &middot; how the AI gets it</p>
+
+  <div class="card">
+    <span class="emoji">&#128268;</span>
+    <p class="big">If the AI runs the watcher</p>
+    <p class="say">The note comes back as the <b>tool's answer</b> &mdash; dropped straight into the chat as the <b>next thing</b> the AI sees. Its next move: fix them.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128229;</span>
+    <p class="big">If it runs in the background</p>
+    <p class="say">It saves the note to a file (<span class="code">findings.json</span>), and whatever <b>drives</b> the AI posts it as the AI's <b>next message</b>. Nothing can reach <i>into</i> the AI &mdash; the note always arrives as its <b>next input</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128257;</span>
+    <p class="big">Then the loop</p>
+    <p class="say">AI fixes &rarr; saves &rarr; watcher <b>re&#8209;checks</b> &rarr; <b>green = done</b>, or round again.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128721;</span>
+    <p class="big">With a brake</p>
+    <p class="say">A <b>limit</b> on tries, so it can't loop forever. After a few goes, it <b>stops</b> and flags a human.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say"><b>Small, safe stuff</b> &rarr; the language's own fix tool (no AI). <b>Real bugs</b> &rarr; a tidy note handed to the <b>AI</b> &mdash; as a tool result, or posted as its next message &mdash; then AI fixes, watcher re&#8209;checks. Green, or try again, <b>with a cap</b>.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
