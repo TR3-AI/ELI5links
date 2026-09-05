@@ -54,7 +54,7 @@
     <span class="qnum">Q1</span>
     <span class="emoji">&#128421;&#65039;</span>
     <p class="big">Its own little program, off to the side</p>
-    <p class="say">You run <span class="code">bug-watcher</span> in its <b>own</b> terminal or pane and leave it open. It watches your project folder, stays out of your editor, and <b>never</b> changes your files &mdash; unless you add <span class="code">--autofix</span>. Ctrl-C stops it.</p>
+    <p class="say">You run <span class="code">bug-watcher</span> in its <b>own</b> terminal or pane and leave it open. It watches your project folder and stays out of your editor. It <b>never changes your source files</b> unless you add <span class="code">--autofix</span> &mdash; but it <b>always</b> writes its own <span class="code">findings.json</span> report. Ctrl-C stops it.</p>
   </div>
 
   <p class="part">Q2 &middot; what happens the moment you save?</p>
@@ -79,7 +79,15 @@
   <div class="card">
     <span class="emoji">&#128260;</span>
     <p class="big">It re-runs your checks, in order</p>
-    <p class="say"><span class="code">cargo build</span>, then <span class="code">cargo test</span>. If the build fails, it <b>skips</b> the tests. Then it writes <span class="code">findings.json</span> and prints <b>green &#10003;</b> or a one-line summary.</p>
+    <p class="say"><span class="code">cargo build</span>, then <span class="code">cargo test</span>. If the build <b>fails</b>, it <b>skips</b> the tests.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128221;</span>
+    <p class="big">Then it settles &mdash; and writes the report</p>
+    <p class="say">Without <span class="code">--autofix</span> it writes <b>right away</b>. With it, if a build issue is fixable, it <b>runs the fixer batch, re-checks, and loops</b> &mdash; up to <b>5 rounds</b> &mdash; and only when it settles (or hits the cap) does it write <span class="code">findings.json</span> and print <b>green &#10003;</b> or a one-line summary.</p>
   </div>
 
   <p class="part">Q3 &middot; where do the small fixes come from?</p>
@@ -131,7 +139,7 @@
   <div class="card">
     <span class="emoji">&#9989;</span>
     <p class="big">Green only when everything passes</p>
-    <p class="say">If a check <b>can't even run</b> (bad setup, tool broke) or the result is <b>unclear</b>, that's <b>never</b> counted as green &mdash; and <b>never</b> auto-fixed.</p>
+    <p class="say">If a check <b>can't even run</b> (bad setup, tool broke) or the result is <b>unclear</b>, that's <b>never</b> counted as green &mdash; and <b>never</b> auto-fixed. (But heads up: those results can still leave <span class="code">findings.json</span> <b>empty</b> &mdash; see the gaps below.)</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
