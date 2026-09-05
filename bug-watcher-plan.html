@@ -68,8 +68,8 @@
 
   <div class="card">
     <span class="emoji">&#129534;</span>
-    <p class="big">Each problem becomes a "finding"</p>
-    <p class="say">A finding <b>always</b> has a plain message. It gets a <b>file + line</b> only when the compiler hands one over. It gets <b>expected-vs-got</b> only from a failed <span class="code">assert_eq!</span> &mdash; and today that pair is <b>often backwards</b> (a known bug). It does <b>not</b> run twice to confirm &mdash; one run per save.</p>
+    <p class="big">Most problems become a "finding"</p>
+    <p class="say">When it makes one, a finding <b>always</b> has a plain message. It gets a <b>file + line</b> only when the compiler hands one over, and <b>expected-vs-got</b> only from a failed <span class="code">assert_eq!</span> (which today is <b>often backwards</b>, a known bug). Some failures &mdash; like a crashing test &mdash; produce <b>no finding at all</b>. And it checks <b>once per settled batch of saves</b> (a burst counts as one), not twice to confirm.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -251,7 +251,7 @@
   <div class="card">
     <span class="emoji">&#128236;</span>
     <p class="big">Then: deliver &amp; enforce</p>
-    <p class="say"><b>3) Deliver</b> &mdash; the checker returns <b>one report in memory</b> (a clear status + the findings). A <span class="code">--json</span> mode <b>prints that report to the screen</b> for the wrapper or per-edit hook (OMP / Claude Code) to read <b>directly</b> &mdash; it <b>never re-opens the receipt file</b>, so the stale/empty race can't come back; the same report is also saved to disk atomically. <b>4) Enforce</b> &mdash; <span class="code">--once</span> turns that status into a <b>non-zero exit</b>, and while red we block the <b>finish / commit / next-task</b> but keep <b>Edit/Write open</b> so it can fix.</p>
+    <p class="say"><b>3) Deliver</b> &mdash; the checker returns <b>one report in memory</b> (status + findings + a <b>generation stamp and project root</b>). A <span class="code">--json</span> mode <b>prints that report to the screen</b> for the wrapper or per-edit hook (OMP / Claude Code) to read <b>directly</b> &mdash; it <b>never re-opens the receipt file</b>, so the <b>file-reread race is gone</b>. The generation stamp lets a hook <b>reject a result older than the latest edit</b> (that's what closes the stale-result gap, not stdout alone). The same report is saved to disk atomically too. <b>4) Enforce</b> &mdash; <span class="code">--once</span> turns that status into a <b>non-zero exit</b>, and while red we block the <b>finish / commit / next-task</b> but keep <b>Edit/Write open</b> so it can fix.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
