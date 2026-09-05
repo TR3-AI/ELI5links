@@ -95,10 +95,18 @@
 
   <div class="card">
     <span class="qnum">Q4</span>
-    <span class="tag idea">not built yet</span>
     <span class="emoji">&#128294;</span>
-    <p class="big">Right now: none</p>
-    <p class="say">There is <b>no debugger wired in at all</b>. Earlier pages saying CodeLLDB peeks at crashes were <b>wrong</b>. "Crash" just means the program was killed by a signal; "freeze" just means it ran past the timer &mdash; both read from <b>how the process ended</b>, no debugger involved.</p>
+    <p class="big">Today: none &mdash; no debugger is wired in</p>
+    <p class="say">Earlier pages saying CodeLLDB peeks at crashes were <b>wrong</b>. "Crash" just means the program was killed by a signal; "freeze" just means it ran past the timer &mdash; both read from <b>how the process ended</b>, no debugger involved.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">planned &mdash; not built yet</span>
+    <span class="emoji">&#128269;</span>
+    <p class="big">If it's added later: a magnifying glass, nothing more</p>
+    <p class="say">The plan is <b>best-effort</b> and <b>only after a crash or freeze</b>, purely to add detail (like a stack trace). It would <b>never</b> decide whether something's a bug, and <b>never</b> auto-fix.</p>
   </div>
 
   <p class="part">Q5 &middot; how does it decide bug vs error vs failure?</p>
