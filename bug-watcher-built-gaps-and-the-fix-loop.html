@@ -236,7 +236,7 @@
   <div class="card">
     <span class="emoji">&#129513;</span>
     <p class="big">Three jobs, kept apart</p>
-    <p class="say"><b>1) Detect</b> (the watcher) &middot; <b>2) Deliver</b> (show the findings) &middot; <b>3) Enforce</b> (block the <i>finish</i>, not the fixing). Today <b>1 and 2 exist; 3 doesn't</b> &mdash; that's the work.</p>
+    <p class="say"><b>1) Detect</b> (the watcher runs the checks) &middot; <b>2) Deliver</b> (put the findings in front of the AI) &middot; <b>3) Enforce</b> (block the <i>finish</i>, not the fixing). Today <b>detection and the saved report exist; delivery and enforcement do not</b> &mdash; that's the work.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -245,7 +245,7 @@
     <span class="tag idea">to build</span>
     <span class="emoji">&#129520;</span>
     <p class="big">Way 1 &mdash; make the watcher the AI's "build" button</p>
-    <p class="say">If the AI's build/test step <b>is</b> the watcher, the findings come <b>straight back in the same result</b>. It can't not see them. Works in any tool &mdash; the simplest lever.</p>
+    <p class="say">If the AI's build/test step <b>is</b> the watcher, the findings come <b>straight back in the same result</b>. But the CLI today only prints a <b>count and the file path</b> and <b>exits 0</b> &mdash; so this needs a thin wrapper (or a <span class="code">--json</span> mode) that reads <span class="code">findings.json</span>, attaches the real details, and <b>exits non-zero</b> when red. Then it can't not see them. Works in any tool &mdash; the simplest lever.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
