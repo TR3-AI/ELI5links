@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bug-watcher &mdash; straight answers</title>
+<title>bug-watcher &mdash; your 6 questions, answered</title>
 <style>
   :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
   *{box-sizing:border-box}
@@ -18,6 +18,7 @@
   h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
   .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
   .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .qnum{display:inline-block; background:#6b4fd0; color:#fff; font-size:13px; font-weight:800; border-radius:999px; padding:2px 11px; margin:0 0 8px}
   .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
   .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
   .big{font-size:22px; font-weight:800; margin:0 0 6px}
@@ -38,28 +39,28 @@
 <body>
 <div class="wrap">
 
-  <h1>bug-watcher &mdash; straight answers &#9989;</h1>
-  <p class="sub">what it actually does today &mdash; and what earlier pages oversold</p>
-
-  <p class="part">You asked 6 things</p>
+  <h1>Your 6 questions, answered &#9989;</h1>
+  <p class="sub">straight from the real code &mdash; and honest about what isn't built</p>
 
   <div class="card">
     <span class="emoji">&#128203;</span>
-    <p class="big">Here are the honest answers</p>
-    <p class="say">Based on the <b>real code</b>, not the earlier pages. Where a page promised more than what's built, it's marked <span class="tag idea" style="margin:0">not built yet</span>.</p>
+    <p class="big">One card per question &mdash; none skipped</p>
+    <p class="say">Answered in <b>your order</b>, 1 to 6. Anything a card promises that <b>isn't built yet</b> is marked in red.</p>
   </div>
 
-  <p class="part">1 &middot; does it get in your way?</p>
+  <p class="part">Q1 &middot; does it get in your way?</p>
 
   <div class="card">
+    <span class="qnum">Q1</span>
     <span class="emoji">&#128421;&#65039;</span>
-    <p class="big">It's its own little program</p>
-    <p class="say">You run <span class="code">bug-watcher</span> in its <b>own</b> terminal or pane and leave it open. It watches your project folder and stays out of your editor. It <b>never</b> changes your files &mdash; unless you turn on <span class="code">--autofix</span>. Stop it with Ctrl-C.</p>
+    <p class="big">Its own little program, off to the side</p>
+    <p class="say">You run <span class="code">bug-watcher</span> in its <b>own</b> terminal or pane and leave it open. It watches your project folder, stays out of your editor, and <b>never</b> changes your files &mdash; unless you add <span class="code">--autofix</span>. Ctrl-C stops it.</p>
   </div>
 
-  <p class="part">2 &middot; what happens the moment you save</p>
+  <p class="part">Q2 &middot; what happens the moment you save?</p>
 
   <div class="card">
+    <span class="qnum">Q2</span>
     <span class="emoji">&#128190;</span>
     <p class="big">It waits half a second</p>
     <p class="say">So a burst of saves counts as <b>one</b>. Default is <b>0.5s</b> of quiet before it acts.</p>
@@ -81,9 +82,29 @@
     <p class="say"><span class="code">cargo build</span>, then <span class="code">cargo test</span>. If the build fails, it <b>skips</b> the tests. Then it writes <span class="code">findings.json</span> and prints <b>green &#10003;</b> or a one-line summary.</p>
   </div>
 
-  <p class="part">3 &middot; how it decides something's a bug</p>
+  <p class="part">Q3 &middot; where do the small fixes come from?</p>
 
   <div class="card">
+    <span class="qnum">Q3</span>
+    <span class="emoji">&#128295;</span>
+    <p class="big">From the language's own tools &mdash; not an AI, not CodeLLDB</p>
+    <p class="say">It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>. A fix only counts when the <b>compiler or clippy hands over an exact, ready-made edit</b> &mdash; so there's no guessing.</p>
+  </div>
+
+  <p class="part">Q4 &middot; what is CodeLLDB's role?</p>
+
+  <div class="card">
+    <span class="qnum">Q4</span>
+    <span class="tag idea">not built yet</span>
+    <span class="emoji">&#128294;</span>
+    <p class="big">Right now: none</p>
+    <p class="say">There is <b>no debugger wired in at all</b>. Earlier pages saying CodeLLDB peeks at crashes were <b>wrong</b>. "Crash" just means the program was killed by a signal; "freeze" just means it ran past the timer &mdash; both read from <b>how the process ended</b>, no debugger involved.</p>
+  </div>
+
+  <p class="part">Q5 &middot; how does it decide bug vs error vs failure?</p>
+
+  <div class="card">
+    <span class="qnum">Q5</span>
     <span class="emoji">&#128678;</span>
     <p class="big">It reads facts, not meaning</p>
     <p class="say">It never understands your code. It runs the <b>real</b> commands and reads <b>how they ended</b>.</p>
@@ -113,40 +134,24 @@
     <p class="say">It means a <b>check failed</b> &mdash; not that it found the cause. Code that runs fine but gives the <b>wrong answer</b> slips through, unless a <b>test</b> says what "right" is.</p>
   </div>
 
-  <p class="part">4 &middot; the small fixes &mdash; where the know-how comes from</p>
+  <p class="part">Q6 &middot; small bug vs big bug &mdash; the rule</p>
 
   <div class="card">
-    <span class="emoji">&#128295;</span>
-    <p class="big">The language fixes its own small stuff</p>
-    <p class="say"><b>Not</b> an AI. <b>Not</b> a debugger. It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>.</p>
-  </div>
-
-  <div class="arrow">&#11015;&#65039;</div>
-
-  <div class="card">
+    <span class="qnum">Q6</span>
     <span class="emoji">&#9986;&#65039;</span>
-    <p class="big">Small vs big = is there a ready, exact fix?</p>
-    <p class="say">If the compiler or clippy hands over an <b>exact, safe edit</b> &rarr; <b>small</b>: it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). Anything else &rarr; <b>big</b>: it just writes the note and leaves it for you or the AI.</p>
+    <p class="big">Is there a ready, exact fix?</p>
+    <p class="say"><b>Small</b> = the tool already holds the <b>exact, safe edit</b> &rarr; it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). <b>Big</b> = everything else (test fails, crashes, freezes, logic bugs) &rarr; it just writes the note and leaves it for you or the AI. The line is "is there a safe edit?" &mdash; <b>not</b> how serious it is.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="emoji">&#128248;</span>
-    <p class="big">It fixes on a copy</p>
+    <p class="big">And it fixes on a copy</p>
     <p class="say">Fixes run on a <b>scratch copy</b>, then write back a file <b>only if you haven't touched it</b> since. Saved again mid-fix? It <b>skips</b> that file and retries next save.</p>
   </div>
 
-  <p class="part">5 &amp; 6 &middot; the honest corrections</p>
-
-  <div class="card">
-    <span class="tag idea">not built yet</span>
-    <span class="emoji">&#128294;</span>
-    <p class="big">No debugger &mdash; CodeLLDB is not used</p>
-    <p class="say">Earlier pages said a debugger (CodeLLDB / Delve / pdb) peeks at crashes. <b>That isn't built.</b> "Crash" just means the process was killed by a signal; "freeze" just means it ran past the timer. <b>No debugger runs.</b></p>
-  </div>
-
-  <div class="arrow">&#11015;&#65039;</div>
+  <p class="part">the honest corrections</p>
 
   <div class="card">
     <span class="tag idea">not built yet</span>
