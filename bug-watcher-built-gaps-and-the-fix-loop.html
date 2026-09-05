@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bug-watcher &mdash; built, gaps &amp; the fix loop</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:32px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:60px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#ffe3e3; color:#c92a2a}
+  .tag.built{background:#d3f9d8; color:#2b8a3e}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The watcher: built, gaps &amp; the fix loop &#128260;</h1>
+  <p class="sub">what works today, what's missing, and how we <b>force</b> the AI to fix what it breaks</p>
+
+  <div class="card">
+    <span class="emoji">&#129517;</span>
+    <p class="big">The big idea</p>
+    <p class="say">Don't trust the AI's word. <b>Check its work every time code is saved</b> &mdash; not at the very end. The watcher is the checker; <span class="code">findings.json</span> is the receipt; the hard part is <b>forcing the AI to act on it</b>.</p>
+  </div>
+
+  <p class="part">Part 1 &middot; what's built today</p>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">A real Rust v1 &mdash; it works</p>
+    <p class="say">A working command-line tool. It <b>builds clean and 39 of its own tests pass</b>. This part is real, not a sketch.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128260;</span>
+    <p class="big">How it works</p>
+    <p class="say">You run it in its <b>own terminal</b>. On save it re-runs <span class="code">cargo build</span> + <span class="code">cargo test</span>, reads the result, writes <span class="code">findings.json</span>, and prints <b>green &#10003;</b> or a short summary.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128678;</span>
+    <p class="big">It reads facts, not vibes</p>
+    <p class="say">Timeout &rarr; <b>freeze</b>. Fatal signal &rarr; <b>crash</b>. Compiler error &rarr; <b>build broke</b>. Failed test &rarr; <b>test broke</b>. <b>Green only</b> when everything passes.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#128295;</span>
+    <p class="big">Tiny auto-fixes</p>
+    <p class="say">With <span class="code">--autofix</span> it runs Rust's own fixers (<span class="code">cargo fix</span>, <span class="code">clippy --fix</span>, <span class="code">fmt</span>) on a <b>scratch copy</b>, then re-checks. No AI, no guessing.</p>
+  </div>
+
+  <p class="part">Part 2 &middot; what's NOT built yet</p>
+
+  <div class="card">
+    <span class="tag idea">not built</span>
+    <span class="emoji">&#128682;</span>
+    <p class="big">The enforcement &mdash; the missing heart</p>
+    <p class="say">Nothing yet <b>forces</b> the AI to read the receipt or fix before it moves on. Detecting is done; <b>making the AI act</b> is not. (That's Part 6.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not built</span>
+    <span class="emoji">&#129408;</span>
+    <p class="big">Only Rust</p>
+    <p class="say">No Python, Go, or JavaScript yet. One language adapter exists.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not built</span>
+    <span class="emoji">&#128294;</span>
+    <p class="big">No debugger</p>
+    <p class="say">CodeLLDB isn't wired in. Planned only: a <b>best-effort</b> peek after a crash or freeze for extra detail &mdash; never a decider.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not tested</span>
+    <span class="emoji">&#129514;</span>
+    <p class="big">The live watch loop is unproven</p>
+    <p class="say">Only the one-shot <span class="code">--once</span> run is tested. The keep-watching loop is written but not exercised end to end.</p>
+  </div>
+
+  <p class="part">Part 3 &middot; gaps, flaws &amp; future errors</p>
+
+  <div class="card">
+    <span class="tag idea">known flaw</span>
+    <span class="emoji">&#128994;</span>
+    <p class="big">It says "success" even when it finds bugs</p>
+    <p class="say">The program <b>always exits 0</b> (the "all good" code), even with findings. Any gate that checks the exit code is <b>fooled</b>. Red must exit non-zero.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">known gap</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">A blank receipt</p>
+    <p class="say">When a check <b>can't run</b> (bad setup) or is <b>unclear</b>, it's not green &mdash; but <span class="code">findings.json</span> can still come out <b>empty</b> and say "no findings." The note must always explain.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">known flaw</span>
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">Auto-fix is too eager</p>
+    <p class="say">Any compiler suggestion with a replacement &mdash; even a "maybe wrong" one &mdash; fires <b>all three fixers across the whole project</b> (reformatting, unrelated lints), not just the one spot.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">known flaw</span>
+    <span class="emoji">&#128256;</span>
+    <p class="big">"expected vs got" can flip</p>
+    <p class="say">Test values are labelled by <b>position</b>, so your real value can show up under "expected."</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">the hard limit</span>
+    <span class="emoji">&#128373;&#65039;</span>
+    <p class="big">Silent wrong answers</p>
+    <p class="say">Code that <b>runs fine but returns the wrong result</b> is invisible &mdash; unless a <b>test</b> says what "right" is. No checker can guess your intent.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">known gap</span>
+    <span class="emoji">&#128683;</span>
+    <p class="big">No project? Silent pass</p>
+    <p class="say">Point it at a non-Rust repo and it just <b>exits, looking fine</b>. It should say "I can't check this."</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">future risk</span>
+    <span class="emoji">&#9201;&#65039;</span>
+    <p class="big">Slow on big repos</p>
+    <p class="say">A full build + test on every save can drag. Later it needs <b>smarter scoping and caching</b> so it stays snappy.</p>
+  </div>
+
+  <p class="part">Part 4 &middot; the whole point</p>
+
+  <div class="card">
+    <span class="emoji">&#129504;</span>
+    <p class="big">Check as you go, not at the end</p>
+    <p class="say">Old way: let the AI run all the way to the finish, then <b>hope</b>. New way: <b>verify every save</b>, catch the break the moment it happens &mdash; so you always know what's actually working.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128274;</span>
+    <p class="big">Why it can't be fudged</p>
+    <p class="say">The judge is the <b>compiler and the tests</b>, not the AI's opinion. The AI <b>can't talk a red into a green</b>.</p>
+  </div>
+
+  <p class="part">Part 5 &middot; findings.json &mdash; how you KNOW</p>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#129534;</span>
+    <p class="big">Every check leaves a receipt</p>
+    <p class="say"><span class="code">findings.json</span> lists each problem: <b>tool, kind, file, line, expected, got, message</b>, and whether it's auto-fixable. Written for the AI to read, not you.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128190;</span>
+    <p class="big">Always there, machine-readable</p>
+    <p class="say">It's rewritten every check &mdash; even when clean (an empty list). That's the <b>contract</b> the next step reads. (Once we fix the "blank receipt" gap so it's never empty-by-accident.)</p>
+  </div>
+
+  <p class="part">Part 6 &middot; how we FORCE the AI to fix it</p>
+
+  <div class="card">
+    <span class="emoji">&#129513;</span>
+    <p class="big">Three jobs, kept apart</p>
+    <p class="say"><b>1) Detect</b> (the watcher) &middot; <b>2) Deliver</b> (the receipt / tool output) &middot; <b>3) Enforce</b> (block until green). Today <b>1 and 2 exist; 3 doesn't</b> &mdash; that's the work.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#129520;</span>
+    <p class="big">Way 1 &mdash; make the watcher the AI's "build" button</p>
+    <p class="say">If the AI's build/test step <b>is</b> the watcher, the findings come <b>straight back in the same result</b>. It can't not see them. Works in any tool &mdash; the simplest lever.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#128260;</span>
+    <p class="big">Way 2 (OMP) &mdash; check after every turn</p>
+    <p class="say">A small OMP add-on on <span class="code">turn_end</span> re-runs the watcher after each AI turn; if red, it <b>pushes the findings into the AI's next turn</b> and won't let it settle. (OMP's hooks fire <b>per turn</b>, not per keystroke &mdash; I checked.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#128682;</span>
+    <p class="big">Way 3 (Claude Code) &mdash; check after every edit</p>
+    <p class="say">Claude Code can hook "<b>after a file edit</b>," run the watcher, and <b>block right there</b> with the findings attached. Finest-grained: fires the instant a file changes.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">backstop only</span>
+    <span class="emoji">&#128737;&#65039;</span>
+    <p class="big">A "done" gate &mdash; the safety net</p>
+    <p class="say">A final check refuses "finished" while red. Keep it <b>only as a backstop</b>, never the main plan &mdash; on its own it checks too late (the old problem).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9939;&#65039;</span>
+    <p class="big">The loop</p>
+    <p class="say"><b>Save &rarr; check &rarr; red exit + receipt &rarr; findings pushed to the AI &rarr; AI fixes &rarr; save &rarr; repeat</b>, capped. Still red after the cap? <b>Stop and call a human.</b></p>
+  </div>
+
+  <p class="part">Part 7 &middot; the build order to get robust</p>
+
+  <div class="card">
+    <span class="tag idea">step 1</span>
+    <span class="emoji">&#49;&#65039;&#8419;</span>
+    <p class="big">Make red mean red</p>
+    <p class="say">Exit <b>non-zero</b> when not green. Tiny change &mdash; it <b>unlocks every gate</b> above.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 2</span>
+    <span class="emoji">&#50;&#65039;&#8419;</span>
+    <p class="big">Always write a real receipt</p>
+    <p class="say">Never a blank note on tool/unclear failures &mdash; every not-green must explain itself in <span class="code">findings.json</span>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 3</span>
+    <span class="emoji">&#51;&#65039;&#8419;</span>
+    <p class="big">Wire the per-turn / per-edit check</p>
+    <p class="say">Build the enforcement in Part 6 &mdash; the watcher-as-build-button first, then the turn/edit hook, with the "done" gate as backstop.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 4</span>
+    <span class="emoji">&#52;&#65039;&#8419;</span>
+    <p class="big">Tighten the fixers</p>
+    <p class="say">Only apply <b>truly-safe</b> edits; stop firing all three project-wide; fix the expected/got flip.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 5</span>
+    <span class="emoji">&#53;&#65039;&#8419;</span>
+    <p class="big">Prove the watch loop; add cancel</p>
+    <p class="say">Test the live loop for real, and let a <b>new save stop a stale check</b> so it stays responsive.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 6</span>
+    <span class="emoji">&#54;&#65039;&#8419;</span>
+    <p class="big">More languages + insist on tests</p>
+    <p class="say">Add Python/Go/JS and a lint/type stage &mdash; and require tests, so <b>silent wrong answers</b> get caught too.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say">The <b>detector is real</b>: a Rust v1 that catches loud bugs on save and writes a receipt. The <b>missing heart is enforcement</b> &mdash; make red exit non-zero, always leave a receipt, and <b>force the AI to fix on every save/turn</b> before it moves on, with a "done" gate only as a backstop. Then the AI is <b>checked as it goes</b>, not trusted at the end.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
