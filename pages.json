@@ -1,5 +1,12 @@
 [
   {
+    "file": "how-the-watcher-watches.html",
+    "title": "How the bug-watcher watches (local folder, and who has a compiler)",
+    "desc": "Clears up two confusions about the bug-watcher. (1) Does it watch as the AI codes? No — it doesn't see keystrokes. It watches your LOCAL folder (where edits are saved), not GitHub (only updates on push) and not the Graphify map (an after-the-fact snapshot; handy to explain a break, not where edits land). It waits for saving to settle (debounce), drops any stale check if you save again, then runs build/lint/test once on the newest snapshot; the debugger only steps in for a crash or freeze. (2) Do Go and Python have a compiler like Rust? Rust has a strict compiler (catches wrong names, wrong case, wrong types before running); Go also compiles and catches those (lighter than Rust, but even flags unused imports); Python has no real compiler — it runs line by line and only hits a wrong name (NameError) when it reaches that line, so add ruff (names) and mypy (types) to catch them earlier.",
+    "date": "2026-09-05",
+    "emoji": "👀"
+  },
+  {
     "file": "watcher-cli.html",
     "title": "The bug-watcher CLI — how it works",
     "desc": "A reusable command-line “watcher” that catches bugs on its own across Rust, Go, and Python. Point it at the run or test command you already use (cargo test, go test, pytest); it watches for a crash, a failed test, or a freeze (a timer catches hangs and grabs a stack snapshot). It saves what it can — the error output, the exact failing test, any seed or input it reports — then does a best-effort replay under the right debugger (CodeLLDB for Rust, with plain LLDB as the fallback; Delve/dlv for Go; pdb/debugpy for Python), pausing where it fails. It will not catch silent wrong answers; those still need a test or check that defines “right”. One command, same steps for all three: watcher -- <your command>.",
