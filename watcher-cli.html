@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bug&#8209;watcher &mdash; one tool for your code</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The bug&#8209;watcher &#128301;&#128027;</h1>
+  <p class="sub">one command &mdash; it catches the loud stuff and shows you where</p>
+
+  <div class="card">
+    <span class="tag idea">idea &mdash; not built yet</span>
+    <span class="emoji">&#129520;</span>
+    <p class="big">You give it one command</p>
+    <p class="say">The one you <b>already</b> use to run or test your code &mdash; <span class="code">cargo test</span>, <span class="code">go test</span>, or <span class="code">pytest</span>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128064;</span>
+    <p class="big">It runs it and watches</p>
+    <p class="say">You start it once: <span class="code">watcher -- cargo test</span>. It runs your command and keeps an eye on it.</p>
+  </div>
+
+  <p class="part">how it knows something broke</p>
+
+  <div class="card">
+    <span class="emoji">&#128165;</span>
+    <p class="big">A crash</p>
+    <p class="say">The program <b>dies or throws</b>. Caught the moment it happens.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9989;</span>
+    <p class="big">A failed test</p>
+    <p class="say">A <b>red</b> test. That <b>is</b> a caught bug &mdash; and it knows <b>which one</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9201;&#65039;</span>
+    <p class="big">A freeze</p>
+    <p class="say">Nothing finishes in time. A <b>timer</b> notices the quiet and flags it as stuck.</p>
+  </div>
+
+  <p class="part">what it does next</p>
+
+  <div class="card">
+    <span class="emoji">&#128270;</span>
+    <p class="big">It grabs the clues</p>
+    <p class="say">What you ran, the error, the <b>exact test</b> that failed, the <b>input</b> that broke it, and where it got stuck. Saved to a little file.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128300;</span>
+    <p class="big">It replays under the debugger</p>
+    <p class="say">It runs the <b>same thing again</b>, slowly, under a magnifying glass &mdash; and <b>stops at the exact broken spot</b> so you can look.</p>
+  </div>
+
+  <p class="part">one tool, three languages</p>
+
+  <div class="card">
+    <span class="emoji">&#129408;</span>
+    <p class="big">Rust</p>
+    <p class="say">Uses <b>LLDB</b>, Rust's debugger. Stops on the <b>panic</b> and shows the trail back to the line.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128057;</span>
+    <p class="big">Go</p>
+    <p class="say">Uses <b>Delve</b> (<span class="code">dlv</span>). Stops on the panic &mdash; and for a <b>freeze</b> it lists <b>every</b> stuck task so you see who's blocking.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128013;</span>
+    <p class="big">Python</p>
+    <p class="say">Uses <b>pdb</b> (or debugpy). Drops you right on the <b>line that broke</b>, so you can poke around.</p>
+  </div>
+
+  <p class="part">the honest bit</p>
+
+  <div class="card">
+    <span class="emoji">&#129323;</span>
+    <p class="big">What it won't catch</p>
+    <p class="say"><b>Quiet wrong answers</b> &mdash; code runs, the result's just off. Those still need a <b>test or check</b> that says what &ldquo;right&rdquo; is. The watcher jumps on crashes, red tests, and freezes &mdash; not silent wrongness.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say"><b>One CLI</b>, same steps for all three. Point it at your run or test command; it <b>watches</b>, catches a <b>crash</b>, a <b>red test</b>, or a <b>freeze</b>, <b>saves the clues</b>, then reopens the <b>exact spot</b> under Rust's, Go's, or Python's debugger.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
