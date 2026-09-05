@@ -1,5 +1,12 @@
 [
   {
+    "file": "bug-watcher-straight-answers.html",
+    "title": "bug-watcher — straight answers",
+    "desc": "Straight, honest answers about what the bug-watcher actually does today - and where earlier pages oversold it. It's its own little command-line program: you run it in its own terminal, it watches your project folder, and it never touches your editor or files unless you turn on --autofix. On save it waits half a second so a burst of saves counts as one, ignores noise like .git/target/node_modules/.venv and its own findings.json (but keeps files you deleted or renamed), then re-runs cargo build and then cargo test, skipping the tests if the build fails. It decides bug-vs-noise by reading facts, not meaning: a timeout is a freeze, a fatal signal is a crash, compiler errors mean the build broke, a failed test means a test broke; it is only green when everything passes, and a check that can't run or gives an unclear result is never green and never auto-fixed. Small fixes come from Rust's own tools (cargo fix, clippy --fix, fmt) - no AI, no debugger - applied on a scratch copy and written back only if you haven't changed the file, capped at 5 rounds. Honest corrections: there is NO debugger (CodeLLDB is not used at all), a new save does NOT cancel a running check, only the Rust adapter is built, expected-vs-got can read backwards, and only the run-once mode has been tested so far.",
+    "date": "2026-09-05",
+    "emoji": "✅"
+  },
+  {
     "file": "how-the-watcher-knows.html",
     "title": "How the bug-watcher knows it's a bug",
     "desc": "How the bug-watcher actually finds bugs, in plain words. It has no bug-smarts of its own and doesn't understand your code; when you save, it re-runs the same build/test command you already use (in its own background window) and reads the result. A red result is NOT always a bug, so it sorts every failure into: your code broke, the tool or setup broke, you cancelled it, or not sure — and only a real test failure, crash, or compiler error counts. When it's unsure it touches nothing. Tiny, safe stuff it fixes with the language's own tool (cargo fix, ruff --fix, gofmt) — no AI, no debugger — then re-checks; anything bigger becomes a tidy note (file, line, expected vs got, stack) handed to the coding AI, not you. The debugger (CodeLLDB for Rust, Delve for Go, pdb for Python) is only a magnifying glass for a crash or freeze, best-effort. Then a fix-and-recheck loop with a cap. What it can't catch: code that runs but returns the wrong answer — that needs a test that defines 'right'.",
