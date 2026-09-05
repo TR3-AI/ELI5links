@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the bug&#8209;watcher knows it&#8217;s a bug</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How the watcher knows it&#8217;s a bug &#128373;&#65039;</h1>
+  <p class="sub">it doesn&#8217;t understand code &mdash; it reads the result</p>
+
+  <p class="part">Part 1 &middot; what it is</p>
+
+  <div class="card">
+    <span class="tag idea">idea &mdash; not built yet</span>
+    <span class="emoji">&#129504;</span>
+    <p class="big">A quiet helper in the background</p>
+    <p class="say">Its <b>own</b> little program. Runs beside you &mdash; <b>never</b> types in your terminal or editor.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128257;</span>
+    <p class="big">When you save, it re&#8209;runs your checks</p>
+    <p class="say">It runs the <b>same</b> build/test command you already use &mdash; in its <b>own</b> window, on the newest save.</p>
+  </div>
+
+  <p class="part">Part 2 &middot; how it spots trouble</p>
+
+  <div class="card">
+    <span class="emoji">&#128678;</span>
+    <p class="big">It reads the <i>result</i>, not the code</p>
+    <p class="say">It can&#8217;t read meaning. It just asks one thing: <b>did that pass or fail?</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129534;</span>
+    <p class="big">What &ldquo;fail&rdquo; looks like</p>
+    <p class="say">A <b>crash</b>, a <b>test marked failed</b>, a <b>compiler error</b>, or <b>no answer before a timer</b> (a freeze).</p>
+  </div>
+
+  <p class="part">Part 3 &middot; the honest bit</p>
+
+  <div class="card">
+    <span class="emoji">&#9888;&#65039;</span>
+    <p class="big">A red X isn&#8217;t always a bug</p>
+    <p class="say">Red can also mean the <b>tool itself</b> broke, <b>bad settings</b>, you <b>stopped</b> it, or <b>no tests ran</b>. Not the same thing.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128373;&#65039;</span>
+    <p class="big">So it sorts every red</p>
+    <p class="say">Into <b>your code broke</b> &middot; <b>the tool/setup broke</b> &middot; <b>cancelled</b> &middot; <b>not sure</b>. Only a real <b>test fail</b>, <b>crash</b>, or <b>compiler error</b> counts as a bug.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128581;</span>
+    <p class="big">Unsure? It touches nothing</p>
+    <p class="say">It only calls it a bug when the <b>proof is clear</b>. A <b>&ldquo;not sure&rdquo;</b> is never auto&#8209;fixed.</p>
+  </div>
+
+  <p class="part">Part 4 &middot; fixing</p>
+
+  <div class="card">
+    <span class="emoji">&#128295;</span>
+    <p class="big">Tiny stuff: the language fixes it</p>
+    <p class="say"><b>Not</b> an AI, <b>not</b> a debugger. It runs the language&#8217;s own fixer &mdash; <span class="code">cargo fix</span>, <span class="code">ruff --fix</span>, <span class="code">gofmt</span> &mdash; then re&#8209;checks.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">Small vs big = is there a ready fix?</p>
+    <p class="say">A tool already holds the <b>exact</b> change &rarr; <b>small</b>, auto&#8209;apply. None exists &rarr; <b>big</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128221;</span>
+    <p class="big">Big &rarr; a tidy note for the AI</p>
+    <p class="say"><b>File</b>, <b>line</b>, what broke, <b>expected vs got</b> (stack if it crashed). Written for the coding <b>AI</b>, not you.</p>
+  </div>
+
+  <p class="part">Part 5 &middot; the extras</p>
+
+  <div class="card">
+    <span class="emoji">&#128294;</span>
+    <p class="big">The debugger is a magnifying glass</p>
+    <p class="say"><b>CodeLLDB</b> (Rust), <b>Delve</b> (Go), <b>pdb</b> (Python). Only for a <b>crash or freeze</b>, only to add detail. Best&#8209;effort.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128260;</span>
+    <p class="big">Then the loop, with a brake</p>
+    <p class="say">AI fixes &rarr; save &rarr; watcher re&#8209;checks &rarr; <b>green = done</b>, or round again &mdash; <b>capped</b> so it can&#8217;t loop forever.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129323;</span>
+    <p class="big">What it can&#8217;t catch</p>
+    <p class="say">Code that <b>runs fine</b> but gives the <b>wrong answer</b>. That needs a <b>test</b> that says what &ldquo;right&rdquo; is.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say">It doesn&#8217;t understand bugs. It <b>re&#8209;runs your checks</b>, <b>reads the result</b>, tells <b>real failures</b> from tool noise, and only acts when it&#8217;s <b>sure</b>: the language&#8217;s own tool for tiny stuff, a <b>note to the AI</b> for real bugs, a <b>debugger peek</b> for crashes &mdash; <b>with a cap</b>.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
