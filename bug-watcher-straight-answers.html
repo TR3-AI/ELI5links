@@ -45,7 +45,7 @@
   <div class="card">
     <span class="emoji">&#128203;</span>
     <p class="big">One card per question &mdash; none skipped</p>
-    <p class="say">Answered in <b>your order</b>, 1 to 6. Anything a card promises that <b>isn't built yet</b> is marked in red.</p>
+    <p class="say">Answered in <b>your order</b>, 1 to 6. Anything a card promises that <b>isn't built (or fully working) yet</b> is marked in red.</p>
   </div>
 
   <p class="part">Q1 &middot; does it get in your way?</p>
@@ -88,7 +88,7 @@
     <span class="qnum">Q3</span>
     <span class="emoji">&#128295;</span>
     <p class="big">From the language's own tools &mdash; not an AI, not CodeLLDB</p>
-    <p class="say">It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>. A fix only counts when the <b>compiler or clippy hands over an exact, ready-made edit</b> &mdash; so there's no guessing.</p>
+    <p class="say">It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>. A fix only runs when the <b>compiler or clippy hands over a ready-made edit</b> for that spot &mdash; not from any guessing of its own.</p>
   </div>
 
   <p class="part">Q4 &middot; what is CodeLLDB's role?</p>
@@ -139,7 +139,7 @@
   <div class="card">
     <span class="emoji">&#9888;&#65039;</span>
     <p class="big">A red mark isn't proof</p>
-    <p class="say">It means a <b>check failed</b> &mdash; not that it found the cause. Code that runs fine but gives the <b>wrong answer</b> slips through, unless a <b>test</b> says what "right" is.</p>
+    <p class="say">It means a <b>check failed</b> &mdash; not that it found the cause. And code that <b>runs fine but gives the wrong answer</b> slips through completely, unless a <b>test</b> says what "right" is.</p>
   </div>
 
   <p class="part">Q6 &middot; small bug vs big bug &mdash; the rule</p>
@@ -147,8 +147,8 @@
   <div class="card">
     <span class="qnum">Q6</span>
     <span class="emoji">&#9986;&#65039;</span>
-    <p class="big">Is there a ready, exact fix?</p>
-    <p class="say"><b>Small</b> = the tool already holds the <b>exact, safe edit</b> &rarr; it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). <b>Big</b> = everything else (test fails, crashes, freezes, logic bugs) &rarr; it just writes the note and leaves it for you or the AI. The line is "is there a safe edit?" &mdash; <b>not</b> how serious it is.</p>
+    <p class="big">Is there a ready-made fix?</p>
+    <p class="say"><b>Small</b> = the tool already holds a <b>ready-made edit</b> &rarr; it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). <b>Big</b> = a <b>recognized failure with no ready fix</b> (a failed test, a crash, a freeze, a compiler error) &rarr; it writes the note and leaves it for you or the AI. The line is "is there a ready edit?" &mdash; <b>not</b> how serious it is.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -171,6 +171,24 @@
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
+    <span class="tag idea">known gap</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">A tool/setup failure may leave no note</p>
+    <p class="say">When a check <b>can't even run</b> (bad setup, a broken tool) or the result is <b>unclassified</b>, it's shown on screen and <b>never</b> counted green &mdash; but <span class="code">findings.json</span> can still come out <b>empty</b>. Should always leave a note.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">known gap</span>
+    <span class="emoji">&#129529;</span>
+    <p class="big">The auto-fix isn't fully careful yet</p>
+    <p class="say">Right now it applies <b>any</b> compiler suggestion that comes with a replacement &mdash; even ones the compiler marks <b>"might be wrong."</b> It should only take the ones marked <b>truly safe</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
     <span class="tag idea">not built yet</span>
     <span class="emoji">&#129408;</span>
     <p class="big">Rust only, so far</p>
@@ -180,6 +198,7 @@
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
+    <span class="tag idea">known gap</span>
     <span class="emoji">&#128256;</span>
     <p class="big">"expected vs got" can look backwards</p>
     <p class="say">For <span class="code">assert_eq!(actual, expected)</span> it labels them by <b>position</b> &mdash; so your <i>actual</i> value can show up under "expected". Small, worth fixing.</p>
@@ -197,7 +216,7 @@
   <div class="verdict">
     <span class="emoji">&#127919;</span>
     <p class="big">The short version</p>
-    <p class="say">It's a <b>separate little program</b> you leave running. On save it re-runs <span class="code">cargo build</span> + <span class="code">cargo test</span>, reads the result, and tells <b>real failures from tool noise</b>. Small, exact fixes it applies with <b>Rust's own tools</b>; everything else becomes a <b>note</b>. <b>No AI, no debugger</b> &mdash; and today it's <b>Rust-only</b>, with the live watch loop still untested.</p>
+    <p class="say">It's a <b>separate little program</b> you leave running. On save it re-runs <span class="code">cargo build</span> + <span class="code">cargo test</span>, reads the result, and <b>tries to sort real check failures from tool/setup noise</b>. A recognized failure becomes a <b>note</b> in <span class="code">findings.json</span>; small ones with a ready compiler fix it can apply. <b>No AI, no debugger</b>, <b>Rust-only</b> &mdash; and a <b>red mark is a failed check, not proof of a bug</b>.</p>
   </div>
 
   <p class="foot"><a href="./">all ELI5 pages</a></p>
