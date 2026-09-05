@@ -219,7 +219,7 @@
   <div class="card">
     <span class="emoji">&#129513;</span>
     <p class="big">Three jobs, kept apart</p>
-    <p class="say"><b>1) Detect</b> (the watcher) &middot; <b>2) Deliver</b> (the receipt / tool output) &middot; <b>3) Enforce</b> (block until green). Today <b>1 and 2 exist; 3 doesn't</b> &mdash; that's the work.</p>
+    <p class="say"><b>1) Detect</b> (the watcher) &middot; <b>2) Deliver</b> (show the findings) &middot; <b>3) Enforce</b> (block the <i>finish</i>, not the fixing). Today <b>1 and 2 exist; 3 doesn't</b> &mdash; that's the work.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -236,8 +236,8 @@
   <div class="card">
     <span class="tag idea">to build</span>
     <span class="emoji">&#128260;</span>
-    <p class="big">Way 2 (OMP) &mdash; check after every edit</p>
-    <p class="say">OMP add-ons get a <span class="code">tool_call</span> event (fires <b>before</b> a tool runs &mdash; can <b>block</b> it) and <span class="code">tool_result</span> (fires <b>after</b>). So one can watch each Edit/Write, run the watcher on that save, and <b>inject the findings</b> into the AI's turn via <span class="code">sendMessage(deliverAs:"nextTurn")</span> &mdash; refusing to move on until green. Per edit, not just per turn.</p>
+    <p class="big">Way 2 (OMP) &mdash; check on each edit, block the finish</p>
+    <p class="say">After each Edit/Write, an add-on runs the watcher in the async <span class="code">tool_result</span> hook and remembers a <b>red</b> state (tied to the file's hash). It <b>shows</b> the findings to the AI (<span class="code">sendMessage</span>) &mdash; but showing isn't forcing. The <b>teeth</b>: a <span class="code">tool_call</span> block on the <b>finish / commit / next-task</b> steps while red, <b>while still allowing Edit/Write</b> so it can actually fix.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -245,17 +245,16 @@
   <div class="card">
     <span class="tag idea">to build</span>
     <span class="emoji">&#128682;</span>
-    <p class="big">Way 3 (Claude Code) &mdash; check after every edit</p>
-    <p class="say">Claude Code can hook "<b>after a file edit</b>," run the watcher, and <b>block right there</b> with the findings attached. Finest-grained: fires the instant a file changes.</p>
+    <p class="big">Way 3 (Claude Code) &mdash; same idea, its own hooks</p>
+    <p class="say">Claude Code hooks <b>after each edit</b> (PostToolUse) to run the watcher and hand back the findings, and a <b>Stop hook</b> to block "finished" while red. Same rule: <b>block the finish, keep edits open</b>.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
-    <span class="tag idea">backstop only</span>
     <span class="emoji">&#128737;&#65039;</span>
-    <p class="big">A "done" gate &mdash; the safety net</p>
-    <p class="say">A final check refuses "finished" while red. Keep it <b>only as a backstop</b>, never the main plan &mdash; on its own it checks too late (the old problem).</p>
+    <p class="big">Block the finish, not the fixing</p>
+    <p class="say">Never block Edit/Write &mdash; that would stop the AI from fixing. Block only the <b>finish, commit, and "next task"</b> steps while red. The AI stays free to edit, but <b>can't declare done or move on</b> until it's green. (A plain Stop/CI gate is the <b>last-resort</b> version of this.)</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
