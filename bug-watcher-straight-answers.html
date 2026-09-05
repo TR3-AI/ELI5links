@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bug-watcher &mdash; straight answers</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#ffe3e3; color:#c92a2a}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>bug-watcher &mdash; straight answers &#9989;</h1>
+  <p class="sub">what it actually does today &mdash; and what earlier pages oversold</p>
+
+  <p class="part">You asked 6 things</p>
+
+  <div class="card">
+    <span class="emoji">&#128203;</span>
+    <p class="big">Here are the honest answers</p>
+    <p class="say">Based on the <b>real code</b>, not the earlier pages. Where a page promised more than what's built, it's marked <span class="tag idea" style="margin:0">not built yet</span>.</p>
+  </div>
+
+  <p class="part">1 &middot; does it get in your way?</p>
+
+  <div class="card">
+    <span class="emoji">&#128421;&#65039;</span>
+    <p class="big">It's its own little program</p>
+    <p class="say">You run <span class="code">bug-watcher</span> in its <b>own</b> terminal or pane and leave it open. It watches your project folder and stays out of your editor. It <b>never</b> changes your files &mdash; unless you turn on <span class="code">--autofix</span>. Stop it with Ctrl-C.</p>
+  </div>
+
+  <p class="part">2 &middot; what happens the moment you save</p>
+
+  <div class="card">
+    <span class="emoji">&#128190;</span>
+    <p class="big">It waits half a second</p>
+    <p class="say">So a burst of saves counts as <b>one</b>. Default is <b>0.5s</b> of quiet before it acts.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129529;</span>
+    <p class="big">It ignores the noise</p>
+    <p class="say">Skips <span class="code">.git</span>, <span class="code">target</span>, <span class="code">node_modules</span>, <span class="code">.venv</span>, build folders, and its own <span class="code">findings.json</span>. Keeps real files &mdash; even ones you deleted or renamed.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128260;</span>
+    <p class="big">It re-runs your checks, in order</p>
+    <p class="say"><span class="code">cargo build</span>, then <span class="code">cargo test</span>. If the build fails, it <b>skips</b> the tests. Then it writes <span class="code">findings.json</span> and prints <b>green &#10003;</b> or a one-line summary.</p>
+  </div>
+
+  <p class="part">3 &middot; how it decides something's a bug</p>
+
+  <div class="card">
+    <span class="emoji">&#128678;</span>
+    <p class="big">It reads facts, not meaning</p>
+    <p class="say">It never understands your code. It runs the <b>real</b> commands and reads <b>how they ended</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129534;</span>
+    <p class="big">The clear failures</p>
+    <p class="say">Ran past a timer &rarr; <b>freeze</b>. Killed by a fatal signal &rarr; <b>crash</b>. Compiler errors &rarr; <b>build broke</b>. A test marked failed &rarr; <b>test broke</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9989;</span>
+    <p class="big">Green only when everything passes</p>
+    <p class="say">If a check <b>can't even run</b> (bad setup, tool broke) or the result is <b>unclear</b>, that's <b>never</b> counted as green &mdash; and <b>never</b> auto-fixed.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9888;&#65039;</span>
+    <p class="big">A red mark isn't proof</p>
+    <p class="say">It means a <b>check failed</b> &mdash; not that it found the cause. Code that runs fine but gives the <b>wrong answer</b> slips through, unless a <b>test</b> says what "right" is.</p>
+  </div>
+
+  <p class="part">4 &middot; the small fixes &mdash; where the know-how comes from</p>
+
+  <div class="card">
+    <span class="emoji">&#128295;</span>
+    <p class="big">The language fixes its own small stuff</p>
+    <p class="say"><b>Not</b> an AI. <b>Not</b> a debugger. It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9986;&#65039;</span>
+    <p class="big">Small vs big = is there a ready, exact fix?</p>
+    <p class="say">If the compiler or clippy hands over an <b>exact, safe edit</b> &rarr; <b>small</b>: it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). Anything else &rarr; <b>big</b>: it just writes the note and leaves it for you or the AI.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128248;</span>
+    <p class="big">It fixes on a copy</p>
+    <p class="say">Fixes run on a <b>scratch copy</b>, then write back a file <b>only if you haven't touched it</b> since. Saved again mid-fix? It <b>skips</b> that file and retries next save.</p>
+  </div>
+
+  <p class="part">5 &amp; 6 &middot; the honest corrections</p>
+
+  <div class="card">
+    <span class="tag idea">not built yet</span>
+    <span class="emoji">&#128294;</span>
+    <p class="big">No debugger &mdash; CodeLLDB is not used</p>
+    <p class="say">Earlier pages said a debugger (CodeLLDB / Delve / pdb) peeks at crashes. <b>That isn't built.</b> "Crash" just means the process was killed by a signal; "freeze" just means it ran past the timer. <b>No debugger runs.</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not built yet</span>
+    <span class="emoji">&#128721;</span>
+    <p class="big">"A new save cancels the old check" &mdash; not real</p>
+    <p class="say">Checks run <b>one at a time</b>. A new save <b>can't</b> interrupt one already running. The "cancelled" label exists in the code but <b>nothing triggers it</b> yet.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not built yet</span>
+    <span class="emoji">&#129408;</span>
+    <p class="big">Rust only, so far</p>
+    <p class="say">Only the <b>Rust</b> (cargo) adapter is built. Python and Go (ruff, gofmt, Delve, pdb) are <b>ideas</b>, not code.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128256;</span>
+    <p class="big">"expected vs got" can look backwards</p>
+    <p class="say">For <span class="code">assert_eq!(actual, expected)</span> it labels them by <b>position</b> &mdash; so your <i>actual</i> value can show up under "expected". Small, worth fixing.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">not tested yet</span>
+    <span class="emoji">&#129514;</span>
+    <p class="big">Only the run-once mode is tested</p>
+    <p class="say">The one-shot <span class="code">--once</span> run is smoke-tested. The live "keep watching" loop is <b>written but not yet exercised</b> end to end.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say">It's a <b>separate little program</b> you leave running. On save it re-runs <span class="code">cargo build</span> + <span class="code">cargo test</span>, reads the result, and tells <b>real failures from tool noise</b>. Small, exact fixes it applies with <b>Rust's own tools</b>; everything else becomes a <b>note</b>. <b>No AI, no debugger</b> &mdash; and today it's <b>Rust-only</b>, with the live watch loop still untested.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
