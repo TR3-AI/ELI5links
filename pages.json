@@ -1,5 +1,12 @@
 [
   {
+    "file": "how-the-watcher-fixes.html",
+    "title": "How the bug-watcher fixes things",
+    "desc": "What the bug-watcher does after it finds something. Small, safe stuff it fixes itself using each language's OWN fix tool — not an AI: tidy imports, formatting, a rename the compiler literally suggests, dropping an unused bit (cargo fix, ruff --fix, gofmt) — then it re-checks. No AI for those because the tool already knows the exact change, so there's no guessing and no new bug. Bigger bugs it does NOT fix; it writes one tidy note (file, line, what broke, expected vs got, plus the stack if it crashed), written for the AI to act on — not for you, since the AI is the one coding. If the AI ran the watcher, the note comes straight back as the tool's answer; if it runs in the background, the note is saved to findings.json and whatever drives the AI posts it as the AI's next message. Then the loop: AI fixes, saves, watcher re-checks — green means done, or round again — with a brake (a cap on tries) so it can never loop forever.",
+    "date": "2026-09-05",
+    "emoji": "🔧"
+  },
+  {
     "file": "the-whole-watcher.html",
     "title": "The bug-watcher — the whole thing (simplest version)",
     "desc": "The whole bug-watcher idea in the simplest words. A helper that watches the real files you save in your local folder (not GitHub, not the Graphify map), waits until you stop saving, then runs three quick checks on the newest version — does it build, does the lint pass, do the tests pass. It catches the loud bugs (a crash, a failed test, or a freeze caught by a timer) and, only for a crash or freeze, replays under the debugger (CodeLLDB for Rust, Delve for Go, pdb for Python) to find the spot. Rust and Go have real compilers that catch typos before running; Python has none, so the watcher adds ruff and mypy as compiler-like helpers (not as strong; tests still matter). When it finds something it writes one tidy note — what broke and where, file and line when it can — by reading each tool's output. It doesn't fix your logic: you or the AI fix it (only tiny safe fixes it does itself), then it checks again. It won't catch quiet wrong answers. Still an idea, not built yet.",
