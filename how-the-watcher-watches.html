@@ -61,9 +61,17 @@
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
+    <span class="emoji">&#128585;</span>
+    <p class="big">It skips the noise</p>
+    <p class="say">It ignores <span class="code">.git</span>, <span class="code">target</span>, virtualenvs, <span class="code">graphify-out</span>, and its <b>own reports</b> &mdash; so its own output can't set it off in a loop. It watches your <b>source, tests, and config</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
     <span class="emoji">&#9208;&#65039;</span>
     <p class="big">It waits for you to stop</p>
-    <p class="say">An AI often saves <b>several files at once</b>. It waits for a <b>breath of quiet</b> first &mdash; so it never checks a half&#8209;finished state.</p>
+    <p class="say">An AI often saves <b>several files at once</b>. It waits for a <b>breath of quiet</b> first &mdash; so it <b>rarely</b> checks a half&#8209;finished state (waiting can't rule it out completely).</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -95,7 +103,7 @@
   <div class="card">
     <span class="emoji">&#129408;</span>
     <p class="big">Rust &mdash; strict compiler</p>
-    <p class="say">Checks a <b>lot</b> before it runs: wrong names, wrong <b>case</b>, wrong types. It <b>won't build</b> if something's off.</p>
+    <p class="say">Checks a <b>lot</b> before it runs: misspelled names, wrong <b>case</b>, wrong types. It <b>won't build</b> if something's off.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -103,21 +111,29 @@
   <div class="card">
     <span class="emoji">&#128057;</span>
     <p class="big">Go &mdash; a compiler too, lighter</p>
-    <p class="say">Go <b>also compiles</b>, so it <b>also</b> catches wrong names, case, and types before running. Less strict than Rust &mdash; but it even barks at <b>unused</b> imports.</p>
+    <p class="say">Go <b>also compiles</b>, so it <b>also</b> catches misspelled names, case, and types before running. Less strict than Rust &mdash; but it even barks at <b>unused</b> imports.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="emoji">&#128013;</span>
-    <p class="big">Python &mdash; no real compiler</p>
-    <p class="say">It just <b>runs, line by line</b>. A wrong name only bites <b>when it reaches that line</b> (a <span class="code">NameError</span>). Add <span class="code">ruff</span> (names) and <span class="code">mypy</span> (types) to catch it earlier.</p>
+    <p class="big">Python &mdash; only syntax up front</p>
+    <p class="say">Python <b>does</b> compile to bytecode &mdash; but that only catches <b>syntax</b>. Wrong <b>names or types</b> aren't caught until that line <b>runs</b> (a <span class="code">NameError</span>). The watcher <b>adds</b> <span class="code">ruff</span> (names) and <span class="code">mypy</span> (types) to catch them earlier.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#127991;&#65039;</span>
+    <p class="big">But not every &ldquo;wrong name&rdquo;</p>
+    <p class="say">A compiler catches a <b>misspelled variable or function</b>. It <b>can't</b> tell a wrong <b>filename</b>, <b>config key</b>, <b>API field</b>, or <b>DB column</b> &mdash; those look fine. Those need a <b>test, type, or schema</b>, like any quiet bug.</p>
   </div>
 
   <div class="verdict">
     <span class="emoji">&#127919;</span>
     <p class="big">The short version</p>
-    <p class="say">It watches your <b>local folder</b>, waits till you <b>stop</b> saving, then checks the <b>newest</b> version once &mdash; debugger only for crashes or freezes. <b>Rust &amp; Go</b> have compilers that catch typos and wrong&#8209;case <b>before</b> running (Rust strict, Go lighter); <b>Python</b> has none, so the watcher adds <span class="code">ruff</span> + <span class="code">mypy</span> + your tests.</p>
+    <p class="say">It watches your <b>local folder</b> (skipping build junk and its own reports), waits till you <b>stop</b> saving, then checks the <b>newest</b> version once &mdash; debugger only for crashes or freezes. <b>Rust &amp; Go</b> compilers catch misspelled names and wrong&#8209;case <b>before</b> running; for <b>Python</b> the watcher adds <span class="code">ruff</span> + <span class="code">mypy</span>. Wrong <b>values</b> (filenames, config, fields) still need a test or schema.</p>
   </div>
 
   <p class="foot"><a href="./">all ELI5 pages</a></p>
