@@ -251,7 +251,7 @@
   <div class="card">
     <span class="emoji">&#128236;</span>
     <p class="big">Then: deliver &amp; enforce</p>
-    <p class="say"><b>3) Deliver</b> &mdash; a thin "build button" wrapper (or a <span class="code">--json</span> mode) that runs the watcher, reads the receipt, hands back the real details, and exits non-zero on red; or a per-edit hook in OMP / Claude Code. <b>4) Enforce</b> &mdash; block the <b>finish / commit / next-task</b> while red, but keep <b>Edit/Write open</b> so it can fix.</p>
+    <p class="say"><b>3) Deliver</b> &mdash; the checker returns <b>one report in memory</b> (a clear status + the findings). A <span class="code">--json</span> mode <b>prints that report to the screen</b> for the wrapper or per-edit hook (OMP / Claude Code) to read <b>directly</b> &mdash; it <b>never re-opens the receipt file</b>, so the stale/empty race can't come back; the same report is also saved to disk atomically. <b>4) Enforce</b> &mdash; <span class="code">--once</span> turns that status into a <b>non-zero exit</b>, and while red we block the <b>finish / commit / next-task</b> but keep <b>Edit/Write open</b> so it can fix.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
