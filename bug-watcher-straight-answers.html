@@ -182,8 +182,8 @@
   <div class="card">
     <span class="tag idea">known gap</span>
     <span class="emoji">&#129529;</span>
-    <p class="big">The auto-fix isn't fully careful yet</p>
-    <p class="say">Right now it applies <b>any</b> compiler suggestion that comes with a replacement &mdash; even ones the compiler marks <b>"might be wrong."</b> It should only take the ones marked <b>truly safe</b>.</p>
+    <p class="big">The auto-fix trigger is too broad</p>
+    <p class="say">If <b>any</b> diagnostic comes with a suggested replacement &mdash; even a <b>"might be wrong"</b> one &mdash; it triggers the <b>whole fixer batch</b>: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, and <span class="code">cargo fmt</span>. Those then make their <b>own</b> edits across the project (reformatting, unrelated lint fixes) &mdash; not just that one spot.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
