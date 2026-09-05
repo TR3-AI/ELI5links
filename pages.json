@@ -1,5 +1,12 @@
 [
   {
+    "file": "plan-edits-checked.html",
+    "title": "Did the plan edits check out?",
+    "desc": "I checked the executor's three claims about his plan edits myself instead of taking his word. Two check out and I can point to the exact lines: (1) he added a 'Why we're building this' part right before 'The one goal' (lines 18-24, with 'The one goal' at line 26), with the three points and the paragraph he described; (2) the watcher, reviewer and debugger each now open with a short 'why' line saying what it's for (lines 31, 32, 33). The third claim - 'nothing else changed' - I can't confirm: to prove only those three things changed I'd need the older version to compare against, and I don't have it, so I won't call it a pass without proof.",
+    "date": "2026-09-05",
+    "emoji": "🔎"
+  },
+  {
     "file": "clean-vs-correct.html",
     "title": "Clean code isn't the same as right",
     "desc": "Clippy tidies and fmt formats, but clean code still isn't the same as correct code - and clippy can cry wolf. In plain words, four ways to close that gap: (1) stronger tests - not just more lines covered, but tests that would actually fail if the behavior broke, plus locking a separate independently-owned grader so the coding AI can't water it down (its own unit tests stay free); (2) a reviewer that reads the change against the approved spec for logic/security/missed cases - it adds evidence a linter can't, but still can't promise correctness; (3) stacking different checks (build+tests, clippy, a bad-dependency scan, the debugger for crashes/freezes) so each catches a different miss; (4) reporting three honest states - pass, fail, or couldn't-check - so green only ever means the checks that exist passed. Plus taming clippy: fail the gate only on the serious lints and show the rest as notes, not on every warning. Bottom line: fmt+clippy clear the cheap noise, strong tests and the reviewer move you from clean toward right, and you're shrinking the blind spot, not erasing it - no tool can prove correct.",
