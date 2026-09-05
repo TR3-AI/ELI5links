@@ -77,15 +77,15 @@
   <div class="card">
     <span class="emoji">&#9201;&#65039;</span>
     <p class="big">A freeze</p>
-    <p class="say">Nothing finishes in time. A <b>timer</b> notices the quiet and flags it as stuck.</p>
+    <p class="say">Nothing finishes in time. A <b>timer</b> notices the quiet, then grabs a <b>snapshot</b> of where it's stuck.</p>
   </div>
 
   <p class="part">what it does next</p>
 
   <div class="card">
     <span class="emoji">&#128270;</span>
-    <p class="big">It grabs the clues</p>
-    <p class="say">What you ran, the error, the <b>exact test</b> that failed, the <b>input</b> that broke it, and where it got stuck. Saved to a little file.</p>
+    <p class="big">It grabs what it can</p>
+    <p class="say">What you ran, the <b>error output</b>, the <b>exact test</b> that failed, any <b>seed or input</b> it reports, and &mdash; if it froze &mdash; that stuck snapshot. Saved to a little file.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -93,7 +93,7 @@
   <div class="card">
     <span class="emoji">&#128300;</span>
     <p class="big">It replays under the debugger</p>
-    <p class="say">It runs the <b>same thing again</b>, slowly, under a magnifying glass &mdash; and <b>stops at the exact broken spot</b> so you can look.</p>
+    <p class="say">It runs the <b>same thing again</b> under the debugger and tries to <b>pause right where it broke</b>, so you can look. Best effort &mdash; some bugs don't repeat every time.</p>
   </div>
 
   <p class="part">one tool, three languages</p>
@@ -101,7 +101,7 @@
   <div class="card">
     <span class="emoji">&#129408;</span>
     <p class="big">Rust</p>
-    <p class="say">Uses <b>LLDB</b>, Rust's debugger. Stops on the <b>panic</b> and shows the trail back to the line.</p>
+    <p class="say">Uses <b>CodeLLDB</b> &mdash; Rust's debugger. (Plain <b>LLDB</b> is just the backup.) It stops on the <b>panic</b> and shows the trail back to the line.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -131,7 +131,7 @@
   <div class="verdict">
     <span class="emoji">&#127919;</span>
     <p class="big">The short version</p>
-    <p class="say"><b>One CLI</b>, same steps for all three. Point it at your run or test command; it <b>watches</b>, catches a <b>crash</b>, a <b>red test</b>, or a <b>freeze</b>, <b>saves the clues</b>, then reopens the <b>exact spot</b> under Rust's, Go's, or Python's debugger.</p>
+    <p class="say"><b>One CLI</b>, same steps for all three. Point it at your run or test command; it <b>watches</b>, catches a <b>crash</b>, a <b>red test</b>, or a <b>freeze</b>, <b>saves the clues</b>, then reopens it under the right debugger &mdash; <b>CodeLLDB</b> for Rust, <b>Delve</b> for Go, <b>pdb/debugpy</b> for Python &mdash; and pauses where it failed.</p>
   </div>
 
   <p class="foot"><a href="./">all ELI5 pages</a></p>
