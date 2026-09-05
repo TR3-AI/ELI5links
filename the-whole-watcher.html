@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bug&#8209;watcher &mdash; the whole thing</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The bug&#8209;watcher &mdash; the whole thing &#128301;&#128027;</h1>
+  <p class="sub">the whole idea, in the simplest words</p>
+
+  <p class="part">what it is</p>
+
+  <div class="card">
+    <span class="tag idea">idea &mdash; not built yet</span>
+    <span class="emoji">&#128301;</span>
+    <p class="big">A helper that watches your code</p>
+    <p class="say">As you (or an AI) write code, it <b>checks the work</b> and catches bugs <b>on its own</b>.</p>
+  </div>
+
+  <p class="part">where &amp; when it looks</p>
+
+  <div class="card">
+    <span class="emoji">&#128064;</span>
+    <p class="big">It watches your saved files</p>
+    <p class="say">The <b>real files</b> in your folder on this computer. <b>Not</b> GitHub, <b>not</b> a map &mdash; just the files, as they're saved.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9208;&#65039;</span>
+    <p class="big">It waits till you stop saving</p>
+    <p class="say">Then it looks at the <b>newest</b> version &mdash; not your keystrokes, not half&#8209;saved work. It also skips junk folders and its <b>own notes</b>, so it can't loop.</p>
+  </div>
+
+  <p class="part">what it does</p>
+
+  <div class="card">
+    <span class="emoji">&#129514;</span>
+    <p class="big">Three quick checks</p>
+    <p class="say">Does it <b>build</b>? Does the <b>lint</b> pass? Do the <b>tests</b> pass?</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128165;</span>
+    <p class="big">It catches the loud stuff</p>
+    <p class="say">A <b>crash</b>, a <b>failed test</b>, or a <b>freeze</b> (a timer spots the freeze). The noisy bugs.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128300;</span>
+    <p class="big">Only a crash or freeze &rarr; debugger</p>
+    <p class="say">Then it <b>replays</b> under the debugger to find the exact spot. <span class="code">CodeLLDB</span> (Rust), <span class="code">Delve</span> (Go), <span class="code">pdb</span> (Python).</p>
+  </div>
+
+  <p class="part">the three languages</p>
+
+  <div class="card">
+    <span class="emoji">&#129408;</span>
+    <p class="big">Rust &mdash; strict compiler</p>
+    <p class="say">Catches typos and wrong types <b>before</b> it runs.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128057;</span>
+    <p class="big">Go &mdash; a compiler too, lighter</p>
+    <p class="say">Also catches typos and types before running &mdash; just less strict.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128013;</span>
+    <p class="big">Python &mdash; no real compiler</p>
+    <p class="say">So the watcher <b>adds helpers</b> (<span class="code">ruff</span>, <span class="code">mypy</span>). Compiler&#8209;<b>like</b>, not as strong &mdash; tests still matter.</p>
+  </div>
+
+  <p class="part">after it finds something</p>
+
+  <div class="card">
+    <span class="emoji">&#128221;</span>
+    <p class="big">It writes one tidy note</p>
+    <p class="say"><b>What broke</b> and <b>where</b> (file + line when it can) &mdash; read straight from each tool's output.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128295;</span>
+    <p class="big">You or the AI fix it</p>
+    <p class="say">The watcher <b>finds</b>, it doesn't fix your logic. It hands the note to the coder. Only <b>tiny, safe</b> fixes it does itself.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128257;</span>
+    <p class="big">Then it checks again</p>
+    <p class="say">Fix &rarr; it re&#8209;runs &rarr; <b>green means done</b>. That's the loop.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say">It watches your <b>saved code</b>, waits till you <b>stop</b>, then runs <b>build + lint + tests</b> on the newest version. It catches <b>crashes, red tests, and freezes</b>, writes <b>one clear note</b> of what broke and where, and hands it to <b>you or the AI</b> to fix &mdash; then checks again. It <b>won't</b> catch quiet wrong answers &mdash; those still need a test.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
