@@ -110,8 +110,8 @@
 
   <div class="card">
     <span class="emoji">&#128013;</span>
-    <p class="big">Python &mdash; nothing checks it first</p>
-    <p class="say">Python <b>does</b> turn into bytecode &mdash; but nothing checks names or types <b>before it runs</b>. So the watcher adds a <b>linter</b> (<span class="code">ruff</span>) and a <b>type checker</b> (<span class="code">mypy</span>). Early warnings, weaker than a real compiler &mdash; tests still matter.</p>
+    <p class="big">Python &mdash; fewer checks before running</p>
+    <p class="say">Python checks the whole file for <b>syntax</b> first &mdash; but usually <b>not</b> wrong names or types; those only show up <b>when the line runs</b>. So the watcher adds a <b>linter</b> (<span class="code">ruff</span>) and a <b>type checker</b> (<span class="code">mypy</span>) to catch those earlier. Weaker than a real compiler &mdash; tests still matter.</p>
   </div>
 
   <p class="part">after it finds something</p>
