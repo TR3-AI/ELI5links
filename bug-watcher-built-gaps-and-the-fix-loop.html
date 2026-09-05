@@ -193,8 +193,25 @@
 
   <div class="card">
     <span class="emoji">&#128274;</span>
-    <p class="big">Why it can't be fudged</p>
-    <p class="say">The judge is the <b>compiler and the tests</b>, not the AI's opinion. The AI <b>can't talk a red into a green</b>.</p>
+    <p class="big">Why it's hard to fudge</p>
+    <p class="say">The judge is the <b>compiler and the tests</b>, not the AI's opinion. It <b>can't argue a red into a green</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">the big catch</span>
+    <span class="emoji">&#127891;</span>
+    <p class="big">&hellip;but it can grade its own homework</p>
+    <p class="say">The same AI could quietly <b>weaken a test</b>, change an <b>expected value</b>, add <span class="code">#[ignore]</span> / <span class="code">#[allow]</span>, or edit the <b>checker's config</b> &mdash; turning red green <b>dishonestly</b>. So the graders must be <b>protected</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128272;</span>
+    <p class="big">The fix: lock the graders</p>
+    <p class="say">Tests, the gate, and checker config are <b>protected paths</b>. Acceptance tests come from <b>you</b> or a <b>separate test-agent</b>, and any change to a test/gate/config needs <b>its own review</b> &mdash; so the AI can't move its own goalposts.</p>
   </div>
 
   <p class="part">Part 5 &middot; findings.json &mdash; how you KNOW</p>
@@ -319,10 +336,19 @@
     <p class="say">Add Python/Go/JS and a lint/type stage &mdash; and require tests, so <b>silent wrong answers</b> get caught too.</p>
   </div>
 
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">step 7</span>
+    <span class="emoji">&#55;&#65039;&#8419;</span>
+    <p class="big">Protect the graders</p>
+    <p class="say">Lock the test/gate/config paths and require user- or test-agent-approved acceptance tests, so the AI <b>can't grade its own homework</b>.</p>
+  </div>
+
   <div class="verdict">
     <span class="emoji">&#127919;</span>
     <p class="big">The short version</p>
-    <p class="say">The <b>detector is real</b>: a Rust v1 that catches loud bugs on save and writes a receipt. The <b>missing heart is enforcement</b> &mdash; make red exit non-zero, always leave a receipt, and <b>force the AI to fix on every save/turn</b> before it moves on, with a "done" gate only as a backstop. Then the AI is <b>checked as it goes</b>, not trusted at the end.</p>
+    <p class="say">The <b>detector is real</b>: a Rust v1 that catches loud bugs on save and writes a receipt. The <b>missing heart is enforcement</b> &mdash; make red exit non-zero, always leave a receipt, <b>force the AI to fix on every save</b> before it moves on (block the finish, not the edits), and <b>lock the tests/gate</b> so it can't grade its own homework. Then the AI is <b>checked as it goes</b>, not trusted at the end.</p>
   </div>
 
   <p class="foot"><a href="./">all ELI5 pages</a></p>
