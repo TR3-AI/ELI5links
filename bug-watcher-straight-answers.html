@@ -88,7 +88,7 @@
     <span class="qnum">Q3</span>
     <span class="emoji">&#128295;</span>
     <p class="big">From the language's own tools &mdash; not an AI, not CodeLLDB</p>
-    <p class="say">It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>. A fix only runs when the <b>compiler or clippy hands over a ready-made edit</b> for that spot &mdash; not from any guessing of its own.</p>
+    <p class="say">It runs Rust's own fixers: <span class="code">cargo fix</span>, <span class="code">cargo clippy --fix</span>, <span class="code">cargo fmt</span>. It has <b>no fix ideas of its own</b> &mdash; a compiler suggestion is only what <b>switches the fixers on</b> (exact rule in Q6).</p>
   </div>
 
   <p class="part">Q4 &middot; what is CodeLLDB's role?</p>
@@ -147,8 +147,8 @@
   <div class="card">
     <span class="qnum">Q6</span>
     <span class="emoji">&#9986;&#65039;</span>
-    <p class="big">Is there a ready-made fix?</p>
-    <p class="say"><b>Small</b> = the tool already holds a <b>ready-made edit</b> &rarr; it applies it and re-checks (capped at <b>5 rounds</b>, only with <span class="code">--autofix</span>). <b>Big</b> = a <b>recognized failure with no ready fix</b> (a failed test, a crash, a freeze, a compiler error) &rarr; it writes the note and leaves it for you or the AI. The line is "is there a ready edit?" &mdash; <b>not</b> how serious it is.</p>
+    <p class="big">The exact rule: is there a fixer trigger?</p>
+    <p class="say"><b>Auto-fixable</b> = at least one <b>build (compiler) diagnostic</b> carries a suggested replacement. That &mdash; and <b>only</b> that &mdash; switches on the full three-command batch (<span class="code">cargo fix</span> + <span class="code">cargo clippy --fix</span> + <span class="code">cargo fmt</span>), which re-checks after, capped at <b>5 rounds</b> and only with <span class="code">--autofix</span>. <b>Big / not eligible</b> = no such trigger: test fails, crashes, freezes, and build errors with no suggested edit &rarr; <b>note only</b>, never auto-fixed. (That trigger is <b>too broad</b> &mdash; see below.)</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
