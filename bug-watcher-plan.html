@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bug-watcher &mdash; the plan</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:32px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:60px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#ffe3e3; color:#c92a2a}
+  .tag.built{background:#d3f9d8; color:#2b8a3e}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>bug-watcher &mdash; the plan &#128203;</h1>
+  <p class="sub">what's built, what's missing, how it finds bugs, and the exact order we fix it &mdash; in plain words</p>
+
+  <div class="card">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The one goal</p>
+    <p class="say">Check the AI's work <b>every time code is saved</b>, instead of trusting it at the end. Judge it by the <b>compiler and the tests</b> (things that are hard to fake), then <b>force it to fix what it broke before it's allowed to finish</b>. Catch trouble <b>early</b>, not in review or production.</p>
+  </div>
+
+  <p class="part">Part 1 &middot; how it actually finds a bug</p>
+
+  <div class="card">
+    <span class="emoji">&#128270;</span>
+    <p class="big">Does it copy your code? No.</p>
+    <p class="say">It runs your <b>real</b> project, in place. After a save it runs the real <span class="code">cargo build</span>, then the real <span class="code">cargo test</span> &mdash; on your actual files. No copy, no sandbox clone.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128214;</span>
+    <p class="big">It reads facts, not vibes</p>
+    <p class="say">Won't compile &rarr; <b>build broke</b>. A test reports FAILED &rarr; <b>test broke</b>. Runs past a time limit (build 180s / test 300s) &rarr; <b>freeze</b>. Killed by a fatal signal &rarr; <b>crash</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129534;</span>
+    <p class="big">Each problem becomes a "finding"</p>
+    <p class="say">A finding <b>always</b> has a plain message. It gets a <b>file + line</b> only when the compiler hands one over. It gets <b>expected-vs-got</b> only from a failed <span class="code">assert_eq!</span> &mdash; and today that pair is <b>often backwards</b> (a known bug). It does <b>not</b> run twice to confirm &mdash; one run per save.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9878;&#65039;</span>
+    <p class="big">As sharp as your tests &mdash; no sharper</p>
+    <p class="say">"Found" means the compiler or the test runner said so, or it hung, or it crashed. If nothing tests a behaviour, it can't see it.</p>
+  </div>
+
+  <p class="part">Part 2 &middot; where the receipt goes</p>
+
+  <div class="card">
+    <span class="emoji">&#128449;&#65039;</span>
+    <p class="big"><span class="code">findings.json</span> is just a file</p>
+    <p class="say">It writes a file named <span class="code">findings.json</span> in the folder you <b>launched it from</b> (not the project folder), unless you pass <span class="code">--findings</span>. Clean run = an empty list <span class="code">[]</span>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129302;</span>
+    <p class="big">Nobody hands it to the AI (yet)</p>
+    <p class="say">The file is <b>not</b> given to the AI and <b>not</b> dropped into the chat. The terminal only prints a <b>count and the path</b>. For the AI to see the real details, something has to <b>open and read that file</b> &mdash; and nothing does that automatically today. This missing step is called <b>"deliver."</b></p>
+  </div>
+
+  <p class="part">Part 3 &middot; what's built &amp; working</p>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">A real Rust v1</p>
+    <p class="say">A working command-line tool that builds and has its own tests. This part is real, not a sketch.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#128064;</span>
+    <p class="big">Watches &amp; runs the real checks</p>
+    <p class="say">Watches your folder, ignores noise (<span class="code">.git</span>, <span class="code">target</span>, <span class="code">node_modules</span>&hellip;), waits ~0.5s so a burst of saves counts as one, then runs the real build and test (and skips the test if the build fails).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#128737;&#65039;</span>
+    <p class="big">Runs commands safely</p>
+    <p class="say">Each check runs in its own process group, gets its <b>whole tree killed on timeout</b>, can't deadlock on output, and records exit code / signal / timed-out.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#127991;&#65039;</span>
+    <p class="big">Labels the result honestly</p>
+    <p class="say">Pass / real code failure / tool-or-environment failure / unknown. (There's a "cancelled" label in the code too, but <b>nothing ever produces it</b> &mdash; treat cancel as not built.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9888;&#65039;</span>
+    <p class="big">Crash &amp; freeze are best-effort</p>
+    <p class="say"><b>Crash</b> only fires if <span class="code">cargo</span> itself is signal-killed &mdash; a crashing <i>test</i> usually makes cargo exit 101, so it can slip through <b>with no finding</b>. <b>Freeze</b> = any timeout, so a slow-but-fine build gets flagged too. Ordinary test failures are caught fine.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#129534;</span>
+    <p class="big">Writes the receipt</p>
+    <p class="say">It writes <span class="code">findings.json</span> on each <b>completed</b> check. Caveat: if it can't launch cargo or the write itself fails, that round writes nothing and an <b>old receipt can be left stale</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag built">built</span>
+    <span class="emoji">&#128295;</span>
+    <p class="big">Optional <span class="code">--autofix</span></p>
+    <p class="say">Applies the compiler's own safe fixes (<span class="code">cargo fix</span> / <span class="code">clippy --fix</span> / <span class="code">fmt</span>), then re-checks, up to 5 rounds. The write-back is race-guarded so it won't clobber a save you just made.</p>
+  </div>
+
+  <p class="part">Part 4 &middot; what's missing (the gaps)</p>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#128238;</span>
+    <p class="big">1. Deliver</p>
+    <p class="say">Nothing puts the findings in front of the AI. It's just a file sitting on disk.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#128678;</span>
+    <p class="big">2. Enforce &mdash; the exit code can't catch a red</p>
+    <p class="say">Every failure it detects, <b>and</b> "no project found", all <b>exit 0</b>. It only exits non-zero on an internal plumbing error &mdash; and in watch mode even that is swallowed. So no gate, CI step, or <span class="code">&amp;&amp;</span> can catch a red today.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">to build</span>
+    <span class="emoji">&#127891;</span>
+    <p class="big">3. The catch &mdash; grading its own homework</p>
+    <p class="say">If the same AI can weaken a test, change an expected value, or edit the watcher's config, then <b>"green" means nothing</b>. Nothing protects the tests/gate/config today.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">bug</span>
+    <span class="emoji">&#128256;</span>
+    <p class="big">Expected vs got is often backwards</p>
+    <p class="say">The <span class="code">assert_eq!</span> reader blindly maps <span class="code">left</span>&rarr;expected and <span class="code">right</span>&rarr;got, so the receipt can show them reversed.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">bug</span>
+    <span class="emoji">&#128237;</span>
+    <p class="big">A red can be empty or stale</p>
+    <p class="say">A tool/env failure writes an empty <span class="code">[]</span>; and an error before the write leaves the <b>old</b> file &mdash; which can even still read "green" from an earlier run.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">bug</span>
+    <span class="emoji">&#9201;&#65039;</span>
+    <p class="big">No cancellation</p>
+    <p class="say">A new save doesn't cancel the check already running, so on fast saves it can be grading <b>stale code</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">bug</span>
+    <span class="emoji">&#129529;</span>
+    <p class="big">Auto-fix is heavy &amp; eager</p>
+    <p class="say">One fixable hint runs <b>all three</b> fixers across the <b>whole project</b> after copying the entire tree to a temp folder &mdash; slow on big repos, and broader than you may want.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="tag idea">scope</span>
+    <span class="emoji">&#129408;</span>
+    <p class="big">Only Rust &mdash; and thin tests</p>
+    <p class="say">No other languages yet. The live watch loop has <b>no real test</b> and there's no end-to-end test. The <b>CodeLLDB</b> debugger help for crashes/freezes is planned, not built.</p>
+  </div>
+
+  <p class="part">Part 5 &middot; the fix plan (in order)</p>
+
+  <div class="card">
+    <span class="emoji">&#129351;</span>
+    <p class="big">First: make red bite</p>
+    <p class="say"><b>1)</b> Make <span class="code">--once</span> exit <b>non-zero</b> on a real failure &mdash; that's the mode a gate or CI uses (watch mode stays alive, so it has no exit to gate). <b>2)</b> Always leave a real receipt, so a red is never empty or stale.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128236;</span>
+    <p class="big">Then: deliver &amp; enforce</p>
+    <p class="say"><b>3) Deliver</b> &mdash; a thin "build button" wrapper (or a <span class="code">--json</span> mode) that runs the watcher, reads the receipt, hands back the real details, and exits non-zero on red; or a per-edit hook in OMP / Claude Code. <b>4) Enforce</b> &mdash; block the <b>finish / commit / next-task</b> while red, but keep <b>Edit/Write open</b> so it can fix.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128274;</span>
+    <p class="big">Then: lock the graders</p>
+    <p class="say"><b>5)</b> Protect the test / gate / config paths so the coding AI can't touch them; acceptance tests owned by <b>you or an independent agent</b>. Green only counts if the grader wasn't edited.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129520;</span>
+    <p class="big">Then: clean up &amp; grow</p>
+    <p class="say"><b>6)</b> Fix the expected/got swap and tame auto-fix (only truly safe fixes, don't copy the whole tree). <b>7)</b> Prove the watch loop with a real test and add cancellation on new save. <b>8)</b> Add more languages, each bringing its own tests.</p>
+  </div>
+
+  <p class="part">Part 6 &middot; how accurate is it?</p>
+
+  <div class="card">
+    <span class="emoji">&#127919;</span>
+    <p class="big">Reliable</p>
+    <p class="say"><b>Build breaks</b> (won't compile) and <b>ordinary test failures</b> (asserts/panics) &mdash; deterministic, right after the save that caused them.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#127787;&#65039;</span>
+    <p class="big">Best-effort (can be wrong)</p>
+    <p class="say"><b>Crashes</b> (only if the top command is signal-killed) and <b>freezes</b> (any timeout, including a slow-but-fine build). These can false-alarm or miss.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128371;&#65039;</span>
+    <p class="big">Blind</p>
+    <p class="say">Anything with <b>no test</b>, or output that's <b>wrong but still compiles and passes</b>. And until cancellation exists, it can grade stale code. Net: it catches problems <b>earlier</b>, but only the kinds your compiler and tests already cover.</p>
+  </div>
+
+  <p class="part">Part 7 &middot; the big caution</p>
+
+  <div class="card">
+    <span class="emoji">&#128679;</span>
+    <p class="big">"Green" is not "correct"</p>
+    <p class="say">Green only means "the checks that exist passed" &mdash; not that the code is right. It's weak until the graders are locked, and the stale-receipt bug can even show green on broken code. <b>Don't read green as "done."</b></p>
+  </div>
+
+  <p class="part">Part 8 &middot; your calls</p>
+
+  <div class="card">
+    <span class="emoji">&#10067;</span>
+    <p class="big">Three decisions for you</p>
+    <p class="say"><b>1)</b> PR #1 (the core tool) &mdash; leave, rework, or discard? <b>2)</b> The three older ELI5 pages that oversold &mdash; correct or pull? <b>3)</b> Which "deliver" first &mdash; the build-button wrapper (works everywhere) or the OMP / Claude per-edit hook?</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">&#127919;</span>
+    <p class="big">The short version</p>
+    <p class="say">The <b>detector is real</b> &mdash; a Rust v1 that catches loud bugs on save and writes a receipt. The <b>missing heart is deliver + enforce</b>: make red exit non-zero (in <span class="code">--once</span>), always leave a receipt, hand the findings to the AI, and <b>block the finish &mdash; not the edits</b> &mdash; until it's green, with the <b>tests/gate locked</b> so it can't grade its own homework. Then the AI is <b>checked as it goes</b>, not trusted at the end.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
