@@ -154,8 +154,8 @@
   <div class="card">
     <span class="tag built">built</span>
     <span class="emoji">&#128295;</span>
-    <p class="big">Optional <span class="code">--autofix</span></p>
-    <p class="say">Applies the compiler's own safe fixes (<span class="code">cargo fix</span> / <span class="code">clippy --fix</span> / <span class="code">fmt</span>), then re-checks, up to 5 rounds. The write-back is race-guarded so it won't clobber a save you just made.</p>
+    <p class="big">Optional <span class="code">--autofix</span> (experimental)</p>
+    <p class="say">Applies the compiler's own fixers (<span class="code">cargo fix</span> / <span class="code">clippy --fix</span> / <span class="code">fmt</span>), then re-checks, up to 5 rounds. The write-back is <b>race-guarded</b> (works on a temp copy, only writes files whose hash didn't change) &mdash; but the fixers themselves run <b>unbounded</b> (no timeout, no tree-kill) and <b>silently</b> (errors and output are ignored). Treat it as experimental.</p>
   </div>
 
   <p class="part">Part 4 &middot; what's missing (the gaps)</p>
@@ -217,8 +217,8 @@
   <div class="card">
     <span class="tag idea">bug</span>
     <span class="emoji">&#129529;</span>
-    <p class="big">Auto-fix is heavy &amp; eager</p>
-    <p class="say">One fixable hint runs <b>all three</b> fixers across the <b>whole project</b> after copying the entire tree to a temp folder &mdash; slow on big repos, and broader than you may want.</p>
+    <p class="big">Auto-fix is eager, heavy &amp; unbounded</p>
+    <p class="say">One fixable hint runs <b>all three</b> fixers across the <b>whole project</b> after copying the entire tree to a temp folder. And each fixer runs <b>outside</b> the safe runner &mdash; <b>no timeout, no tree-kill</b> &mdash; with its <b>errors and output thrown away</b>. So a stuck or broken fixer can hang or fail silently.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -231,6 +231,14 @@
   </div>
 
   <p class="part">Part 5 &middot; the fix plan (in order)</p>
+
+  <div class="card">
+    <span class="emoji">&#128202;</span>
+    <p class="big">Step 0: measure it first</p>
+    <p class="say">Before building more, <b>prove the accuracy</b>. Run a set of <b>fixtures</b> &mdash; clean, build-fail, test-fail, crash, timeout, tool-missing, and rapid-save &mdash; and count <b>catches, misses, false alarms, and how fast</b> it reacts. That turns "should be reliable" into a real number.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="emoji">&#129351;</span>
@@ -259,15 +267,15 @@
   <div class="card">
     <span class="emoji">&#129520;</span>
     <p class="big">Then: clean up &amp; grow</p>
-    <p class="say"><b>6)</b> Fix the expected/got swap and tame auto-fix (only truly safe fixes, don't copy the whole tree). <b>7)</b> Prove the watch loop with a real test and add cancellation on new save. <b>8)</b> Add more languages, each bringing its own tests.</p>
+    <p class="say"><b>6)</b> Fix the expected/got swap and make auto-fix trustworthy: run the fixers <b>through the timeout-guarded runner</b>, stop swallowing their errors, and <b>narrow which fixer and files</b> run &mdash; while <b>keeping</b> the temp-copy + hash guard that stops it clobbering your saves. <b>7)</b> Prove the watch loop with a real test and add cancellation on new save. <b>8)</b> Add more languages, each bringing its own tests.</p>
   </div>
 
   <p class="part">Part 6 &middot; how accurate is it?</p>
 
   <div class="card">
     <span class="emoji">&#127919;</span>
-    <p class="big">Reliable</p>
-    <p class="say"><b>Build breaks</b> (won't compile) and <b>ordinary test failures</b> (asserts/panics) &mdash; deterministic, right after the save that caused them.</p>
+    <p class="big">Expected strongest &mdash; but not proven</p>
+    <p class="say"><b>Build breaks</b> and <b>ordinary test failures</b> should be the surest catches. But it's <b>not measured</b> end-to-end yet: there's no live-loop test, flaky tests aren't deterministic, and with no cancellation a queued save can break the "right after this save" link. Strong on paper, unproven in practice.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
