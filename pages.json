@@ -2,7 +2,7 @@
   {
     "file": "watcher-cli.html",
     "title": "The bug-watcher CLI — how it works",
-    "desc": "A reusable command-line “watcher” that catches bugs on its own across Rust, Go, and Python. Point it at the run or test command you already use (cargo test, go test, pytest); it watches for a crash, a failed test, or a freeze (a timer catches hangs), saves the clues (command, error, the exact failing test, the input, where it stuck), then replays the same run under the right debugger — LLDB for Rust, Delve (dlv) for Go, pdb/debugpy for Python — and stops at the exact broken spot. It will not catch silent wrong answers; those still need a test or check that defines “right”. One command, same steps for all three: watcher -- <your command>.",
+    "desc": "A reusable command-line “watcher” that catches bugs on its own across Rust, Go, and Python. Point it at the run or test command you already use (cargo test, go test, pytest); it watches for a crash, a failed test, or a freeze (a timer catches hangs and grabs a stack snapshot). It saves what it can — the error output, the exact failing test, any seed or input it reports — then does a best-effort replay under the right debugger (CodeLLDB for Rust, with plain LLDB as the fallback; Delve/dlv for Go; pdb/debugpy for Python), pausing where it fails. It will not catch silent wrong answers; those still need a test or check that defines “right”. One command, same steps for all three: watcher -- <your command>.",
     "date": "2026-09-05",
     "emoji": "🔭"
   },
