@@ -1,7 +1,7 @@
 [
   {
     "file": "bug-watcher-straight-answers.html",
-    "title": "bug-watcher — straight answers",
+    "title": "bug-watcher — your 6 questions, answered",
     "desc": "Straight, honest answers about what the bug-watcher actually does today - and where earlier pages oversold it. It's its own little command-line program: you run it in its own terminal, it watches your project folder, and it never touches your editor or files unless you turn on --autofix. On save it waits half a second so a burst of saves counts as one, ignores noise like .git/target/node_modules/.venv and its own findings.json (but keeps files you deleted or renamed), then re-runs cargo build and then cargo test, skipping the tests if the build fails. It decides bug-vs-noise by reading facts, not meaning: a timeout is a freeze, a fatal signal is a crash, compiler errors mean the build broke, a failed test means a test broke; it is only green when everything passes, and a check that can't run or gives an unclear result is never green and never auto-fixed. Small fixes come from Rust's own tools (cargo fix, clippy --fix, fmt) - no AI, no debugger - applied on a scratch copy and written back only if you haven't changed the file, capped at 5 rounds. Honest corrections: there is NO debugger (CodeLLDB is not used at all), a new save does NOT cancel a running check, only the Rust adapter is built, expected-vs-got can read backwards, and only the run-once mode has been tested so far.",
     "date": "2026-09-05",
     "emoji": "✅"
