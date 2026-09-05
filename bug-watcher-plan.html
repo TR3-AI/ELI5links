@@ -34,6 +34,10 @@
   .verdict .say b{color:#12522f}
   .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
   .foot a{color:#6b4fd0; font-weight:700}
+  /* Footer button adapted from a Uiverse.io neumorphism button by AKAspidey01 (MIT), recolored to the pastel house palette */
+  .u-btn{display:inline-block; cursor:pointer; text-decoration:none; background:linear-gradient(145deg,#f6f1ff,#ddd0f4); box-shadow:5px 5px 16px #cdbdea,-5px -5px 16px #ffffff; padding:5px; border-radius:16px; border:1px solid #cbb8ec}
+  .u-btn .u-inner{display:block; border-radius:50px; background:linear-gradient(145deg,#ddd0f4,#f6f1ff); box-shadow:inset 5px 5px 12px #cdbdea,inset -5px -5px 12px #ffffff; padding:11px 22px; color:#6b4fd0; font-weight:800; font-size:15px; letter-spacing:.3px}
+  .u-btn:active .u-inner{box-shadow:inset 2px 2px 8px #cdbdea,inset -2px -2px 8px #ffffff}
 </style>
 </head>
 <body>
@@ -102,7 +106,7 @@
     <span class="tag built">built</span>
     <span class="emoji">&#9989;</span>
     <p class="big">A real Rust v1</p>
-    <p class="say">A working command-line tool that builds and has its own tests. This part is real, not a sketch.</p>
+    <p class="say">A working command-line tool that builds and has its own tests. This part is real, not a sketch &mdash; but it's <b>not merged yet</b>: the code lives on one branch (<span class="code">feat/core</span>, open as PR #1), not in <span class="code">main</span>.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -251,7 +255,7 @@
   <div class="card">
     <span class="emoji">&#128236;</span>
     <p class="big">Then: deliver &amp; enforce</p>
-    <p class="say"><b>3) Deliver</b> &mdash; the checker returns <b>one report in memory</b> (status + findings + a <b>generation stamp and project root</b>). A <span class="code">--json</span> mode <b>prints that report to the screen</b> for the wrapper or per-edit hook (OMP / Claude Code) to read <b>directly</b> &mdash; it <b>never re-opens the receipt file</b>, so the <b>file-reread race is gone</b>. The generation stamp lets a hook <b>reject a result older than the latest edit</b> (that's what closes the stale-result gap, not stdout alone). The same report is saved to disk atomically too. <b>4) Enforce</b> &mdash; <span class="code">--once</span> turns that status into a <b>non-zero exit</b>, and while red we block the <b>finish / commit / next-task</b> but keep <b>Edit/Write open</b> so it can fix.</p>
+    <p class="say"><b>3) Deliver</b> &mdash; the checker returns <b>one report in memory</b> (status + findings + a <b>generation stamp and project root</b>). A <span class="code">--json</span> mode <b>prints that report to the screen</b> for the wrapper or per-edit hook (OMP / Claude Code) to read <b>directly</b> &mdash; it <b>never re-opens the receipt file</b>, so the <b>file-reread race is gone</b>. The generation stamp lets a hook <b>reject a result older than the latest edit</b> (that's what closes the stale-result gap, not stdout alone). The same report is saved to disk atomically too. <b>4) Enforce</b> &mdash; <span class="code">--once</span> turns that status into a <b>non-zero exit</b>, and while red we block the <b>finish / commit / next-task</b> but keep <b>Edit/Write open</b> so it can fix. In OMP that's three small hooks: <span class="code">tool_result</span> <b>appends the findings</b> to what the AI sees after an edit (no re-read), <span class="code">session_stop</span> <b>keeps the turn going while red</b> instead of letting it settle, and <span class="code">tool_call</span> <b>blocks just the commit/publish step</b>.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -267,7 +271,7 @@
   <div class="card">
     <span class="emoji">&#129520;</span>
     <p class="big">Then: clean up &amp; grow</p>
-    <p class="say"><b>6)</b> Fix the expected/got swap and make auto-fix trustworthy: run the fixers <b>through the timeout-guarded runner</b>, stop swallowing their errors, and <b>narrow which fixer and files</b> run &mdash; while <b>keeping</b> the temp-copy + hash guard that stops it clobbering your saves. <b>7)</b> Prove the watch loop with a real test and add cancellation on new save. <b>8)</b> Add more languages, each bringing its own tests.</p>
+    <p class="say"><b>6)</b> <b>Stop guessing expected vs got</b> &mdash; show Rust's raw <span class="code">left</span>/<span class="code">right</span> as-is instead of forcing a label &mdash; and make auto-fix trustworthy: run the fixers <b>through the timeout-guarded runner</b>, stop swallowing their errors, and <b>narrow which fixer and files</b> run &mdash; while <b>keeping</b> the temp-copy + hash guard that stops it clobbering your saves. <b>7)</b> Prove the watch loop with a real test and add cancellation on new save. <b>8)</b> Add more languages, each bringing its own tests.</p>
   </div>
 
   <p class="part">Part 6 &middot; how accurate is it?</p>
@@ -316,7 +320,10 @@
     <p class="say">The <b>detector is real</b> &mdash; a Rust v1 that catches loud bugs on save and writes a receipt. The <b>missing heart is deliver + enforce</b>: make red exit non-zero (in <span class="code">--once</span>), always leave a receipt, hand the findings to the AI, and <b>block the finish &mdash; not the edits</b> &mdash; until it's green, with the <b>tests/gate locked</b> so it can't grade its own homework. Then the AI is <b>checked as it goes</b>, not trusted at the end.</p>
   </div>
 
-  <p class="foot"><a href="./">all ELI5 pages</a></p>
+  <p class="foot">
+    <!-- Footer link adapted from a Uiverse.io neumorphism button by AKAspidey01 (MIT) -->
+    <a class="u-btn" href="./"><span class="u-inner">all ELI5 pages</span></a>
+  </p>
 
 </div>
   <script src="nav.js" defer></script>
