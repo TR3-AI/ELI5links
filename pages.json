@@ -1,5 +1,12 @@
 [
   {
+    "file": "clean-vs-correct.html",
+    "title": "Clean code isn't the same as right",
+    "desc": "Clippy tidies and fmt formats, but clean code still isn't the same as correct code - and clippy can cry wolf. In plain words, four ways to close that gap: (1) stronger tests - not just more lines covered, but tests that would actually fail if the behavior broke, plus locking a separate independently-owned grader so the coding AI can't water it down (its own unit tests stay free); (2) a reviewer that reads the change against the approved spec for logic/security/missed cases - it adds evidence a linter can't, but still can't promise correctness; (3) stacking different checks (build+tests, clippy, a bad-dependency scan, the debugger for crashes/freezes) so each catches a different miss; (4) reporting three honest states - pass, fail, or couldn't-check - so green only ever means the checks that exist passed. Plus taming clippy: fail the gate only on the serious lints and show the rest as notes, not on every warning. Bottom line: fmt+clippy clear the cheap noise, strong tests and the reviewer move you from clean toward right, and you're shrinking the blind spot, not erasing it - no tool can prove correct.",
+    "date": "2026-09-05",
+    "emoji": "🎯"
+  },
+  {
     "file": "per-save-checks-and-greptile.html",
     "title": "Why checking on every save helps your Greptile score",
     "desc": "Why running your build and tests on every save helps you get a top (5/5) score from Greptile, the pull-request reviewer - in plain words. It helps mostly by removing the easy losses: a build that won't compile or a failing test almost never scores well, and catching those on save means they never reach the review, which lifts the floor. But a 5 needs things the per-save watcher can't see: code that runs but is wrong, security holes, messy structure, missing edge cases, or one oversized change. To actually earn the 5 you add clippy + fmt to the gate to kill style nits, run a quick local review (the same AI judge) before Greptile sees the code, and keep each change small - these parts aren't built yet. Bottom line: per-save checking guarantees a green build and tests and raises your odds, but the extra points come from the review layer, not the watcher alone - passing checks isn't the same as correct, and a green build isn't automatically a 5.",
