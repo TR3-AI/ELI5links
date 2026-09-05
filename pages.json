@@ -1,5 +1,12 @@
 [
   {
+    "file": "watcher-cli.html",
+    "title": "The bug-watcher CLI — how it works",
+    "desc": "A reusable command-line “watcher” that catches bugs on its own across Rust, Go, and Python. Point it at the run or test command you already use (cargo test, go test, pytest); it watches for a crash, a failed test, or a freeze (a timer catches hangs), saves the clues (command, error, the exact failing test, the input, where it stuck), then replays the same run under the right debugger — LLDB for Rust, Delve (dlv) for Go, pdb/debugpy for Python — and stops at the exact broken spot. It will not catch silent wrong answers; those still need a test or check that defines “right”. One command, same steps for all three: watcher -- <your command>.",
+    "date": "2026-09-05",
+    "emoji": "🔭"
+  },
+  {
     "file": "memory-and-self-debugging.html",
     "title": "Your AI's memory + catching bugs by itself",
     "desc": "Two things in plain words. (1) Why saving new memories is broken right now: the note-taking step uses a paid AI whose key is out of credits, so saves look green but nothing sticks; top up or swap the key and it works, since reading never needed it. (2) How a debugger can catch bugs on its own: it's a magnifying glass, not an alarm. Crashes and failed tests get caught automatically the moment they happen; silent wrong answers need a rule (a test, assertion, or sanitizer) that defines 'right'. The loop is detect, capture the clues, then replay under the debugger.",
