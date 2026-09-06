@@ -1,5 +1,12 @@
 [
   {
+    "file": "bug-watcher-phases.html",
+    "title": "bug-watcher — the plan, in 10 steps",
+    "desc": "Your v3.1 bug-watcher plan, cut into an ordered 10-step build list, and I checked every part of the plan lands in a step so nothing is dropped. Step 0 (no code): agree the goal and the rules to judge by. Steps 1-4 build the watcher: W0 measure what we have now with test cases; W1 make the receipt always honest (never blank, never stale-green); W2 deliver findings to the AI and make a red actually block a push/PR (and cancel a check if you save again); W3 a stronger test runner that names the exact failing test and catches crashes. Steps 5-7 build the gate: 5 writes the checker's rulebook (only you can bypass, protected files, pass/fail/can't-tell states, the checklist); 6 is R1, the tamper-proof checker (no AI, no key, soft locally and a hard block in CI); 7 is R2, an AI judge in the cloud only with its key kept off the coding machine (can't promise correct, but catches what a linter can't). Step 8 wires the whole chain end to end (save to check to nudge to gate to Greptile to your merge). Step 9 is parked on purpose: the auto-debugger (CodeLLDB), auto-fix, other languages, and the ELI5/design side-questions. Verdict: all 26 parts of the plan map to the 10 steps, order follows the plan's own W0 to R2, nothing missing or invented.",
+    "date": "2026-09-06",
+    "emoji": "🪜"
+  },
+  {
     "file": "plan-edits-checked.html",
     "title": "Did the plan edits check out?",
     "desc": "I checked the executor's three claims about his plan edits myself instead of taking his word. Two check out and I can point to the exact lines: (1) he added a 'Why we're building this' part right before 'The one goal' (lines 18-24, with 'The one goal' at line 26), with the three points and the paragraph he described; (2) the watcher, reviewer and debugger each now open with a short 'why' line saying what it's for (lines 31, 32, 33). The third claim - 'nothing else changed' - I can't confirm: to prove only those three things changed I'd need the older version to compare against, and I don't have it, so I won't call it a pass without proof.",
