@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why the debugger &amp; autofix are parked</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The debugger &amp; autofix — why they're parked 🅿️</h1>
+  <p class="sub">good questions — here's the honest answer</p>
+
+  <div class="card">
+    <span class="emoji">🔍</span>
+    <p class="big">A debugger doesn't fix bugs</p>
+    <p class="say">It's a <b>magnifying glass</b>: it helps find <b>where</b> and <b>why</b> code broke. It never writes the fix. So parking it doesn't leave anything unfixed.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🤖</span>
+    <p class="big">The coding AI is the fixer</p>
+    <p class="say">When the watcher finds a red, it <b>hands the finding to the coding AI</b> and keeps nudging until it's green — and <b>blocks any push or pull request while it's still red</b>. That loop <b>is</b> the fix path (steps 3, 6, 7).</p>
+  </div>
+
+  <p class="part">The debugger</p>
+
+  <div class="card">
+    <span class="emoji">🧰</span>
+    <p class="big">It's not removed from OMP</p>
+    <p class="say">OMP's debugger still works — you can open <b>CodeLLDB</b> by hand any time. The plan just doesn't <b>auto-run</b> it in version 1.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🎯</span>
+    <p class="big">v1 already tells you where</p>
+    <p class="say">The new test runner <b>names the exact test</b> that crashed or hung, and <b>full crash traces</b> come free. That covers most of what an auto-debugger would report.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">💥</span>
+    <p class="big">Auto-running it fights the watcher</p>
+    <p class="say">The watcher <b>kills a frozen run's whole process tree</b>; an attached debugger clashes with that. A replay is <b>best-effort</b> — a flaky bug may not repeat, and it may stop at the symptom, not the cause. It never changes pass/fail — it's <b>only advice</b>.</p>
+  </div>
+
+  <p class="part">Autofix</p>
+
+  <div class="card">
+    <span class="emoji">🔌</span>
+    <p class="big">Off, not deleted</p>
+    <p class="say">Autofix isn't gone — it's <b>switched off until it's made safe</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">⚠️</span>
+    <p class="big">Why off: it's too eager</p>
+    <p class="say">Today it runs fixers across your <b>whole project, unbounded</b>, and <b>hides its own errors</b> — and it can <b>collide with the coding AI</b> editing the same files. In a tool built for <b>honest, tamper-proof checks</b>, a fixer that makes broad hidden edits is a risk.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">✅</span>
+    <p class="big">Both parked, not deleted</p>
+    <p class="say">They're set aside to build <b>after</b> the core catch-and-block loop and the safety are solid — the plan says to <b>revisit both</b>. <b>Want either in version 1?</b> Say the word and I'll have the plan changed to build it now.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
