@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bug-watcher plan — 10 steps</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.step{background:#efeaff; color:#6b4fd0}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The bug-watcher plan — 10 steps 🪜</h1>
+  <p class="sub">your v3.1 plan, cut into a build order</p>
+
+  <div class="card">
+    <span class="emoji">🧩</span>
+    <p class="big">One plan, cut into steps</p>
+    <p class="say">You wrote the plan. I had it split into an <b>ordered to-do list</b> — 10 steps, built in order. Every part of the plan lands in a step, so <b>nothing gets forgotten</b>.</p>
+  </div>
+
+  <p class="part">Ground rules</p>
+
+  <div class="card">
+    <span class="tag step">Step 0 · no building</span>
+    <span class="emoji">🧭</span>
+    <p class="big">Agree the goal &amp; the rules</p>
+    <p class="say">First, settle <b>what we're building</b> and <b>how we'll judge it</b>: the one goal, how the pieces fit, the known bugs, the 20 decisions. No code — this is the yardstick every later step is measured against.</p>
+  </div>
+
+  <p class="part">Build the watcher</p>
+
+  <div class="card">
+    <span class="tag step">Step 1 · W0</span>
+    <span class="emoji">📏</span>
+    <p class="big">Measure what we have now</p>
+    <p class="say">Time it and score it today with a set of test cases (a clean project, a broken build, a failing test, a crash, a freeze…). <b>You can't improve what you haven't measured.</b></p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="tag step">Step 2 · W1</span>
+    <span class="emoji">🧾</span>
+    <p class="big">Make the receipt honest</p>
+    <p class="say">The result it writes must always be <b>true</b> — never blank when something failed, never an old &ldquo;green&rdquo; after a new break. Lock the shape of that receipt.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="tag step">Step 3 · W2</span>
+    <span class="emoji">🚦</span>
+    <p class="big">Deliver it, and make red bite</p>
+    <p class="say">Put the findings <b>in front of the AI</b>, and make a &ldquo;red&rdquo; actually <b>stop a push or pull request</b> — not just print a number. Save again mid-check? Cancel the old one, start fresh.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="tag step">Step 4 · W3</span>
+    <span class="emoji">🧪</span>
+    <p class="big">A stronger test run</p>
+    <p class="say">Swap in a better test runner that <b>names the exact test that failed</b> and spots crashes properly — instead of guessing from a single exit code.</p>
+  </div>
+
+  <p class="part">Build the gate</p>
+
+  <div class="card">
+    <span class="tag step">Step 5 · foundations</span>
+    <span class="emoji">📜</span>
+    <p class="big">Write the checker's rulebook</p>
+    <p class="say">Set up the independent check's rules: <b>who can bypass</b> (only you), <b>which files are protected</b>, the pass / fail / can't-tell states, and the checklist it judges by. No checker yet — just its rules.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="tag step">Step 6 · R1</span>
+    <span class="emoji">🔒</span>
+    <p class="big">The tamper-proof checker</p>
+    <p class="say">Build the checker itself — <b>no AI, no secret key</b>. It runs on your machine as a soft warning, and in the cloud as a <b>hard block the AI can't get around</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="tag step">Step 7 · R2</span>
+    <span class="emoji">⚖️</span>
+    <p class="big">The AI judge</p>
+    <p class="say">Add an AI that reads the change against the plan and asks <b>&ldquo;is this actually right?&rdquo;</b> — only in the cloud, its key kept <b>off the coding machine</b>. It can't promise correct, but it catches things a linter can't.</p>
+  </div>
+
+  <p class="part">Wire it together</p>
+
+  <div class="card">
+    <span class="tag step">Step 8 · lifecycle</span>
+    <span class="emoji">🔗</span>
+    <p class="big">Connect the whole chain</p>
+    <p class="say">Hook it all up end to end — <b>save → check → nudge → gate → Greptile review → your merge</b> — and prove the broken stuff never reaches a pull request.</p>
+  </div>
+
+  <p class="part">On purpose, not now</p>
+
+  <div class="card">
+    <span class="tag idea">Step 9 · parked</span>
+    <span class="emoji">📦</span>
+    <p class="big">Left out of version 1</p>
+    <p class="say">Written down so nobody builds them by accident: the <b>auto-debugger</b> (CodeLLDB), <b>auto-fix</b>, other languages, and the ELI5 / design side-questions.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">✅</span>
+    <p class="big">I checked it — nothing dropped</p>
+    <p class="say">I matched every part of your v3.1 plan against these steps myself: <b>all 26 parts land in one of the 10 steps</b>, none missing, none invented. The order is the plan's own (W0 → R2). Say the word and I'll load v3.1 into the plan file.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
