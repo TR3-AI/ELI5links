@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How your code gets checked — step by step</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:58px; line-height:1; display:block; margin:2px 0 10px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .num{display:inline-block; font-size:14px; font-weight:800; letter-spacing:.5px; padding:3px 12px; border-radius:999px; margin:0 0 10px; background:#efeaff; color:#6b4fd0}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:28px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How your code gets checked 🔄</h1>
+  <p class="sub">start to finish, step by step</p>
+
+  <p class="part">On your machine · every save</p>
+
+  <div class="card">
+    <span class="num">Step 1</span>
+    <span class="emoji">💾</span>
+    <p class="big">You save the code</p>
+    <p class="say">A watcher runs quietly in the background, watching your folder. The moment a file is saved, it wakes up.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 2</span>
+    <span class="emoji">⏳</span>
+    <p class="big">It waits a beat</p>
+    <p class="say">About half a second, so a <b>burst of saves counts as one</b>. It ignores noise like <span class="code">.git</span> and build folders.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 3</span>
+    <span class="emoji">🧱</span>
+    <p class="big">Does it build?</p>
+    <p class="say">It runs the real <b>build</b> on the newest code. Won't compile = <b>red</b>, with the file and line. (If the build fails, it stops here.)</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 4</span>
+    <span class="emoji">✅</span>
+    <p class="big">Do the tests pass?</p>
+    <p class="say">Then it runs your <b>real tests</b>. A failed test = red. A <b>crash</b> names the exact test; a <b>freeze</b> trips a timer.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 5</span>
+    <span class="emoji">🧾</span>
+    <p class="big">It writes an honest receipt</p>
+    <p class="say">Marks the result <b>pass / fail / can't-tell</b> — never a fake green, never blank when something broke.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 6</span>
+    <span class="emoji">🤖</span>
+    <p class="big">It hands the result to the AI</p>
+    <p class="say">The finding goes <b>straight to the coding AI</b>; if it's red, it keeps <b>nudging until green</b>. Save again mid-check and the old one is dropped, restarting on the newest.</p>
+  </div>
+
+  <p class="part">When you ship</p>
+
+  <div class="card">
+    <span class="num">Step 7</span>
+    <span class="emoji">🚦</span>
+    <p class="big">You push or open a pull request</p>
+    <p class="say">A <b>soft gate</b> on your machine checks: green? clean? nothing protected touched? If red, it <b>blocks</b> — a local warning you could override.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 8</span>
+    <span class="emoji">🔒</span>
+    <p class="big">The cloud gate — can't be skipped</p>
+    <p class="say"><b>R1 (no AI):</b> re-runs the <b>locked</b> tests, checks nobody weakened them, runs clippy + fmt. Then <b>R2 (AI judge, only if R1 passed):</b> reads the change against the plan — <b>is it actually right?</b> Its key stays in the cloud.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 9</span>
+    <span class="emoji">👀</span>
+    <p class="big">Greptile reviews it</p>
+    <p class="say">The pull-request reviewer reads the change and <b>scores it out of 5</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">Step 10</span>
+    <span class="emoji">🫵</span>
+    <p class="big">You merge</p>
+    <p class="say">Nothing reaches <b>main</b> without your yes. You have the last word.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">🔄</span>
+    <p class="big">The whole loop</p>
+    <p class="say">save → build → test → honest receipt → to the AI → soft gate → cloud gate (R1 → R2) → Greptile → <b>your merge</b>. The compiler and tests are the judges; the gate makes &ldquo;green&rdquo; mean more; <b>you</b> sign off.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
