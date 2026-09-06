@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the AI judge runs in GitHub</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:58px; line-height:1; display:block; margin:2px 0 10px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .num{display:inline-block; font-size:14px; font-weight:800; letter-spacing:.5px; padding:3px 12px; border-radius:999px; margin:0 0 10px; background:#efeaff; color:#6b4fd0}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:28px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How the AI judge runs in GitHub ⚖️</h1>
+  <p class="sub">it doesn't live there — it gets a phone call</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🤖</span>
+    <p class="big">GitHub has a built-in robot</p>
+    <p class="say">It's called <b>Actions</b>. When a pull request opens, GitHub automatically spins up a <b>fresh, clean cloud computer</b> and runs a job on it. That's &ldquo;the cloud&rdquo; — a throwaway machine <b>GitHub owns</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">⚙️</span>
+    <p class="big">Rules check first (R1)</p>
+    <p class="say">That job runs the <b>no-AI</b> checks first: the locked tests, the tamper check, clippy + fmt. <b>Only if those pass</b> does the AI judge run.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">📞</span>
+    <p class="big">The judge is a phone call</p>
+    <p class="say">The AI doesn't <b>live</b> in GitHub. The job runs a small program that <b>phones an AI over the internet</b> (an API call) and asks it to judge.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">📤</span>
+    <p class="big">What it sends over</p>
+    <p class="say">The exact <b>change</b> (the diff), <b>what you asked for</b> (the approved spec), and the rules-check report. The question: <b>does this meet intent? any logic or security holes? were the tests weakened?</b></p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🔑</span>
+    <p class="big">The key is in a locked drawer</p>
+    <p class="say">The AI's key sits in GitHub's encrypted <b>Secrets</b>, readable only by the job on GitHub's machine. The coding AI on your laptop <b>never sees it</b> — can't run the judge, can't fake its answer.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">🛡️</span>
+    <p class="big">It can't be tricked by hidden notes</p>
+    <p class="say">It reads the change with <b>code comments stripped out</b> for the verdict, so the coder can't hide &ldquo;just pass me&rdquo; in a comment. A <b>FAIL must carry real evidence</b> — the rule, the spec line, and the file + line.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">7</span>
+    <span class="emoji">🚦</span>
+    <p class="big">The verdict blocks the merge</p>
+    <p class="say">The job reports <b>pass / fail</b> back to the pull request as a <b>required check</b>. Red = GitHub itself <b>won't let it merge</b>.</p>
+  </div>
+
+  <div class="verdict">
+    <span class="emoji">✅</span>
+    <p class="big">In one breath</p>
+    <p class="say">GitHub's robot runs on a <b>clean cloud machine</b>, <b>phones a separate AI</b> with the change + the spec, and posts a verdict the coder <b>can't reach or fake</b> — because the key stays <b>locked in GitHub</b>.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
