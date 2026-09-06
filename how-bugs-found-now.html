@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How bugs get found now</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .part{text-align:center; font-size:14px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#a99fd0; margin:30px 0 2px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .tag{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin:0 0 10px}
+  .tag.idea{background:#e5edff; color:#3b5bdb}
+  .num{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.5px; padding:3px 10px; border-radius:999px; margin:0 0 10px; background:#efeaff; color:#6b4fd0}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; color:#6b4fd0; background:#f4f1ff; padding:1px 6px; border-radius:7px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .verdict{background:linear-gradient(135deg,#d9f7e6,#c2eecf); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:22px 0 0; text-align:center}
+  .verdict .big{color:#1f7a4d}
+  .verdict .say{color:#2f6b4f}
+  .verdict .say b{color:#12522f}
+  .amber{background:linear-gradient(135deg,#fff2cc,#ffe6a8)}
+  .amber .big{color:#8a6d1a}
+  .amber .say{color:#7a5f16}
+  .amber .say b{color:#5c470f}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How bugs get found now 🔎</h1>
+  <p class="sub">without the debugger or autofix</p>
+
+  <div class="card">
+    <span class="emoji">🧲</span>
+    <p class="big">Those two never found bugs</p>
+    <p class="say">The debugger only <b>explained</b> a crash after it happened; autofix only <b>auto-repaired tiny stuff</b>. Neither was the finder — so taking them out loses <b>no</b> finding power.</p>
+  </div>
+
+  <p class="part">The finder · on every save</p>
+
+  <div class="card">
+    <span class="num">1 · the compiler</span>
+    <span class="emoji">🧱</span>
+    <p class="big">Does it even build?</p>
+    <p class="say">On every save it runs the real <b>build</b>. Won't compile = a bug found, <b>with the file and line</b>. Free, and impossible to fake.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2 · the tests</span>
+    <span class="emoji">✅</span>
+    <p class="big">Do the tests pass?</p>
+    <p class="say">Then it runs your <b>real tests</b>. A failed test <b>is</b> a caught bug. The compiler and tests are the judges because they're <b>hard to fake</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3 · crashes &amp; freezes</span>
+    <span class="emoji">💥</span>
+    <p class="big">Loud bugs show themselves</p>
+    <p class="say">The test runner <b>names the exact test</b> that crashed and hands you a full trace; a hang trips a <b>timer</b>. This is the part the debugger used to help with — now it comes built in.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4 · label + hand over</span>
+    <span class="emoji">🧾</span>
+    <p class="big">Then it acts on it</p>
+    <p class="say">Each result is marked <b>pass / fail / can't-tell</b>, written down honestly, and put <b>in front of the coding AI</b> — which does the fixing, and <b>can't ship a red</b>.</p>
+  </div>
+
+  <p class="part">The second net · the gate</p>
+
+  <div class="card">
+    <span class="num">5 · tamper-proof check</span>
+    <span class="emoji">🔒</span>
+    <p class="big">Did anyone cheat?</p>
+    <p class="say">In the cloud it re-runs the <b>protected tests</b> and checks nobody <b>weakened them</b>. Catches cheating and things that slipped past locally.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6 · the AI judge</span>
+    <span class="emoji">⚖️</span>
+    <p class="big">Is it actually right?</p>
+    <p class="say">Reads the change against the plan: <b>missed cases, logic and security holes</b> — the stuff that <b>builds and passes but is still wrong</b>. It can't promise correct, but it catches what checks can't.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">7 · Greptile + you</span>
+    <span class="emoji">👀</span>
+    <p class="big">Last look</p>
+    <p class="say">Greptile scores the pull request, and <b>you</b> do the final merge.</p>
+  </div>
+
+  <div class="verdict amber">
+    <span class="emoji">🤔</span>
+    <p class="big">The one honest gap</p>
+    <p class="say">A <b>wrong answer that builds and passes every test you have</b>. Nothing catches that by magic — it needs a <b>test that says what &ldquo;right&rdquo; means</b>. Green means <b>the checks that exist passed</b>, not that the code is perfect.</p>
+  </div>
+
+  <p class="foot"><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
