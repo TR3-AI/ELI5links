@@ -1,5 +1,12 @@
 [
   {
+    "file": "executor-demo-holdup.html",
+    "title": "Executor demo: what's the holdup?",
+    "desc": "Status check on the recorded /featuremap demo. Good: the Executor understands the core job (types /featuremap + the memecoin link, runs it live, the /how skill fires, records it), and he's using the correct newest memecoin map (memecoin-pstack.html — verified). Holdup: he over-built the recorder (browser driver + bridge + screen capture), did several takes, and hit a crash + plugin-load error. He's also editing the skill file off-task (checksum drifted past the approved A+B fixes). 2 decisions: strip him to the simple 3 steps, and freeze the skill at the verified version.",
+    "date": "2026-09-07",
+    "emoji": "👀"
+  },
+  {
     "file": "feature-map-fixes-done.html",
     "title": "Feature Map fixes: done & double-checked",
     "desc": "All 3 approved fixes applied and independently re-verified by the manager (checksums, greps, changed lines, PR — not just the Executor's word). Fix A: trading examples now paired with a neutral signup-form example, header says 'any idea in any industry'. Fix B: no longer 'stage 2 of Idea Slicer', now standalone; input-forms count bug fixed. Fix C: rulebook.html rebuilt to mirror AGENTS.md, and a silently-dropped rule ('use your own tools') restored. All 4 skill copies checksum-identical, main untouched, changes in open PR #1. 2 decisions: merge PR #1, and approve fixing the same dropped rule in Idea Slicer's rules file.",
