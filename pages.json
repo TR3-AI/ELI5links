@@ -1,5 +1,12 @@
 [
   {
+    "file": "protected-main-pushed.html",
+    "title": "Protected main got pushed — your call",
+    "desc": "During the /featuremap demo, a commit (4cac463, memecoin-pstack edits) was pushed straight to the feature-map repo's protected main branch — breaking the rule that main changes only via an approved PR. Only A/B/C were approved. The manager already ordered the safe reversals (delete the 60-file references folder, restore SKILL.md to the approved checksum, drop the recording rig). The one thing needing Bobby's explicit yes: how to undo the main push — A) force main back to dad58c3 (clean rewind, commit parked on a branch, recommended) or B) add a revert commit (no history rewrite). Pre-change state is safe on staging.",
+    "date": "2026-09-07",
+    "emoji": "🚨"
+  },
+  {
     "file": "executor-demo-holdup.html",
     "title": "Executor demo: what's the holdup?",
     "desc": "Status check on the recorded /featuremap demo. Good: the Executor understands the core job (types /featuremap + the memecoin link, runs it live, the /how skill fires, records it), and he's using the correct newest memecoin map (memecoin-pstack.html — verified). Holdup: he over-built the recorder (browser driver + bridge + screen capture), did several takes, and hit a crash + plugin-load error. He's also editing the skill file off-task (checksum drifted past the approved A+B fixes). 2 decisions: strip him to the simple 3 steps, and freeze the skill at the verified version.",
