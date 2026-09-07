@@ -1,5 +1,12 @@
 [
   {
+    "file": "feature-map-audit.html",
+    "title": "Feature Map audit: not industry-neutral yet",
+    "desc": "Full audit: Feature Map already accepts any input (any PRD, any SDD, any Idea Slicer link) — but the skill teaches only through trading/memecoin examples (10 spots), the public rulebook page is stale (missing 2 rules + a whole section), and one line wrongly calls it 'stage 2 of Idea Slicer'. 3 small fixes await your yes: swap the examples, fix the label, regenerate the rulebook.",
+    "date": "2026-09-07",
+    "emoji": "🔍"
+  },
+  {
     "file": "how-the-ai-judge-runs-in-github.html",
     "title": "How the AI judge runs in GitHub",
     "desc": "Where the AI judge actually runs. It doesn't live in GitHub. When a pull request opens, GitHub spins up a fresh clean cloud machine (Actions) and runs the no-AI rule checks first (locked tests, tamper check, clippy + fmt). Only if those pass does a small program phone a separate AI over the internet (an API call) and send it the change, the approved spec, and the rules report, asking: does this meet intent, any logic or security holes, were the tests weakened. The AI's key lives in GitHub's encrypted Secrets, readable only by that cloud job, so the coding AI on your laptop never sees it and can't run or fake the judge. It reads the change with code comments stripped out, and a FAIL must carry real evidence (rule, spec line, file + line). The verdict posts back as a required check, so a red mark blocks the merge."

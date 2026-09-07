@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feature Map audit &mdash; not industry-neutral yet</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Feature Map audit &#128269;</h1>
+  <p class="sub">should work for any idea &mdash; today it leans trading</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128736;&#65039;</span>
+    <p class="big">What was checked</p>
+    <p class="say">Feature Map turns an idea into a list of features to build. The audit
+    read <b>every file that teaches agents how to do that</b> &mdash; the skill file
+    (4 identical copies) and the rulebook in the GitHub repo. It should work from
+    <b>any PRD, any SDD, or any Idea Slicer link</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">The good news</p>
+    <p class="say">The intake is <b>fully neutral</b>: any input type works, nothing
+    locked to one industry. The repo's main rule file and the page renderer are clean,
+    and <b>no Claude plugin touches Feature Map at all</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128202;</span>
+    <p class="big">The problem: trading examples</p>
+    <p class="say">The skill teaches <b>only through trading and memecoin examples</b>
+    &mdash; stop-losses, exchanges, pump.fun &mdash; in <b>10 spots</b>. Agents learn
+    by copying examples, so a cooking-app idea could get a trading-shaped map.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128560;</span>
+    <p class="big">The rulebook page is stale</p>
+    <p class="say">The public rulebook (rulebook.html) still has the <b>old trading
+    wording</b> and is <b>missing 2 rules plus a whole section</b> that the main rule
+    file already has.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128279;</span>
+    <p class="big">One wrong label</p>
+    <p class="say">One line calls Feature Map <b>&ldquo;stage 2 of Idea Slicer&rdquo;</b>
+    &mdash; but you ruled it is <b>its own standalone skill</b>. The line contradicts
+    your ruling.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 3 decisions &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#127919;</span>
+    <p class="big">Fix A &mdash; the examples</p>
+    <p class="say"><b>1) What's up?</b> All 10 teaching examples are trading.<br>
+    <b>2) Signing up for</b> swapping in mixed industries (or pairing each with a
+    second domain).<br>
+    <b>3) You are deciding</b> approve the example rewrite, yes or no.<br>
+    <b>4) Results</b> yes = agents map any idea neutrally; no = trading drift stays.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#9998;</span>
+    <p class="big">Fix B &mdash; the label</p>
+    <p class="say"><b>1) What's up?</b> The &ldquo;stage 2&rdquo; line ties Feature Map
+    to Idea Slicer.<br>
+    <b>2) Signing up for</b> a one-line rewrite to &ldquo;standalone skill&rdquo;.<br>
+    <b>3) You are deciding</b> approve the rewrite, yes or no.<br>
+    <b>4) Results</b> yes = docs match your ruling; no = agents read the wrong story.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128260;</span>
+    <p class="big">Fix C &mdash; the rulebook</p>
+    <p class="say"><b>1) What's up?</b> rulebook.html is behind the real rules.<br>
+    <b>2) Signing up for</b> regenerating it from the current rule file.<br>
+    <b>3) You are deciding</b> approve the regen, yes or no.<br>
+    <b>4) Results</b> yes = public page matches truth; no = stale rules stay live.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">&#128077;</span>
+    <p class="big">I'd: approve all three</p>
+    <p class="say">Each fix is small, the audit proved each one with file and line,
+    and together they make Feature Map <b>truly generic</b>. Say the word and the
+    Executor applies them.</p>
+  </div>
+
+  <p class="foot">Short version: Feature Map <b>accepts any input</b> already &mdash;
+  but it <b>teaches through trading examples</b>, so agents may drift.
+  <b>3 small fixes</b> wait on your yes.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
