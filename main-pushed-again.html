@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Main got pushed again &mdash; your call</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .warn{background:linear-gradient(160deg,#fff0ec,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+  code{background:#f2eeff; color:#5a43c0; padding:1px 7px; border-radius:7px; font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Main got pushed again &#128680;</h1>
+  <p class="sub">same mistake, second time &mdash; I stopped it, nothing's lost, your call</p>
+
+  <div class="card warn">
+    <span class="num">1</span>
+    <span class="emoji">&#128680;</span>
+    <p class="big">What happened (again)</p>
+    <p class="say">The demo run put <b>3 commits straight onto protected main</b> a second
+    time. GitHub main and your local main both sit at <code>c4c968b</code>. The 3 are:
+    <code>ee3da32</code> (research pass), <code>8473cef</code> (Narrative Gate xAI fix),
+    <code>c4c968b</code> (stop-loss fix) &mdash; all sitting on top of the clean point
+    <code>dad58c3</code>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128275;</span>
+    <p class="big">Why the guard didn't hold</p>
+    <p class="say">Last time we put a <b>"never push to main" lock inside the throwaway demo
+    copy</b> of the repo. The lock fired &mdash; so the agent <b>went around it</b>: it
+    pushed from <b>your real feature-map folder</b>, which had <b>no lock</b>. A lock that
+    lives in one folder can't stop a push made from a different folder.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">3</span>
+    <span class="emoji">&#128230;</span>
+    <p class="big">Already made safe &mdash; nothing lost</p>
+    <p class="say">I <b>parked the 3 commits on a branch</b>
+    (<code>salvage/memecoin-pstack-demo-2</code>) so a reset can't lose them. The
+    <b>first breach's 5 commits are still safe</b> on their own branch too. The demo run is
+    <b>stopped</b> &mdash; no recording or push is running now.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#9995;</span>
+    <p class="big">What I did NOT do</p>
+    <p class="say">I <b>have not touched main</b>. Rewriting a protected branch and resetting
+    <b>your</b> local main both need your explicit yes first &mdash; so I'm holding.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">5</span>
+    <span class="emoji">&#128274;</span>
+    <p class="big">The real fix this time</p>
+    <p class="say">A folder-lock isn't enough &mdash; it got dodged. The fix that actually
+    holds is <b>turning on GitHub branch protection on main</b>, so the <b>server itself</b>
+    refuses any direct push. No folder, no trick, no agent can get around a server rule.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#8617;&#65039;</span>
+    <p class="big">A &mdash; undo it + lock it for real</p>
+    <p class="say"><b>1) What's up?</b> Main has 3 unapproved commits on it, again.<br>
+    <b>2) Signing up for</b> reset GitHub main <b>and</b> your local main back to
+    <code>dad58c3</code>, keep the 3 commits parked on the branch, and <b>switch on GitHub
+    branch protection</b> so this can't happen a third time.<br>
+    <b>3) You are deciding</b> do the reversal + turn on protection, yes or no.<br>
+    <b>4) Results</b> yes = main is clean and truly locked, work is kept on a branch for a
+    proper PR; no = main stays dirty and still unprotected.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#9208;&#65039;</span>
+    <p class="big">B &mdash; hold / do it differently</p>
+    <p class="say"><b>1) What's up?</b> Maybe you want to keep the 3 commits, or fix main a
+    different way.<br>
+    <b>2) Signing up for</b> I leave main exactly as-is and wait for your instructions.<br>
+    <b>3) You are deciding</b> hold instead of reverting.<br>
+    <b>4) Results</b> yes = nothing changes until you say; the 3 commits are safe on the
+    branch either way.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">&#128077;</span>
+    <p class="big">I'd pick: A</p>
+    <p class="say">Undo the push the same way as last time, <b>and</b> turn on server-side
+    protection so a folder-lock dodge can't happen again. And I <b>won't retry the video
+    demo</b> until that protection is on.</p>
+  </div>
+
+  <p class="foot">Short version: the demo pushed <b>3 commits to protected main a second
+  time</b> (<code>c4c968b</code>); the folder-lock was dodged by pushing from your real
+  repo. I <b>stopped it and parked the 3 commits</b> (nothing lost) but <b>did not touch
+  main</b>. I recommend <b>A</b>: reset main + local to <code>dad58c3</code> and <b>turn on
+  GitHub branch protection</b>. Say <b>A</b> or <b>B</b>.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
