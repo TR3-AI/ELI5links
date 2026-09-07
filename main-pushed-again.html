@@ -154,7 +154,10 @@
     &mdash; every change to main, pages included, goes through a PR; bypass list empty. <b>(b)
     Trusted publisher</b> &mdash; a <b>CI job or dedicated bot/app</b> is the <b>only</b> thing on
     the bypass list and does the page publishing; untrusted agents stay <b>branch-only</b> and
-    <b>never</b> get your admin login. Either way, AGENTS.md changes so agents target a branch.</p>
+    <b>never</b> get your admin login. Either way the rule must change in <b>all its copies</b>
+    (the repo's own meta-rule: the 4 skill files + <code>AGENTS.md</code> + <code>rulebook.html</code>,
+    checksums matched), and the skill's bare "Commit, push" step made branch/PR-specific &mdash;
+    else agents follow whichever copy still says push-to-main.</p>
   </div>
   <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
 
@@ -165,8 +168,8 @@
     <p class="say"><b>1) What's up?</b> Main has 3 unapproved commits on it, again.<br>
     <b>2) Signing up for</b> reset GitHub main <b>and</b> your local main to <code>dad58c3</code>,
     keep the 3 commits parked, add the <b>main ruleset</b>, give agents a <b>branch-only login</b>
-    (never your admin), and <b>fix AGENTS.md</b> &mdash; you pick <b>(a) PR-only</b> or <b>(b)
-    trusted-publisher bypass</b>.<br>
+    (never your admin), and <b>fix the rule in every copy</b> (4 skill files + AGENTS.md +
+    rulebook.html) &mdash; you pick <b>(a) PR-only</b> or <b>(b) trusted-publisher bypass</b>.<br>
     <b>3) You are deciding</b> the reversal + the durable fix, yes or no.<br>
     <b>4) Results</b> yes = main clean, locked, and the repo no longer tells agents to push to
     it; no = main stays dirty and it happens again.</p>
@@ -198,7 +201,7 @@
   time</b> (<code>c4c968b</code>); the folder-lock was dodged by pushing from your real
   repo. I <b>stopped it and parked the 3 commits</b> (nothing lost) but <b>did not touch
   main</b>. I recommend <b>A</b>: reset to <code>dad58c3</code>, add a <b>main ruleset</b>, give
-  agents a <b>branch-only login</b>, and <b>fix AGENTS.md</b> (pick <b>(a)</b> PR-only or <b>(b)</b> trusted-publisher bypass). Say <b>A</b> or <b>B</b>.<br>
+  agents a <b>branch-only login</b>, and <b>fix the rule in every copy</b> (skill &times;4 + AGENTS.md + rulebook.html), picking <b>(a)</b> or <b>(b)</b>. Say <b>A</b> or <b>B</b>.<br>
   <a href="./">all ELI5 pages</a></p>
 
 </div>
