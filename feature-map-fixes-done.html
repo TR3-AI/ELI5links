@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feature Map fixes &mdash; done &amp; double-checked</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Feature Map fixes &#9989;</h1>
+  <p class="sub">all 3 done &mdash; and I checked every one myself</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128269;</span>
+    <p class="big">Done &amp; double-checked</p>
+    <p class="say">The Executor applied all 3 fixes. I <b>verified every claim myself</b>
+    &mdash; checksums, greps, and the actual changed lines &mdash; <b>not just his
+    word</b>. All clean, no discrepancies.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#127919;</span>
+    <p class="big">Fix A &mdash; examples now neutral</p>
+    <p class="say">The trading stop-loss example is now <b>paired with a signup-form
+    example</b> throughout, so no idea gets a trading-shaped map. Header now says
+    <b>&ldquo;any idea in any industry&rdquo;</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#9998;</span>
+    <p class="big">Fix B &mdash; label fixed</p>
+    <p class="say">No longer calls itself <b>&ldquo;stage 2 of Idea Slicer&rdquo;</b>
+    &mdash; now <b>its own standalone skill</b>. Bonus: fixed a small counting bug
+    (said &ldquo;two&rdquo; input forms, really three).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128260;</span>
+    <p class="big">Fix C &mdash; rulebook rebuilt</p>
+    <p class="say">Rebuilt to match the real rules. It also <b>caught a hidden bug</b>:
+    a whole rule (&ldquo;use your own tools&rdquo;) had been <b>silently dropped</b> from
+    the rules file &mdash; now restored, word for word.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128274;</span>
+    <p class="big">Safe &amp; parked for you</p>
+    <p class="say">All 4 skill copies <b>identical</b> (checksums match). The
+    <b>main branch is untouched</b> &mdash; the repo changes sit in an <b>open PR</b>
+    waiting for your click. Nothing went live on its own.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your 2 decisions &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#127881;</span>
+    <p class="big">1 &mdash; merge the rulebook PR</p>
+    <p class="say"><b>1) What's up?</b> The rulebook fix sits on a branch, PR #1 open.<br>
+    <b>2) Signing up for</b> merging it to main, which makes it live.<br>
+    <b>3) You are deciding</b> merge PR #1, yes or no.<br>
+    <b>4) Results</b> yes = corrected rulebook goes live; no = it stays on the branch.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128073;</span>
+    <p class="big">2 &mdash; the same bug next door</p>
+    <p class="say"><b>1) What's up?</b> Idea Slicer's rules file is <b>missing the same
+    &ldquo;use your own tools&rdquo; rule</b>.<br>
+    <b>2) Signing up for</b> a separate small job: restore it + rebuild its page.<br>
+    <b>3) You are deciding</b> approve that job, yes or no.<br>
+    <b>4) Results</b> yes = Idea Slicer matches too; no = it stays missing the rule.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">&#128077;</span>
+    <p class="big">I'd: merge #1, and yes to the next-door fix</p>
+    <p class="say">The fixes are verified clean, and the next-door bug is the exact same
+    dropped rule &mdash; worth closing while we're here. Say the word.</p>
+  </div>
+
+  <p class="foot">Short version: Feature Map is now <b>industry-neutral</b>, the label
+  is fixed, and the rulebook is rebuilt &mdash; all <b>verified by me, not just
+  claimed</b>. <b>2 things wait on your yes.</b><br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>

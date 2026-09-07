@@ -1,5 +1,12 @@
 [
   {
+    "file": "feature-map-fixes-done.html",
+    "title": "Feature Map fixes: done & double-checked",
+    "desc": "All 3 approved fixes applied and independently re-verified by the manager (checksums, greps, changed lines, PR — not just the Executor's word). Fix A: trading examples now paired with a neutral signup-form example, header says 'any idea in any industry'. Fix B: no longer 'stage 2 of Idea Slicer', now standalone; input-forms count bug fixed. Fix C: rulebook.html rebuilt to mirror AGENTS.md, and a silently-dropped rule ('use your own tools') restored. All 4 skill copies checksum-identical, main untouched, changes in open PR #1. 2 decisions: merge PR #1, and approve fixing the same dropped rule in Idea Slicer's rules file.",
+    "date": "2026-09-07",
+    "emoji": "✅"
+  },
+  {
     "file": "feature-map-audit.html",
     "title": "Feature Map audit: not industry-neutral yet",
     "desc": "Full audit: Feature Map already accepts any input (any PRD, any SDD, any Idea Slicer link) — but the skill teaches only through trading/memecoin examples (10 spots), the public rulebook page is stale (missing 2 rules + a whole section), and one line wrongly calls it 'stage 2 of Idea Slicer'. 3 small fixes await your yes: swap the examples, fix the label, regenerate the rulebook.",
