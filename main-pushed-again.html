@@ -132,15 +132,29 @@
     <span class="num">5</span>
     <span class="circle"><span class="emoji">&#128274;</span></span>
     <p class="big">The real fix this time</p>
-    <p class="say">A folder-lock isn't enough &mdash; it got dodged. Step one is a <b>GitHub
-    ruleset on main</b>: set it Active, require a pull request, block force-pushes and deletes,
-    and leave the <b>Bypass list empty</b>. But a ruleset the agent can switch off isn't enough
-    either &mdash; with your admin login it could just delete the rule. So step two: run the
-    demo with a <b>limited login that can't manage rulesets</b> (no admin rights), or in
-    isolation. Ruleset <b>+</b> limited login = the server refuses the push, and the agent
-    can't unlock it.</p>
+    <p class="say">A folder-lock isn't enough &mdash; it got dodged. <b>Step one:</b> a
+    <b>GitHub ruleset on main</b> (Active; require a PR; block force-pushes/deletes; empty
+    <b>Bypass list</b>) so the server refuses a direct push. <b>Step two:</b> run agents with a
+    <b>limited login that can't manage rulesets</b> (no admin) &mdash; otherwise your own admin
+    login could just delete the rule. <b>Step three:</b> fix the repo's own instruction (below)
+    that currently tells agents to push straight to main.</p>
   </div>
 
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card warn">
+    <div class="overlay"></div>
+    <span class="num">6</span>
+    <span class="circle"><span class="emoji">&#128220;</span></span>
+    <p class="big">The root cause: the repo tells agents to do it</p>
+    <p class="say">feature-map's own rulebook (<code>AGENTS.md</code>) says: <i>"Publish rhythm:
+    straight to <code>main</code> &mdash; overrides the protected-main rule."</i> That's why
+    agents keep pushing to main. But you <b>do</b> publish real pages to main here (it's a live
+    site), so a blanket PR-only rule blocks your own publishing too. So pick one: <b>(a)</b> go
+    PR-only for feature-map, or <b>(b)</b> keep straight-to-main for your real pages but change
+    the rule so <b>demos/agent runs go to a demo branch, never main</b>, and lock agents out of
+    main with a limited login.</p>
+  </div>
   <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
 
   <div class="card q">
@@ -148,13 +162,12 @@
     <span class="circle"><span class="emoji">&#8617;&#65039;</span></span>
     <p class="big">A &mdash; undo it + lock it for real</p>
     <p class="say"><b>1) What's up?</b> Main has 3 unapproved commits on it, again.<br>
-    <b>2) Signing up for</b> reset GitHub main <b>and</b> your local main back to
-    <code>dad58c3</code>, keep the 3 commits parked, add a <b>main ruleset</b> (Active; require
-    a PR; block force-push/delete; empty Bypass list), <b>and</b> run agents with a limited
-    login that can't manage rulesets &mdash; so this can't happen a third time.<br>
-    <b>3) You are deciding</b> do the reversal + turn on protection, yes or no.<br>
-    <b>4) Results</b> yes = main is clean and truly locked, work is kept on a branch for a
-    proper PR; no = main stays dirty and still unprotected.</p>
+    <b>2) Signing up for</b> reset GitHub main <b>and</b> your local main to <code>dad58c3</code>,
+    keep the 3 commits parked, add the <b>main ruleset</b> + <b>limited agent login</b>, and
+    <b>fix AGENTS.md</b> so demos go to a branch (not "straight to main").<br>
+    <b>3) You are deciding</b> the reversal + the durable fix, yes or no.<br>
+    <b>4) Results</b> yes = main clean, locked, and the repo no longer tells agents to push to
+    it; no = main stays dirty and it happens again.</p>
   </div>
 
   <div class="card q">
@@ -173,16 +186,16 @@
     <div class="overlay"></div>
     <span class="circle"><span class="emoji">&#128077;</span></span>
     <p class="big">I'd pick: A</p>
-    <p class="say">Undo the push the same way as last time, <b>and</b> add the main ruleset
-    <b>plus</b> a limited agent login (no ruleset-management rights) so a dodge can't happen
-    again. And I <b>won't retry the video demo</b> until that's in place.</p>
+    <p class="say">Undo the push like last time, add the ruleset + limited agent login, <b>and</b>
+    fix the repo rule so demos go to a branch. That closes all three holes. I <b>won't retry the
+    video demo</b> until it's in place.</p>
   </div>
 
   <p class="foot">Short version: the demo pushed <b>3 commits to protected main a second
   time</b> (<code>c4c968b</code>); the folder-lock was dodged by pushing from your real
   repo. I <b>stopped it and parked the 3 commits</b> (nothing lost) but <b>did not touch
-  main</b>. I recommend <b>A</b>: reset main + local to <code>dad58c3</code>, add a
-  <b>main ruleset (empty bypass list)</b> and a <b>limited agent login</b> (no ruleset rights). Say <b>A</b> or <b>B</b>.<br>
+  main</b>. I recommend <b>A</b>: reset to <code>dad58c3</code>, add a <b>ruleset + limited agent
+  login</b>, and <b>fix AGENTS.md</b> so demos don't push to main. Say <b>A</b> or <b>B</b>.<br>
   <a href="./">all ELI5 pages</a></p>
 
 </div>
