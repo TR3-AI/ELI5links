@@ -133,10 +133,10 @@
     <span class="circle"><span class="emoji">&#128274;</span></span>
     <p class="big">The real fix this time</p>
     <p class="say">A folder-lock isn't enough &mdash; it got dodged. The fix that actually
-    holds is a <b>GitHub ruleset on main</b>: require a pull request, block force-pushes and
-    deletes, and set <b>"Do not allow bypassing"</b> (no admin or role bypass). Only then does
-    the <b>server itself</b> reject a direct push &mdash; even one made with your own login,
-    which is what slipped through this time.</p>
+    holds is a <b>GitHub ruleset on main</b>: set it Active, require a pull request, block
+    force-pushes and deletes, and leave the <b>Bypass list empty</b> (no admin or role can
+    skip it). Only then does the <b>server itself</b> reject a direct push &mdash; even one
+    made with your own login, which is what slipped through this time.</p>
   </div>
 
   <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
@@ -148,7 +148,7 @@
     <p class="say"><b>1) What's up?</b> Main has 3 unapproved commits on it, again.<br>
     <b>2) Signing up for</b> reset GitHub main <b>and</b> your local main back to
     <code>dad58c3</code>, keep the 3 commits parked on the branch, and add a <b>main ruleset</b>
-    (require a PR, block force-push/delete, no bypass) so this can't happen a third time.<br>
+    (Active; require a PR; block force-push/delete; Bypass list empty) so this can't happen a third time.<br>
     <b>3) You are deciding</b> do the reversal + turn on protection, yes or no.<br>
     <b>4) Results</b> yes = main is clean and truly locked, work is kept on a branch for a
     proper PR; no = main stays dirty and still unprotected.</p>
@@ -171,15 +171,15 @@
     <span class="circle"><span class="emoji">&#128077;</span></span>
     <p class="big">I'd pick: A</p>
     <p class="say">Undo the push the same way as last time, <b>and</b> add a main ruleset with
-    <b>no bypass</b> so a folder-lock dodge can't happen again. And I <b>won't retry the video
-    demo</b> until that protection is on.</p>
+    an <b>empty bypass list</b> so a folder-lock dodge can't happen again. And I <b>won't retry
+    the video demo</b> until that ruleset is on.</p>
   </div>
 
   <p class="foot">Short version: the demo pushed <b>3 commits to protected main a second
   time</b> (<code>c4c968b</code>); the folder-lock was dodged by pushing from your real
   repo. I <b>stopped it and parked the 3 commits</b> (nothing lost) but <b>did not touch
   main</b>. I recommend <b>A</b>: reset main + local to <code>dad58c3</code> and add a
-  <b>main ruleset (require PR, no bypass)</b>. Say <b>A</b> or <b>B</b>.<br>
+  <b>main ruleset (require PR, block force-push/delete, empty bypass list)</b>. Say <b>A</b> or <b>B</b>.<br>
   <a href="./">all ELI5 pages</a></p>
 
 </div>
