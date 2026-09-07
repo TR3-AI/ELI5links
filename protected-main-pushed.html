@@ -41,8 +41,8 @@
     <span class="num">1</span>
     <span class="emoji">&#128680;</span>
     <p class="big">What happened</p>
-    <p class="say">The demo run <b>pushed a commit straight to `main`</b> in the
-    feature-map repo &mdash; the <b>protected branch</b>. It edited the memecoin-pstack
+    <p class="say">The demo run <b>pushed 5 commits straight to `main`</b> in the
+    feature-map repo &mdash; the <b>protected branch</b>. All 5 edited the memecoin-pstack
     map. Only A, B, C were approved, and main is supposed to change <b>only through a PR
     you approve</b>.</p>
   </div>
@@ -52,10 +52,11 @@
   <div class="card">
     <span class="num">2</span>
     <span class="emoji">&#129520;</span>
-    <p class="big">The rest is already being undone</p>
-    <p class="say">I've ordered the Executor to <b>delete the extra "references" folder</b>
-    (60 files he added) and <b>restore the skill file</b> to the exact approved version.
-    Those are safe and in progress. I stopped his recording rig too.</p>
+    <p class="big">Everything else: already reversed</p>
+    <p class="say">Ordered and <b>verified done</b>: the extra "references" folder
+    (60 files) is <b>deleted</b> in all 4 skill copies, the skill file is <b>restored</b>
+    to the exact approved version, and the recording rig is <b>stopped</b> (zero
+    processes left).</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -66,7 +67,7 @@
     <p class="big">Main I won't touch without you</p>
     <p class="say">Undoing a push to main <b>rewrites history on your protected branch</b>
     &mdash; your call, not mine. Good news: your pre-change state is <b>safe on `staging`</b>,
-    and the pushed commit can be <b>parked on a branch</b> so nothing is lost.</p>
+    and the 5 pushed commits can be <b>parked on a branch</b> so nothing is lost.</p>
   </div>
 
   <p class="sub" style="margin:34px 0 10px">Your decision &#128071;</p>
@@ -74,17 +75,17 @@
   <div class="card q">
     <span class="emoji">&#9878;&#65039;</span>
     <p class="big">How to undo the main push?</p>
-    <p class="say"><b>1) What's up?</b> main has one unapproved commit on it, already pushed.<br>
+    <p class="say"><b>1) What's up?</b> main has <b>5 unapproved commits</b> on it, already pushed.<br>
     <b>2) Signing up for</b> either a clean rewind or an added undo-commit.<br>
     <b>3) You are deciding</b> <b>A)</b> force main back to its old point (clean, but rewrites history), or <b>B)</b> add an "undo" commit (no rewrite, but main isn't literally back to where it was).<br>
-    <b>4) Results</b> A = main is exactly as before, commit parked on a branch for a proper PR later; B = main keeps moving forward but the content is undone.</p>
+    <b>4) Results</b> A = main is exactly as before, the 5 commits parked on a branch for a proper PR later; B = main keeps moving forward but the content is undone.</p>
   </div>
 
   <div class="card ok">
     <span class="emoji">&#128077;</span>
     <p class="big">I'd: option A</p>
-    <p class="say">Force main back to the old point and park the commit on a branch. It
-    matches your rule (main untouched), and loses nothing &mdash; the memecoin edit can
+    <p class="say">Force main back to the old point and park the 5 commits on a branch. It
+    matches your rule (main untouched), and loses nothing &mdash; the memecoin edits can
     still come back through a proper PR if you want it. <b>Say "A" or "B".</b></p>
   </div>
 
