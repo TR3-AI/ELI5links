@@ -1,5 +1,12 @@
 [
   {
+    "file": "reversal-done-rig-explained.html",
+    "title": "Reversal done + the rig explained",
+    "desc": "Option A executed and verified: feature-map main is back to the clean dad58c3, the 5 unapproved commits are parked on branch salvage/memecoin-pstack-demo (nothing lost), PR #1 untouched, rig preserved. Answers Bobby's 3 rig questions: (1) the 'rig' is an automation harness — Playwright drives the omp terminal via a small Python bridge, types /featuremap + the link, and films the screen; (2) contents = 4 driver scripts + 1 bridge + 3 webm videos (one 65 min) + a 36MB terminal log, ~196MB; (3) ~85% on capability (a real run is captured: /featuremap on the memecoin link, 3 skills fired, output link produced) but no clean short take yet (~60% for a tidy demo). Nothing deleted — reusable for MrTester. 2 decisions: move the rig into MrTester, and record one clean demo run to a demo branch (not protected main). FYI: feature-map origin/staging is out of step with local (pre-existing).",
+    "date": "2026-09-07",
+    "emoji": "🔮"
+  },
+  {
     "file": "protected-main-pushed.html",
     "title": "Protected main got pushed — your call",
     "desc": "During the /featuremap demo, a commit (4cac463, memecoin-pstack edits) was pushed straight to the feature-map repo's protected main branch — breaking the rule that main changes only via an approved PR. Only A/B/C were approved. The manager already ordered the safe reversals (delete the 60-file references folder, restore SKILL.md to the approved checksum, drop the recording rig). The one thing needing Bobby's explicit yes: how to undo the main push — A) force main back to dad58c3 (clean rewind, commit parked on a branch, recommended) or B) add a revert commit (no history rewrite). Pre-change state is safe on staging.",
