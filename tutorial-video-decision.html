@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-recording the tutorial video</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+
+  /* Cards adapted from Uiverse.io by Admin12121 (purple-parrot-82): card-hover lift + circle/overlay icon. MIT. */
+  .card{
+    --accent:#6b4fd0; --accent-soft:#efe9ff; --glow:rgba(107,79,208,.26);
+    position:relative; overflow:hidden;
+    background:var(--card); border-radius:26px;
+    padding:28px 24px 26px; margin:16px 0; text-align:center;
+    box-shadow:0 14px 26px rgba(70,50,120,.08);
+    transition:transform .3s ease-out, box-shadow .3s ease-out;
+  }
+  .card:hover{ transform:translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow:0 24px 36px rgba(70,50,120,.12), 0 24px 46px var(--glow); }
+  .card .overlay{
+    position:absolute; top:52px; left:50%; margin-left:-44px;
+    width:88px; height:88px; border-radius:50%;
+    background:var(--accent-soft); opacity:.5; z-index:0;
+    transition:transform .4s ease-out, opacity .4s ease-out; }
+  .card:hover .overlay{ transform:scale(11) translateZ(0); opacity:.85; }
+  .circle{
+    position:relative; z-index:1;
+    width:92px; height:92px; border-radius:50%; margin:0 auto 12px;
+    display:flex; align-items:center; justify-content:center;
+    background:#fff; border:3px solid var(--accent);
+    transition:border-color .3s ease-out; }
+  .circle:after{ content:""; position:absolute; width:78px; height:78px; border-radius:50%;
+    background:var(--accent-soft); transition:opacity .3s ease-out; }
+  .card:hover .circle{ border-color:#fff; }
+  .emoji{ position:relative; z-index:2; font-size:42px; line-height:1; }
+  .big{position:relative; z-index:2; font-size:22px; font-weight:800; margin:2px 0 6px}
+  .say{position:relative; z-index:2; font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .card.warn{--accent:#e0663c; --accent-soft:#ffe3d6; --glow:rgba(224,102,60,.26)}
+  .card.ok{--accent:#2fa85f; --accent-soft:#dbf6e5; --glow:rgba(47,168,95,.24)}
+  .card.q{--accent:#4f74d0; --accent-soft:#e2ecff; --glow:rgba(79,116,208,.24)}
+  .foot{text-align:center; color:var(--soft); font-size:16px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+  code{background:#f2eeff; color:#5a43c0; padding:1px 7px; border-radius:7px; font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Re-recording the tutorial video</h1>
+  <p class="sub">done your way this time. one yes/no for you.</p>
+
+  <div class="card">
+    <div class="overlay"></div>
+    <span class="circle"><span class="emoji">⌨️</span></span>
+    <p class="big">What we're redoing</p>
+    <p class="say">You asked for a fresh tutorial of the feature-map skill. This time it shows the
+    command being typed live. An empty box, then <code>/featuremap</code> and the Idea Slicer link
+    typed in letter by letter, on screen before it gets sent. Last time they were already sitting in
+    the chat, which is the thing you didn't want.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <div class="overlay"></div>
+    <span class="circle"><span class="emoji">🧩</span></span>
+    <p class="big">What the video shows, in order</p>
+    <p class="say">One, the command typed in. Two, the skill building the new map. Three, the map
+    opened in a real browser with the address bar showing the real link. Four, a highlight of what
+    is different from the plain Idea Slicer page. Five, a spoken tutorial in a Sonia-style voice.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <div class="overlay"></div>
+    <span class="circle"><span class="emoji">🔒</span></span>
+    <p class="big">Safety is handled</p>
+    <p class="say">The earlier trouble was an agent pushing straight to your live copy. This time the
+    helper deleted that direct path to your real repo and added a block that refuses any push to
+    main. Your real repo is clean and untouched, still at <code>dad58c3</code>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card q">
+    <div class="overlay"></div>
+    <span class="circle"><span class="emoji">❓</span></span>
+    <p class="big">Your one decision</p>
+    <p class="say"><b>What's up.</b> The video needs the real map link open in the browser. That link
+    only works if the new map is actually live on the site.<br><br>
+    <b>Signing up for.</b> Publishing the new map to <code>main</code>. Not a sneaky push. A proper
+    PR you approve and I merge. It goes live about a minute later.<br><br>
+    <b>You are deciding.</b> Yes or no. Publish the new map live through a PR you sign off.<br><br>
+    <b>Results.</b> Yes, the video shows the real link in the address bar. No, only a local preview.
+    It looks the same, but the address bar is not the real link, which you said you don't want.<br><br>
+    I'd publish it live through a PR you approve. It is the only way to get the real link on camera,
+    and the PR keeps main safe.</p>
+  </div>
+
+  <p class="foot">In one line. Say "yes, publish it" for the real link on camera, or "no, preview
+  only". The helper is paused at that step until you tell me.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
