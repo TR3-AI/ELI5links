@@ -1,5 +1,13 @@
 [
   {
+    "file": "how-we-made-the-featuremap-video.html",
+    "title": "How we made the feature-map tutorial video",
+    "desc": "How the /featuremap tutorial video was actually filmed and edited: no screen recording — a PTY bridge feeds a browser-page terminal (xterm.js) that headless Chrome (via Playwright) types into and screenshots into ffmpeg to build the video, the 5 steps filmed (typing the command, building the map, opening the real page, comparing version 1 vs version 2 side by side, and narration), how it was edited/narrated (edge-tts)/mixed/delivered to a phone, and the honest safety lesson (a client-side pre-push hook isn't a real boundary) — the whole recipe MrTester is adopting as a reusable recording skill.",
+    "date": "2026-09-08",
+    "emoji": "🎬",
+    "status": "open"
+  },
+  {
     "file": "featuremap-tutorial-video-done.html",
     "title": "The /featuremap tutorial video — done",
     "desc": "The redone /featuremap tutorial for the memecoin feature map. ~2.5 min, narrated by Sonia: type the command live, build the new map (23 features), open the real version-2 link, then compare old vs new side by side with the two real changes boxed.",

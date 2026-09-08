@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How we made the feature-map tutorial video</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12); --ring-w:3px}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center; position:relative; z-index:0; transition:transform .35s ease, box-shadow .35s ease}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+  /* Signature effect adapted from Uiverse.io card "stale-sloth-57" by Clenio21 (MIT) — spinning
+     conic-gradient ring drawn with a mask, faded in on hover; see THIRD_PARTY_NOTICES.md */
+  .card::after{
+    --m-i:linear-gradient(#000,#000);
+    --m-o:content-box, padding-box;
+    content:"";
+    position:absolute; inset:0;
+    padding:var(--ring-w);
+    border-radius:26px;
+    background-image:conic-gradient(#8ec5ff,#c9b8ff,#ffb3d1,#ffe3a3,#9be3c2,#8ec5ff);
+    -webkit-mask-image:var(--m-i),var(--m-i);
+    mask-image:var(--m-i),var(--m-i);
+    -webkit-mask-origin:var(--m-o);
+    mask-origin:var(--m-o);
+    -webkit-mask-clip:var(--m-o);
+    mask-composite:exclude;
+    -webkit-mask-composite:destination-out;
+    filter:hue-rotate(0deg);
+    opacity:0;
+    animation:spin-ring 2.4s linear infinite;
+    animation-play-state:paused;
+    transition:opacity .35s ease;
+    pointer-events:none;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(70,50,120,.20)}
+  .card:hover::after{opacity:1; animation-play-state:running}
+  @keyframes spin-ring{to{filter:hue-rotate(1turn)}}
+  @media (prefers-reduced-motion: reduce){.card::after{animation:none} .card,.card:hover{transition:none; transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>How we made the tutorial video 🎬</h1>
+  <p class="sub">the honest recipe — and what MrTester learns from it</p>
+
+  <div class="card ok">
+    <span class="emoji">🎬</span>
+    <div class="big">This is the honest recipe</div>
+    <p class="say">Here's exactly how that <b>~2.5 minute /featuremap video</b> got filmed and edited — no hand-waving, no invented steps. This whole recipe is what's moving into <b>MrTester</b> as a reusable tool, so it can film a clean, narrated demo of anything the same way.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">📺</span>
+    <div class="big">What the video actually shows</div>
+    <p class="say">One narrated run: the <b>/featuremap</b> skill fires live on a real idea link, the map it builds is shown on its own real live page, then the map's <b>earlier version and its new version</b> are placed side by side with what changed boxed in. Finished file: picture and spoken narration together, about <b>2 minutes 31 seconds</b>, roughly 21 MB.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🔒</span>
+    <div class="big">The trick: it was never screen-recorded</div>
+    <p class="say">Macs have a privacy guard called <b>TCC</b> that blocks automated tools from silently recording your screen. So instead, a small go-between program (a <b>PTY bridge</b>) runs the real terminal inside a fake terminal it controls, and streams every character it prints straight to a web page. That page shows it using <b>xterm.js</b> — a terminal that lives entirely inside a browser tab and behaves just like a real one.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🤖</span>
+    <div class="big">A robot browser does the typing — and the filming</div>
+    <p class="say"><b>Playwright</b> (a browser-automation tool) opens a real Chrome browser with <b>no visible window</b> — "headless" — and types the demo into that web-page terminal like a person would. To make the video, it takes a fast stream of screenshots of the page and feeds them straight into <b>ffmpeg</b> (a video tool), which stitches them into a video frame by frame. It does <b>not</b> use a built-in screen-video recorder; that was only ever used for quick throwaway test checks, never the real footage. It also locks itself down: its terminal code is bundled inside it instead of pulled fresh off the internet, and it only obeys commands carrying a secret one-time code sent from that exact page.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card q">
+    <span class="emoji">🧭</span>
+    <div class="big">About that "address bar" you see</div>
+    <p class="say">Because the browser has no visible window, there's no real address bar either. Whenever the video shows a web address, it's a <b>truthful overlay drawn onto the page itself</b> — it reads the page's real, actual address and displays it. It's the genuine link, honestly shown — just drawn by the page, not by the operating system's browser window frame and address bar.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">⌨️</span>
+    <div class="big">You type the command, live</div>
+    <p class="say">It starts on an <b>empty box</b> and types <b>/featuremap</b> plus the idea link, letter by letter, into that browser-page terminal — nothing pre-filled, so it's clearly a real run happening in front of you.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">⚙️</span>
+    <div class="big">The skill builds the map, on camera</div>
+    <p class="say">The command runs for real and prints the new feature-map's link straight into the terminal, live.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🔗</span>
+    <div class="big">The exact new page, full screen</div>
+    <p class="say">That precise link opens full-screen, with the honest on-page address overlay showing its real web address — the actual live page, not a preview or a mock-up.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🆚</span>
+    <div class="big">Old map next to new map</div>
+    <p class="say">Version one on the left, version two on the right — two real, live feature-map pages shown side by side, scrolling together, both checked byte-for-byte against the real site first. The exact sentences that changed are <b>boxed on both sides</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🗣️</span>
+    <div class="big">Narrated the whole way through</div>
+    <p class="say">A spoken voice explains each part as it happens, start to finish — how that voice was made is below.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">✂️</span>
+    <div class="big">How it was edited</div>
+    <p class="say">Filming came out as two recordings — one covering steps 1-2, one covering steps 3-4 — which get cut and joined into a single silent video. Then it's checked over: one pass scans the sound for any awkward gap of silence, another scans every frame of picture to check that none of it went black, and the join points themselves get checked by pulling out individual frames.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🎙️</span>
+    <div class="big">How the narration was made</div>
+    <p class="say">The script was written as five short pieces, one per step. Each one was turned into speech with <b>edge-tts</b> — a free tool that reads text aloud using a <b>neural voice</b> (a computer voice modelled on real human speech by an AI, not an old robotic reader, and not a person in a booth). The original video used a British voice; the version headed into MrTester swaps in an American voice instead — same tool, just a different voice picked.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🎚️</span>
+    <div class="big">Syncing voice to video</div>
+    <p class="say">Each of the five spoken clips is placed onto the silent video at an exact starting moment — 0.0s, 24.2s, 54.3s, 72.9s and 116.8s in — so it lands right next to what it's describing, then mixed in. The finished mix comes out at a healthy, comfortable volume, about -22 dB — not too quiet, not blown out.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">✅</span>
+    <div class="big">The quality checks</div>
+    <p class="say">Before shipping, the file gets checked that it's really a proper video-plus-audio file of the right length, that the volume is sane and nothing clips, that the silence and black-frame checks still pass, and that still frames pulled from the video actually show the right thing — the real address overlay, and the old-vs-new comparison with the changes boxed.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">📱</span>
+    <div class="big">How it's delivered — onto a phone</div>
+    <p class="say">The finished file gets a quick rewrite that moves its internal index to the very front, so a phone can start playing it before the whole thing has downloaded. It's served by a small web server that can hand over just one chunk of the file at a time — so you can skip around instead of only watching start to finish — and a tunnelling tool opens a temporary public web link straight to it, good enough to watch and scrub through on a phone.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card q">
+    <span class="emoji">🚧</span>
+    <div class="big">The honest safety note — the real lesson</div>
+    <p class="say">The tool has an <b>optional</b> safety switch that can point a recording session at fake stand-ins instead of the real project, so nothing it does can cause harm. For <b>this</b> recording, that switch wasn't confirmed to be on — the session ran against the real project. And publishing the result to the main branch was a <b>direct push the owner approved by hand</b>, not a reviewed pull request. The real lesson: a check that only lives on one person's own computer isn't a real lock — it can be skipped by pushing from a different copy of the project, or by talking to GitHub directly instead of going through that computer at all. What actually works: a rule GitHub itself enforces on the important branch, a login that simply can't reach it, or running the whole session somewhere fully separate from the real thing.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">🧰</span>
+    <div class="big">What this becomes in MrTester</div>
+    <p class="say">Every piece of this — the terminal go-between, the browser-page terminal, the robot browser that types and takes the screenshots, the video stitching, the edit checks, the AI narration, and the phone-friendly delivery — is moving into <b>MrTester</b> as one reusable recording skill. Point it at any live session, and it can film the same kind of clean, narrated, honest demo, any time.</p>
+  </div>
+
+  <p class="foot">Short version: <b>no screen was ever recorded</b> — a fake terminal in a browser tab was filmed by a robot browser, screenshot by screenshot, then edited, narrated and checked before it shipped.<br>
+  See the finished video's page: <a href="./featuremap-tutorial-video-done.html">the tutorial video is done</a> ·
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>
