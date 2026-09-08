@@ -1,5 +1,12 @@
 [
   {
+    "file": "featuremap-video-go-live.html",
+    "title": "Film the /featuremap video?",
+    "desc": "The clone is locked, the recorder is idle, the video is ready to film. One decision: publish the fresh map for real, or film a local preview.",
+    "date": "2026-09-08",
+    "emoji": "🎥"
+  },
+  {
     "file": "tutorial-video-decision.html",
     "title": "Re-recording the tutorial video",
     "desc": "Redoing the /featuremap tutorial your way. One yes/no: publish the new map live through a PR you approve so the video shows the real link, or keep it a local preview.",
