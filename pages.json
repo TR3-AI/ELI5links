@@ -4,7 +4,7 @@
     "title": "What you're actually deciding",
     "file": "what-are-you-deciding.html",
     "emoji": "🤔",
-    "desc": "The plain-English version of the one decision Bobby is being asked for, stripped of ruleset jargon. What happened: an agent making the /featuremap demo saved 3 unapproved commits onto feature-map's main (the live copy) — twice; the first was already reversed, the second left 3 extra commits on main right now. Nothing is lost: those 3 commits are copied to a safe side-branch. THE DECISION (all that's needed): should the agent put main back to the clean version (undo the 3 commits)? Yes = clean up main like the first time; No/wait = leave main as-is. Separately and optionally, a lock can be added so an agent can't do it a third time — a bonus, not required, can wait. One line: 'yes, undo it' or 'no, leave it'."
+    "desc": "The plain-English version of the one decision Bobby is being asked for, stripped of ruleset jargon. What happened: an agent making the /featuremap demo saved 3 unapproved commits onto feature-map's main (the live copy) — twice; the first was already reversed, the second left 3 extra commits on main right now. Nothing is lost: those 3 commits are copied to a safe side-branch. THE DECISION (all that's needed): should the agent put main back to the clean version? Yes = reset BOTH the GitHub main AND Bobby's own local main to the clean point dad58c3 (same as the first time); No/wait = leave everything as-is. Separately, a lock so an agent can't do it a third time is NOT needed for the cleanup, but IS required before any demo retry (else it could happen a third time). One line: 'yes, undo it' or 'no, leave it'."
   },
   {
     "date": "2026-09-07",
