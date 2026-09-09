@@ -1,5 +1,12 @@
 [
   {
+    "file": "fair-test-pstack-really-changes-map.html",
+    "title": "The fair test: does the P-stack actually change the map?",
+    "desc": "Bobby hunch about the demo video was right — it compared two maps that both used the P-stack (the map was born under it; first commit is P-stack pass), so it proved nothing, and the identical result was just verify-and-keep on an already-mapped input. But a proper fresh A/B test on the same input, fully offline, one WITH the ~600 P-stack lines and one with them stripped, came out clearly different: only 0.119 (12%) text similarity, the no-P-stack map 1.67x bigger (58KB vs 35KB), same ~22-feature backbone. So the P-stack is real and does change the output — not which features are found (that is other rules) but the wording, density and naming, making the map about 40% tighter. Ops re-ran the numbers first-hand. Flag: the served video still frames the meaningless comparison as meaningful — relabel or pull, Bobby call; main and PR #8 untouched.",
+    "date": "2026-09-09",
+    "emoji": "🧪"
+  },
+  {
     "file": "managers-check-before-done.html",
     "title": "Do the managers check the work before saying done?",
     "desc": "Bobby asked whether the team managers verify their executors finished the work per the plan before pinging Ops done. Short answer: yes, and it is a written rule — a manager must verify, trace results to the plan, and never self-approve before reporting done. This session the bug-watcher manager re-ran the build + all 55 tests + 3 fresh cases itself and held its executor; the Idea Slicer manager is running the real map test and will not call it done until both runs finish. The one weak spot: a manager checking its own team unpushed work is still that team word, so Ops re-checks first-hand and never relays test claims as confirmed until the code is pushed.",

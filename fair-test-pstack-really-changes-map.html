@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The fair test: does the P-stack actually change the map?</title>
+<style>
+  :root{
+    --ink:#2b2140; --soft:#6b6580; --card:#ffffff;
+    --shadow:0 10px 30px rgba(70,50,120,.12);
+    --accent:#6b4fd0; --accent-soft:#efe9ff; --glow:rgba(107,79,208,.28);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#f3ecff 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+
+  /* Cards adapted from Uiverse.io by Admin12121 (purple-parrot-82). MIT.
+     Kept: the .card:hover translateY lift, the layered colored-glow box-shadow,
+     and the .circle / .circle:after / .overlay icon badge. Re-tinted to the ELI5
+     palette via --accent and softened so the body text stays readable on hover. */
+  .card{
+    position:relative; overflow:hidden;
+    background:var(--card); border-radius:26px;
+    padding:96px 22px 26px; margin:16px 0; text-align:center;
+    box-shadow:var(--shadow);
+    transition:transform .3s ease-out, box-shadow .3s ease-out;
+  }
+  .card:hover{
+    transform:translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow:0 24px 36px rgba(70,50,120,.14), 0 24px 46px var(--glow);
+  }
+  .overlay{
+    position:absolute; top:-10px; left:50%; margin-left:-59px;
+    width:118px; height:118px; border-radius:50%;
+    background:var(--accent); opacity:.15; z-index:0;
+    transition:transform .35s ease-out;
+  }
+  .card:hover .overlay{transform:scale(3) translateZ(0)}
+  .circle{
+    position:absolute; top:16px; left:50%; margin-left:-33px;
+    width:66px; height:66px; border-radius:50%;
+    background:#fff; border:3px solid var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    z-index:1; transition:all .3s ease-out;
+  }
+  .circle:after{
+    content:""; position:absolute; width:54px; height:54px; border-radius:50%;
+    background:var(--accent-soft); transition:opacity .3s ease-out;
+  }
+  .card:hover .circle{background:var(--accent); border-color:var(--accent-soft)}
+  .card:hover .circle:after{opacity:.55}
+  .ico{position:relative; z-index:2; font-size:34px; line-height:1}
+  .num{
+    position:absolute; top:16px; right:18px;
+    width:30px; height:30px; line-height:30px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent); font-weight:800; font-size:16px; z-index:2;
+  }
+  .big{font-size:22px; font-weight:800; margin:2px 0 6px; position:relative; z-index:2}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5; position:relative; z-index:2}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .warn{--accent:#e08a1e; --accent-soft:#fdeccd; --glow:rgba(224,138,30,.30)}
+  .good{--accent:#2fa15a; --accent-soft:#e6f6ec; --glow:rgba(47,161,90,.28)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The fair test: does the P-stack change the map? &#129514;</h1>
+  <p class="sub">your hunch about the video was right &mdash; but the P-stack is real</p>
+
+  <div class="card good">
+    <span class="num">1</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#9989;</span></div>
+    <p class="big">The verdict in one line</p>
+    <p class="say">You were right about the video: it compared two maps that <b>both</b> used the
+    P-stack, so it proved nothing. But a <b>proper</b> test shows the P-stack <b>is real</b> and
+    <b>does change the output</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card warn">
+    <span class="num">2</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#127916;</span></div>
+    <p class="big">Why the video proved nothing</p>
+    <p class="say">The map was <b>born with the P-stack</b> &mdash; its very first commit is titled
+    <b>&ldquo;P-stack pass,&rdquo;</b> and the rule was added <b>an hour before</b> the map
+    existed. There was never a plain &ldquo;before.&rdquo; Two P-stack maps looking alike tells you
+    <b>nothing</b> about the P-stack.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#128257;</span></div>
+    <p class="big">Why it looked &ldquo;identical&rdquo;</p>
+    <p class="say">Not a bug. The skill&rsquo;s rule is <b>&ldquo;keep stable features, only touch
+    new or changed ones.&rdquo;</b> The input already had a finished map, so the run
+    <b>verified and kept</b> it. Same input &rarr; same map. <b>Expected</b>, not proof either
+    way.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card good">
+    <span class="num">4</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#129514;</span></div>
+    <p class="big">The real test we ran</p>
+    <p class="say">Two <b>fresh, from-scratch</b> maps on the <b>same input</b>, fully
+    <b>offline</b> (no GitHub), the old map removed so neither could just keep it &mdash; one
+    <b>with</b> the ~600 P-stack lines, one with them <b>stripped out</b>. The only difference
+    between them: the P-stack.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#128202;</span></div>
+    <p class="big">The result: clearly different</p>
+    <p class="say">The two maps share only <b>12% of their text</b>. The <b>no-P-stack</b> map is
+    <b>1.67&times; bigger</b> (58KB vs 35KB). Same <b>~22-feature backbone</b>, but the wording,
+    density and naming are very different. <i>(I re-ran these numbers myself.)</i></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card good">
+    <span class="num">6</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#9986;&#65039;</span></div>
+    <p class="big">What the P-stack actually does</p>
+    <p class="say">It doesn&rsquo;t change <b>which</b> features get found &mdash; that comes from
+    <b>other rules</b>. It&rsquo;s a <b>writing-style + principles layer</b>: it makes the map
+    about <b>40% tighter and terser</b> for the same features. Real &mdash; and exactly what those
+    principles are meant to do.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card warn">
+    <span class="num">7</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#9888;&#65039;</span></div>
+    <p class="big">One honest flag</p>
+    <p class="say">The served video still frames that <b>meaningless P-stack-vs-P-stack</b>
+    comparison as if it means something. It doesn&rsquo;t fake a diff, but the framing
+    <b>misleads</b>. <b>Relabel it</b> (&ldquo;same input &rarr; same map&rdquo;) <b>or pull
+    it</b> &mdash; your call. Nothing merged; <b>main and PR #8 untouched</b>.</p>
+  </div>
+
+  <p class="foot">Short version: the video was P-stack vs P-stack &rarr; proved nothing (you were
+  right). The <b>real</b> A/B (same input, offline, P-stack on vs off) came out <b>clearly
+  different</b> &mdash; 12% similar, one 1.67&times; the other. So the P-stack <b>is</b> applied
+  and <b>does</b> tighten the output; it just doesn&rsquo;t change the feature list. Video framing
+  is yours to relabel or pull.<br>
+  <a href="./">all ELI5 pages</a> &#129514;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
