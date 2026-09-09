@@ -1,5 +1,13 @@
 [
   {
+    "file": "both-teams-update-sep9.html",
+    "title": "Both teams — quick update (Sep 9)",
+    "desc": "Quick status on the two temporary teams. Bug-watcher: the builder has started (first step — building and running the tests and fixing the first known bug), nothing finished yet (0 of 11 bugs fixed), and the starter watcher code is parked waiting for your OK to merge. Idea Slicer video: done and live — a real 40-second narrated clip that plays, showing the command typed out and the skill running; the re-run produced an identical map so the team refused a fake before/after and ends on an honest 'nothing changed' side-by-side. One call for you: keep that honest comparison in, or drop it.",
+    "date": "2026-09-09",
+    "emoji": "✅",
+    "status": "open"
+  },
+  {
     "file": "how-we-made-the-featuremap-video.html",
     "title": "How we made the feature-map tutorial video",
     "desc": "How the /featuremap tutorial video was actually filmed and edited: no screen recording — a PTY bridge feeds a browser-page terminal (xterm.js) that headless Chrome (via Playwright) types into and screenshots into ffmpeg to build the video, the 5 steps filmed (typing the command, building the map, opening the real page, comparing version 1 vs version 2 side by side, and narration), how it was edited/narrated (edge-tts)/mixed/delivered to a phone, and the honest safety lesson (a client-side pre-push hook isn't a real boundary) — the whole recipe MrTester is adopting as a reusable recording skill.",
