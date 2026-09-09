@@ -1,5 +1,13 @@
 [
   {
+    "file": "watcher-and-debugger-flow.html",
+    "title": "The bug-watcher — step by step",
+    "desc": "A one-minute walk through how the bug-watcher works, from the very first moment you save a file. Step 1: the file-watcher notices the save (a burst of saves collapses into one check) and ignores noise folders like build output and .git. Step 2: it builds your code then runs the tests, each in its own walled-off process with a time limit, killing the whole thing if it hangs. Step 3: it labels the result honestly (passed / real code failure / tool-or-setup problem / crash / freeze) and only calls it green if everything truly passed. Step 4: an opt-in safe auto-fix that fingerprints your files, fixes on a copy, and only writes back if you haven't touched the file since. Step 5: it writes findings.json plus a one-line human summary. Then honestly: the debugger replay (CodeLLDB for Rust) and a reviewer step are planned but not built, and today only the watcher exists — in an unmerged pull request, with 0 of 11 known bugs fixed.",
+    "date": "2026-09-09",
+    "emoji": "🐛",
+    "status": "open"
+  },
+  {
     "file": "both-teams-update-sep9.html",
     "title": "Both teams — quick update (Sep 9)",
     "desc": "Quick status on the two temporary teams. Bug-watcher: the builder has started (first step — building and running the tests and fixing the first known bug), nothing finished yet (0 of 11 bugs fixed), and the starter watcher code is parked waiting for your OK to merge. Idea Slicer video: done and live — a real 40-second narrated clip that plays, showing the command typed out and the skill running; the re-run produced an identical map so the team refused a fake before/after and ends on an honest 'nothing changed' side-by-side. One call for you: keep that honest comparison in, or drop it.",

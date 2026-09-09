@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bug-watcher &mdash; step by step</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The bug-watcher &mdash; step by step &#128027;</h1>
+  <p class="sub">what happens the moment you save a file</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128190;</span>
+    <p class="big">You hit save &mdash; it notices</p>
+    <p class="say">The watcher is always listening. One save (or a quick <b>burst</b> of
+    saves) becomes <b>one check</b>. It ignores the noise &mdash; build folders, .git &mdash;
+    so it only reacts to <b>real code changes</b>. <i>(This is the very first thing that happens.)</i></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#127939;</span>
+    <p class="big">It runs your checks &mdash; safely</p>
+    <p class="say">It <b>builds</b> your code, then runs the <b>tests</b> &mdash; each in its
+    own walled-off process with a <b>time limit</b>. If something hangs too long, it kills
+    the <b>whole thing</b> so nothing jams up.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#129517;</span>
+    <p class="big">It decides what really happened</p>
+    <p class="say">Honest labels: <b>passed</b>, a <b>real code failure</b>, a
+    <b>tool or setup problem</b>, cancelled, or unknown. A <b>crash</b> or a <b>freeze</b>
+    gets its own flag. It only says <b>&ldquo;green&rdquo; if everything truly passed</b> &mdash; never a maybe.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128504;</span>
+    <p class="big">It can auto-fix &mdash; only if you ask, only safely</p>
+    <p class="say">With the fix option on, it takes a <b>fingerprint</b> of your files,
+    fixes on a <b>copy</b>, and writes a fix back <b>only if you haven&rsquo;t touched that
+    file since</b>. If you did, it <b>skips</b> and tries next time.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">&#128221;</span>
+    <p class="big">It writes down the findings</p>
+    <p class="say">A tidy machine-readable list (<b>findings.json</b>) plus a
+    <b>one-line human summary</b> &mdash; so you, or an AI, can act on it right away.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">6</span>
+    <span class="emoji">&#128027;</span>
+    <p class="big">Next up: replay under a debugger</p>
+    <p class="say">The plan: when something <b>crashes or freezes</b>, replay it under a
+    real debugger &mdash; <b>CodeLLDB for Rust</b> &mdash; to pin the exact spot. A
+    <b>reviewer</b> step comes too. Both are <b>planned, not built yet</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">7</span>
+    <span class="emoji">&#128230;</span>
+    <p class="big">Where it stands today</p>
+    <p class="say">Only the <b>watcher</b> above actually exists &mdash; and it&rsquo;s sitting
+    in a <b>pull request waiting for your OK</b>. <b>0 of 11</b> known bugs fixed so far.
+    The reviewer and debugger aren&rsquo;t built yet.</p>
+  </div>
+
+  <p class="foot">Short version: save a file &rarr; it <b>builds + tests safely</b> &rarr;
+  <b>labels the result honestly</b> &rarr; optionally auto-fixes &rarr; writes the findings.
+  The debugger replay is next, <b>not built</b>.<br>
+  <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
