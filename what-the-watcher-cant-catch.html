@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the bug-watcher can&rsquo;t catch</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>What the bug-watcher can&rsquo;t catch 🕳️</h1>
+  <p class="sub">You asked about the bugs it misses. Here&rsquo;s the honest gap &mdash; and the fix.</p>
+
+  <div class="card">
+    <span class="emoji">🐶</span>
+    <span class="num">1</span>
+    <p class="big">What it does</p>
+    <p class="say">It watches your files. Every time you <b>save</b>, it re-runs the <b>build</b> and the <b>tests</b>. Green &rarr; fine. Red &rarr; it steps in.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">✅</span>
+    <span class="num">2</span>
+    <p class="big">So it catches</p>
+    <p class="say">Anything that <b>breaks the build</b> or <b>fails a test</b> &mdash; crashes, type errors, a test that turns red. That part it&rsquo;s great at.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🕳️</span>
+    <span class="num">3</span>
+    <p class="big">The blind spot</p>
+    <p class="say">Code that <b>builds fine and passes every test</b> but still gives the <b>wrong answer</b>. If no test checks for the right answer, the watcher sees green and waves it through.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🧮</span>
+    <span class="num">4</span>
+    <p class="big">A plain example</p>
+    <p class="say">A function should add: <b>2 + 2</b>. It returns <b>5</b>. If nothing tests &ldquo;expect 4&rdquo;, the build passes, the tests pass, the watcher is happy &mdash; and the bug ships.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">🧷</span>
+    <span class="num">5</span>
+    <p class="big">Fix 1 &mdash; a correctness test</p>
+    <p class="say">Write one test that <b>pins the right answer</b> (&ldquo;expect 4&rdquo;). Now a wrong answer turns that test <b>red</b>, and the watcher catches it like any other failure. Cheap, and it works today.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card ok">
+    <span class="emoji">🧑‍⚖️</span>
+    <span class="num">6</span>
+    <p class="big">Fix 2 &mdash; the AI judge (planned)</p>
+    <p class="say">A second reader that checks the change against <b>what you actually asked for</b>, not just &ldquo;does it run&rdquo;. It catches <b>wrong-but-passing</b> work. This is on the plan &mdash; <b>not built yet</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🎯</span>
+    <span class="num">7</span>
+    <p class="big">Bottom line</p>
+    <p class="say">The watcher guards <b>&ldquo;does it run and pass?&rdquo;</b> It can&rsquo;t guard <b>&ldquo;is it correct?&rdquo;</b> on its own. Correctness needs a test that knows the right answer &mdash; or the AI judge.</p>
+  </div>
+
+  <p class="foot">Short version: it catches <b>red</b>, not <b>wrong</b>. Give it a test with the right
+  answer (or add the AI judge) and wrong-but-passing bugs stop slipping through.<br>
+  <a href="./">all ELI5 pages</a> 🗒️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
