@@ -1,5 +1,12 @@
 [
   {
+    "file": "reviewer-and-debugger-plan.html",
+    "title": "The reviewer, the debugger & the AI judge",
+    "desc": "how the honesty check, the strong-model AI judge, and the CodeLLDB debugger will work; the PASS/FAIL/BLOCKED verdict; and what is actually built today — only the watcher (11 bugs to fix). The reviewer, its AI judge, and the debugger are all planned, not built. Build order: watcher, then reviewer (mechanical gate then judge), then debugger. Next up: rework PR #1, add clippy and fmt to the gate, then the judge. Waiting on the one-goal yes.",
+    "date": "2026-09-09",
+    "emoji": "⚖️"
+  },
+  {
     "file": "why-the-maps-matched.html",
     "title": "Why the two maps looked the same",
     "desc": "You were right to smell something off about the demo video's comparison. The two feature maps looked the same because both sides were made WITH the P-Stack — there was never a plain, no-P-Stack version to compare against. I checked the repo myself: the memecoin map's whole history is three versions and the very first one was already a P-Stack build, so no 'before P-Stack' map exists. The v1 and v2 shown in the video are both P-Stack and differ by only a few lines of wording (same 23 features); the 'byte-for-byte identical' claim was really just re-running the same build and getting the same file back, not a genuine before-and-after. This does NOT prove the P-Stack changes nothing — it only means the fair test (make the map without P-Stack, then compare) was never run. The manager double-checked and found the same thing independently, then hit its memory limit partway through starting the fair test. I'll get that finished and report the real difference, or honestly confirm if there isn't one.",
