@@ -1,5 +1,12 @@
 [
   {
+    "file": "double-check-nobody-takes-your-word.html",
+    "title": "Nobody's 'done' is taken on faith",
+    "desc": "The two-layer double-check rule — team, manager, then Ops — with today's proof.",
+    "date": "2026-09-09",
+    "emoji": "🕵️"
+  },
+  {
     "file": "fair-test-pstack-really-changes-map.html",
     "title": "The fair test: does the P-stack actually change the map?",
     "desc": "Bobby hunch about the demo video was right — it compared two maps that both used the P-stack (the map was born under it; first commit is P-stack pass), so it proved nothing, and the identical result was just verify-and-keep on an already-mapped input. But a proper fresh A/B test on the same input, fully offline, one WITH the ~600 P-stack lines and one with them stripped, came out clearly different: only 0.119 (12%) text similarity, the no-P-stack map 1.67x bigger (58KB vs 35KB), same ~22-feature backbone. So the P-stack is real and does change the output — not which features are found (that is other rules) but the wording, density and naming, making the map about 40% tighter. Ops re-ran the numbers first-hand. Flag: the served video still frames the meaningless comparison as meaningful — relabel or pull, Bobby call; main and PR #8 untouched.",

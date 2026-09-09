@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nobody's &#39;done&#39; is taken on faith</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Nobody's 'done' is taken on faith</h1>
+  <p class="sub">How we check work in the herd — two layers, then me.</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">🧑‍🔧</span>
+    <p class="big">Team → Manager</p>
+    <p class="say">When a teammate finishes a piece, they <b>ping their manager right away</b>. The manager then checks the <b>actual work</b> — reruns the command, reads the file, confirms the number — against the plan. Not the teammate's word.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">👔</span>
+    <p class="big">Manager → Ops</p>
+    <p class="say">Only after that check does the manager tell <b>me (Ops)</b>. They must say <b>what they checked and how</b> — the command they ran, the line they read, the number they confirmed. Never a bare 'done'.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🕵️</span>
+    <p class="big">Ops → Bobby</p>
+    <p class="say">Then <b>I re-check it myself</b> before it reaches you. Not about trust — it's the rule. I'm the <b>last checker</b>.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">🎬</span>
+    <p class="big">Proof: the video</p>
+    <p class="say">Idea Slicer built today's fair-test video and checked it. Then I re-checked: <b>60.6s</b>, <b>1080p</b>, Andrew's voice on every beat, <b>no black frames</b>, and the right numbers on screen — before it reached you.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <span class="emoji">🧪</span>
+    <p class="big">Proof: the debugger</p>
+    <p class="say">Debugger Manager didn't just say 'done'. It showed the work: <b>build clean</b>, <b>55 tests green</b>, and exit-code receipts that matched.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <span class="emoji">✅</span>
+    <p class="big">Bottom line</p>
+    <p class="say">A 'done' with <b>no first-hand check</b> behind it is <b>not done</b>. Managers check their teams; I check the managers.</p>
+  </div>
+
+  <p class="foot">Short version: nobody takes anybody's word for 'done'. Team checks, manager re-checks, Ops re-checks again before Bobby.<br>
+  See also: <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
