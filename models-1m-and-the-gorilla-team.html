@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Models were 1 million after all &mdash; plus the new gorilla team</title>
+<style>
+  /* Cards adapted from Uiverse.io by Admin12121 (purple-parrot-82). MIT. */
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:29px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+
+  /* adapted UIverse card: hover lift + colored glow + expanding overlay wash */
+  .card{
+    --accent:#6b4fd0; --accent-soft:rgba(107,79,208,.10); --glow:rgba(107,79,208,.28);
+    position:relative; overflow:hidden;
+    background:var(--card); border-radius:26px; padding:28px 24px 26px;
+    box-shadow:0 14px 26px rgba(70,50,120,.10);
+    transition:all .3s ease-out; text-align:center; margin:16px 0;
+  }
+  .card:hover{ transform:translateY(-5px) scale(1.005); box-shadow:0 24px 36px rgba(70,50,120,.12), 0 24px 46px var(--glow); }
+  .overlay{ position:absolute; top:24px; left:50%; margin-left:-59px; width:118px; height:118px; border-radius:50%; background:var(--accent-soft); z-index:0; transition:transform .4s ease-out; }
+  .card:hover .overlay{ transform:scale(6); }
+  .circle{ position:relative; z-index:1; width:96px; height:96px; margin:0 auto 14px; border-radius:50%; background:#fff; border:3px solid var(--accent); display:flex; align-items:center; justify-content:center; transition:all .3s ease-out; }
+  .circle:after{ content:""; position:absolute; width:84px; height:84px; border-radius:50%; background:var(--accent-soft); transition:opacity .3s ease-out; }
+  .circle span{ position:relative; z-index:2; font-size:44px; line-height:1; }
+  .card:hover .circle{ background:var(--accent-soft); }
+  .big{position:relative; z-index:1; font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{position:relative; z-index:1; font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{ --accent:#3f6fd0; --accent-soft:rgba(63,111,208,.10); --glow:rgba(63,111,208,.26); }
+  .ok{ --accent:#2fa46a; --accent-soft:rgba(47,164,106,.12); --glow:rgba(47,164,106,.24); }
+  .oops{ --accent:#d08a2f; --accent-soft:rgba(208,138,47,.12); --glow:rgba(208,138,47,.24); }
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Two fixes and a new team &#129421;</h1>
+  <p class="sub">you were right about the models &mdash; and I built the little 3-seat team</p>
+
+  <div class="card ok">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#128737;&#65039;</span></div>
+    <p class="big">What &ldquo;block a bad commit&rdquo; means</p>
+    <p class="say">It&rsquo;s the debugger&rsquo;s <b>next piece</b> (I call it <b>Enforce</b>). If a
+    build or a test <b>fails</b>, it <b>stops that broken code from being saved or shipped</b> &mdash;
+    so a bad change can&rsquo;t sneak through. It isn&rsquo;t built yet; I&rsquo;m <b>holding for your go</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card oops">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#129318;</span></div>
+    <p class="big">The models &mdash; you were right, I was wrong</p>
+    <p class="say"><b>GPT-5.6 Sol really is 1 million</b> memory (on the &ldquo;moon&rdquo; setup). I earlier
+    said it tops out at <b>272k</b> &mdash; that was me reading the <b>wrong setup</b>. 272k only shows on the
+    plain/default setup. It&rsquo;s the same model; the memory size just depends which setup it&rsquo;s launched under. Sorry for the mix-up.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#129421;</span></div>
+    <p class="big">The new &ldquo;gorilla&rdquo; team is built &amp; tested</p>
+    <p class="say">A small <b>3-seat</b> team you can drop on any tab: <b>Manager</b> (Opus) on the left,
+    <b>Developer</b> and <b>Tester</b> (both <b>GPT-5.6 Sol, 1 million</b>) on the right. I <b>tested it</b>:
+    a throwaway tab spun up exactly those three seats with the right models, then I tidied up. It&rsquo;s <b>off
+    by default</b> so it won&rsquo;t clash with the big 10-seat team &mdash; turn it on with <b>/autopanegorilla on</b>.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">3 quick picks &#128071;</p>
+
+  <div class="card q">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#10068;</span></div>
+    <p class="big">Your call on three things</p>
+    <p class="say"><b>1) The Idea Baker Developer seat</b> still runs Sonnet 5. To move it to GPT-5.6 Sol I have to
+    <b>restart that seat, which wipes its current chat</b>. OK to restart it &mdash; or only put the new models on <b>fresh tabs</b>?<br><br>
+    <b>2) The Tester model</b> &mdash; &ldquo;GPT 5.5 Sol Max&rdquo; <b>doesn&rsquo;t exist</b>. Closest is <b>GPT-5.6 Sol</b>
+    (already what the testers run). Use that?<br><br>
+    <b>3) Block-a-bad-commit</b> (the Enforce piece) &mdash; <b>build it now</b>, or keep holding?</p>
+  </div>
+
+  <p class="foot">Short version: you were right &mdash; <b>GPT-5.6 Sol is 1 million</b>; the <b>3-seat gorilla team</b>
+  is built and tested; I just need your <b>3 picks</b> above.<br>
+  See also: <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

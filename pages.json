@@ -1,5 +1,12 @@
 [
   {
+    "file": "models-1m-and-the-gorilla-team.html",
+    "title": "Models were 1 million after all — plus the new gorilla team",
+    "desc": "I was wrong and you were right: GPT-5.6 Sol really is 1 million memory (272k only shows on the plain setup, 1M on the moon setup). Plus what 'block a bad commit' means (the debugger's Enforce piece), the new 3-seat 'gorilla' team plugin (Manager on Opus, Developer and Tester on GPT-5.6 Sol) which I built and tested, and 3 quick picks for you.",
+    "date": "2026-09-09",
+    "emoji": "🦍"
+  },
+  {
     "file": "step3-go-and-model-choice.html",
     "title": "Step 3 is go — plus one model choice",
     "desc": "Debugger's next piece cleared (I re-ran the 55 tests myself), team roles renamed to Manager/Developer/Tester, and one model pick for you.",
