@@ -1,5 +1,12 @@
 [
   {
+    "file": "step3-go-and-model-choice.html",
+    "title": "Step 3 is go — plus one model choice",
+    "desc": "Debugger's next piece cleared (I re-ran the 55 tests myself), team roles renamed to Manager/Developer/Tester, and one model pick for you.",
+    "date": "2026-09-09",
+    "emoji": "✅"
+  },
+  {
     "file": "double-check-nobody-takes-your-word.html",
     "title": "Nobody's 'done' is taken on faith",
     "desc": "The two-layer double-check rule — team, manager, then Ops — with today's proof.",
