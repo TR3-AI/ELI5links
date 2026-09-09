@@ -1,5 +1,13 @@
 [
   {
+    "file": "why-the-maps-matched.html",
+    "title": "Why the two maps looked the same",
+    "desc": "You were right to smell something off about the demo video's comparison. The two feature maps looked the same because both sides were made WITH the P-Stack — there was never a plain, no-P-Stack version to compare against. I checked the repo myself: the memecoin map's whole history is three versions and the very first one was already a P-Stack build, so no 'before P-Stack' map exists. The v1 and v2 shown in the video are both P-Stack and differ by only a few lines of wording (same 23 features); the 'byte-for-byte identical' claim was really just re-running the same build and getting the same file back, not a genuine before-and-after. This does NOT prove the P-Stack changes nothing — it only means the fair test (make the map without P-Stack, then compare) was never run. The manager double-checked and found the same thing independently, then hit its memory limit partway through starting the fair test. I'll get that finished and report the real difference, or honestly confirm if there isn't one.",
+    "date": "2026-09-09",
+    "emoji": "🔍",
+    "status": "open"
+  },
+  {
     "file": "watcher-and-debugger-flow.html",
     "title": "The bug-watcher — step by step",
     "desc": "A one-minute walk through how the bug-watcher works, from the very first moment you save a file. Step 1: the file-watcher notices the save (a burst of saves collapses into one check) and ignores noise folders like build output and .git. Step 2: it builds your code then runs the tests, each in its own walled-off process with a time limit, killing the whole thing if it hangs. Step 3: it labels the result honestly (passed / real code failure / tool-or-setup problem / crash / freeze) and only calls it green if everything truly passed. Step 4: an opt-in safe auto-fix that fingerprints your files, fixes on a copy, and only writes back if you haven't touched the file since. Step 5: it writes findings.json plus a one-line human summary. Then honestly: the debugger replay (CodeLLDB for Rust) and a reviewer step are planned but not built, and today only the watcher exists — in an unmerged pull request, with 0 of 11 known bugs fixed.",
