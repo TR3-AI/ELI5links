@@ -1,5 +1,12 @@
 [
   {
+    "file": "catching-a-bad-commit.html",
+    "title": "What happens when we catch a bad commit",
+    "desc": "You asked: if we block a bad commit, then what? The plan: block is only the safety gate — then the watcher tries the language's own safe fix (green = it goes through fixed), else it blocks and hands the exact finding to the Developer to fix and re-check, capped so it can't loop forever, and if it's still red after the cap it escalates to a human. A caught commit is always fixed, sent back, or raised — never silently stuck. Also: GPT-5.6-Turbo doesn't exist (the real GPT-5.6 options are Sol/Luna/Terra).",
+    "date": "2026-09-09",
+    "emoji": "🚧"
+  },
+  {
     "file": "models-1m-and-the-gorilla-team.html",
     "title": "Models were 1 million after all — plus the new gorilla team",
     "desc": "I was wrong and you were right: GPT-5.6 Sol really is 1 million memory (272k only shows on the plain setup, 1M on the moon setup). Plus what 'block a bad commit' means (the debugger's Enforce piece), the new 3-seat 'gorilla' team plugin (Manager on Opus, Developer and Tester on GPT-5.6 Sol) which I built and tested, and 3 quick picks for you.",

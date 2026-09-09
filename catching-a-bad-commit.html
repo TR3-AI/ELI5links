@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What happens when we catch a bad commit</title>
+<style>
+  /* Cards adapted from Uiverse.io by Admin12121 (purple-parrot-82). MIT. */
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:29px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+
+  /* adapted UIverse card: hover lift + colored glow + expanding overlay wash */
+  .card{
+    --accent:#6b4fd0; --accent-soft:rgba(107,79,208,.10); --glow:rgba(107,79,208,.28);
+    position:relative; overflow:hidden;
+    background:var(--card); border-radius:26px; padding:28px 24px 26px;
+    box-shadow:0 14px 26px rgba(70,50,120,.10);
+    transition:all .3s ease-out; text-align:center; margin:16px 0;
+  }
+  .card:hover{ transform:translateY(-5px) scale(1.005); box-shadow:0 24px 36px rgba(70,50,120,.12), 0 24px 46px var(--glow); }
+  .overlay{ position:absolute; top:24px; left:50%; margin-left:-59px; width:118px; height:118px; border-radius:50%; background:var(--accent-soft); z-index:0; transition:transform .4s ease-out; }
+  .card:hover .overlay{ transform:scale(6); }
+  .circle{ position:relative; z-index:1; width:96px; height:96px; margin:0 auto 14px; border-radius:50%; background:#fff; border:3px solid var(--accent); display:flex; align-items:center; justify-content:center; transition:all .3s ease-out; }
+  .circle:after{ content:""; position:absolute; width:84px; height:84px; border-radius:50%; background:var(--accent-soft); transition:opacity .3s ease-out; }
+  .circle span{ position:relative; z-index:2; font-size:44px; line-height:1; }
+  .card:hover .circle{ background:var(--accent-soft); }
+  .big{position:relative; z-index:1; font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{position:relative; z-index:1; font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .step{position:relative; z-index:1; text-align:left; font-size:17px; color:var(--soft); margin:10px 0 0; line-height:1.5}
+  .step b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{ --accent:#3f6fd0; --accent-soft:rgba(63,111,208,.10); --glow:rgba(63,111,208,.26); }
+  .ok{ --accent:#2fa46a; --accent-soft:rgba(47,164,106,.12); --glow:rgba(47,164,106,.24); }
+  .gate{ --accent:#d0432f; --accent-soft:rgba(208,67,47,.10); --glow:rgba(208,67,47,.22); }
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Catching a bad commit &#128737;&#65039;</h1>
+  <p class="sub">you asked: if we block it, then what? here&rsquo;s the whole plan</p>
+
+  <div class="card ok">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#128064;</span></div>
+    <p class="big">First, what the watcher already does</p>
+    <p class="say">It sits in the background, and <b>when you save</b> it re-runs your <b>build and tests</b>.
+    It reads the <b>result</b> (pass or fail), sorts a real failure from tool noise, <b>auto-fixes tiny safe
+    stuff</b>, and writes a note for the coding AI on the rest. Full walkthrough:
+    <b><a href="./how-the-watcher-knows.html" style="color:#6b4fd0">how the watcher knows &rarr;</a></b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card gate">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#128683;</span></div>
+    <p class="big">&ldquo;Block a bad commit&rdquo; = the gate</p>
+    <p class="say">This is the piece I called <b>Enforce</b>. If the build or tests are <b>red</b>, it
+    <b>won&rsquo;t let that broken code be saved or shipped</b>. That&rsquo;s the safety catch &mdash; nothing
+    red slips through by accident.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#128260;</span></div>
+    <p class="big">But we don&rsquo;t just block &mdash; we act on it</p>
+    <p class="step"><b>1. Try the safe fix.</b> The language&rsquo;s own fixer has a go. Goes green? It just
+    <b>goes through, already fixed</b> &mdash; no fuss.</p>
+    <p class="step"><b>2. Can&rsquo;t auto-fix? Block + hand it over.</b> The commit is held, and the exact
+    finding (file, line, what broke) goes to the <b>Developer</b> to fix, then re-check.</p>
+    <p class="step"><b>3. There&rsquo;s a brake.</b> The fix-and-recheck loop is <b>capped</b> so it can never
+    spin forever.</p>
+    <p class="step"><b>4. Still red after the cap? It escalates.</b> It comes <b>up to me (and you)</b> with the
+    finding &mdash; never a silent, stuck block.</p>
+    <p class="say" style="margin-top:12px">So a caught commit is <b>always</b> one of: fixed, sent back to be
+    fixed, or raised to a human. It never just dies quietly.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <div class="overlay"></div>
+    <div class="circle"><span>&#10068;</span></div>
+    <p class="big">Two things for you</p>
+    <p class="say"><b>1) Happy with that loop?</b> If yes, I&rsquo;ll have the debugger team build Enforce this
+    way (block &rarr; safe-fix &rarr; hand to Developer &rarr; cap &rarr; escalate).<br><br>
+    <b>2) The model name.</b> &ldquo;GPT-5.6-Turbo&rdquo; <b>doesn&rsquo;t exist</b>. The real GPT-5.6 options
+    are <b>Sol, Luna, or Terra</b> (all 1 million on the right setup). Which one for the Idea Baker Developer seat?</p>
+  </div>
+
+  <p class="foot">Short version: <b>block</b> is only the catch &mdash; then it&rsquo;s <b>fix it, send it back,
+  or raise it</b>, with a brake so it can&rsquo;t loop. I just need your <b>nod on the loop</b> and your <b>model pick</b>.<br>
+  See also: <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
