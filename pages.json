@@ -1,5 +1,12 @@
 [
   {
+    "file": "managers-check-before-done.html",
+    "title": "Do the managers check the work before saying done?",
+    "desc": "Bobby asked whether the team managers verify their executors finished the work per the plan before pinging Ops done. Short answer: yes, and it is a written rule — a manager must verify, trace results to the plan, and never self-approve before reporting done. This session the bug-watcher manager re-ran the build + all 55 tests + 3 fresh cases itself and held its executor; the Idea Slicer manager is running the real map test and will not call it done until both runs finish. The one weak spot: a manager checking its own team unpushed work is still that team word, so Ops re-checks first-hand and never relays test claims as confirmed until the code is pushed.",
+    "date": "2026-09-09",
+    "emoji": "✅"
+  },
+  {
     "file": "reviewer-and-debugger-plan.html",
     "title": "The reviewer, the debugger & the AI judge",
     "desc": "how the honesty check, the strong-model AI judge, and the CodeLLDB debugger will work; the PASS/FAIL/BLOCKED verdict; and what is actually built today — only the watcher (11 bugs to fix). The reviewer, its AI judge, and the debugger are all planned, not built. Build order: watcher, then reviewer (mechanical gate then judge), then debugger. Next up: rework PR #1, add clippy and fmt to the gate, then the judge. Waiting on the one-goal yes.",

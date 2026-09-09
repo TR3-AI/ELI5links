@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do the managers check the work before saying done?</title>
+<style>
+  :root{
+    --ink:#2b2140; --soft:#6b6580; --card:#ffffff;
+    --shadow:0 10px 30px rgba(70,50,120,.12);
+    --accent:#6b4fd0; --accent-soft:#efe9ff; --glow:rgba(107,79,208,.28);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#f3ecff 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+
+  /* Cards adapted from Uiverse.io by Admin12121 (purple-parrot-82). MIT.
+     Kept: the .card:hover translateY lift, the layered colored-glow box-shadow,
+     and the .circle / .circle:after / .overlay icon badge. Re-tinted to the ELI5
+     palette via --accent and softened so the body text stays readable on hover. */
+  .card{
+    position:relative; overflow:hidden;
+    background:var(--card); border-radius:26px;
+    padding:96px 22px 26px; margin:16px 0; text-align:center;
+    box-shadow:var(--shadow);
+    transition:transform .3s ease-out, box-shadow .3s ease-out;
+  }
+  .card:hover{
+    transform:translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow:0 24px 36px rgba(70,50,120,.14), 0 24px 46px var(--glow);
+  }
+  .overlay{
+    position:absolute; top:-10px; left:50%; margin-left:-59px;
+    width:118px; height:118px; border-radius:50%;
+    background:var(--accent); opacity:.15; z-index:0;
+    transition:transform .35s ease-out;
+  }
+  .card:hover .overlay{transform:scale(3) translateZ(0)}
+  .circle{
+    position:absolute; top:16px; left:50%; margin-left:-33px;
+    width:66px; height:66px; border-radius:50%;
+    background:#fff; border:3px solid var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    z-index:1; transition:all .3s ease-out;
+  }
+  .circle:after{
+    content:""; position:absolute; width:54px; height:54px; border-radius:50%;
+    background:var(--accent-soft); transition:opacity .3s ease-out;
+  }
+  .card:hover .circle{background:var(--accent); border-color:var(--accent-soft)}
+  .card:hover .circle:after{opacity:.55}
+  .ico{position:relative; z-index:2; font-size:34px; line-height:1}
+  .num{
+    position:absolute; top:16px; right:18px;
+    width:30px; height:30px; line-height:30px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent); font-weight:800; font-size:16px; z-index:2;
+  }
+  .big{font-size:22px; font-weight:800; margin:2px 0 6px; position:relative; z-index:2}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5; position:relative; z-index:2}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .warn{--accent:#e08a1e; --accent-soft:#fdeccd; --glow:rgba(224,138,30,.30)}
+  .good{--accent:#2fa15a; --accent-soft:#e6f6ec; --glow:rgba(47,161,90,.28)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Do the managers check the work before saying done? &#9989;</h1>
+  <p class="sub">short answer: yes &mdash; and here&rsquo;s how I know</p>
+
+  <div class="card good">
+    <span class="num">1</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#9989;</span></div>
+    <p class="big">Yes &mdash; and it&rsquo;s a written rule</p>
+    <p class="say">A manager&rsquo;s job literally includes <b>&ldquo;verify.&rdquo;</b> The
+    rules say: <b>prove the tests pass</b>, <b>trace the result back to the plan</b>, and
+    <b>never approve your own work</b> &mdash; all <b>before</b> telling me &ldquo;done.&rdquo;</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#129514;</span></div>
+    <p class="big">The bug-watcher manager did it</p>
+    <p class="say">Before pinging me on step 2, it <b>re-ran the build + all 55 tests itself</b>,
+    ran <b>3 fresh cases by hand</b>, and checked the printed result <b>matched the saved
+    one</b>. Then it <b>held its executor back</b> until you say go.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#128257;</span></div>
+    <p class="big">The Idea Slicer manager is doing it</p>
+    <p class="say">It&rsquo;s running the real test itself &mdash; the map <b>with</b> the rule vs
+    <b>without</b> &mdash; watching each run finish and <b>counting features and bytes</b>. It
+    <b>won&rsquo;t call it done</b> until both runs are in.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card warn">
+    <span class="num">4</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#9888;&#65039;</span></div>
+    <p class="big">The one weak spot</p>
+    <p class="say">A manager checking its <b>own</b> team&rsquo;s work is still that team&rsquo;s
+    <b>word</b>. And right now their &ldquo;green&rdquo; is on <b>branches they haven&rsquo;t
+    pushed</b> &mdash; so I can&rsquo;t <b>independently re-run it</b> yet.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card good">
+    <span class="num">5</span>
+    <div class="overlay"></div>
+    <div class="circle"><span class="ico">&#128737;&#65039;</span></div>
+    <p class="big">That&rsquo;s why I&rsquo;m the backstop</p>
+    <p class="say">I <b>re-check first-hand</b>, and I <b>don&rsquo;t pass their test claims to
+    you as &ldquo;confirmed&rdquo;</b> until the code is <b>pushed</b> where I can reproduce it.
+    For step 2 I confirmed the commit is <b>real and unpushed</b>; the &ldquo;55 tests
+    green&rdquo; stays <b>their word</b> until it&rsquo;s pushed.</p>
+  </div>
+
+  <p class="foot">Short version: the rule says managers must <b>verify + trace to the plan +
+  never self-approve</b> before saying done &mdash; and this session both active managers did.
+  The catch: their &ldquo;green&rdquo; is on <b>unpushed branches</b>, so I&rsquo;m the
+  <b>final check</b> and never relay a test result as confirmed until it&rsquo;s pushed.<br>
+  <a href="./">all ELI5 pages</a> &#9989;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
