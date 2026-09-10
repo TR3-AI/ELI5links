@@ -47,76 +47,103 @@
   <div class="card ok">
     <span class="emoji">💡</span>
     <p class="big">The big idea</p>
-    <p class="say">Your whole OMP folder is <b>5.4&nbsp;GB</b>, but only about <b>25&nbsp;MB</b> is
-    the &ldquo;real you&rdquo; &mdash; your settings and your logins. Copy that small part,
-    skip the big rebuildable junk, and OMP works <b>exactly the same</b> on the new machine.</p>
+    <p class="say">Your whole OMP folder is <b>~5.4&nbsp;GB</b>, but only <b>~25&nbsp;MB</b> is the part
+    that matters. That 25&nbsp;MB is <b>THREE things</b>: your <b>global config</b>, your <b>OMP-5</b>
+    profile, and your <b>OMP-Moon</b> profile. Copy those three, skip the big rebuildable junk, and
+    OMP runs the same on the new machine.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="num">1</span>
-    <span class="emoji">📦</span>
-    <p class="big">Copy the important ~25 MB, skip the rest</p>
-    <p class="say"><span class="lbl">COPY:</span> your config files, your skills / extensions / rules,
-    and your login vault &mdash; the <code>agent.db</code> file inside each profile &mdash; plus the
-    <code>.env</code> files and profile&nbsp;5&rsquo;s <code>auth-broker.token</code>.<br><br>
-    <span class="lbl">SKIP:</span> <code>logs/</code>, <code>cache/</code>, the <code>run/</code> folder,
-    the downloaded Chrome (<code>puppeteer/</code>), and old chat <code>sessions/</code>. These are big
-    and rebuild themselves; copying <code>run/</code> can even <b>break things</b> (it holds live sockets
-    for the machine you&rsquo;re leaving).</p>
+    <span class="emoji">🌐</span>
+    <p class="big">The GLOBAL config (shared by every profile)</p>
+    <p class="say">Copy these top-level files in <code>~/.omp</code>:<br>
+    &bull; <code>~/.omp/config.yml</code> &mdash; your global settings (the shared model-roles default).<br>
+    &bull; <code>~/.omp/marketplaces.json</code> &mdash; your list of plugin marketplaces.<br>
+    &bull; the default <code>~/.omp/agent/</code> folder &mdash; its <code>config.yml</code>, your
+    <code>.env</code>, your skills / extensions / rules, and <code>agent/agent.db</code>
+    (the default profile&rsquo;s logins).</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="num">2</span>
-    <span class="emoji">🔀</span>
-    <p class="big">Pick ONE of two ways to move it</p>
-    <p class="say"><span class="lbl">A) Straight to another computer</span><br>
-    <b>1.</b> Copy once with <code>rsync -a</code> (or <code>scp</code>). The <code>-a</code> keeps the
-    secret files&rsquo; locked permissions.<br>
-    <b>2.</b> For each <code>agent.db</code>, do <b>NOT</b> copy the file raw &mdash; it&rsquo;s a live
-    database. Run <code>sqlite3 old.db ".backup new.db"</code> to get a clean copy.<br>
-    <b>3.</b> On the new machine, lock the secret files: <code>chmod 600</code> on every
-    <code>agent.db</code>, every <code>.env</code>, and every token file.<br><br>
-    <span class="lbl">B) Through the cloud</span><br>
-    <b>1.</b> Put <b>ONLY</b> the text settings in a <b>PRIVATE</b> git / dotfiles repo. Add a
-    <code>.gitignore</code> that blocks <code>agent.db</code>, <code>.env</code>, and token files
-    &mdash; never push a login to the cloud.<br>
-    <b>2.</b> Move the secret files (<code>agent.db</code> / <code>.env</code> / token) once, by hand,
-    over a secure copy &mdash; not through the synced folder.<br>
-    <b>3.</b> Never point iCloud / Dropbox / Google Drive at a live <code>agent.db</code> /
-    <code>.env</code> / token <b>while OMP is running</b> &mdash; it grabs half-written files and
-    corrupts them.</p>
+    <span class="emoji">🗂️</span>
+    <p class="big">Your two named profiles, side by side</p>
+    <p class="say"><span class="lbl">OMP-5 &mdash; <code>~/.omp/profiles/5/</code></span><br>
+    &bull; <code>config.yml</code> &mdash; OMP-5&rsquo;s own settings.<br>
+    &bull; <code>agent/</code> folder &mdash; its config, skills, <code>.env</code>.<br>
+    &bull; <code>agent/agent.db</code> &mdash; OMP-5&rsquo;s <b>logins</b> live in here.<br>
+    &bull; <code>auth-broker.token</code> &mdash; <b>OMP-5 ONLY</b>. OMP-5 also uses a local
+    auth-broker (<code>auth.broker.url</code> = <code>http://127.0.0.1:8755</code>) &mdash; see Part&nbsp;4.<br><br>
+    <span class="lbl">OMP-Moon &mdash; <code>~/.omp/profiles/moon/</code></span><br>
+    &bull; <code>config.yml</code> &mdash; OMP-Moon&rsquo;s own settings.<br>
+    &bull; <code>agent/</code> folder &mdash; its config, skills, <code>.env</code>.<br>
+    &bull; <code>agent/agent.db</code> &mdash; OMP-Moon&rsquo;s <b>logins</b> live in here.<br>
+    &bull; <b>NO</b> <code>auth-broker.token</code> and <b>NO</b> <code>auth.broker.url</code>.
+    OMP-Moon has no separate token &mdash; it just uses its own <code>agent.db</code> logins.
+    Nothing to copy there, and that is <b>NOT an error</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">🗑️</span>
+    <p class="big">Skip everywhere (global + both profiles)</p>
+    <p class="say"><code>logs/</code>, <code>cache/</code>, <code>run/</code>, <code>puppeteer/</code>
+    (downloaded Chrome), and old chat <code>sessions/</code>. Big and self-rebuilding &mdash; copying
+    <code>run/</code> can even <b>break things</b>.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card">
     <span class="num">3</span>
+    <span class="emoji">🔀</span>
+    <p class="big">Move it safely &mdash; pick ONE route</p>
+    <p class="say"><span class="lbl">A) Another computer</span><br>
+    <b>1.</b> <code>rsync -a</code> (or <code>scp</code>) once. <code>-a</code> keeps the secret files&rsquo;
+    locked permissions.<br>
+    <b>2.</b> For <b>each</b> <code>agent.db</code> (global, OMP-5, OMP-Moon) do <b>NOT</b> copy the file
+    raw &mdash; run <code>sqlite3 old.db ".backup new.db"</code> for a clean copy.<br>
+    <b>3.</b> On the new machine <code>chmod 600</code> every copied <code>agent.db</code>,
+    <code>.env</code>, and token file.<br><br>
+    <span class="lbl">B) Cloud</span><br>
+    <b>1.</b> A <b>PRIVATE</b> git / dotfiles repo for the <b>text settings only</b>, with a
+    <code>.gitignore</code> that blocks <code>agent.db</code>, <code>.env</code>, and token files
+    &mdash; never push a login.<br>
+    <b>2.</b> Move the secret files once, by hand, over a secure copy &mdash; not through the synced folder.<br>
+    <b>3.</b> Never point iCloud / Dropbox at a live <code>agent.db</code> / <code>.env</code> / token
+    <b>while OMP is running</b> (it grabs half-written files and corrupts them).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
     <span class="emoji">🔑</span>
-    <p class="big">Your logins come with you</p>
-    <p class="say">Your logins live inside <code>agent.db</code>, so once you copy it they <b>just work</b>
-    &mdash; no logging in again (this was tested: a copied setup answered from real providers with
-    <b>zero login prompts</b>). ONE exception: profile&nbsp;5 uses a local &ldquo;auth broker.&rdquo;
-    On the new machine either <b>(a)</b> start it: <code>omp auth-broker serve</code>, or <b>(b)</b>
-    turn it off with one line so it uses the copied logins instead:
-    <code>omp config reset auth.broker.url</code>.</p>
+    <p class="big">Logins</p>
+    <p class="say">Each profile&rsquo;s logins ride <b>inside its own</b> <code>agent.db</code>, so copying
+    it brings them along &mdash; no logging in again (tested: a copied setup replied from real providers
+    with <b>zero login prompts</b>). ONE exception: OMP-5&rsquo;s auth-broker. On the new machine either
+    start it (<code>omp auth-broker serve</code>) or switch OMP-5 to its own copied logins with one line:
+    <code>omp config reset auth.broker.url</code>. OMP-Moon and the default profile need nothing extra.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
 
   <div class="card q">
-    <span class="num">4</span>
+    <span class="num">5</span>
     <span class="emoji">🔒</span>
     <p class="big">One safety fix, do it now</p>
-    <p class="say">Your <code>profiles/moon/agent/.env</code> is readable by <b>anyone on the machine</b>
-    (mode 644) even though it holds raw API keys. Lock it:
-    <code>chmod 600 ~/.omp/profiles/moon/agent/.env</code>.</p>
+    <p class="say"><code>~/.omp/profiles/moon/agent/.env</code> is readable by <b>anyone on the machine</b>
+    (mode 644) but holds raw API keys. Lock it: <code>chmod 600 ~/.omp/profiles/moon/agent/.env</code>.</p>
   </div>
 
-  <p class="foot">Tested for real &mdash; the ~25 MB essential set was copied into a fresh HOME and OMP ran identically (version, config path, and live model replies on the default, moon, and profile-5 setups). Full technical method: omp-portability-method.md.<br>
+  <p class="foot">This guide covers your global config plus OMP-5 and OMP-Moon by name. Tested for real &mdash; the ~25 MB set was copied into a fresh HOME and OMP ran identically. Full technical method: omp-portability-method.md.<br>
   <a href="./">all ELI5 pages</a></p>
 
 </div>
