@@ -1,5 +1,12 @@
 [
   {
+    "file": "where-things-stand-sep10.html",
+    "title": "Where things stand",
+    "desc": "Plain status across your teams (10 Sep): feature maps done + signed off; the debugger's 'stop a bad commit' net is approved and one build step from finished; your phone-alert app is still being searched for on the Extreme SSD (the stalled scan was restarted); settings are global on OMP-5 and Moon except Moon has no login of its own; a tested guide for moving your setup to another computer or the cloud is being written; the new Mr Tester team is up and Idea Baker's layout was fixed; and an 8:30 morning standup now keeps teams moving without you. One call for you: set up Moon's own login.",
+    "date": "2026-09-10",
+    "emoji": "🧭"
+  },
+  {
     "file": "what-the-watcher-cant-catch.html",
     "title": "What the bug-watcher can't catch",
     "desc": "You asked about the bugs the watcher misses. It catches anything that breaks the build or fails a test — but code that builds fine and passes every test yet returns the WRONG answer slips through, because nothing tested for the right answer. Two fixes: write a correctness test that pins the expected answer (so a wrong result turns red and the watcher catches it), or add the planned AI judge that checks the change against what you actually asked for. It catches red, not wrong.",

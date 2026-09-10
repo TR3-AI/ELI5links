@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where things stand</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Where things stand 🧭</h1>
+  <p class="sub">Your teams, plain and simple &mdash; 10 Sep</p>
+
+  <div class="card ok">
+    <span class="emoji">✅</span>
+    <span class="num">1</span>
+    <p class="big">Feature maps &mdash; done</p>
+    <p class="say"><b>Signed off.</b> The fair test and its video are finished and checked. Nothing left here.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🐞</span>
+    <span class="num">2</span>
+    <p class="big">Debugger &mdash; nearly there</p>
+    <p class="say">The <b>&ldquo;stop a bad commit&rdquo;</b> safety net is approved and the team is planning the build. That&rsquo;s the one thing left. They build it, I check it, it moves on.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">📱</span>
+    <span class="num">3</span>
+    <p class="big">Your phone-alert app &mdash; still hunting</p>
+    <p class="say">The search had <b>stalled</b>; the manager caught it and restarted it. Found your drive (<b>Extreme SSD</b>) with your Codex and Projects folders. Nothing found yet &mdash; I&rsquo;ll tell you the moment it turns up.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">⚙️</span>
+    <span class="num">4</span>
+    <p class="big">Settings &mdash; almost fully global</p>
+    <p class="say">OMP-5 and Moon match on <b>everything but one thing</b>: Moon has <b>no login of its own</b> set up (no token, no address). So it&rsquo;s not quite done. See your call below.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🧳</span>
+    <span class="num">5</span>
+    <p class="big">Take it to any computer / the cloud</p>
+    <p class="say">The team is writing a <b>tested step-by-step</b> for moving your setup to a new machine or the cloud. Quick version now: copy your <b>~/.omp</b> folder, or keep it in a synced/cloud folder. Full guide coming.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🖥️</span>
+    <span class="num">6</span>
+    <p class="big">Teams tidied</p>
+    <p class="say">New <b>Mr Tester</b> team is up. Fixed <b>Idea Baker</b> &mdash; its tester was sitting on the left; now the <b>manager is on the left</b>, developer and tester on the right.</p>
+  </div>
+
+  <div class="arrow">⬇️</div>
+
+  <div class="card">
+    <span class="emoji">🌅</span>
+    <span class="num">7</span>
+    <p class="big">Mornings handled</p>
+    <p class="say">At <b>8:30</b> I&rsquo;ll check every active team, let the ones that don&rsquo;t need you carry on, and send you a morning report. <b>All day</b>: if the work checks out (manager + me), I move it to the next step without waiting &mdash; only stopping when something truly needs you.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your call 👇</p>
+
+  <div class="card q">
+    <span class="emoji">🔑</span>
+    <p class="big">Moon&rsquo;s login</p>
+    <p class="say"><b>1) What&rsquo;s up?</b> Moon has no login of its own &mdash; OMP-5 does.<br>
+    <b>2) Signing up for:</b> you&rsquo;d do a quick login for Moon (only you can &mdash; it&rsquo;s your account); I&rsquo;ll guide the steps.<br>
+    <b>3) You are deciding:</b> set Moon&rsquo;s own login up now, or leave it.<br>
+    <b>4) Results:</b> set it up &rarr; Moon works fully and we sign settings off; leave it &rarr; settings stay &ldquo;done except Moon&rdquo;.<br>
+    <b>I&rsquo;d:</b> set it up, so your settings are truly complete and portable.</p>
+  </div>
+
+  <p class="foot">Short version: feature maps done; debugger one step from built; phone app still being found; settings global bar Moon&rsquo;s login (your call).<br>
+  <a href="./">all ELI5 pages</a> 🗒️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
