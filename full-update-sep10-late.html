@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your full update — judge, fleet, take-anywhere folder</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:540px; margin:0 auto}
+  h1{font-size:29px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 24px}
+  .card{background:var(--card); border-radius:26px; padding:22px 22px; box-shadow:var(--shadow); margin:16px 0}
+  .emoji{font-size:46px; line-height:1; display:block; margin:2px 0 8px; text-align:center}
+  .big{font-size:20px; font-weight:800; margin:0 0 8px; text-align:center}
+  .say{font-size:17px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  ul{margin:8px 0 0; padding-left:20px} li{margin:5px 0; font-size:16.5px; color:var(--soft); line-height:1.45} li b{color:var(--ink)}
+  .approve{background:linear-gradient(160deg,#fff8e8,#fff)}
+  .block{background:linear-gradient(160deg,#fff0f0,#fff)}
+  .go{background:linear-gradient(160deg,#eaffef,#fff)}
+  .cfg{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .num{display:inline-block; background:#efe9ff; color:#6b4fd0; font-weight:800; padding:1px 9px; border-radius:9px}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Your full update 📋</h1>
+  <p class="sub">The judge, the fleet, and a take-anywhere folder &mdash; 10 Sep, late</p>
+
+  <div class="card">
+    <span class="emoji">🧑‍⚖️</span>
+    <p class="big">The judge &amp; the reviewer &mdash; where it stands</p>
+    <p class="say">The Debugger has 3 parts. Part 1 (the <b>Watcher</b>, runs build + tests on every save) is <b>done</b>. Parts 2 &amp; 3 &mdash; the <b>Reviewer</b> (which holds the AI judge) and the <b>crash-finder</b> &mdash; are fully <b>planned but not built yet</b>. The team&rsquo;s pick is in and I checked it:</p>
+    <ul>
+      <li><b>The AI judge:</b> a strong <b>Opus-class</b> judge run through OMP&rsquo;s built-in <b>reviewer</b> skill (plus <b>security-reviewer</b>), scored on a fixed rubric. It reads each change against what you asked and catches what the compiler and tests can&rsquo;t &mdash; a weakened test, a missed intent, a logic/security hole. Runs at commit time. Unsure &rarr; &ldquo;couldn&rsquo;t verify,&rdquo; never blames.</li>
+      <li><b>Code-review skill:</b> use that <b>reviewer</b> skill &mdash; <b>not</b> the Plannotator review tool (that&rsquo;s a hands-on browser thing). <b>Greptile stays your final PR check;</b> the judge runs just before it.</li>
+      <li><b>Debugger skill:</b> <b>CodeLLDB</b> via OMP&rsquo;s debug tool &mdash; already installed here, one config line to switch on. Not plain LLDB (backup), not a written &ldquo;skill&rdquo; (a guide, not a live debugger).</li>
+      <li><b>Does it fit? Yes</b> &mdash; both are built as plug-in slots. <b>Building them waits for your go.</b></li>
+    </ul>
+  </div>
+
+  <div class="card approve">
+    <span class="emoji">✅</span>
+    <p class="big">Needs your approval</p>
+    <ul>
+      <li><b>Ship the Debugger:</b> open PR&nbsp;#1 (the finished watcher) to main.</li>
+      <li><b>Green-light building</b> the judge + the crash-finder (held for your yes).</li>
+      <li><b>Switch on CodeLLDB</b> (one config line) &mdash; I&rsquo;ll do it on your nod.</li>
+      <li><b>Any merge to main</b> for Idea Baker / Mr Tester (their main PRs are yours).</li>
+    </ul>
+  </div>
+
+  <div class="card block">
+    <span class="emoji">🚧</span>
+    <p class="big">Blockers</p>
+    <ul>
+      <li><b>Only one, and it&rsquo;s on purpose:</b> the Debugger&rsquo;s next stage (build the judge + crash-finder) is held for your go.</li>
+      <li><b>OMP-Moon login</b> &mdash; needs you at your Mac. Not urgent.</li>
+      <li>Nothing else is stuck.</li>
+    </ul>
+  </div>
+
+  <div class="card go">
+    <span class="emoji">🏃</span>
+    <p class="big">Carrying on without you</p>
+    <ul>
+      <li><b>Idea Baker:</b> confirmed &mdash; driving Phases 2&rarr;5 back-to-back (route a question to the 3 voices &rarr; save each Q&amp;A as an issue &rarr; blend into one answer &rarr; structure it &rarr; grill-me). Pings me per step.</li>
+      <li><b>Mr Tester:</b> rolling through Phases 2&rarr;9 (ProofShot &rarr; screenshots &rarr; terminal &rarr; desktop &rarr; narration &rarr; test + report).</li>
+      <li>I <b>verify every step myself</b>; the only thing either holds for you is a <b>merge to main</b>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="emoji">🧑‍🍳</span>
+    <p class="big">What&rsquo;s left &mdash; Idea Baker</p>
+    <p class="say"><b>Done:</b> repo, plan, and Phase 1 (the voices skill, merged). <b>Now:</b> trimming to 3 voices. <b>Left:</b> route Q&amp;A + save per-project issues &rarr; blend into one answer &rarr; structure the idea (Opus) &rarr; grill-me (Fable) &rarr; full end-to-end check.</p>
+  </div>
+
+  <div class="card">
+    <span class="emoji">🧪</span>
+    <p class="big">What&rsquo;s left &mdash; Mr Tester</p>
+    <p class="say"><b>Done + merged:</b> the report harness (with the &ldquo;every failure links to the exact code line&rdquo; rule) and the terminal recorder. <b>Now:</b> making demo reports + videos. <b>Left:</b> fork + customise ProofShot &rarr; per-step screenshots &rarr; fold in terminal recording &rarr; desktop lane + desktop screenshots &rarr; Andrew narration &rarr; the tester workflow + final report + verify chain.</p>
+  </div>
+
+  <div class="card cfg">
+    <span class="emoji">🧳</span>
+    <p class="big">Your take-anywhere folder</p>
+    <p class="say">Yes &mdash; that folder is <b>~/.omp</b>. Copy it onto another Mac as <b>~/.omp</b> and OMP inherits <b>everything</b>: your settings, all profiles, your logins, your plugins.</p>
+    <ul>
+      <li><b>Whole thing = <span class="num">5.5 GB</span></b> &mdash; you remembered ~5 GB, spot on.</li>
+      <li><b>Does it include chat history? Yes</b> &mdash; about <span class="num">2.3 GB</span> of it is your saved conversations (3,267 of them).</li>
+      <li><b>But you don&rsquo;t need the big version.</b> Your settings + <b>every login</b> + plugins is only <span class="num">~103 MB</span>. Skip the chat history, the browser files, the logs and an old backup, and you inherit every setting and login in a <b>~100 MB folder</b>.</li>
+      <li><b>Cloud:</b> yes &mdash; drop that folder in a cloud drive, pull it as ~/.omp on any Mac. Two care points: lock the login file, and note your OMP-5 login token is tied to the machine (the move-guide covers both).</li>
+    </ul>
+    <p class="say" style="margin-top:10px"><b>Want me to package it?</b> I can make a <b>one-command bundle</b> &mdash; lean (~100 MB) or full-with-history &mdash; ready to drop on any computer. Just say which.</p>
+  </div>
+
+  <p class="foot">Short version: the judge/crash-finder are planned, fit cleanly, and wait on your go; Idea Baker + Mr Tester run on without you; and your whole OMP setup is a copyable folder &mdash; ~100 MB lean, or 5.5 GB with all your chat history.<br>
+  <a href="./">all ELI5 pages</a> 🗒️</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

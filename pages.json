@@ -1,5 +1,12 @@
 [
   {
+    "file": "full-update-sep10-late.html",
+    "title": "Your full update — judge, fleet, take-anywhere folder",
+    "desc": "Judge/reviewer status, approvals, blockers, what carries on, and a copyable OMP folder",
+    "date": "2026-09-10",
+    "emoji": "📋"
+  },
+  {
     "file": "full-team-breakdown-sep10.html",
     "title": "Where every team stands",
     "desc": "Full breakdown: Debugger done, Idea Baker + Mr Tester really building",
