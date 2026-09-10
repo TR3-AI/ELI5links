@@ -21,8 +21,9 @@
   .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
   .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
   .big{font-size:22px; font-weight:800; margin:0 0 6px}
-  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5; text-align:left}
   .say b{color:var(--ink)}
+  .say a{color:#6b4fd0; font-weight:700}
   .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
   .q{background:linear-gradient(160deg,#eef4ff,#fff)}
   .ok{background:linear-gradient(160deg,#eaffef,#fff)}
@@ -34,82 +35,58 @@
 <div class="wrap">
 
   <h1>Where things stand 🧭</h1>
-  <p class="sub">Your teams, plain and simple &mdash; 10 Sep</p>
+  <p class="sub">Your teams, plain and simple &mdash; 10 Sep, evening</p>
 
   <div class="card ok">
-    <span class="emoji">✅</span>
-    <span class="num">1</span>
-    <p class="big">Feature maps &mdash; done</p>
-    <p class="say"><b>Signed off.</b> The fair test and its video are finished and checked. Nothing left here.</p>
+    <span class="emoji">🔎</span>
+    <p class="big">Debugger &mdash; one step from done</p>
+    <p class="say">The auto-checker that stops bad code shipping. Steps 3, 4 and 5 are built and I checked <b>each one myself</b> &mdash; every test green, and I confirmed it <b>can&rsquo;t be fooled</b>: a secretly-changed check trips it, and broken tests stay broken. It&rsquo;s on the <b>last step now</b> (step 6). Still saved on a branch &mdash; <b>nothing shipped to your main yet</b>.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
-    <span class="emoji">🐞</span>
-    <span class="num">2</span>
-    <p class="big">Debugger &mdash; nearly there</p>
-    <p class="say">The <b>&ldquo;stop a bad commit&rdquo;</b> safety net is approved and the team is planning the build. That&rsquo;s the one thing left. They build it, I check it, it moves on.</p>
+    <span class="emoji">🧑‍🍳</span>
+    <p class="big">Idea Baker &mdash; building</p>
+    <p class="say">Repo and plan done and checked. Now building the core: a skill that opens <b>3 model voices side by side</b> &mdash; Grok 4.6, Fable 5.1, GPT-5.6 &mdash; with an <b>empty slot for a 4th</b>. On a branch; main stays locked till you say.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
-  <div class="card">
-    <span class="emoji">📱</span>
-    <span class="num">3</span>
-    <p class="big">Your phone-alert app &mdash; still hunting</p>
-    <p class="say">The search had <b>stalled</b>; the manager caught it and restarted it. Found your drive (<b>Extreme SSD</b>) with your Codex and Projects folders. Nothing found yet &mdash; I&rsquo;ll tell you the moment it turns up.</p>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
-    <span class="emoji">⚙️</span>
-    <span class="num">4</span>
-    <p class="big">Settings &mdash; almost fully global</p>
-    <p class="say">OMP-5 and Moon match on <b>everything but one thing</b>: Moon has <b>no login of its own</b> set up (no token, no address). So it&rsquo;s not quite done. See your call below.</p>
-  </div>
-
-  <div class="arrow">⬇️</div>
-
-  <div class="card">
+  <div class="card ok">
     <span class="emoji">🧳</span>
-    <span class="num">5</span>
-    <p class="big">Take it to any computer / the cloud</p>
-    <p class="say">The team is writing a <b>tested step-by-step</b> for moving your setup to a new machine or the cloud. Quick version now: copy your <b>~/.omp</b> folder, or keep it in a synced/cloud folder. Full guide coming.</p>
+    <p class="big">Move OMP to another computer &mdash; DONE</p>
+    <p class="say">Your guide is <b>live</b> and now spells out your <b>global config + OMP-5 + OMP-Moon by name</b>: what to copy, what to skip, two safe ways to move it, and the one login-file lock-down. <a href="move-omp-to-another-computer.html">Open the guide &rarr;</a></p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
-    <span class="emoji">🖥️</span>
-    <span class="num">6</span>
-    <p class="big">Teams tidied</p>
-    <p class="say">New <b>Mr Tester</b> team is up. Fixed <b>Idea Baker</b> &mdash; its tester was sitting on the left; now the <b>manager is on the left</b>, developer and tester on the right.</p>
+    <span class="emoji">🧪</span>
+    <p class="big">Mr Tester &mdash; building</p>
+    <p class="say">The proof-shot system. The test-report part is <b>merged to its staging</b> (PR #3); now wiring a <b>real code link on every failure</b> so you click straight to the line that broke.</p>
   </div>
 
   <div class="arrow">⬇️</div>
 
   <div class="card">
-    <span class="emoji">🌅</span>
-    <span class="num">7</span>
-    <p class="big">Mornings handled</p>
-    <p class="say">At <b>8:30</b> I&rsquo;ll check every active team, let the ones that don&rsquo;t need you carry on, and send you a morning report. <b>All day</b>: if the work checks out (manager + me), I move it to the next step without waiting &mdash; only stopping when something truly needs you.</p>
+    <span class="emoji">🗂️</span>
+    <p class="big">Idea Slicer &mdash; done, resting</p>
+    <p class="say">Feature maps and the fair-test video are signed off &mdash; nothing open. Three big teams (DMS, HAP, SM) are idle and ready when you want them.</p>
   </div>
 
-  <p class="sub" style="margin:34px 0 10px">Your call 👇</p>
+  <p class="sub" style="margin:34px 0 10px">4 things only you can decide 👇</p>
 
   <div class="card q">
-    <span class="emoji">🔑</span>
-    <p class="big">Moon&rsquo;s login</p>
-    <p class="say"><b>1) What&rsquo;s up?</b> Moon has no login of its own &mdash; OMP-5 does.<br>
-    <b>2) Signing up for:</b> you&rsquo;d do a quick login for Moon (only you can &mdash; it&rsquo;s your account); I&rsquo;ll guide the steps.<br>
-    <b>3) You are deciding:</b> set Moon&rsquo;s own login up now, or leave it.<br>
-    <b>4) Results:</b> set it up &rarr; Moon works fully and we sign settings off; leave it &rarr; settings stay &ldquo;done except Moon&rdquo;.<br>
-    <b>I&rsquo;d:</b> set it up, so your settings are truly complete and portable.</p>
+    <span class="emoji">✅</span>
+    <p class="say">
+    <b>1) 4th model (Idea Baker).</b> Gemini isn&rsquo;t in OMP. Add a Google key, or swap to <b>deepseek-v4-pro</b> or <b>glm-5.3</b>. I&rsquo;d swap &mdash; no key needed.<br><br>
+    <b>2) Idea Baker README.</b> Say yes and I merge PR #1, so the full README shows on the repo home page.<br><br>
+    <b>3) Ship the Debugger.</b> Tell me when to promote it past &ldquo;saved on a branch.&rdquo;<br><br>
+    <b>4) OMP-Moon login.</b> Set up its own login when you&rsquo;re back at your Mac.</p>
   </div>
 
-  <p class="foot">Short version: feature maps done; debugger one step from built; phone app still being found; settings global bar Moon&rsquo;s login (your call).<br>
+  <p class="foot">Short version: your move-computer guide is live; Debugger is one step from done; Idea Baker and Mr Tester still building; 4 small calls waiting on you.<br>
   <a href="./">all ELI5 pages</a> 🗒️</p>
 
 </div>
