@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Move your OMP setup to another computer (or the cloud)</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  /* Card + the expanding corner color-reveal adapted from Uiverse.io "strange-jellyfish-63" (see THIRD_PARTY_NOTICES.md) */
+  .card{position:relative; overflow:hidden; isolation:isolate; background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .card::before{content:""; position:absolute; inset:0; z-index:-1;
+    background:radial-gradient(circle at 85% 12%, rgba(155,110,255,.16), rgba(120,150,255,.10) 55%, transparent 74%);
+    clip-path:circle(68px at 85% 12%);
+    transition:clip-path .55s ease-in-out}
+  .card:hover::before{clip-path:circle(420px at 85% 12%)}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5; text-align:left}
+  .say b{color:var(--ink)}
+  .say code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; background:#f3f0ff; color:#5a3fd0; padding:1px 6px; border-radius:6px; word-break:break-word}
+  .lbl{display:inline-block; font-weight:800; color:#6b4fd0; margin-top:4px}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Move your OMP setup 🧳</h1>
+  <p class="sub">To another computer, or the cloud &mdash; same setup, no re-setup</p>
+
+  <div class="card ok">
+    <span class="emoji">💡</span>
+    <p class="big">The big idea</p>
+    <p class="say">Your whole OMP folder is <b>5.4&nbsp;GB</b>, but only about <b>25&nbsp;MB</b> is
+    the &ldquo;real you&rdquo; &mdash; your settings and your logins. Copy that small part,
+    skip the big rebuildable junk, and OMP works <b>exactly the same</b> on the new machine.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">📦</span>
+    <p class="big">Copy the important ~25 MB, skip the rest</p>
+    <p class="say"><span class="lbl">COPY:</span> your config files, your skills / extensions / rules,
+    and your login vault &mdash; the <code>agent.db</code> file inside each profile &mdash; plus the
+    <code>.env</code> files and profile&nbsp;5&rsquo;s <code>auth-broker.token</code>.<br><br>
+    <span class="lbl">SKIP:</span> <code>logs/</code>, <code>cache/</code>, the <code>run/</code> folder,
+    the downloaded Chrome (<code>puppeteer/</code>), and old chat <code>sessions/</code>. These are big
+    and rebuild themselves; copying <code>run/</code> can even <b>break things</b> (it holds live sockets
+    for the machine you&rsquo;re leaving).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">🔀</span>
+    <p class="big">Pick ONE of two ways to move it</p>
+    <p class="say"><span class="lbl">A) Straight to another computer</span><br>
+    <b>1.</b> Copy once with <code>rsync -a</code> (or <code>scp</code>). The <code>-a</code> keeps the
+    secret files&rsquo; locked permissions.<br>
+    <b>2.</b> For each <code>agent.db</code>, do <b>NOT</b> copy the file raw &mdash; it&rsquo;s a live
+    database. Run <code>sqlite3 old.db ".backup new.db"</code> to get a clean copy.<br>
+    <b>3.</b> On the new machine, lock the secret files: <code>chmod 600</code> on every
+    <code>agent.db</code>, every <code>.env</code>, and every token file.<br><br>
+    <span class="lbl">B) Through the cloud</span><br>
+    <b>1.</b> Put <b>ONLY</b> the text settings in a <b>PRIVATE</b> git / dotfiles repo. Add a
+    <code>.gitignore</code> that blocks <code>agent.db</code>, <code>.env</code>, and token files
+    &mdash; never push a login to the cloud.<br>
+    <b>2.</b> Move the secret files (<code>agent.db</code> / <code>.env</code> / token) once, by hand,
+    over a secure copy &mdash; not through the synced folder.<br>
+    <b>3.</b> Never point iCloud / Dropbox / Google Drive at a live <code>agent.db</code> /
+    <code>.env</code> / token <b>while OMP is running</b> &mdash; it grabs half-written files and
+    corrupts them.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">🔑</span>
+    <p class="big">Your logins come with you</p>
+    <p class="say">Your logins live inside <code>agent.db</code>, so once you copy it they <b>just work</b>
+    &mdash; no logging in again (this was tested: a copied setup answered from real providers with
+    <b>zero login prompts</b>). ONE exception: profile&nbsp;5 uses a local &ldquo;auth broker.&rdquo;
+    On the new machine either <b>(a)</b> start it: <code>omp auth-broker serve</code>, or <b>(b)</b>
+    turn it off with one line so it uses the copied logins instead:
+    <code>omp config reset auth.broker.url</code>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">4</span>
+    <span class="emoji">🔒</span>
+    <p class="big">One safety fix, do it now</p>
+    <p class="say">Your <code>profiles/moon/agent/.env</code> is readable by <b>anyone on the machine</b>
+    (mode 644) even though it holds raw API keys. Lock it:
+    <code>chmod 600 ~/.omp/profiles/moon/agent/.env</code>.</p>
+  </div>
+
+  <p class="foot">Tested for real &mdash; the ~25 MB essential set was copied into a fresh HOME and OMP ran identically (version, config path, and live model replies on the default, moon, and profile-5 setups). Full technical method: omp-portability-method.md.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+<script src="nav.js" defer></script>
+</body>
+</html>

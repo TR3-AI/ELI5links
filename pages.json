@@ -1,5 +1,12 @@
 [
   {
+    "file": "move-omp-to-another-computer.html",
+    "title": "Move your OMP setup to another computer (or the cloud)",
+    "desc": "A tested, plain-English guide to moving your OMP setup to a new computer or the cloud. Your ~/.omp folder is 5.4 GB but only about 25 MB is the real 'you' — your settings and your login vault (the agent.db file in each profile). Copy that small set and skip the rebuildable junk (logs, cache, run/, the downloaded Chrome, old sessions). Your logins travel inside agent.db, so there's no logging in again — proven by copying into a fresh temp HOME and getting live model replies with zero prompts; the one exception is profile 5's local auth-broker (start it, or switch it off with one line). Plus two safe ways to move it (rsync, or a PRIVATE git repo with the secrets git-ignored — never a token in the cloud) and one safety fix: lock moon's .env with chmod 600.",
+    "date": "2026-09-10",
+    "emoji": "🧳"
+  },
+  {
     "file": "where-things-stand-sep10.html",
     "title": "Where things stand",
     "desc": "Plain status across your teams (10 Sep): feature maps done + signed off; the debugger's 'stop a bad commit' net is approved and one build step from finished; your phone-alert app is still being searched for on the Extreme SSD (the stalled scan was restarted); settings are global on OMP-5 and Moon except Moon has no login of its own; a tested guide for moving your setup to another computer or the cloud is being written; the new Mr Tester team is up and Idea Baker's layout was fixed; and an 8:30 morning standup now keeps teams moving without you. One call for you: set up Moon's own login.",
