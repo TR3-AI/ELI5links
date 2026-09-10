@@ -91,7 +91,12 @@
       <li><b>The debugger</b>: can we bring in a <b>debugger skill (CodeLLDB)</b> to auto-find where a crash/freeze happened?</li>
       <li><b>&ldquo;Will it fit?&rdquo;</b> &mdash; <b>Yes, by design.</b> Both slots are built as <b>plug-in points</b> (the judge takes any model, the debugger takes CodeLLDB) &mdash; a skill drops in without rewiring.</li>
     </ul>
-    <p class="say" style="margin-top:10px">What&rsquo;s still owed you: the team&rsquo;s pick of <b>which</b> skill is best for each. They hadn&rsquo;t come back &mdash; <b>I&rsquo;ve just chased them</b> and I&rsquo;ll relay their plain-words recommendation.</p>
+    <p class="say" style="margin-top:10px"><b>The team just came back &mdash; their pick:</b></p>
+    <ul>
+      <li><b>AI judge:</b> a strong <b>Opus-class</b> judge run through OMP&rsquo;s built-in <b>reviewer</b> agent (plus <b>security-reviewer</b>), following the plan&rsquo;s rubric. Not the Plannotator review tool (that&rsquo;s a hands-on browser UI). <b>Greptile stays your final PR check</b> &mdash; this judge runs just before it, so issues get fixed first.</li>
+      <li><b>Crash-finder:</b> <b>CodeLLDB</b> through OMP&rsquo;s debug tool &mdash; not plain LLDB (that&rsquo;s the backup), and not a written &ldquo;skill&rdquo; (a skill is a guide, not a live debugger). CodeLLDB is <b>already installed here</b> &mdash; one tiny config line wires it in.</li>
+    </ul>
+    <p class="say" style="margin-top:8px"><b>Both fit cleanly. Build waits for your go.</b></p>
   </div>
 
   <div class="card">
