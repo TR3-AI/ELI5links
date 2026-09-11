@@ -1,5 +1,12 @@
 [
   {
+    "file": "answers-and-fixes-on-the-way.html",
+    "title": "Answers + fixes on the way",
+    "desc": "Debugger PR #2 (steps 0-6) is now MERGED to staging; plan-conformance proof coming. ProofShot = stock installed tool (TR3-AI/proofshot fork is unmodified, pinned to upstream), not customised. Emulator code: local ~/Documents/Codex/omp-custom-app-status-alerts-staging + GitHub TR3-AI/omp-custom-app@codex/custom-app-status-alerts-staging, last commit ee72129 'Bobby save', building from there. Full 7-step emulator finish plan spelled out. Fixes sent: Idea Baker (agents.md, IdeaBaker rename, majority rule, Matt Pocock Grill Me skill), Mr Tester (create-UI-and-integrate step).",
+    "date": "2026-09-11",
+    "emoji": "📋"
+  },
+  {
     "file": "i-checked-the-code-myself.html",
     "title": "I checked the code myself",
     "desc": "First-hand code verification of your 5 flags: Matt Pocock 'Grill Me' skill is NOT integrated (grill is home-made + direct Fable call); trigger is /skill:idea-baker not IdeaBaker; synthesis says word-for-word 'keep outliers visible, do not average' (opposite of majority rule); agents.md file missing though modularity IS in the code; Mr Tester only serves the feature folder and does NOT build+integrate a minimal UI (planned PLAN.md:164, unbuilt). The one-answer-plus-3-saved-to-issues flow is correct.",
