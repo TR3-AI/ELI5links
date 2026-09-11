@@ -34,29 +34,31 @@
 <div class="wrap">
 
   <h1>Where every team is + who needs you &#129504;</h1>
-  <p class="sub">a status round from all 6 active managers</p>
+  <p class="sub">a status round &mdash; and the emulator app, checked just now</p>
 
   <div class="card q">
     <span class="emoji">&#128241;</span>
-    <p class="big">First &mdash; the emulator app's code (exact)</p>
-    <p class="say">It's the <b>OMP Mobile</b> app. The code that built the <b>exact app on
-    the emulator</b> lives at <b>~/Documents/Codex/omp-custom-app-status-alerts-staging</b>
-    (the tested app file sits right inside it). A second copy:
-    <b>~/Documents/Codex/omp-custom-app</b>. Now on <b>GitHub</b> too:
-    <b>TR3-AI/omp-custom-app</b>. All the screens + the backend are there.</p>
+    <p class="big">First &mdash; the emulator app (found + audited)</p>
+    <p class="say">It's the <b>OMP Mobile</b> app. We found it and just did a <b>read-only
+    audit</b>. Code: <b>~/Documents/Codex/omp-custom-app-status-alerts-staging</b>, and on
+    GitHub at <b>TR3-AI/omp-custom-app</b> (branch <b>codex/custom-app-status-alerts-staging</b>).
+    The app is <b>complete and unit-tested</b>; the last build (Aug 14) already has the newest
+    work, so nothing is lost. There's a clear <b>7-step plan to rebuild and finish it</b>.
+    <b>Needs you:</b> your <b>GO to resume</b> &mdash; and, only for a full live run, the real
+    tokens + servers.</p>
   </div>
 
-  <p class="sub" style="margin:30px 0 8px">Your 6 teams &#128071;</p>
+  <p class="sub" style="margin:30px 0 8px">Your teams &#128071;</p>
 
   <div class="card">
     <span class="num">1</span>
     <span class="emoji">&#129514;</span>
-    <p class="big">Mr Tester &mdash; almost done</p>
-    <p class="say">The desktop tester's click/type code is <b>built and passes its own 7
-    tests</b>. <b>Needs you (the one real blocker):</b> turn on <b>two Mac switches</b>
-    for omp &mdash; Settings &rarr; Privacy &amp; Security &rarr; <b>Accessibility</b> and
-    <b>Input Monitoring</b> &mdash; then <b>restart omp</b>. Also: <b>1 PR ready</b> to
-    approve.</p>
+    <p class="big">Mr Tester &mdash; v1 shipped</p>
+    <p class="say">The whole v1 testing toolkit is built and <b>you merged it to main today</b>.
+    The desktop click/type lane (Phase 5) is <b>built too but not merged</b> &mdash; its live run
+    needs <b>two Mac switches</b> for omp: Settings &rarr; Privacy &amp; Security &rarr;
+    <b>Accessibility</b> and <b>Input Monitoring</b>, then <b>restart omp</b>. That's the one
+    thing left. <b>No PR is open</b> right now.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -64,10 +66,11 @@
   <div class="card">
     <span class="num">2</span>
     <span class="emoji">&#127874;</span>
-    <p class="big">Idea Baker &mdash; done (all 6 parts)</p>
-    <p class="say">Built and checked, sitting on staging. <b>Needs you:</b> <b>approve its
-    PR</b> to ship, and a <b>money call</b> &mdash; one voice (Grok) hit a
-    &ldquo;payment needed&rdquo; wall: <b>add credit, swap it, or run without it</b>.</p>
+    <p class="big">Idea Baker &mdash; done, not shipped yet</p>
+    <p class="say">All 6 parts built and checked, sitting on staging &mdash; but <b>no pull
+    request is open yet</b> (you were right). <b>Needs you:</b> say <b>go</b> and I'll open the
+    ship PR, plus a <b>money call</b> &mdash; one voice (Grok) hit a &ldquo;payment needed&rdquo;
+    wall: <b>add credit, swap it, or run without it</b>.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -76,8 +79,8 @@
     <span class="num">3</span>
     <span class="emoji">&#128027;</span>
     <p class="big">Debugger &mdash; done</p>
-    <p class="say">The bug-watcher is fully built and double-checked, ready as one pull
-    request (10 commits, nothing shipped yet). <b>Needs you:</b> your <b>GO to ship it to
+    <p class="say">The bug-watcher is fully built and double-checked, <b>ready to open as one pull
+    request</b> (10 commits, nothing shipped yet). <b>Needs you:</b> your <b>GO to ship it to
     main</b>. Parked on purpose till then.</p>
   </div>
 
@@ -97,9 +100,10 @@
   <div class="card ok">
     <span class="num">5</span>
     <span class="emoji">&#128421;&#65039;</span>
-    <p class="big">0x Trader Divergence &mdash; no blocker</p>
-    <p class="say">This is the team that <b>found the app's code above</b>, and the newest
-    <b>24 files are now saved</b> to GitHub. <b>Needs you:</b> nothing pressing.</p>
+    <p class="big">0x Trader Divergence &mdash; audit done, no blocker</p>
+    <p class="say">This is the team that <b>found the app's code</b> and just finished the
+    read-only audit in the top card. <b>Needs you:</b> nothing pressing &mdash; the only decision
+    is the emulator <b>GO</b> above.</p>
   </div>
 
   <div class="arrow">&#11015;&#65039;</div>
@@ -112,22 +116,33 @@
     nothing &mdash; just your <b>full build plan</b> when you're ready to start it.</p>
   </div>
 
+  <div class="card q">
+    <span class="emoji">&#129513;</span>
+    <p class="big">New: Atomic Features</p>
+    <p class="say">Your new project has started. The <b>Idea Slicer team</b> made the repo
+    (<b>TR3-AI/atomic-features</b>, main + staging) and is building the first example &mdash;
+    <b>&ldquo;dynamic stop loss&rdquo;</b> broken into its smallest parallel-buildable pieces.
+    It's Feature Map with <b>no behaviour and no lifecycle</b> &mdash; just the atomic pieces.
+    Link coming when the example renders.</p>
+  </div>
+
   <p class="sub" style="margin:34px 0 10px">So &mdash; who needs you? &#128073;</p>
 
   <div class="card q">
     <span class="emoji">&#9989;</span>
-    <p class="big">4 things, in order</p>
-    <p class="say"><b>1. Mr Tester (blocker):</b> flip the 2 Mac switches + restart omp.<br>
-    <b>2. Ship approvals:</b> Mr Tester's PR, Idea Baker's PR, Debugger's go-to-main.<br>
-    <b>3. Idea Baker:</b> the Grok &ldquo;payment needed&rdquo; call.<br>
-    <b>4. 0xTrader:</b> set it up or keep it parked &mdash; and give it an idea.<br>
+    <p class="big">5 things, in order</p>
+    <p class="say"><b>1. Emulator (OMP Mobile):</b> your GO to resume building it.<br>
+    <b>2. Mr Tester (blocker):</b> flip the 2 Mac switches + restart omp for the desktop lane.<br>
+    <b>3. Idea Baker:</b> say go to open its ship PR (nothing's open yet) + the Grok money call.<br>
+    <b>4. Debugger:</b> your GO to ship its pull request to main.<br>
+    <b>5. 0xTrader:</b> set it up or keep it parked &mdash; and give it an idea.<br>
     Everyone else: <b>no blocker</b>.</p>
   </div>
 
-  <p class="foot">Short version: app code is at
-  <b>~/Documents/Codex/omp-custom-app</b> (now on GitHub). <b>Mr Tester</b> needs 2 Mac
-  switches flipped; a few things are ready to <b>ship</b> on your say-so; <b>0xTrader</b>
-  needs a direction. Nothing on fire.<br>
+  <p class="foot">Short version: the emulator app is <b>found + audited</b> (ready to resume on
+  your GO). <b>Mr Tester v1 is merged</b>; its desktop lane needs 2 Mac switches. <b>Idea Baker</b>
+  and <b>Debugger</b> are built and waiting for your go to ship. <b>Atomic Features</b> has kicked
+  off. Nothing on fire.<br>
   <a href="./">all ELI5 pages</a></p>
 
 </div>

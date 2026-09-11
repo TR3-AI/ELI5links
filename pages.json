@@ -2,7 +2,7 @@
   {
     "file": "where-teams-are-who-needs-you.html",
     "title": "Where every team is + who needs you",
-    "desc": "Status round from all 6 active managers: Mr Tester needs 2 macOS switches flipped (blocker) + PR; Idea Baker needs PR approval + a Grok payment call; Debugger needs go-to-main; 0xTrader parked needs setup+an idea; TTS & 0x Trader Divergence no blocker; plus the exact emulator app code path",
+    "desc": "Status + the emulator app (OMP Mobile: found, read-only audited, ready to resume on your GO); Mr Tester v1 merged to main (desktop lane still needs 2 Mac switches); Idea Baker + Debugger built and waiting on your go to ship; Atomic Features project kicked off.",
     "date": "2026-09-11",
     "emoji": "🧭"
   },
