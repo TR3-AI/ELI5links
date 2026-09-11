@@ -1,5 +1,12 @@
 [
   {
+    "file": "i-checked-the-code-myself.html",
+    "title": "I checked the code myself",
+    "desc": "First-hand code verification of your 5 flags: Matt Pocock 'Grill Me' skill is NOT integrated (grill is home-made + direct Fable call); trigger is /skill:idea-baker not IdeaBaker; synthesis says word-for-word 'keep outliers visible, do not average' (opposite of majority rule); agents.md file missing though modularity IS in the code; Mr Tester only serves the feature folder and does NOT build+integrate a minimal UI (planned PLAN.md:164, unbuilt). The one-answer-plus-3-saved-to-issues flow is correct.",
+    "date": "2026-09-11",
+    "emoji": "🔍"
+  },
+  {
     "file": "two-rules-now-locked-in.html",
     "title": "Two rules, now locked in",
     "desc": "Both rules cemented enforceable and un-skippable: (1) any reply over 350 characters must become an ELI5 link, never a long chat message; (2) 'done' now means truly finished AND built to the plan, with plan questions raised BEFORE building. Manager verifies first-hand; Ops re-checks the manager against the plan itself and never takes the manager's word. Written into the shared rule book + hardened manager rules; the old 'nobody re-checks the manager' line was replaced.",
