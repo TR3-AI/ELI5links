@@ -1,5 +1,12 @@
 [
   {
+    "file": "update-sep11-tts-team-memory.html",
+    "title": "Quick update — voice team, emulator hunt, your memory",
+    "desc": "Memory is on; new TTS Voice Streaming team + repo ready; 0x Trader hunting the emulator; safe DeepSeek key handover",
+    "date": "2026-09-11",
+    "emoji": "⚡"
+  },
+  {
     "file": "morning-standup-sep11.html",
     "title": "Morning update — who's moving, what needs you",
     "desc": "Mr Tester building; four teams done and waiting; four quick calls + one login for you",
