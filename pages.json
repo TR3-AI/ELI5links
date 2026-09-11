@@ -1,5 +1,12 @@
 [
   {
+    "file": "sign-off-rule-live.html",
+    "title": "Your sign-off rule is live — and already working",
+    "desc": "Rule 22 in the rulebook, told to all 8 managers, already caught two finished jobs; plus your phone app and its code, found",
+    "date": "2026-09-11",
+    "emoji": "✅"
+  },
+  {
     "file": "update-sep11-tts-team-memory.html",
     "title": "Quick update — voice team, emulator hunt, your memory",
     "desc": "Memory is on; new TTS Voice Streaming team + repo ready; 0x Trader hunting the emulator; safe DeepSeek key handover",
