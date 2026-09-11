@@ -1,5 +1,12 @@
 [
   {
+    "file": "answer-menus-from-your-phone.html",
+    "title": "I can answer a frozen menu for you now",
+    "desc": "Layered menu-watching + a safe tool to type your menu pick into a frozen pane; Mr Tester PR #1 ready to approve (Idea Baker none); phone app builds now; 3 decisions: Mr Tester A/B, merge PR #1, save 24 unsaved files",
+    "date": "2026-09-11",
+    "emoji": "📱"
+  },
+  {
     "file": "frozen-panes-and-updates.html",
     "title": "Two teams are frozen waiting on you",
     "desc": "Mr Tester (permission) + Polysports betting (merge/restart, engine OFF since Sep 9) both need your call; plus 0x Trader/Debugger/Idea Baker updates and your new question-watcher",

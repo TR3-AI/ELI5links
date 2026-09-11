@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ops can answer frozen menus for you &mdash; plus 3 decisions</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Ops can now answer a frozen menu for you &#128241;</h1>
+  <p class="sub">what I built today &mdash; and 3 things that need you</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#129482;</span>
+    <p class="big">Layered menu-watching &mdash; built</p>
+    <p class="say">When a helper pops a pop-up menu, its screen <b>freezes</b> and you
+    can't see it. Now it's watched in two layers: <b>each manager watches its own
+    workers</b> (a worker's menu is often invisible to the manager), and <b>Ops
+    watches the managers</b>. So a stuck menu anywhere gets passed up to you.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#9000;&#65039;</span>
+    <p class="big">I can type your answer in &mdash; built &amp; tested</p>
+    <p class="say">New tool: when you tell me your pick, I <b>type it into the frozen
+    pane for you</b> &mdash; you never have to walk to the Mac. It's careful: it only
+    acts if a menu is really open, and it <b>double-checks it's on the right option
+    before pressing enter</b>. I already tested it live on Mr Tester's menu (moved the
+    cursor and moved it back) <b>without choosing anything</b>.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">One PR is ready to approve</p>
+    <p class="say"><b>Mr Tester</b> has <b>one open pull request (#1)</b> waiting to go
+    into <b>main</b> &mdash; it's clean and ready (20 commits, +4,756 lines). <b>Idea
+    Baker has none open</b> yet. (See decision 2.)</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <span class="emoji">&#128241;</span>
+    <p class="big">The phone app &mdash; found and checked</p>
+    <p class="say">The OMP-Mobile app code is here and matches the app that was
+    tested. <b>The debug app builds and runs right now</b> (backend needs no installs).
+    To run the <b>whole</b> thing end-to-end you'd still need the secret keys and a few
+    outside links (a Tailscale address, a bridge machine, the Railway alert server).
+    One risk &rarr; decision 3.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">3 things that need you &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#128377;&#65039;</span>
+    <p class="big">1) Mr Tester's stuck menu</p>
+    <p class="say"><b>1) What's up?</b> Mr Tester's "desktop lane" (the part that tests
+    real Mac apps by clicking and typing like a person) is <b>frozen</b> &mdash; macOS
+    won't let it use the keyboard/mouse until you flip two permission switches.<br>
+    <b>2) Signing up for:</b> <b>A)</b> flip two Mac switches (Settings &rarr; Privacy
+    &amp; Security &rarr; Accessibility + Input Monitoring) for the terminal &mdash; only
+    you can. <b>B)</b> no settings change; it builds a small app it owns and tests that.<br>
+    <b>3) You are deciding:</b> <b>A</b> grant the Mac permission (matches the plan), or
+    <b>B</b> the self-running owned demo (no permission).<br>
+    <b>4) Results:</b> <b>A</b> &rarr; it drives <b>real</b> Mac apps with real
+    clicks/typing, grounded in real screenshots &mdash; a true desktop tester; cost is a
+    real security grant (it controls your keyboard/mouse). <b>B</b> &rarr; works now, no
+    settings touched, proof still real &mdash; but only for apps we build to self-run,
+    <b>not</b> any Mac app, so it doesn't prove it can operate a real screen.<br>
+    <b>I'd: A</b> &mdash; the only path to a real desktop tester, and a one-time switch
+    only you can flip. Say <b>A</b> or <b>B</b> and I'll type it into the pane for you
+    (that's the new tool's first real use).</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128273;</span>
+    <p class="big">2) Approve Mr Tester PR #1 &rarr; main?</p>
+    <p class="say"><b>1) What's up?</b> Mr Tester's finished v1 is sitting in one open
+    pull request, waiting to go into <b>main</b>.<br>
+    <b>2) Signing up for:</b> merging staging &rarr; main. It's <b>clean and
+    mergeable</b>. I never merge to main without your yes.<br>
+    <b>3) You are deciding:</b> approve the merge, or hold.<br>
+    <b>4) Results:</b> approve &rarr; it ships to main. Hold &rarr; stays on staging,
+    nothing lost.<br>
+    <b>I'd: approve</b> &mdash; it's green and it's the finished v1.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128190;</span>
+    <p class="big">3) Save the 24 unsaved app files?</p>
+    <p class="say"><b>1) What's up?</b> The newest phone-app edits (24 files, incl. the
+    newest screens) are <b>only on this Mac</b> &mdash; not saved to GitHub, on a branch
+    that was never pushed.<br>
+    <b>2) Signing up for:</b> I have the 0x Trader team <b>commit + push</b> those 24
+    files to their staging branch.<br>
+    <b>3) You are deciding:</b> save them now, or leave as-is.<br>
+    <b>4) Results:</b> save &rarr; the latest work is <b>backed up</b> and buildable by
+    anyone. Leave &rarr; a crash or cleanup could <b>lose it</b>.<br>
+    <b>I'd: save now.</b></p>
+  </div>
+
+  <p class="foot">Short version: menu-watching is now <b>layered</b> and I can <b>type
+  your menu pick in for you</b>. <b>Mr Tester PR #1</b> is ready to approve; Idea Baker
+  has none. The phone app <b>builds now</b>. Need you on <b>3</b> things above.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
