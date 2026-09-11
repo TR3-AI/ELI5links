@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning update &mdash; who's moving, what needs you</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>&#9728;&#65039; Morning update</h1>
+  <p class="sub">Who's moving, what's stuck, and what needs you &mdash; Sept 11</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128296;</span>
+    <p class="big">One team is building right now</p>
+    <p class="say"><b>Mr Tester</b> is moving this morning. Its builder is doing the
+    shared part of the testing tool &mdash; the part that <b>needs nothing from you</b>.
+    I set it going at the standup, so it's not sat waiting.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#9989;</span>
+    <p class="big">Four teams finished</p>
+    <p class="say"><b>0x Trader</b>, <b>Debugger</b>, <b>Idea Baker</b>, and
+    <b>Idea Slicer</b> are all done with their work. They're just waiting on your
+    go-ahead to go live &mdash; that's the decisions below.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128274;</span>
+    <p class="big">One piece is stuck on you</p>
+    <p class="say">Mr Tester's last piece needs to <b>click and type like a real
+    person</b>. Your Mac lets it take screenshots but blocks it from driving the
+    mouse and keyboard. Everything else on that team keeps going; only this waits.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">What needs you &#128071;</p>
+
+  <div class="card q">
+    <span class="emoji">&#128640;</span>
+    <p class="big">1. Put Debugger live?</p>
+    <p class="say"><b>What's up:</b> Debugger's bug-watcher is done and I checked it
+    myself.<br><b>You're deciding:</b> put it into the real, locked code now, or hold.<br>
+    <b>Either way:</b> live now, or it just stays ready &mdash; nothing lost.<br>
+    <b>I'd:</b> put it live. It's ready.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#129386;</span>
+    <p class="big">2. Put Idea Baker live?</p>
+    <p class="say"><b>What's up:</b> Idea Baker is done &mdash; all six steps built and
+    checked.<br><b>You're deciding:</b> put it into the real, locked code now, or hold.<br>
+    <b>Either way:</b> live now, or stays ready.<br>
+    <b>I'd:</b> put it live.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128499;&#65039;</span>
+    <p class="big">3. Idea Baker's missing voice</p>
+    <p class="say"><b>What's up:</b> one of its three voices (Grok) is out of credits;
+    the other two work fine.<br><b>You're deciding:</b> add credits, swap it for another
+    voice, or ship with two.<br><b>I'd:</b> ship with two now, add credits whenever you
+    like. Full one-pager:
+    <a href="idea-baker-grok-credits-decision.html">the Grok voice call</a>.</p>
+  </div>
+
+  <div class="card q">
+    <span class="emoji">&#128421;&#65039;</span>
+    <p class="big">4. Mr Tester's Mac permission</p>
+    <p class="say"><b>What's up:</b> to finish, Mr Tester needs to control your mouse and
+    keyboard for testing.<br><b>You're deciding:</b> flip two switches in Settings to
+    allow it, or use a <b>self-running demo</b> instead (no switch).<br>
+    <b>Either way:</b> allow = full real-user testing (what the plan wants); demo = works
+    without the switch, but a bit less lifelike.<br>
+    <b>I'd:</b> allow it &mdash; it's what the plan needs.</p>
+  </div>
+
+  <div class="card ok">
+    <span class="emoji">&#128273;</span>
+    <p class="big">One small access thing</p>
+    <p class="say">The old <b>"moon"</b> setup on 0x Trader still needs you to <b>log in
+    once</b> so it has its key. Not urgent &mdash; just noting it so it doesn't get lost.</p>
+  </div>
+
+  <p class="foot">Short version: <b>Mr Tester is building</b>, the other four are
+  <b>done and waiting</b> on your go-live, and there are <b>four quick calls + one login</b>
+  for you.<br><a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
