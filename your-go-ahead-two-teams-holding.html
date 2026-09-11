@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your go-ahead: 2 teams are holding</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Your go-ahead &mdash; 2 teams holding &#9995;</h1>
+  <p class="sub">Both teams <b>stopped and asked before building</b> (the new rule, working twice). Every call is here, in one place. My pick is on each &mdash; say <b>&ldquo;go with your picks&rdquo;</b> and they build.</p>
+
+  <div class="card q">
+    <span class="emoji">&#129504;</span>
+    <span class="num">1</span>
+    <div class="big">Idea Baker &mdash; 3 calls</div>
+    <p class="say"><b>Trigger:</b> quick <code>/skill:IdeaBaker</code>, or a wrapper so a bare <b>/IdeaBaker</b> works exactly as you type. <b>I&rsquo;d: the bare /IdeaBaker.</b><br><br>
+    <b>Majority rule:</b> a judge groups who agrees &rarr; 2 agree = that answer &rarr; all 3 differ = you see all three and pick &rarr; if only 2 voices are up, same idea. <b>I&rsquo;d: accept as-is.</b><br><br>
+    <b>Grill Me:</b> the real Matt Pocock skill is a <b>live, one-question-at-a-time grilling</b> that explores your code (not a printed list), on Fable 5.1. <b>I&rsquo;d: yes &mdash; it&rsquo;s the genuine, better thing.</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="emoji">&#129513;</span>
+    <span class="num">2</span>
+    <div class="big">Mr Tester &mdash; 3 calls</div>
+    <p class="say"><b>What &ldquo;code with no UI&rdquo; means:</b> start with <b>JS/TS code</b> the browser can load; other languages (Rust/Python/CLI) a later add-on. <b>I&rsquo;d: JS/TS first.</b><br><br>
+    <b>How the UI gets built:</b> a <b>fixed template</b> that wires the feature&rsquo;s functions to buttons/inputs/an output box &mdash; <b>no AI writing UI</b> in the pipeline (stays predictable). <b>I&rsquo;d: the template.</b><br><br>
+    <b>Where the test hooks come from:</b> the spec gets a tiny <b>&ldquo;## UI&rdquo; block</b> (which function to call, which box ids) so checks stay human-written and exact. <b>I&rsquo;d: yes.</b></p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="emoji">&#128248;</span>
+    <span class="num">3</span>
+    <div class="big">ProofShot &mdash; 1 call</div>
+    <p class="say"><b>1) What&rsquo;s up?</b> You asked: are we customising ProofShot or not? Today it drives the <b>stock tool</b>; the fork is untouched.<br>
+    <b>2) Signing up for:</b> keep using the stock tool, and <b>update the plan</b> to say the goal is <b>&ldquo;one report shape, not one engine&rdquo;</b> &mdash; which we already hit. Customising the fork only pays off later (a shareable TR3-AI ProofShot, or hitting a limit).<br>
+    <b>3) You are deciding:</b> keep stock + fix the plan wording, or invest in customising the fork now.<br>
+    <b>4) Results:</b> keep stock &rarr; no wasted work, clears the &ldquo;3 engines&rdquo; ding. Customise &rarr; real effort, no payoff yet.<br>
+    <b>I&rsquo;d: keep stock + update the plan.</b></p>
+  </div>
+
+  <p class="foot">Short version: <b>7 small calls, all with a safe default.</b> Say <b>&ldquo;go with your picks&rdquo;</b> and both teams build to your intent &mdash; or change any single line.<br>
+  <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

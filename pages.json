@@ -1,5 +1,12 @@
 [
   {
+    "file": "your-go-ahead-two-teams-holding.html",
+    "title": "Your go-ahead: 2 teams are holding",
+    "desc": "Both teams stopped and asked BEFORE building (the new rule working). 7 small calls, each with a safe default: Idea Baker trigger (bare /IdeaBaker vs /skill:IdeaBaker), majority-rule mechanics, and making Grill Me the real interactive Matt Pocock skill on Fable 5.1; Mr Tester code-scope (JS/TS first), deterministic UI template (no LLM), and a spec ## UI block; plus ProofShot: keep the stock tool and reword the plan to 'one report shape, not one engine'. Say 'go with your picks' to approve all.",
+    "date": "2026-09-11",
+    "emoji": "✋"
+  },
+  {
     "file": "answers-and-fixes-on-the-way.html",
     "title": "Answers + fixes on the way",
     "desc": "Debugger PR #2 (steps 0-6) is now MERGED to staging; plan-conformance proof coming. ProofShot = stock installed tool (TR3-AI/proofshot fork is unmodified, pinned to upstream), not customised. Emulator code: local ~/Documents/Codex/omp-custom-app-status-alerts-staging + GitHub TR3-AI/omp-custom-app@codex/custom-app-status-alerts-staging, last commit ee72129 'Bobby save', building from there. Full 7-step emulator finish plan spelled out. Fixes sent: Idea Baker (agents.md, IdeaBaker rename, majority rule, Matt Pocock Grill Me skill), Mr Tester (create-UI-and-integrate step).",
