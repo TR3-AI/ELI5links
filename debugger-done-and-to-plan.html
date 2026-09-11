@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debugger — done AND to plan</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Debugger &mdash; done AND to plan &#9989;</h1>
+  <p class="sub">You wanted two sets of eyes. The manager checked it against the plan, then <b>I checked it myself in the real code</b> &mdash; and ran the tests with my own hands, not on anyone&rsquo;s word.</p>
+
+  <div class="card ok">
+    <span class="emoji">&#9989;</span>
+    <span class="num">1</span>
+    <div class="big">The verdict</div>
+    <p class="say">The watcher&rsquo;s <b>steps 0&ndash;6 are truly done and built to the plan</b>. <b>No deviations.</b> It&rsquo;s merged into staging (merge <code>17ae842</code>). This is the phase you asked to be checked before it comes to you.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128300;</span>
+    <span class="num">2</span>
+    <div class="big">What I did myself (not the manager&rsquo;s word)</div>
+    <p class="say">I pulled the merged code from staging, confirmed it&rsquo;s the real merge, <b>read the load-bearing files</b> myself, and <b>ran the whole test suite on my own machine</b>: <b>138 passed, 0 failed, 0 warnings</b>. Same number the manager reported &mdash; now independently confirmed.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#129513;</span>
+    <span class="num">3</span>
+    <div class="big">What each step does (all present in the code)</div>
+    <p class="say"><b>0</b> Measure first &mdash; a crash or freeze is marked <b>&ldquo;couldn&rsquo;t verify,&rdquo; not &ldquo;your code failed.&rdquo;</b> <b>1</b> A red actually bites (fails the run). <b>2</b> It hands the findings to the AI. <b>3</b> It <b>blocks a bad commit</b> while leaving edits open. <b>4</b> It <b>locks the graders</b> so the AI can&rsquo;t fudge its own pass. <b>5</b> Cleaner reports + real <b>fmt &amp; clippy</b> checks. <b>6</b> Proves the live loop, cancels stale runs.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="emoji">&#128027;</span>
+    <span class="num">4</span>
+    <div class="big">All 11 known bugs closed</div>
+    <p class="say">Every one of the 11 bugs on the plan&rsquo;s list is fixed, and each maps to a step above &mdash; I checked the fixes are really in the code (the grader lock, the fix-write-back race, the crash/timeout mislabel, the self-trigger loop, and the rest).</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#9888;&#65039;</span>
+    <span class="num">5</span>
+    <div class="big">Two honest notes (neither is a defect)</div>
+    <p class="say"><b>a)</b> One bug (#9) is <b>measured first, then fixed</b> later in the sequence &mdash; that&rsquo;s the honest measure-then-fix design, and a test proves the fix. <b>b)</b> Clippy shows some <b>non-failing style hints</b> in a passing report; the plan says leave those at &ldquo;warn.&rdquo; Plan-faithful &mdash; but I can make it quieter if you&rsquo;d prefer. Your call.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="emoji">&#128679;</span>
+    <span class="num">6</span>
+    <div class="big">Not in this yet (correctly)</div>
+    <p class="say">Three things are deliberately <b>not</b> in this phase: the <b>reviewer</b> (the anti-cheat judge), the <b>crash-triage debugger</b>, and <b>more languages</b>. All are separate later builds &mdash; they start on your go, not before.</p>
+  </div>
+
+  <p class="foot">Short version: <b>manager checked it, I re-checked it in the code and ran the tests myself &mdash; 138/0/0, done and to plan.</b> It&rsquo;s in staging; the hop to main is yours when you want it.<br>
+  <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

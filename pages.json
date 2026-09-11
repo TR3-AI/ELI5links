@@ -1,5 +1,12 @@
 [
   {
+    "file": "debugger-done-and-to-plan.html",
+    "title": "Debugger - done AND to plan",
+    "desc": "Two-eyes verification of the bug-watcher (steps 0-6): the manager checked it against the plan, then Ops re-checked FIRST-HAND - cloned staging (merge 17ae842), read the load-bearing code (classify #11 crash/timeout->BLOCKED not FAIL, step-4 SHA-256 grader lock, #10 safefix hash-guard, #8 configured-receipt ignore, #9 stderr + fmt/clippy gate), and ran the full test suite independently: 138 passed / 0 failed / 0 warnings. All 11 known bugs closed, no deviations. Merged to staging; reviewer + crash-triage debugger + more languages deliberately deferred. Two honest notes: measure-then-fix on #9, clippy pedantic-at-warn surfaces non-failing hints.",
+    "date": "2026-09-11",
+    "emoji": "✅"
+  },
+  {
     "file": "your-go-ahead-two-teams-holding.html",
     "title": "Your go-ahead: 2 teams are holding",
     "desc": "Both teams stopped and asked BEFORE building (the new rule working). 7 small calls, each with a safe default: Idea Baker trigger (bare /IdeaBaker vs /skill:IdeaBaker), majority-rule mechanics, and making Grill Me the real interactive Matt Pocock skill on Fable 5.1; Mr Tester code-scope (JS/TS first), deterministic UI template (no LLM), and a spec ## UI block; plus ProofShot: keep the stock tool and reword the plan to 'one report shape, not one engine'. Say 'go with your picks' to approve all.",
