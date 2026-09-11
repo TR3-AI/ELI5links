@@ -1,5 +1,12 @@
 [
   {
+    "file": "two-tools-built-vs-plan.html",
+    "title": "Two tools: built vs the plan",
+    "desc": "Idea Baker + Mr Tester, each explained plain plus how the build drifted from the plan: Idea Baker 4 drifts (agents.md never saved, /skill:idea-baker trigger, no-averaging synthesis, no separate grill-me skill); Mr Tester 5 drifts (terminal lane standalone not in the ProofShot fork, 3 engines not 1, fork drives stock ProofShot, home-made narration, ELI5 saved-not-published) + 2 gaps (only a toy toggle, live desktop held). Plus 2 open PRs to decide: Debugger #2 to staging, Atomic Features #1 to protected main.",
+    "date": "2026-09-11",
+    "emoji": "🔧"
+  },
+  {
     "file": "where-teams-are-who-needs-you.html",
     "title": "Where every team is + who needs you",
     "desc": "Status + the emulator app (OMP Mobile: found, read-only audited, ready to resume on your GO); Mr Tester v1 merged to main (desktop lane still needs 2 Mac switches); Idea Baker + Debugger built and waiting on your go to ship; Atomic Features project kicked off.",
