@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two teams are frozen waiting on you</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .dec{text-align:left}
+  .dec .big{text-align:center}
+  .dec p{font-size:16.5px; color:var(--soft); margin:8px 0 0; line-height:1.5}
+  .dec p b{color:var(--ink)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Two teams are frozen &#129482;</h1>
+  <p class="sub">both waiting on a call only you can make &mdash; plus your new question-catcher is live</p>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#128064;</span>
+    <p class="big">I can see the hidden questions</p>
+    <p class="say">When a team's screen pops up a little menu, it <b>freezes that pane</b> and you can't see it. I can. And I just built a <b>watcher</b> that checks every few minutes and <b>pings your phone</b> the moment one appears &mdash; even if you're away from the desk.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#129482;</span>
+    <p class="big">Right now, 2 panes are stuck</p>
+    <p class="say"><b>Mr Tester</b> (a permission choice) and <b>Polysports betting</b> (a merge + restart choice &mdash; and the betting engine is <b>currently OFF</b>). Both are waiting on you, below.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#128203;</span>
+    <p class="big">3 quick updates</p>
+    <p class="say"><b>0x Trader:</b> checking whether we have <b>all</b> the phone app's code (I asked; he's on it). <b>Debugger:</b> finished, branch ready, waiting on your go for the PR to main. <b>Idea Baker:</b> finished on staging, waiting on your go for its PR to main.</p>
+  </div>
+
+  <p class="sub" style="margin:34px 0 10px">Your calls &#128071;</p>
+
+  <div class="card q dec">
+    <span class="emoji">&#128241;</span>
+    <p class="big">A) Mr Tester &mdash; the permission</p>
+    <p><b>1) What's up?</b> Mr Tester's desktop-testing lane is blocked by a Mac permission. It can take screenshots, but the Mac won't let it click, type, or read the screen.</p>
+    <p><b>2) Signing up for</b> &mdash; if you grant it: you flip two switches (System Settings &rarr; Privacy &amp; Security &rarr; Accessibility + Input Monitoring) so it can drive real apps, like the plan says.</p>
+    <p><b>3) You are deciding:</b> grant the permission (real GUI testing), OR build a small demo app that drives itself (no permission, but only tests apps we build).</p>
+    <p><b>4) Results:</b> Grant = a real desktop tester, but it's a genuine security grant only you can give. Demo = works now, no settings change, but doesn't prove it can operate a real Mac app.</p>
+    <p><b>I'd:</b> grant the permission &mdash; it's the only path that makes the desktop tester real (that's Mr Tester's own pick too).</p>
+  </div>
+
+  <div class="card q dec">
+    <span class="emoji">&#127993;</span>
+    <p class="big">B) Polysports &mdash; the merge</p>
+    <p><b>1) What's up?</b> The betting runs (5&ndash;8) have been <b>OFF since Sep 9</b>. A redeploy reused old run IDs and the old batch had already finished, so nothing has been betting. To restart with the crash fix, it needs your OK to merge.</p>
+    <p><b>2) Signing up for:</b> merging one or two pull requests into staging.</p>
+    <p><b>3) You are deciding:</b> <b>#138 only</b> (the crash fix, tests green) / <b>#138 + #139</b> (also the checkpoint cleanup &mdash; fmt + clippy clean, 818/818 tests, its CI still finishing) / <b>don't merge yet</b>.</p>
+    <p><b>4) Results:</b> #138+#139 gets both fixes in; #138 only is safer if you'd rather wait on #139's CI; none = stays off.</p>
+    <p><b>I'd:</b> #138 + #139 (his pick) &mdash; #139 is already validated, just finishing its check.</p>
+  </div>
+
+  <div class="card q dec">
+    <span class="emoji">&#128640;</span>
+    <p class="big">C) Polysports &mdash; the restart</p>
+    <p><b>1) What's up?</b> After the merge, do we restart a fresh 24-hour betting batch right away (~13 min build)?</p>
+    <p><b>2) Signing up for:</b> launching a new run on Railway with new IDs.</p>
+    <p><b>3) You are deciding:</b> <b>Yes, keep the relaxed floor 3</b> (same as Sep 5) / <b>Yes, back to strict floor 5</b> (fewer bets) / <b>No, merge only</b>, don't touch Railway.</p>
+    <p><b>4) Results:</b> Floor 3 = more bets, matches your Sep 5 setting; Floor 5 = stricter, fewer bets; No = merged but still off.</p>
+    <p><b>I'd:</b> Yes, keep floor 3 (his pick) &mdash; gets betting back on with your last chosen setting.</p>
+  </div>
+
+  <p class="foot">Short version: <b>Mr Tester</b> + <b>Polysports</b> are frozen on questions only you can answer (all above). Your new watcher will <b>ping you next time</b>. 0x Trader's checking the app code; Debugger + Idea Baker are done and waiting on your PR go-ahead.<br>
+  <a href="./">all ELI5 pages</a> &#128506;&#65039;</p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>
