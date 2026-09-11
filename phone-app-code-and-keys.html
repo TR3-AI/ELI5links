@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The app code + what the "secret keys" are</title>
+<style>
+  :root{--ink:#2b2140; --soft:#6b6580; --card:#ffffff; --shadow:0 10px 30px rgba(70,50,120,.12)}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:28px 16px 64px;
+    font-family:ui-rounded,"Segoe UI",Nunito,system-ui,sans-serif;
+    color:var(--ink);
+    background:linear-gradient(160deg,#fff4e6 0%,#ffe9f3 45%,#e9f0ff 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:520px; margin:0 auto}
+  h1{font-size:30px; line-height:1.15; text-align:center; margin:8px 0 6px; font-weight:800; letter-spacing:-.5px}
+  .sub{text-align:center; color:var(--soft); font-size:18px; margin:0 0 26px}
+  .card{background:var(--card); border-radius:26px; padding:26px 24px; box-shadow:var(--shadow); margin:16px 0; text-align:center}
+  .emoji{font-size:64px; line-height:1; display:block; margin:2px 0 12px}
+  .num{display:inline-block; width:36px; height:36px; line-height:36px; border-radius:50%; background:#efe9ff; color:#6b4fd0; font-weight:800; font-size:19px; margin:0 0 6px}
+  .big{font-size:22px; font-weight:800; margin:0 0 6px}
+  .say{font-size:18px; color:var(--soft); margin:6px 0 0; line-height:1.5}
+  .say b{color:var(--ink)}
+  .arrow{font-size:30px; text-align:center; color:#b7add0; margin:-4px 0}
+  .q{background:linear-gradient(160deg,#eef4ff,#fff)}
+  .ok{background:linear-gradient(160deg,#eaffef,#fff)}
+  .foot{text-align:center; color:var(--soft); font-size:15px; margin-top:26px; line-height:1.7}
+  .foot a{color:#6b4fd0; font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>The app code + the &ldquo;secret keys&rdquo; &#128273;&#128241;</h1>
+  <p class="sub">plain answers to your two questions &mdash; and what I did</p>
+
+  <div class="card ok">
+    <span class="emoji">&#128190;</span>
+    <p class="big">Done: saved the 24 files</p>
+    <p class="say">Your newest phone-app edits (24 files) are now <b>saved to
+    GitHub</b> &mdash; nothing can be lost. They went on the app's staging branch
+    (<b>not main</b>), and main was left untouched.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">1</span>
+    <span class="emoji">&#129513;</span>
+    <p class="big">First, I muddled 3 things &mdash; here they are split</p>
+    <p class="say"><b>Build the app</b> = make the installable app file &mdash; <b>works
+    right now</b>, needs no keys. <b>Run it end-to-end</b> = the app actually talking to
+    the live system over the internet &mdash; <b>that</b> needs the keys. <b>Save the
+    files</b> = back up the newest edits &mdash; just did it. Three separate things.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">2</span>
+    <span class="emoji">&#128273;</span>
+    <p class="big">What the &ldquo;secret keys&rdquo; are</p>
+    <p class="say">Four <b>passwords</b> (tokens) plus three <b>outside addresses</b> the
+    app's little backend needs to reach the live system: a <b>Tailscale</b> web link, a
+    <b>bridge machine</b> on your private network, and the <b>alert server</b> on
+    Railway. Right now only <b>blank examples</b> exist (a template file) &mdash; no real
+    values are saved anywhere.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <span class="emoji">&#127919;</span>
+    <p class="big">What they're for</p>
+    <p class="say">They let the phone app actually <b>send and receive over the
+    network</b> &mdash; the alerts, your replies, the menu questions, the voice. Without
+    them the app <b>installs and opens</b>, but has <b>nothing live to talk to</b>. So we
+    only need them when we want the <b>full</b> thing running, not to build or test the
+    screens.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card q">
+    <span class="num">4</span>
+    <span class="emoji">&#128241;</span>
+    <p class="big">Yes &mdash; we have the app's code</p>
+    <p class="say">It's the <b>OMP Mobile</b> app. On this Mac it's in
+    <b>~/Documents/Codex/omp-custom-app</b> (the main copy) and
+    <b>~/Documents/Codex/omp-custom-app-status-alerts-staging</b> (the <b>exact
+    version tested on the emulator</b> &mdash; the one I just backed up). It's now on
+    <b>GitHub too</b> (TR3-AI/omp-custom-app). All the app screens, the tested app file,
+    and the backend are there.</p>
+  </div>
+
+  <div class="arrow">&#11015;&#65039;</div>
+
+  <div class="card ok">
+    <span class="num">5</span>
+    <span class="emoji">&#128227;</span>
+    <p class="big">Done: told all the teams</p>
+    <p class="say">I pinged <b>every active manager and worker</b> (24 helpers) with the
+    new menu-watch rules &mdash; managers watch their own workers, and I can type your
+    menu answer in for you. <b>All 5 reachable managers acked</b> and ran clean scans;
+    the 0xTrader manager pane had <b>crashed</b> (a login error) &mdash; I'm bringing it
+    back up.</p>
+  </div>
+
+  <p class="foot">Short version: <b>24 files saved</b> to GitHub. The <b>keys</b> = 4
+  passwords + 3 outside addresses, only needed to <b>run</b> the app live, not to build
+  it. <b>Yes we have the app code</b> (~/Documents/Codex/omp-custom-app, now on GitHub).
+  All teams told.<br>
+  <a href="./">all ELI5 pages</a></p>
+
+</div>
+  <script src="nav.js" defer></script>
+</body>
+</html>

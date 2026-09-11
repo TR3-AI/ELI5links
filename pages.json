@@ -1,5 +1,12 @@
 [
   {
+    "file": "phone-app-code-and-keys.html",
+    "title": "The app code + what the 'secret keys' are",
+    "desc": "Plain answers: the OMP Mobile app code is at ~/Documents/Codex/omp-custom-app (now on GitHub); the 'secret keys' are 4 tokens + 3 outside addresses needed only to RUN it live, not build it; 24 newest files saved; all active teams told the new menu-watch rules",
+    "date": "2026-09-11",
+    "emoji": "🔑"
+  },
+  {
     "file": "answer-menus-from-your-phone.html",
     "title": "I can answer a frozen menu for you now",
     "desc": "Layered menu-watching + a safe tool to type your menu pick into a frozen pane; Mr Tester PR #1 ready to approve (Idea Baker none); phone app builds now; 3 decisions: Mr Tester A/B, merge PR #1, save 24 unsaved files",
